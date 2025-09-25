@@ -6,7 +6,7 @@ const repoName = repository?.split('/')[1]?.trim();
 
 const base = repoName ? `/${repoName}/` : '/tn-roadmap/';
 
-export default defineConfig({
-  base,
+export default defineConfig(({ command }) => ({
+  base: command === 'serve' ? '/' : base,
   plugins: [react()]
-});
+}));
