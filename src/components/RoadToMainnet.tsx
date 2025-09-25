@@ -38,58 +38,41 @@ const STATE_STYLES: Record<
 export function RoadToMainnet({ steps }: RoadToMainnetProps) {
   return (
     <section aria-labelledby="roadmap-heading" className="space-y-6">
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex items-start gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/15 text-primary">
-            <TimelineIcon className="h-6 w-6" />
-          </div>
-          <div>
-            <h2 id="roadmap-heading" className="text-xl font-semibold text-fg">
-              Road to Mainnet
-            </h2>
-            <p className="text-sm text-fg-muted">
-              Milestones required to unlock mainnet launch readiness.
-            </p>
-          </div>
+      <div className="flex items-start gap-3">
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/12 text-primary">
+          <TimelineIcon className="h-6 w-6" />
         </div>
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/80 text-fg-muted transition hover:text-primary focus-visible:ring-2"
-            aria-label="Previous milestones"
-            disabled
-          >
-            <ChevronIcon className="h-4 w-4 rotate-180" />
-          </button>
-          <button
-            type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/80 text-fg-muted transition hover:text-primary focus-visible:ring-2"
-            aria-label="Next milestones"
-            disabled
-          >
-            <ChevronIcon className="h-4 w-4" />
-          </button>
+        <div className="space-y-1">
+          <h2 id="roadmap-heading" className="text-xl font-semibold text-fg">
+            Road to Mainnet
+          </h2>
+          <p className="text-sm text-fg-muted">
+            Milestones required to unlock mainnet launch readiness.
+          </p>
         </div>
       </div>
-      <ol className="relative space-y-6 border-l border-border/60 pl-6">
-        {steps.map((step) => {
-          const style = STATE_STYLES[step.state];
-          const Icon = style.icon;
-          return (
-            <li key={step.title} className="relative ml-1">
-              <div className="absolute -left-5 flex h-10 w-10 items-center justify-center rounded-full bg-primary/12 text-primary" aria-hidden="true">
-                <Icon className="h-5 w-5" />
-              </div>
-              <div className={`rounded-2xl border bg-card/95 p-5 shadow-glow ${style.border}`}>
-                <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold shadow-sm ${style.chip}`}>
-                  {style.label}
-                </span>
-                <h3 className="mt-3 text-lg font-semibold text-fg">{step.title}</h3>
-              </div>
-            </li>
-          );
-        })}
-      </ol>
+      <div className="rounded-2xl border border-border/80 bg-white p-6 shadow-soft">
+        <ol className="space-y-4">
+          {steps.map((step) => {
+            const style = STATE_STYLES[step.state];
+            const Icon = style.icon;
+            return (
+              <li key={step.title} className="flex flex-col gap-3 rounded-2xl border border-border/70 bg-bg p-4 text-sm text-fg">
+                <div className="flex items-center justify-between gap-3">
+                  <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${style.chip}`}>
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/70 text-primary shadow-soft" aria-hidden="true">
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    {style.label}
+                  </span>
+                  <ChevronIcon className="h-4 w-4 text-fg-muted/80" aria-hidden="true" />
+                </div>
+                <h3 className="text-base font-semibold text-fg">{step.title}</h3>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
     </section>
   );
 }

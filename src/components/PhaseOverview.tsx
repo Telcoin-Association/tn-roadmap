@@ -6,17 +6,17 @@ import { formatList } from '../utils/formatList';
 const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; ariaLabel: string }> = {
   in_progress: {
     text: 'In progress',
-    className: 'bg-primary/10 text-primary border border-primary/40',
+    className: 'border-primary/40 bg-primary/10 text-primary',
     ariaLabel: 'Phase is in progress'
   },
   upcoming: {
     text: 'Upcoming',
-    className: 'bg-bg-elev text-fg-muted border border-border/70',
+    className: 'border-border/60 bg-bg-elev text-fg-muted',
     ariaLabel: 'Phase is upcoming'
   },
   complete: {
     text: 'Complete',
-    className: 'bg-success/10 text-success border border-success/30',
+    className: 'border-success/30 bg-success/10 text-success',
     ariaLabel: 'Phase is complete'
   }
 };
@@ -38,11 +38,11 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
 
   return (
     <section aria-labelledby="phase-overview-heading" className="space-y-6">
-      <div className="flex items-center gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/15 text-primary">
+      <div className="flex items-start gap-3">
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/12 text-primary">
           <CompassIcon className="h-6 w-6" />
         </div>
-        <div>
+        <div className="space-y-1">
           <h2 id="phase-overview-heading" className="text-xl font-semibold text-fg">
             Phase overview
           </h2>
@@ -58,12 +58,12 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           return (
             <motion.article
               key={phase.key}
-              className="group flex h-full flex-col gap-5 rounded-2xl border border-border bg-card/95 p-6 shadow-glow transition focus-within:-translate-y-3"
-              whileHover={{ y: -12 }}
+              className="group flex h-full flex-col gap-5 rounded-2xl border border-border/80 bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lg focus-within:-translate-y-1"
+              whileHover={{ y: -8 }}
             >
               <header className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/12 text-primary">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                     <Icon className="h-6 w-6" />
                   </div>
                   <div>
@@ -73,7 +73,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                 </div>
                 <span
                   aria-label={badge.ariaLabel}
-                  className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium shadow-sm backdrop-blur ${badge.className}`}
+                  className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${badge.className}`}
                   role="status"
                 >
                   {badge.text}

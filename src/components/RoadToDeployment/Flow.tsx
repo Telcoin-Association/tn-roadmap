@@ -2,11 +2,13 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import ReactFlow, {
   Background,
   Controls,
+  Handle,
   type Edge,
   type EdgeProps,
   MiniMap,
   type Node,
   type NodeProps,
+  Position,
   getBezierPath
 } from 'reactflow';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
@@ -30,18 +32,24 @@ const STATUS_WEIGHT: Record<Phase['status'], number> = {
   blocked: 0
 };
 
+type Orientation = 'horizontal' | 'vertical';
+
 type FlowNodeData = {
   phase: Phase;
   onSelect: (_phase: Phase) => void;
+  orientation: Orientation;
 };
 
 function RoadmapNode({ data }: NodeProps<FlowNodeData>) {
-  const { phase, onSelect } = data;
+  const { phase, onSelect, orientation } = data;
   const [hovered, setHovered] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
   const statusStyle = STATUS_STYLES[phase.status];
   const metricsEntries = useMemo(() => Object.entries(phase.metrics ?? {}), [phase.metrics]);
+
+  const sourcePosition = orientation === 'vertical' ? Position.Bottom : Position.Right;
+  const targetPosition = orientation === 'vertical' ? Position.Top : Position.Left;
 
   const toggleHover = useCallback((value: boolean) => {
     setHovered(value);
@@ -52,7 +60,13 @@ function RoadmapNode({ data }: NodeProps<FlowNodeData>) {
   }, [onSelect, phase]);
 
   return (
-    <div data-testid={`roadmap-node-${phase.id}`} className="group relative">
+    <div data-testid={`roadmap-node-${phase.id}`} className="group relative h-full">
+      <Handle
+        type="target"
+        position={targetPosition}
+        className="!h-2.5 !w-2.5 !rounded-full !border-none !bg-primary/70"
+        isConnectable={false}
+      />
       <button
         type="button"
         onClick={handleClick}
@@ -73,6 +87,12 @@ function RoadmapNode({ data }: NodeProps<FlowNodeData>) {
           </span>
         ) : null}
       </button>
+      <Handle
+        type="source"
+        position={sourcePosition}
+        className="!h-2.5 !w-2.5 !rounded-full !border-none !bg-primary/70"
+        isConnectable={false}
+      />
       <AnimatePresence>
         {hovered ? (
           <motion.div
@@ -153,6 +173,8 @@ export function RoadToDeploymentFlow({ onSelectPhase }: FlowProps) {
     };
   }, []);
 
+  const orientation: Orientation = isMobile ? 'vertical' : 'horizontal';
+
   const nodes = useMemo<Node<FlowNodeData>[]>(() => {
     const spacing = isMobile ? 260 : 280;
     return ROADMAP.map((phase, index) => ({
@@ -161,9 +183,9 @@ export function RoadToDeploymentFlow({ onSelectPhase }: FlowProps) {
       position: isMobile
         ? { x: 0, y: index * spacing }
         : { x: index * spacing, y: index % 2 === 0 ? 0 : 150 },
-      data: { phase, onSelect: onSelectPhase }
+      data: { phase, onSelect: onSelectPhase, orientation }
     }));
-  }, [isMobile, onSelectPhase]);
+  }, [isMobile, onSelectPhase, orientation]);
 
   const edges = useMemo<Edge[]>(
     () =>
@@ -217,7 +239,7 @@ export function RoadToDeploymentFlow({ onSelectPhase }: FlowProps) {
         </div>
       </header>
       <div
-        className="rounded-3xl border border-border/60 bg-card/80 p-6 shadow-glow min-h-[28rem] md:min-h-[22rem]"
+        className="rounded-3xl border border-border/60 bg-card/80 p-6 shadow-glow h-[32rem] md:h-[26rem]"
         data-testid="roadmap-flow"
       >
         <ReactFlow
@@ -225,6 +247,7 @@ export function RoadToDeploymentFlow({ onSelectPhase }: FlowProps) {
           edges={edges}
           nodeTypes={nodeTypes}
           edgeTypes={edgeTypes}
+          style={{ width: '100%', height: '100%' }}
           fitView
           fitViewOptions={{ padding: 0.3 }}
           panOnDrag

@@ -28,7 +28,7 @@ export function ProgressBar({ value, label }: ProgressBarProps) {
         </div>
       ) : null}
       <div
-        className="relative h-3 w-full overflow-hidden rounded-full bg-bg-elev"
+        className="relative h-3 w-full overflow-hidden rounded-full bg-border/50"
         role="progressbar"
         aria-label={label ?? 'Overall progress'}
         aria-valuenow={clampedValue}
@@ -36,16 +36,12 @@ export function ProgressBar({ value, label }: ProgressBarProps) {
         aria-valuemax={100}
       >
         <motion.div
-          className="relative h-full rounded-full bg-gradient-to-r from-primary via-accent to-primary-600 shadow-[0_0_15px_hsl(201_92%_56%/0.45)]"
+          className="relative h-full rounded-full bg-gradient-to-r from-primary via-accent to-primary-600 shadow-[0_6px_18px_rgba(59,130,246,0.25)]"
           style={style}
           initial={{ width: 0 }}
           animate={{ width: `${clampedValue}%` }}
           transition={reduceMotion ? { duration: 0 } : { duration: 1.1, ease: 'easeOut' }}
-        >
-          {!reduceMotion ? (
-            <span className="pointer-events-none absolute inset-0 -translate-x-full bg-[var(--shimmer)] opacity-70 mix-blend-screen animate-shimmer" />
-          ) : null}
-        </motion.div>
+        />
       </div>
     </div>
   );
