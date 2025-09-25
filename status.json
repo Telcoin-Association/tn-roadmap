@@ -37,8 +37,8 @@
     { "title": "Zenith launch", "state": "planned" }
   ],
   "links": {
-    "governanceForum": "#",
-    "technicalDocs": "#",
+    "governanceForum": "https://forum.telcoin.org/",
+    "technicalDocs": "https://docs.telcoin.network/telcoin-network/",
     "auditReports": "#"
   }
 }
