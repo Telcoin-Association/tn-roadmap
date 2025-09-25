@@ -21,17 +21,17 @@ function StatCard({
 }) {
   const entries = Object.entries(metrics);
   return (
-    <article className="flex flex-1 flex-col gap-4 rounded-2xl border border-border/80 bg-white p-5 shadow-soft">
+    <article className="flex flex-1 flex-col gap-4 rounded-2xl border border-border/70 bg-card p-5 shadow-soft backdrop-blur">
       <header className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20 text-primary">
           <Icon className="h-5 w-5" />
         </div>
         <h3 className="text-lg font-semibold text-fg">{title}</h3>
       </header>
       <dl className="grid grid-cols-2 gap-4 text-sm">
         {entries.map(([key, value]) => (
-          <div key={key} className="flex flex-col rounded-xl border border-border/70 bg-bg p-3 text-fg">
-            <dt className="text-xs uppercase tracking-wide text-fg-muted/70">
+          <div key={key} className="flex flex-col rounded-xl border border-white/10 bg-white/5 p-3 text-fg backdrop-blur">
+            <dt className="text-xs uppercase tracking-wide text-fg-muted">
               {STAT_LABELS[key] ?? key}
             </dt>
             <dd className="text-xl font-semibold text-fg">{value}</dd>
@@ -46,7 +46,7 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
   return (
     <section aria-labelledby="security-heading" className="space-y-6">
       <div className="flex items-start gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/12 text-primary">
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/20 text-primary">
           <ShieldIcon className="h-6 w-6" />
         </div>
         <div className="space-y-1">
@@ -59,7 +59,7 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
         </div>
       </div>
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
-        <article className="rounded-2xl border border-border/80 bg-white p-6 shadow-soft">
+        <article className="rounded-2xl border border-border/70 bg-card p-6 shadow-soft backdrop-blur">
           <h3 className="text-lg font-semibold text-fg">Security notes</h3>
           <ul className="mt-4 space-y-3 text-sm text-fg-muted">
             {notes.map((note) => (

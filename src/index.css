@@ -1,10 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-bg text-fg antialiased transition-colors duration-300 ease-out;
+    @apply bg-bg text-fg antialiased transition-colors duration-300 ease-out font-sans;
+    background-color: var(--bg);
+    background-image: var(--hero-gradient);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-feature-settings: 'ss01' on, 'ss03' on;
   }
 
   a {
