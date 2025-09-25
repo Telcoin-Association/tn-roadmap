@@ -6,17 +6,17 @@ import { formatList } from '../utils/formatList';
 const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; ariaLabel: string }> = {
   in_progress: {
     text: 'In progress',
-    className: 'border-primary/40 bg-primary/10 text-primary',
+    className: 'border-primary/50 bg-primary/20 text-primary',
     ariaLabel: 'Phase is in progress'
   },
   upcoming: {
     text: 'Upcoming',
-    className: 'border-border/60 bg-bg-elev text-fg-muted',
+    className: 'border-border/70 bg-white/10 text-fg-muted',
     ariaLabel: 'Phase is upcoming'
   },
   complete: {
     text: 'Complete',
-    className: 'border-success/30 bg-success/10 text-success',
+    className: 'border-success/40 bg-success/15 text-success',
     ariaLabel: 'Phase is complete'
   }
 };
@@ -39,7 +39,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
   return (
     <section aria-labelledby="phase-overview-heading" className="space-y-6">
       <div className="flex items-start gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/12 text-primary">
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/20 text-primary">
           <CompassIcon className="h-6 w-6" />
         </div>
         <div className="space-y-1">
@@ -58,7 +58,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           return (
             <motion.article
               key={phase.key}
-              className="group flex h-full flex-col gap-5 rounded-2xl border border-border/80 bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lg focus-within:-translate-y-1"
+              className="group flex h-full flex-col gap-5 rounded-2xl border border-border/70 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow focus-within:-translate-y-1"
               whileHover={{ y: -8 }}
             >
               <header className="flex items-start justify-between gap-4">

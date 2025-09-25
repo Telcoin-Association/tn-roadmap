@@ -1,53 +1,37 @@
 :root {
-  color-scheme: light dark;
-  --bg: hsl(216 43% 97%);
-  --bg-elev: hsl(0 0% 100%);
-  --fg: hsl(222 47% 11%);
-  --fg-muted: hsl(218 18% 42%);
-  --primary: hsl(217 91% 60%);
-  --primary-600: hsl(222 89% 55%);
-  --accent: hsl(249 83% 66%);
-  --success: hsl(158 60% 40%);
-  --warning: hsl(43 96% 54%);
-  --danger: hsl(0 85% 50%);
-  --border: hsl(213 27% 86%);
-  --ring: var(--primary);
-  --card: hsl(0 0% 100%);
-  --shadow: 0 22px 45px hsl(217 50% 50% / 0.08);
-  --hero-gradient: none;
+  color-scheme: dark;
+  --bg: hsl(233 73% 11%);
+  --bg-elev: hsl(232 66% 15%);
+  --fg: hsl(214 100% 97%);
+  --fg-muted: hsl(220 28% 78%);
+  --primary: hsl(191 94% 62%);
+  --primary-600: hsl(191 88% 55%);
+  --accent: hsl(263 87% 72%);
+  --success: hsl(157 76% 48%);
+  --warning: hsl(43 95% 62%);
+  --danger: hsl(2 80% 62%);
+  --border: hsl(230 53% 28%);
+  --ring: hsl(191 94% 62%);
+  --card: hsla(232, 66%, 17%, 0.88);
+  --shadow: 0 32px 60px hsl(225 80% 16% / 0.45);
+  --hero-gradient: radial-gradient(
+      circle at 10% 20%,
+      hsl(255 88% 64% / 0.65),
+      transparent 55%
+    ),
+    linear-gradient(135deg, hsl(248 74% 15%), hsl(214 86% 21%), hsl(194 83% 36%));
   --shimmer: linear-gradient(
     120deg,
     transparent 0%,
     hsl(0 0% 100% / 0),
-    hsl(0 0% 100% / 0.4) 40%,
-    hsl(0 0% 100% / 0) 70%,
+    hsl(0 0% 100% / 0.35) 45%,
+    hsl(0 0% 100% / 0) 75%,
     transparent 100%
   );
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: hsl(222 47% 7%);
-    --bg-elev: hsl(222 47% 9%);
-    --fg: hsl(0 0% 98%);
-    --fg-muted: hsl(220 10% 70%);
-    --border: hsl(220 10% 23%);
-    --card: hsl(222 47% 10%);
-    --shadow: 0 20px 45px hsl(220 60% 10% / 0.45);
-    --hero-gradient: none;
-    --shimmer: linear-gradient(
-      120deg,
-      transparent 0%,
-      hsl(0 0% 100% / 0),
-      hsl(0 0% 100% / 0.25) 45%,
-      hsl(0 0% 100% / 0) 75%,
-      transparent 100%
-    );
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --shadow: 0 12px 24px hsl(220 60% 40% / 0.06);
+    --shadow: 0 18px 36px hsl(225 80% 16% / 0.32);
   }
 }

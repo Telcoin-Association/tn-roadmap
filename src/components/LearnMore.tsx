@@ -38,7 +38,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
   return (
     <section aria-labelledby="learn-more-heading" className="space-y-6">
       <div className="flex items-start gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/12 text-primary">
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/20 text-primary">
           <InfoIcon className="h-6 w-6" />
         </div>
         <div className="space-y-1">
@@ -57,7 +57,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
             <article
               key={question.id}
               id={`learn-more-${question.id}`}
-              className="overflow-hidden rounded-2xl border border-border/80 bg-white shadow-soft"
+              className="overflow-hidden rounded-2xl border border-border/70 bg-card shadow-soft backdrop-blur"
             >
               <motion.button
                 type="button"
@@ -68,7 +68,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
                 whileTap={{ scale: 0.99 }}
               >
                 <span className="flex items-center gap-3 text-base font-semibold text-fg">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/20 text-primary">
                     <InfoIcon className="h-5 w-5" />
                   </span>
                   {question.title}
@@ -94,7 +94,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
         {linkButtons.map((link) => (
           <motion.a
             key={link.label}
-            className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-white px-4 py-2 text-sm font-medium text-fg shadow-soft transition hover:-translate-y-0.5 hover:text-primary"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-fg shadow-soft backdrop-blur transition hover:-translate-y-0.5 hover:text-primary"
             href={link.href}
             target="_blank"
             rel="noreferrer noopener"

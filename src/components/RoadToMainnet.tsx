@@ -16,16 +16,16 @@ const STATE_STYLES: Record<
     chip: 'bg-primary/15 text-primary'
   },
   up_next: {
-    border: 'border-border',
+    border: 'border-border/80',
     label: 'Up next',
     icon: TimelineIcon,
-    chip: 'bg-bg-elev text-fg-muted'
+    chip: 'bg-white/10 text-fg-muted'
   },
   planned: {
     border: 'border-border/80',
     label: 'Planned',
     icon: NetworkIcon,
-    chip: 'bg-bg-elev/70 text-fg-muted'
+    chip: 'bg-white/5 text-fg-muted'
   },
   complete: {
     border: 'border-success/40',
@@ -39,7 +39,7 @@ export function RoadToMainnet({ steps }: RoadToMainnetProps) {
   return (
     <section aria-labelledby="roadmap-heading" className="space-y-6">
       <div className="flex items-start gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/12 text-primary">
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/20 text-primary">
           <TimelineIcon className="h-6 w-6" />
         </div>
         <div className="space-y-1">
@@ -51,16 +51,19 @@ export function RoadToMainnet({ steps }: RoadToMainnetProps) {
           </p>
         </div>
       </div>
-      <div className="rounded-2xl border border-border/80 bg-white p-6 shadow-soft">
+      <div className="rounded-2xl border border-border/70 bg-card p-6 shadow-soft backdrop-blur">
         <ol className="space-y-4">
           {steps.map((step) => {
             const style = STATE_STYLES[step.state];
             const Icon = style.icon;
             return (
-              <li key={step.title} className="flex flex-col gap-3 rounded-2xl border border-border/70 bg-bg p-4 text-sm text-fg">
+              <li
+                key={step.title}
+                className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-fg backdrop-blur"
+              >
                 <div className="flex items-center justify-between gap-3">
                   <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${style.chip}`}>
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/70 text-primary shadow-soft" aria-hidden="true">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/15 text-primary shadow-soft" aria-hidden="true">
                       <Icon className="h-4 w-4" />
                     </span>
                     {style.label}

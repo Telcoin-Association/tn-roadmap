@@ -4,6 +4,9 @@ const config: Config = {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Manrope"', 'system-ui', 'sans-serif']
+      },
       colors: {
         bg: 'var(--bg)',
         'bg-elev': 'var(--bg-elev)',
