@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { Phase, Status } from '../data/statusSchema';
 
 type LearnMoreProps = {
@@ -6,19 +6,22 @@ type LearnMoreProps = {
   links: Status['links'];
 };
 
-const QUESTIONS: { id: Phase['key']; title: string }[] = [
-  { id: 'devnet', title: 'What is Devnet?' },
-  { id: 'testnet', title: 'What is Public Testnet?' },
-  { id: 'mainnet', title: 'What is Mainnet?' }
-];
-
 export function LearnMore({ phases, links }: LearnMoreProps) {
-  const [openId, setOpenId] = useState<Phase['key']>('devnet');
+  const defaultOpenId = phases[0]?.key ?? 'devnet';
+  const [openId, setOpenId] = useState<Phase['key']>(defaultOpenId);
+  useEffect(() => {
+    setOpenId(defaultOpenId);
+  }, [defaultOpenId]);
 
   const summaries = phases.reduce<Record<Phase['key'], string>>((acc, phase) => {
     acc[phase.key] = phase.summary;
     return acc;
   }, Object.create(null));
+
+  const questions = useMemo(
+    () => phases.map((phase) => ({ id: phase.key, title: `What is ${phase.title}?` })),
+    [phases]
+  );
 
   const toggle = (id: Phase['key']) => {
     setOpenId(id);
@@ -41,7 +44,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
         </p>
       </div>
       <div className="space-y-4">
-        {QUESTIONS.map((question) => {
+        {questions.map((question) => {
           const isOpen = openId === question.id;
           return (
             <article key={question.id} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft dark:border-slate-800 dark:bg-slate-900">

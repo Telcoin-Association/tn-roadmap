@@ -3,21 +3,21 @@
   "phases": [
     {
       "key": "devnet",
-      "title": "Devnet",
+      "title": "Genesis",
       "status": "in_progress",
-      "summary": "Fixing the final high-priority security issues. Once patched, Devnet will relaunch and unblock Public Testnet."
+      "summary": "Fixing the final high-priority security issues before relaunching Genesis (formerly Devnet) to unblock Horizon."
     },
     {
       "key": "testnet",
-      "title": "Public Testnet",
+      "title": "Horizon",
       "status": "upcoming",
-      "summary": "Launching after Devnet stabilizes. Early versions may be unstable until audits complete."
+      "summary": "Launching after Genesis stabilizes. Early Horizon iterations may be unstable until audits complete."
     },
     {
       "key": "mainnet",
-      "title": "Mainnet",
+      "title": "Zeinith",
       "status": "upcoming",
-      "summary": "Mainnet follows Testnet stability and final security competition."
+      "summary": "Zeinith (Mainnet) follows Horizon stability and the final security competition."
     }
   ],
   "security": {
@@ -31,10 +31,10 @@
   },
   "roadmap": [
     { "title": "Fix remaining vulnerabilities", "state": "in_progress" },
-    { "title": "Relaunch Devnet", "state": "up_next" },
-    { "title": "Launch Public Testnet", "state": "planned" },
+    { "title": "Relaunch Genesis", "state": "up_next" },
+    { "title": "Launch Horizon", "state": "planned" },
     { "title": "Final audits & competition", "state": "planned" },
-    { "title": "Mainnet launch", "state": "planned" }
+    { "title": "Zeinith launch", "state": "planned" }
   ],
   "links": {
     "governanceForum": "#",

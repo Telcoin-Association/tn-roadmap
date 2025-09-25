@@ -5,6 +5,7 @@ import { ProgressBar } from './components/ProgressBar';
 import { RoadToMainnet } from './components/RoadToMainnet';
 import { SecurityAudits } from './components/SecurityAudits';
 import { loadStatus, type Status } from './data/loadStatus';
+import { formatList } from './utils/formatList';
 
 function SkeletonSection({ className }: { className?: string }) {
   return (
@@ -56,6 +57,11 @@ export default function App() {
   }, [status]);
 
   const showSkeleton = status === null;
+  const phaseTitles = status?.phases.map((phase) => phase.title) ?? [];
+  const readablePhaseList = formatList(phaseTitles);
+  const headerDescription = readablePhaseList
+    ? `Visibility into our ${readablePhaseList} progress and what remains before launch.`
+    : 'Visibility into Telcoin Network progress and what remains before launch.';
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 pb-16 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
@@ -71,9 +77,7 @@ export default function App() {
               <h1 className="text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
                 Telcoin Network Status
               </h1>
-              <p className="mx-auto max-w-2xl text-base text-slate-600 dark:text-slate-300">
-                Visibility into our Devnet recovery, Public Testnet launch plan, and what remains before Mainnet is production ready.
-              </p>
+              <p className="mx-auto max-w-2xl text-base text-slate-600 dark:text-slate-300">{headerDescription}</p>
               <div className="mx-auto max-w-xl rounded-2xl border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900">
                 <ProgressBar value={status.meta.overallTrajectoryPct} label="Overall trajectory" />
                 <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">

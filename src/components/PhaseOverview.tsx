@@ -1,4 +1,5 @@
 import type { Phase } from '../data/statusSchema';
+import { formatList } from '../utils/formatList';
 
 const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; ariaLabel: string }> = {
   in_progress: {
@@ -42,6 +43,10 @@ function ClockIcon() {
 }
 
 export function PhaseOverview({ phases }: PhaseOverviewProps) {
+  const phaseTitles = phases.map((phase) => phase.title);
+  const readablePhaseList = formatList(phaseTitles);
+  const phaseListText = readablePhaseList || 'each network phase';
+
   return (
     <section aria-labelledby="phase-overview-heading" className="space-y-6">
       <div className="flex items-center gap-3">
@@ -51,7 +56,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
             Phase overview
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-300">
-            Track where Telcoin Network stands across Devnet, Public Testnet, and Mainnet.
+            Track where Telcoin Network stands across {phaseListText}.
           </p>
         </div>
       </div>
