@@ -17,7 +17,7 @@ const sectionVariants = {
 function SkeletonSection({ className }: { className?: string }) {
   return (
     <div
-      className={`animate-pulse rounded-2xl border border-border/60 bg-card p-6 shadow-glow backdrop-blur ${className ?? ''}`}
+      className={`animate-pulse rounded-2xl border-2 border-border/60 bg-card p-6 shadow-glow backdrop-blur ${className ?? ''}`}
     >
       <div className="h-4 w-32 rounded-full bg-white/10" />
       <div className="mt-4 space-y-3">
@@ -31,7 +31,7 @@ function SkeletonSection({ className }: { className?: string }) {
 
 function HeaderSkeleton() {
   return (
-    <div className="animate-pulse space-y-4 rounded-3xl border border-border/60 bg-card p-10 text-center shadow-glow backdrop-blur">
+    <div className="animate-pulse space-y-4 rounded-3xl border-2 border-border/60 bg-card p-10 text-center shadow-glow backdrop-blur">
       <div className="mx-auto h-7 w-56 rounded-full bg-white/15" />
       <div className="mx-auto h-4 w-64 rounded-full bg-white/10" />
       <div className="mx-auto h-3 w-48 rounded-full bg-white/5" />
@@ -73,7 +73,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-bg bg-hero-ambient text-fg">
-      <header className="border-b border-border/60 bg-card backdrop-blur">
+      <header className="border-b-2 border-border/60 bg-card backdrop-blur">
         <div className="mx-auto max-w-5xl px-6 py-16 md:px-8">
           {showSkeleton ? (
             <HeaderSkeleton />
@@ -92,11 +92,11 @@ export default function App() {
                     Telcoin Network
                   </span>
                   <div className="space-y-3">
-                    <h1 className="text-3xl font-semibold text-fg md:text-4xl">Telcoin Network Status</h1>
+                    <h1 className="text-3xl font-extrabold text-fg md:text-4xl">Telcoin Network Status</h1>
                     <p className="max-w-xl text-base text-fg-muted md:text-lg">{headerDescription}</p>
                   </div>
                 </div>
-                <div className="w-full max-w-sm rounded-3xl border border-border/70 bg-card p-6 shadow-soft backdrop-blur">
+                <div className="w-full max-w-sm rounded-3xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
                   <ProgressBar value={status.meta.overallTrajectoryPct} label="Overall trajectory" />
                   <p className="mt-4 text-sm text-fg-muted">
                     Last updated <time dateTime={status.meta.lastUpdated}>{formattedLastUpdated}</time>
@@ -171,7 +171,7 @@ export default function App() {
           </>
         )}
       </main>
-      <footer className="border-t border-border/60 bg-card py-8 text-center text-sm text-fg-muted backdrop-blur">
+      <footer className="border-t-2 border-border/60 bg-card py-8 text-center text-sm text-fg-muted backdrop-blur">
         © {new Date().getFullYear()} Telcoin Network — roadmap snapshot for engineering stakeholders.
       </footer>
     </div>
