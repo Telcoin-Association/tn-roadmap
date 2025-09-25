@@ -16,7 +16,7 @@
   --shadow: 0 32px 60px hsl(225 80% 16% / 0.45);
   --hero-gradient: radial-gradient(
       circle at 10% 20%,
-      hsl(255 88% 64% / 0.65),
+      hsl(255 88% 64% / 0.49),
       transparent 55%
     ),
     linear-gradient(135deg, hsl(248 74% 15%), hsl(214 86% 21%), hsl(194 83% 36%));

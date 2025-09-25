@@ -7,7 +7,6 @@ import { RoadToMainnet } from './components/RoadToMainnet';
 import { SecurityAudits } from './components/SecurityAudits';
 import { loadStatus, type Status } from './data/loadStatus';
 import { formatList } from './utils/formatList';
-import { NetworkIcon } from './components/icons';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -85,16 +84,10 @@ export default function App() {
               transition={{ duration: 0.5, ease: 'easeOut' }}
               className="space-y-8"
             >
-              <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
-                <div className="space-y-4">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-primary/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-primary">
-                    <NetworkIcon className="h-4 w-4" />
-                    Telcoin Network
-                  </span>
-                  <div className="space-y-3">
-                    <h1 className="text-3xl font-extrabold text-fg md:text-4xl">Telcoin Network Status</h1>
-                    <p className="max-w-xl text-base text-fg-muted md:text-lg">{headerDescription}</p>
-                  </div>
+              <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-start md:justify-between md:text-left">
+                <div className="space-y-3">
+                  <h1 className="text-3xl font-extrabold text-fg md:text-4xl">Telcoin Network Status</h1>
+                  <p className="max-w-xl text-base text-fg-muted md:text-lg">{headerDescription}</p>
                 </div>
                 <div className="w-full max-w-sm rounded-3xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
                   <ProgressBar value={status.meta.overallTrajectoryPct} label="Overall trajectory" />
@@ -172,7 +165,7 @@ export default function App() {
         )}
       </main>
       <footer className="border-t-2 border-border/60 bg-card py-8 text-center text-sm text-fg-muted backdrop-blur">
-        © {new Date().getFullYear()} Telcoin Network — roadmap snapshot for engineering stakeholders.
+        © 2025 Telcoin Network
       </footer>
     </div>
   );
