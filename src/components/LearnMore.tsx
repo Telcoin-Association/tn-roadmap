@@ -53,6 +53,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
       <div className="space-y-4">
         {questions.map((question) => {
           const isOpen = openId === question.id;
+          const content = (summaries[question.id] ?? 'Details coming soon.').split('\n\n');
           return (
             <article
               key={question.id}
@@ -82,9 +83,13 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
                 role="region"
                 aria-live="polite"
                 aria-hidden={!isOpen}
-                className={`px-6 pb-6 text-sm leading-relaxed text-fg-muted transition-[max-height,opacity] duration-300 ease-out ${isOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}
+                className={`px-6 pb-6 text-sm leading-relaxed text-fg-muted transition-[max-height,opacity] duration-300 ease-out ${isOpen ? 'max-h-[900px] opacity-100' : 'max-h-0 opacity-0'}`}
               >
-                {summaries[question.id] ?? 'Details coming soon.'}
+                <div className="space-y-3">
+                  {content.map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
+                </div>
               </div>
             </article>
           );
