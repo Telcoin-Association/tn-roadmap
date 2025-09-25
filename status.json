@@ -1,0 +1,44 @@
+{
+  "meta": { "lastUpdated": "2025-09-23T19:00:00Z", "overallTrajectoryPct": 25 },
+  "phases": [
+    {
+      "key": "devnet",
+      "title": "Genesis",
+      "status": "in_progress",
+      "summary": "Fixing the final high-priority security issues before relaunching Genesis (formerly Devnet) to unblock Horizon."
+    },
+    {
+      "key": "testnet",
+      "title": "Horizon",
+      "status": "upcoming",
+      "summary": "Launching after Genesis stabilizes. Early Horizon iterations may be unstable until audits complete."
+    },
+    {
+      "key": "mainnet",
+      "title": "Zeinith",
+      "status": "upcoming",
+      "summary": "Zeinith (Mainnet) follows Horizon stability and the final security competition."
+    }
+  ],
+  "security": {
+    "notes": [
+      "Major architectural changes complete (one in progress).",
+      "Every patch ships with added tests (caught 3 bugs missed in audit).",
+      "Next: another audit competition → enables insurance + 24/7 post-launch coverage."
+    ],
+    "publicFindings": { "high": 3, "medium": 2, "low": 5, "info": 4 },
+    "afterPriorityFixes": { "high": 0, "medium": 14, "low": 36 }
+  },
+  "roadmap": [
+    { "title": "Fix remaining vulnerabilities", "state": "in_progress" },
+    { "title": "Relaunch Genesis", "state": "up_next" },
+    { "title": "Launch Horizon", "state": "planned" },
+    { "title": "Final audits & competition", "state": "planned" },
+    { "title": "Zeinith launch", "state": "planned" }
+  ],
+  "links": {
+    "governanceForum": "#",
+    "technicalDocs": "#",
+    "auditReports": "#"
+  }
+}

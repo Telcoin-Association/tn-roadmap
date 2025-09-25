@@ -2,7 +2,8 @@ name: Build & Deploy (Pages)
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -11,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
@@ -21,16 +22,19 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-          cache: 'npm'
-      - name: Install
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
         run: npm ci
-      - name: Build
+      - name: Validate roadmap data
+        run: npm run validate:status
+      - name: Build site
         run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist   # change to 'out' or 'build' if your framework outputs there
+          path: dist
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
