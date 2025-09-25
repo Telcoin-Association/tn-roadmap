@@ -6,6 +6,7 @@ import { ProgressBar } from './components/ProgressBar';
 import { RoadToMainnet } from './components/RoadToMainnet';
 import { SecurityAudits } from './components/SecurityAudits';
 import { loadStatus, type Status } from './data/loadStatus';
+import { SECTION_COPY } from './data/sectionCopy';
 import { formatList } from './utils/formatList';
 
 const sectionVariants = {
@@ -66,9 +67,7 @@ export default function App() {
   const showSkeleton = status === null;
   const phaseTitles = status?.phases.map((phase) => phase.title) ?? [];
   const readablePhaseList = formatList(phaseTitles);
-  const headerDescription = readablePhaseList
-    ? `Visibility into our ${readablePhaseList} progress and what remains before launch.`
-    : 'Visibility into Telcoin Network progress and what remains before launch.';
+  const headerDescription = SECTION_COPY.header.descriptionTemplate(readablePhaseList);
 
   return (
     <div className="min-h-screen bg-bg bg-hero-ambient text-fg">
@@ -86,7 +85,7 @@ export default function App() {
             >
               <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-start md:justify-between md:text-left">
                 <div className="space-y-3">
-                  <h1 className="text-3xl font-extrabold text-fg md:text-4xl">Telcoin Network Status</h1>
+                  <h1 className="text-3xl font-extrabold text-fg md:text-4xl">{SECTION_COPY.header.title}</h1>
                   <p className="max-w-xl text-base text-fg-muted md:text-lg">{headerDescription}</p>
                 </div>
                 <div className="w-full max-w-sm rounded-3xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">

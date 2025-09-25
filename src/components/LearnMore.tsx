@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import type { Phase, Status } from '../data/statusSchema';
 import { ChevronIcon, ExternalLinkIcon, InfoIcon } from './icons';
+import { SECTION_COPY } from '../data/sectionCopy';
 
 type LearnMoreProps = {
   phases: Phase[];
@@ -21,7 +22,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
   }, Object.create(null));
 
   const questions = useMemo(
-    () => phases.map((phase) => ({ id: phase.key, title: `What is ${phase.title}?` })),
+    () => phases.map((phase) => ({ id: phase.key, title: SECTION_COPY.learnMore.questionTemplate(phase.title) })),
     [phases]
   );
 
@@ -43,17 +44,15 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
         </div>
         <div className="space-y-1">
           <h2 id="learn-more-heading" className="text-xl font-bold text-fg">
-            Learn more
+            {SECTION_COPY.learnMore.heading}
           </h2>
-          <p className="text-sm text-fg-muted">
-            Dive deeper into each network phase and the documentation supporting the roadmap.
-          </p>
+          <p className="text-sm text-fg-muted">{SECTION_COPY.learnMore.description}</p>
         </div>
       </div>
       <div className="space-y-4">
         {questions.map((question) => {
           const isOpen = openId === question.id;
-          const content = (summaries[question.id] ?? 'Details coming soon.').split('\n\n');
+          const content = (summaries[question.id] ?? SECTION_COPY.learnMore.defaultSummary).split('\n\n');
           return (
             <article
               key={question.id}

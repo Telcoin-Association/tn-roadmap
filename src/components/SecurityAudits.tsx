@@ -1,5 +1,6 @@
 import type { Status } from '../data/statusSchema';
 import { NetworkIcon, ShieldIcon, SparkIcon } from './icons';
+import { SECTION_COPY } from '../data/sectionCopy';
 
 type SecurityAuditsProps = Pick<Status['security'], 'notes' | 'publicFindings' | 'afterPriorityFixes'>;
 
@@ -51,16 +52,14 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
         </div>
         <div className="space-y-1">
           <h2 id="security-heading" className="text-xl font-bold text-fg">
-            Security &amp; audits
+            {SECTION_COPY.security.heading}
           </h2>
-          <p className="text-sm text-fg-muted">
-            Highlights from recent reviews and what remains before mainnet readiness.
-          </p>
+          <p className="text-sm text-fg-muted">{SECTION_COPY.security.description}</p>
         </div>
       </div>
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
         <article className="rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
-          <h3 className="text-lg font-semibold text-fg">Security notes</h3>
+          <h3 className="text-lg font-semibold text-fg">{SECTION_COPY.security.noteHeading}</h3>
           <ul className="mt-4 space-y-3 text-sm text-fg-muted">
             {notes.map((note) => (
               <li key={note} className="flex items-start gap-3">
@@ -73,8 +72,16 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
           </ul>
         </article>
         <div className="flex flex-col gap-4">
-          <StatCard title="Priority Findings (public-facing)" metrics={publicFindings} icon={NetworkIcon} />
-          <StatCard title="After Priority Fixes (remaining)" metrics={afterPriorityFixes} icon={ShieldIcon} />
+          <StatCard
+            title={SECTION_COPY.security.priorityFindingsTitle}
+            metrics={publicFindings}
+            icon={NetworkIcon}
+          />
+          <StatCard
+            title={SECTION_COPY.security.afterPriorityFixesTitle}
+            metrics={afterPriorityFixes}
+            icon={ShieldIcon}
+          />
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import type { RoadmapItem } from '../data/statusSchema';
 import { ChevronIcon, LaunchIcon, NetworkIcon, TimelineIcon } from './icons';
+import { SECTION_COPY } from '../data/sectionCopy';
 
 type RoadToMainnetProps = {
   steps: RoadmapItem[];
@@ -44,11 +45,9 @@ export function RoadToMainnet({ steps }: RoadToMainnetProps) {
         </div>
         <div className="space-y-1">
           <h2 id="roadmap-heading" className="text-xl font-bold text-fg">
-            Road to Mainnet
+            {SECTION_COPY.roadmap.heading}
           </h2>
-          <p className="text-sm text-fg-muted">
-            Milestones required to unlock mainnet launch readiness.
-          </p>
+          <p className="text-sm text-fg-muted">{SECTION_COPY.roadmap.description}</p>
         </div>
       </div>
       <div className="rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
