@@ -29,7 +29,7 @@ jobs:
       - name: Validate roadmap data
         run: npm run validate:status
       - name: Build site
-        run: npm run build
+        run: npm run build -- --base=/tn-roadmap/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
