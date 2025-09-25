@@ -15,9 +15,9 @@
     },
     {
       "key": "mainnet",
-      "title": "Zeinith",
+      "title": "Zenith",
       "status": "upcoming",
-      "summary": "Zeinith (Mainnet) follows Horizon stability and the final security competition."
+      "summary": "Zenith (Mainnet) follows Horizon stability and the final security competition."
     }
   ],
   "security": {
@@ -34,7 +34,7 @@
     { "title": "Relaunch Genesis", "state": "up_next" },
     { "title": "Launch Horizon", "state": "planned" },
     { "title": "Final audits & competition", "state": "planned" },
-    { "title": "Zeinith launch", "state": "planned" }
+    { "title": "Zenith launch", "state": "planned" }
   ],
   "links": {
     "governanceForum": "#",
