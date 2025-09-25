@@ -1,28 +1,22 @@
+import { motion } from 'framer-motion';
 import type { Phase } from '../data/statusSchema';
-import {
-  CompassIcon,
-  LaunchIcon,
-  MainnetIcon,
-  NetworkIcon,
-  TestnetIcon
-} from './icons';
+import { CompassIcon, LaunchIcon, MainnetIcon, NetworkIcon, TestnetIcon } from './icons';
 import { formatList } from '../utils/formatList';
 
 const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; ariaLabel: string }> = {
   in_progress: {
     text: 'In progress',
-    className:
-      'bg-[#16c8ff]/15 text-[#0f172a] dark:bg-[#16c8ff]/25 dark:text-[#16c8ff] border border-[#16c8ff]/40',
+    className: 'bg-primary/10 text-primary border border-primary/40',
     ariaLabel: 'Phase is in progress'
   },
   upcoming: {
     text: 'Upcoming',
-    className: 'bg-slate-100 text-slate-600 dark:bg-slate-800/70 dark:text-slate-200 border border-slate-200/60 dark:border-slate-600',
+    className: 'bg-bg-elev text-fg-muted border border-border/70',
     ariaLabel: 'Phase is upcoming'
   },
   complete: {
     text: 'Complete',
-    className: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200 border border-emerald-200/60 dark:border-emerald-500/50',
+    className: 'bg-success/10 text-success border border-success/30',
     ariaLabel: 'Phase is complete'
   }
 };
@@ -45,14 +39,14 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
   return (
     <section aria-labelledby="phase-overview-heading" className="space-y-6">
       <div className="flex items-center gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#16c8ff]/15 backdrop-blur">
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/15 text-primary">
           <CompassIcon className="h-6 w-6" />
         </div>
         <div>
-          <h2 id="phase-overview-heading" className="text-xl font-semibold text-slate-900 dark:text-white">
+          <h2 id="phase-overview-heading" className="text-xl font-semibold text-fg">
             Phase overview
           </h2>
-          <p className="text-sm text-slate-600 dark:text-slate-300">
+          <p className="text-sm text-fg-muted">
             Track where Telcoin Network stands across {phaseListText}.
           </p>
         </div>
@@ -62,18 +56,19 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           const badge = STATUS_LABELS[phase.status];
           const Icon = PHASE_ICONS[phase.key] ?? NetworkIcon;
           return (
-            <article
+            <motion.article
               key={phase.key}
-              className="group flex flex-col gap-5 rounded-2xl border border-white/30 bg-white/80 p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-white/5"
+              className="group flex h-full flex-col gap-5 rounded-2xl border border-border bg-card/95 p-6 shadow-glow transition focus-within:-translate-y-3"
+              whileHover={{ y: -12 }}
             >
               <header className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#16c8ff]/15">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/12 text-primary">
                     <Icon className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">{phase.title}</h3>
-                    <p className="text-xs uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">{phase.key}</p>
+                    <h3 className="text-lg font-semibold text-fg">{phase.title}</h3>
+                    <p className="text-xs uppercase tracking-[0.2em] text-fg-muted/70">{phase.key}</p>
                   </div>
                 </div>
                 <span
@@ -84,10 +79,10 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                   {badge.text}
                 </span>
               </header>
-              <p className="text-sm leading-relaxed text-slate-600 transition group-hover:text-slate-700 dark:text-slate-300 dark:group-hover:text-slate-200">
+              <p className="text-sm leading-relaxed text-fg-muted transition group-hover:text-fg">
                 {phase.summary}
               </p>
-            </article>
+            </motion.article>
           );
         })}
       </div>

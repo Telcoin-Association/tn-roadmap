@@ -2,7 +2,7 @@ import type { SVGProps } from 'react';
 
 type IconProps = SVGProps<SVGSVGElement>;
 
-const baseClasses = 'h-6 w-6 text-[#16c8ff]';
+const baseClasses = 'h-6 w-6 text-primary';
 
 export function NetworkIcon({ className, ...props }: IconProps) {
   return (
@@ -202,7 +202,7 @@ export function DotIcon({ className, ...props }: IconProps) {
     <svg
       aria-hidden="true"
       className={`${baseClasses} ${className ?? ''}`}
-      fill="#16c8ff"
+      fill="currentColor"
       viewBox="0 0 24 24"
       {...props}
     >

@@ -1,21 +1,32 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { LearnMore } from './components/LearnMore';
 import { PhaseOverview } from './components/PhaseOverview';
 import { ProgressBar } from './components/ProgressBar';
+import { RoadToDeploymentFlow } from './components/RoadToDeployment/Flow';
 import { RoadToMainnet } from './components/RoadToMainnet';
 import { SecurityAudits } from './components/SecurityAudits';
+import { GradientCanvas } from './components/GradientCanvas';
 import { loadStatus, type Status } from './data/loadStatus';
+import type { Phase as RoadmapPhase } from './data/roadmap';
 import { formatList } from './utils/formatList';
 import { NetworkIcon } from './components/icons';
 
+const sectionVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 }
+};
+
 function SkeletonSection({ className }: { className?: string }) {
   return (
-    <div className={`animate-pulse rounded-2xl border border-slate-200 bg-white/60 p-6 dark:border-slate-800 dark:bg-slate-900/60 ${className ?? ''}`}>
-      <div className="h-4 w-32 rounded bg-slate-200/80 dark:bg-slate-700/80" />
+    <div
+      className={`animate-pulse rounded-2xl border border-border/60 bg-card/70 p-6 shadow-glow ${className ?? ''}`}
+    >
+      <div className="h-4 w-32 rounded-full bg-bg-elev" />
       <div className="mt-4 space-y-3">
-        <div className="h-3 w-full rounded bg-slate-200/60 dark:bg-slate-800/70" />
-        <div className="h-3 w-5/6 rounded bg-slate-200/60 dark:bg-slate-800/70" />
-        <div className="h-3 w-2/3 rounded bg-slate-200/60 dark:bg-slate-800/70" />
+        <div className="h-3 w-full rounded-full bg-bg-elev/80" />
+        <div className="h-3 w-5/6 rounded-full bg-bg-elev/70" />
+        <div className="h-3 w-2/3 rounded-full bg-bg-elev/60" />
       </div>
     </div>
   );
@@ -23,16 +34,17 @@ function SkeletonSection({ className }: { className?: string }) {
 
 function HeaderSkeleton() {
   return (
-    <div className="animate-pulse space-y-4 rounded-3xl border border-transparent bg-white/50 p-10 text-center shadow-soft dark:bg-slate-900/40">
-      <div className="mx-auto h-7 w-56 rounded bg-slate-200/80 dark:bg-slate-700/80" />
-      <div className="mx-auto h-4 w-64 rounded bg-slate-200/60 dark:bg-slate-700/70" />
-      <div className="mx-auto h-3 w-48 rounded bg-slate-200/60 dark:bg-slate-700/70" />
+    <div className="animate-pulse space-y-4 rounded-3xl border border-border/60 bg-card/80 p-10 text-center shadow-glow">
+      <div className="mx-auto h-7 w-56 rounded-full bg-bg-elev" />
+      <div className="mx-auto h-4 w-64 rounded-full bg-bg-elev/80" />
+      <div className="mx-auto h-3 w-48 rounded-full bg-bg-elev/70" />
     </div>
   );
 }
 
 export default function App() {
   const [status, setStatus] = useState<Status | null>(null);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const data = loadStatus();
@@ -64,38 +76,64 @@ export default function App() {
     ? `Visibility into our ${readablePhaseList} progress and what remains before launch.`
     : 'Visibility into Telcoin Network progress and what remains before launch.';
 
+  const handleFlowSelect = useCallback(
+    (phase: RoadmapPhase) => {
+      const target = phase.links?.[0]?.href;
+      if (!target) return;
+      const elementId = target.startsWith('#') ? target.slice(1) : target;
+      const element = document.getElementById(elementId);
+      if (!element) return;
+      element.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      const accordionTrigger = element.querySelector('button');
+      if (accordionTrigger instanceof HTMLButtonElement) {
+        window.setTimeout(() => {
+          accordionTrigger.focus({ preventScroll: true });
+          accordionTrigger.click();
+        }, reduceMotion ? 0 : 160);
+      }
+    },
+    [reduceMotion]
+  );
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f1f8ff] via-[#f5f2ff] to-[#edeafe] pb-16 dark:from-[#050b1f] dark:via-[#101a33] dark:to-[#1b1240]">
-      <header className="border-b border-white/40 bg-white/60 backdrop-blur dark:border-white/10 dark:bg-white/5">
+    <div className="relative min-h-screen overflow-x-hidden bg-bg text-fg">
+      <GradientCanvas />
+      <header className="relative isolate border-b border-border/60 bg-bg/70 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-12 text-center md:px-8">
           {showSkeleton ? (
             <HeaderSkeleton />
           ) : (
-            <div className="space-y-4">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={sectionVariants}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="space-y-6"
+            >
               <div className="flex items-center justify-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#16c8ff]/15">
+                <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/15 text-primary">
                   <NetworkIcon className="h-5 w-5" />
                 </span>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fg-muted/80">
                   Telcoin Network
                 </p>
               </div>
-              <h1 className="text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
-                Telcoin Network Status
-              </h1>
-              <p className="mx-auto max-w-2xl text-base text-slate-600 dark:text-slate-300">{headerDescription}</p>
-              <div className="mx-auto max-w-xl rounded-3xl border border-white/40 bg-white/80 p-6 shadow-[0_30px_70px_-40px_rgba(16,24,64,0.45)] backdrop-blur dark:border-white/10 dark:bg-white/5">
+              <h1 className="text-3xl font-bold text-fg md:text-4xl">Telcoin Network Status</h1>
+              <p className="mx-auto max-w-2xl text-base text-fg-muted">{headerDescription}</p>
+              <div className="relative mx-auto max-w-xl overflow-hidden rounded-3xl border border-border/60 bg-card/80 p-6 text-left shadow-glow">
+                <div className="pointer-events-none absolute inset-y-0 -left-1 w-1/2 bg-[radial-gradient(circle_at_top,var(--primary)/0.15,transparent_60%)]" />
+                <div className="pointer-events-none absolute inset-y-0 -right-1 w-1/2 bg-[radial-gradient(circle_at_bottom,var(--accent)/0.12,transparent_60%)]" />
                 <ProgressBar value={status.meta.overallTrajectoryPct} label="Overall trajectory" />
-                <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">
+                <p className="mt-4 text-sm text-fg-muted">
                   Last updated <time dateTime={status.meta.lastUpdated}>{formattedLastUpdated}</time>
                 </p>
               </div>
-            </div>
+            </motion.div>
           )}
         </div>
       </header>
       <main
-        className="mx-auto mt-12 flex max-w-6xl flex-col gap-12 px-6 md:px-8"
+        className="relative mx-auto mt-12 flex max-w-6xl flex-col gap-16 px-6 pb-16 md:px-8"
         aria-busy={showSkeleton}
         aria-live="polite"
       >
@@ -112,18 +150,64 @@ export default function App() {
           </>
         ) : (
           <>
-            <PhaseOverview phases={status.phases} />
-            <SecurityAudits
-              notes={status.security.notes}
-              publicFindings={status.security.publicFindings}
-              afterPriorityFixes={status.security.afterPriorityFixes}
-            />
-            <RoadToMainnet steps={status.roadmap} />
-            <LearnMore phases={status.phases} links={status.links} />
+            <motion.section
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+            >
+              <PhaseOverview phases={status.phases} />
+            </motion.section>
+
+            <motion.section
+              id="security-section"
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.05 }}
+            >
+              <SecurityAudits
+                notes={status.security.notes}
+                publicFindings={status.security.publicFindings}
+                afterPriorityFixes={status.security.afterPriorityFixes}
+              />
+            </motion.section>
+
+            <motion.section
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.05 }}
+            >
+              <RoadToDeploymentFlow onSelectPhase={handleFlowSelect} />
+            </motion.section>
+
+            <motion.section
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.05 }}
+            >
+              <RoadToMainnet steps={status.roadmap} />
+            </motion.section>
+
+            <motion.section
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.05 }}
+            >
+              <LearnMore phases={status.phases} links={status.links} />
+            </motion.section>
           </>
         )}
       </main>
-      <footer className="mt-16 border-t border-slate-200 bg-white/70 py-8 text-center text-sm text-slate-500 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-400">
+      <footer className="border-t border-border/60 bg-bg/80 py-8 text-center text-sm text-fg-muted">
         © {new Date().getFullYear()} Telcoin Network — roadmap snapshot for engineering stakeholders.
       </footer>
     </div>

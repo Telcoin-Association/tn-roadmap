@@ -1,4 +1,5 @@
 import { useMemo, type CSSProperties } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 
 type ProgressBarProps = {
   value: number;
@@ -7,6 +8,7 @@ type ProgressBarProps = {
 
 export function ProgressBar({ value, label }: ProgressBarProps) {
   const clampedValue = useMemo(() => Math.min(100, Math.max(0, Math.round(value))), [value]);
+  const reduceMotion = useReducedMotion();
   const style = useMemo(
     () => ({
       width: `${clampedValue}%`,
@@ -18,25 +20,32 @@ export function ProgressBar({ value, label }: ProgressBarProps) {
   return (
     <div className="space-y-2">
       {label ? (
-        <div className="flex items-center justify-between text-sm text-slate-600 dark:text-slate-300">
+        <div className="flex items-center justify-between text-sm text-fg-muted">
           <span>{label}</span>
-          <span className="font-medium text-slate-900 dark:text-slate-100">
+          <span className="font-medium text-fg">
             {clampedValue}%
           </span>
         </div>
       ) : null}
       <div
-        className="h-3 w-full overflow-hidden rounded-full bg-slate-200/70 backdrop-blur dark:bg-slate-800/60"
+        className="relative h-3 w-full overflow-hidden rounded-full bg-bg-elev"
         role="progressbar"
         aria-label={label ?? 'Overall progress'}
         aria-valuenow={clampedValue}
         aria-valuemin={0}
         aria-valuemax={100}
       >
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-[#16c8ff] via-[#4c6fff] to-[#7b5bff] shadow-[0_0_15px_rgba(22,200,255,0.45)] animate-progress"
+        <motion.div
+          className="relative h-full rounded-full bg-gradient-to-r from-primary via-accent to-primary-600 shadow-[0_0_15px_hsl(201_92%_56%/0.45)]"
           style={style}
-        />
+          initial={{ width: 0 }}
+          animate={{ width: `${clampedValue}%` }}
+          transition={reduceMotion ? { duration: 0 } : { duration: 1.1, ease: 'easeOut' }}
+        >
+          {!reduceMotion ? (
+            <span className="pointer-events-none absolute inset-0 -translate-x-full bg-[var(--shimmer)] opacity-70 mix-blend-screen animate-shimmer" />
+          ) : null}
+        </motion.div>
       </div>
     </div>
   );
