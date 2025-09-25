@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import type { Phase } from '../data/statusSchema';
 import { CompassIcon, LaunchIcon, MainnetIcon, NetworkIcon, TestnetIcon } from './icons';
 import { formatList } from '../utils/formatList';
+import { SECTION_COPY } from '../data/sectionCopy';
 
 const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; ariaLabel: string }> = {
   in_progress: {
@@ -44,10 +45,10 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
         </div>
         <div className="space-y-1">
           <h2 id="phase-overview-heading" className="text-xl font-bold text-fg">
-            Phase overview
+            {SECTION_COPY.phaseOverview.heading}
           </h2>
           <p className="text-sm text-fg-muted">
-            Track where Telcoin Network stands across {phaseListText}.
+            {SECTION_COPY.phaseOverview.descriptionTemplate(phaseListText)}
           </p>
         </div>
       </div>
