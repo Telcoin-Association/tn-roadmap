@@ -74,7 +74,7 @@ function RoadmapNode({ data }: NodeProps<FlowNodeData>) {
         onMouseLeave={() => toggleHover(false)}
         onFocus={() => toggleHover(true)}
         onBlur={() => toggleHover(false)}
-        className={`flex min-w-[220px] flex-col gap-3 rounded-2xl border bg-card p-4 text-left shadow-glow transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg ${statusStyle} hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_55px_-25px_hsl(201_92%_56%/0.45)]`}
+        className={`flex min-w-[220px] flex-col gap-3 rounded-2xl border-2 bg-card p-4 text-left shadow-glow transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg ${statusStyle} hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_55px_-25px_hsl(201_92%_56%/0.45)]`}
       >
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-fg-muted/80">
           {phase.subtitle ?? 'Milestone'}
@@ -214,14 +214,14 @@ export function RoadToDeploymentFlow({ onSelectPhase }: FlowProps) {
         <p className="text-xs font-semibold uppercase tracking-[0.35em] text-fg-muted/70">Deployment journey</p>
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div className="space-y-2">
-            <h2 id="roadmap-flow-heading" className="text-2xl font-semibold text-fg">
+            <h2 id="roadmap-flow-heading" className="text-2xl font-bold text-fg">
               Road to deployment
             </h2>
             <p className="max-w-2xl text-sm text-fg-muted">
               Follow how Genesis, Horizon, and Zenith flow from critical fixes into live deployment.
             </p>
           </div>
-          <div className="max-w-xs rounded-2xl border border-border bg-card p-4 shadow-glow">
+          <div className="max-w-xs rounded-2xl border-2 border-border bg-card p-4 shadow-glow">
             <div className="flex items-center justify-between text-xs font-medium text-fg-muted">
               <span>Overall readiness</span>
               <span className="text-sm font-semibold text-fg">{progress}%</span>
@@ -239,7 +239,7 @@ export function RoadToDeploymentFlow({ onSelectPhase }: FlowProps) {
         </div>
       </header>
       <div
-        className="rounded-3xl border border-border/60 bg-card/80 p-6 shadow-glow h-[32rem] md:h-[26rem]"
+        className="rounded-3xl border-2 border-border/60 bg-card/80 p-6 shadow-glow h-[32rem] md:h-[26rem]"
         data-testid="roadmap-flow"
       >
         <ReactFlow

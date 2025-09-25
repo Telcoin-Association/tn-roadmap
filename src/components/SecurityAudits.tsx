@@ -21,7 +21,7 @@ function StatCard({
 }) {
   const entries = Object.entries(metrics);
   return (
-    <article className="flex flex-1 flex-col gap-4 rounded-2xl border border-border/70 bg-card p-5 shadow-soft backdrop-blur">
+    <article className="flex flex-1 flex-col gap-4 rounded-2xl border-2 border-border/60 bg-card p-5 shadow-soft backdrop-blur">
       <header className="flex items-center gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20 text-primary">
           <Icon className="h-5 w-5" />
@@ -50,7 +50,7 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
           <ShieldIcon className="h-6 w-6" />
         </div>
         <div className="space-y-1">
-          <h2 id="security-heading" className="text-xl font-semibold text-fg">
+          <h2 id="security-heading" className="text-xl font-bold text-fg">
             Security &amp; audits
           </h2>
           <p className="text-sm text-fg-muted">
@@ -59,7 +59,7 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
         </div>
       </div>
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
-        <article className="rounded-2xl border border-border/70 bg-card p-6 shadow-soft backdrop-blur">
+        <article className="rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
           <h3 className="text-lg font-semibold text-fg">Security notes</h3>
           <ul className="mt-4 space-y-3 text-sm text-fg-muted">
             {notes.map((note) => (

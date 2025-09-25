@@ -43,7 +43,7 @@ export function RoadToMainnet({ steps }: RoadToMainnetProps) {
           <TimelineIcon className="h-6 w-6" />
         </div>
         <div className="space-y-1">
-          <h2 id="roadmap-heading" className="text-xl font-semibold text-fg">
+          <h2 id="roadmap-heading" className="text-xl font-bold text-fg">
             Road to Mainnet
           </h2>
           <p className="text-sm text-fg-muted">
@@ -51,7 +51,7 @@ export function RoadToMainnet({ steps }: RoadToMainnetProps) {
           </p>
         </div>
       </div>
-      <div className="rounded-2xl border border-border/70 bg-card p-6 shadow-soft backdrop-blur">
+      <div className="rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
         <ol className="space-y-4">
           {steps.map((step) => {
             const style = STATE_STYLES[step.state];
@@ -59,7 +59,7 @@ export function RoadToMainnet({ steps }: RoadToMainnetProps) {
             return (
               <li
                 key={step.title}
-                className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-fg backdrop-blur"
+                className="flex flex-col gap-3 rounded-2xl border-2 border-white/10 bg-white/5 p-4 text-sm text-fg backdrop-blur"
               >
                 <div className="flex items-center justify-between gap-3">
                   <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${style.chip}`}>

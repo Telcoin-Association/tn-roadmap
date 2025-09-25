@@ -9,8 +9,8 @@ type LearnMoreProps = {
 };
 
 export function LearnMore({ phases, links }: LearnMoreProps) {
-  const defaultOpenId = phases[0]?.key ?? 'devnet';
-  const [openId, setOpenId] = useState<Phase['key']>(defaultOpenId);
+  const defaultOpenId = phases[0]?.key ?? null;
+  const [openId, setOpenId] = useState<Phase['key'] | null>(defaultOpenId);
   useEffect(() => {
     setOpenId(defaultOpenId);
   }, [defaultOpenId]);
@@ -26,7 +26,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
   );
 
   const toggle = (id: Phase['key']) => {
-    setOpenId(id);
+    setOpenId((current) => (current === id ? null : id));
   };
 
   const linkButtons = [
@@ -42,7 +42,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
           <InfoIcon className="h-6 w-6" />
         </div>
         <div className="space-y-1">
-          <h2 id="learn-more-heading" className="text-xl font-semibold text-fg">
+          <h2 id="learn-more-heading" className="text-xl font-bold text-fg">
             Learn more
           </h2>
           <p className="text-sm text-fg-muted">
@@ -57,7 +57,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
             <article
               key={question.id}
               id={`learn-more-${question.id}`}
-              className="overflow-hidden rounded-2xl border border-border/70 bg-card shadow-soft backdrop-blur"
+              className="overflow-hidden rounded-2xl border-2 border-border/60 bg-card shadow-soft backdrop-blur"
             >
               <motion.button
                 type="button"
