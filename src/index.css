@@ -7,14 +7,14 @@
 }
 
 body {
-  @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100;
+  @apply bg-[#eef5ff] text-slate-900 dark:bg-[#040b1d] dark:text-slate-100;
 }
 
 a {
-  @apply text-blue-600 hover:text-blue-500;
+  @apply text-[#16c8ff] hover:text-[#0eb8eb];
 }
 
 button:focus-visible,
 a:focus-visible {
-  @apply outline-none ring-2 ring-offset-2 ring-blue-500 ring-offset-slate-100 dark:ring-offset-slate-900;
+  @apply outline-none ring-2 ring-offset-2 ring-[#16c8ff] ring-offset-slate-100 dark:ring-offset-slate-900;
 }

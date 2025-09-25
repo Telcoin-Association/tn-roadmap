@@ -6,6 +6,7 @@ import { RoadToMainnet } from './components/RoadToMainnet';
 import { SecurityAudits } from './components/SecurityAudits';
 import { loadStatus, type Status } from './data/loadStatus';
 import { formatList } from './utils/formatList';
+import { NetworkIcon } from './components/icons';
 
 function SkeletonSection({ className }: { className?: string }) {
   return (
@@ -64,21 +65,26 @@ export default function App() {
     : 'Visibility into Telcoin Network progress and what remains before launch.';
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 pb-16 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
-      <header className="border-b border-slate-200/60 bg-white/60 backdrop-blur dark:border-slate-800/80 dark:bg-slate-950/60">
+    <div className="min-h-screen bg-gradient-to-b from-[#f1f8ff] via-[#f5f2ff] to-[#edeafe] pb-16 dark:from-[#050b1f] dark:via-[#101a33] dark:to-[#1b1240]">
+      <header className="border-b border-white/40 bg-white/60 backdrop-blur dark:border-white/10 dark:bg-white/5">
         <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-12 text-center md:px-8">
           {showSkeleton ? (
             <HeaderSkeleton />
           ) : (
             <div className="space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">
-                Telcoin Network
-              </p>
+              <div className="flex items-center justify-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#16c8ff]/15">
+                  <NetworkIcon className="h-5 w-5" />
+                </span>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">
+                  Telcoin Network
+                </p>
+              </div>
               <h1 className="text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
                 Telcoin Network Status
               </h1>
               <p className="mx-auto max-w-2xl text-base text-slate-600 dark:text-slate-300">{headerDescription}</p>
-              <div className="mx-auto max-w-xl rounded-2xl border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900">
+              <div className="mx-auto max-w-xl rounded-3xl border border-white/40 bg-white/80 p-6 shadow-[0_30px_70px_-40px_rgba(16,24,64,0.45)] backdrop-blur dark:border-white/10 dark:bg-white/5">
                 <ProgressBar value={status.meta.overallTrajectoryPct} label="Overall trajectory" />
                 <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">
                   Last updated <time dateTime={status.meta.lastUpdated}>{formattedLastUpdated}</time>

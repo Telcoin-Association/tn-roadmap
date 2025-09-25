@@ -26,14 +26,17 @@ export function ProgressBar({ value, label }: ProgressBarProps) {
         </div>
       ) : null}
       <div
-        className="h-3 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800"
+        className="h-3 w-full overflow-hidden rounded-full bg-slate-200/70 backdrop-blur dark:bg-slate-800/60"
         role="progressbar"
         aria-label={label ?? 'Overall progress'}
         aria-valuenow={clampedValue}
         aria-valuemin={0}
         aria-valuemax={100}
       >
-        <div className="h-full rounded-full bg-blue-500 animate-progress" style={style} />
+        <div
+          className="h-full rounded-full bg-gradient-to-r from-[#16c8ff] via-[#4c6fff] to-[#7b5bff] shadow-[0_0_15px_rgba(22,200,255,0.45)] animate-progress"
+          style={style}
+        />
       </div>
     </div>
   );
