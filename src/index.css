@@ -24,4 +24,17 @@
   a:focus-visible {
     @apply outline-none ring-2 ring-offset-2 ring-offset-bg;
   }
+
+  header > div:first-of-type,
+  main.mx-auto {
+    padding-block: 2.4rem;
+  }
+}
+
+@layer utilities {
+  main.mx-auto > :not([hidden]) ~ :not([hidden]) {
+    --space-y-vertical: 2.4rem;
+    margin-top: calc(var(--space-y-vertical) * (1 - var(--tw-space-y-reverse, 0)));
+    margin-bottom: calc(var(--space-y-vertical) * var(--tw-space-y-reverse, 0));
+  }
 }
