@@ -1,3 +1,3 @@
-declare module './background/starfield.js' {
-  export function initStarfield(): () => void;
-}
+export type StarfieldCleanup = () => void;
+
+export const initStarfield: () => StarfieldCleanup;
