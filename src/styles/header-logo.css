@@ -1,37 +1,23 @@
-body > header {
-  position: relative;
-}
-
-body > header > div {
-  position: relative;
-  z-index: 0;
-}
-
-body > header > div::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(-65%, -50%);
-  width: min(220px, 32vw);
-  aspect-ratio: 1 / 1;
-  background-image: url('../assets/telcoin-ring-animated.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  pointer-events: none;
-  z-index: -1;
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 12px;
+  flex-shrink: 0;
   filter: drop-shadow(0 0 20px rgba(20, 200, 255, 0.25));
-  opacity: 0.9;
 }
 
-@media (max-width: 1023px) {
-  body > header > div::before {
-    display: none;
+.logo-container svg {
+  height: clamp(80px, 16vw, 112px);
+  width: auto;
+  display: block;
+  overflow: visible;
+}
+
+@media (min-width: 768px) {
+  .logo-container {
+    justify-content: flex-start;
+    margin-right: 12px;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  body > header > div::before {
-    background-image: url('../assets/telcoin-ring.svg');
-  }
-}
