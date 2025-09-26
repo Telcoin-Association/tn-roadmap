@@ -1,8 +1,10 @@
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import type { Phase } from '../data/statusSchema';
 import { CompassIcon, LaunchIcon, MainnetIcon, NetworkIcon, TestnetIcon } from './icons';
 import { formatList } from '../utils/formatList';
 import { SECTION_COPY } from '../data/sectionCopy';
+import { getUiFlag } from '../utils/uiFlags';
 
 const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; ariaLabel: string }> = {
   in_progress: {
@@ -36,6 +38,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
   const phaseTitles = phases.map((phase) => phase.title);
   const readablePhaseList = formatList(phaseTitles);
   const phaseListText = readablePhaseList || 'each network phase';
+  const microEnabled = useMemo(() => getUiFlag('micro'), []);
 
   return (
     <section aria-labelledby="phase-overview-heading" className="space-y-6">
@@ -56,6 +59,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
         {phases.map((phase) => {
           const badge = STATUS_LABELS[phase.status];
           const Icon = PHASE_ICONS[phase.key] ?? NetworkIcon;
+          const isLive = microEnabled && phase.status === 'in_progress';
           return (
             <motion.article
               key={phase.key}
@@ -74,7 +78,8 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                 </div>
                 <span
                   aria-label={badge.ariaLabel}
-                  className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${badge.className}`}
+                  className={`${microEnabled ? 'live-indicator ' : ''}inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${badge.className}`}
+                  data-live={isLive ? 'true' : undefined}
                   role="status"
                 >
                   {badge.text}

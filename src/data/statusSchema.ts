@@ -44,7 +44,8 @@ export const statusSchema = z.object({
   roadmap: z.array(
     z.object({
       title: z.string().min(1),
-      state: roadmapStateSchema
+      state: roadmapStateSchema,
+      details: z.string().min(1)
     })
   ),
   links: z.object({
