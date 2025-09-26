@@ -1,5 +1,4 @@
 const DEFAULT_FLAGS = {
-  starfield: true,
   micro: true,
   links: true
 } as const;
