@@ -1,5 +1,6 @@
 import { useMemo, type CSSProperties } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { getUiFlag } from '../utils/uiFlags';
 
 type ProgressBarProps = {
   value: number;
@@ -9,6 +10,7 @@ type ProgressBarProps = {
 export function ProgressBar({ value, label }: ProgressBarProps) {
   const clampedValue = useMemo(() => Math.min(100, Math.max(0, Math.round(value))), [value]);
   const reduceMotion = useReducedMotion();
+  const microEnabled = useMemo(() => getUiFlag('micro'), []);
   const style = useMemo(
     () => ({
       width: `${clampedValue}%`,
@@ -36,8 +38,9 @@ export function ProgressBar({ value, label }: ProgressBarProps) {
         aria-valuemax={100}
       >
         <motion.div
-          className="relative h-full rounded-full bg-gradient-to-r from-primary via-accent to-primary-600 shadow-[0_6px_18px_rgba(59,130,246,0.25)]"
+          className="progress-fill relative h-full rounded-full bg-gradient-to-r from-primary via-accent to-primary-600 shadow-[0_6px_18px_rgba(59,130,246,0.25)]"
           style={style}
+          data-pulsing={microEnabled && clampedValue > 0 ? 'true' : undefined}
           initial={{ width: 0 }}
           animate={{ width: `${clampedValue}%` }}
           transition={reduceMotion ? { duration: 0 } : { duration: 1.1, ease: 'easeOut' }}

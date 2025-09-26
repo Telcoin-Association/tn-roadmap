@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './styles/theme.css';
 import './index.css';
+import './styles/microinteractions.css';
 
 const rootElement = document.getElementById('root');
 

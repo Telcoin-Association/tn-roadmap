@@ -33,11 +33,31 @@
     "afterPriorityFixes": { "high": 0, "medium": 14, "low": 36 }
   },
   "roadmap": [
-    { "title": "Fix remaining vulnerabilities", "state": "in_progress" },
-    { "title": "Relaunch Genesis", "state": "up_next" },
-    { "title": "Launch Horizon", "state": "planned" },
-    { "title": "Final audits & competition", "state": "planned" },
-    { "title": "Zenith launch", "state": "planned" }
+    {
+      "title": "Fix remaining vulnerabilities",
+      "state": "in_progress",
+      "details": "Fix remaining vulnerabilities"
+    },
+    {
+      "title": "Relaunch Genesis",
+      "state": "up_next",
+      "details": "Relaunch Genesis"
+    },
+    {
+      "title": "Launch Horizon",
+      "state": "planned",
+      "details": "Launch Horizon"
+    },
+    {
+      "title": "Final audits & competition",
+      "state": "planned",
+      "details": "Final audits & competition"
+    },
+    {
+      "title": "Zenith launch",
+      "state": "planned",
+      "details": "Zenith launch"
+    }
   ],
   "links": {
     "governanceForum": "https://forum.telcoin.org/",
