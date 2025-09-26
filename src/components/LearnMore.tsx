@@ -16,8 +16,8 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
     setOpenId(defaultOpenId);
   }, [defaultOpenId]);
 
-  const summaries = phases.reduce<Record<Phase['key'], string>>((acc, phase) => {
-    acc[phase.key] = phase.summary;
+  const details = phases.reduce<Record<Phase['key'], string>>((acc, phase) => {
+    acc[phase.key] = phase.learnMore ?? phase.summary;
     return acc;
   }, Object.create(null));
 
@@ -52,7 +52,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
       <div className="space-y-4">
         {questions.map((question) => {
           const isOpen = openId === question.id;
-          const content = (summaries[question.id] ?? SECTION_COPY.learnMore.defaultSummary).split('\n\n');
+          const content = (details[question.id] ?? SECTION_COPY.learnMore.defaultSummary).split('\n\n');
           return (
             <article
               key={question.id}
