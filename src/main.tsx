@@ -4,6 +4,7 @@ import App from './App';
 import './styles/theme.css';
 import './index.css';
 import './styles/microinteractions.css';
+import './scripts/init';
 
 const rootElement = document.getElementById('root');
 
