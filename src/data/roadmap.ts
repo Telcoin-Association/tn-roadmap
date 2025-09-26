@@ -18,25 +18,25 @@ export const ROADMAP: Phase[] = [
     status: 'in_progress',
     description: 'Address all high/medium findings; backfilled unit + integration tests.',
     metrics: { high: 0, medium: 14, low: 36 },
-    links: [{ label: 'Review Genesis context', href: '#learn-more-devnet' }]
+    links: [{ label: 'Review Horizon (Devnet) context', href: '#learn-more-devnet' }]
   },
   {
     id: 'genesis',
-    title: 'Relaunch Genesis',
+    title: 'Relaunch Horizon',
     subtitle: 'Devnet relaunch',
     status: 'up_next',
-    description: 'Stabilize Genesis to unblock Horizon relaunch.',
+    description: 'Stabilize Horizon (Devnet) to unblock Adiri rollout.',
     dependsOn: ['fixes'],
-    links: [{ label: 'See Genesis readiness', href: '#learn-more-devnet' }]
+    links: [{ label: 'See Horizon readiness', href: '#learn-more-devnet' }]
   },
   {
     id: 'horizon',
-    title: 'Launch Horizon',
+    title: 'Launch Adiri',
     subtitle: 'Public Testnet',
     status: 'planned',
-    description: 'Early iterations guarded; audits complete.',
+    description: 'Early Adiri iterations guarded; audits complete.',
     dependsOn: ['genesis'],
-    links: [{ label: 'Review Horizon plan', href: '#learn-more-testnet' }]
+    links: [{ label: 'Review Adiri plan', href: '#learn-more-testnet' }]
   },
   {
     id: 'audits',
@@ -48,11 +48,11 @@ export const ROADMAP: Phase[] = [
   },
   {
     id: 'zenith',
-    title: 'Zenith launch',
+    title: 'Mainnet launch',
     subtitle: 'Mainnet readiness',
     status: 'planned',
     description: 'Mainnet launch after competition sign-off.',
     dependsOn: ['audits'],
-    links: [{ label: 'Learn about Zenith', href: '#learn-more-mainnet' }]
+    links: [{ label: 'Learn about Mainnet', href: '#learn-more-mainnet' }]
   }
 ];

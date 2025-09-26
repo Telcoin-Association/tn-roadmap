@@ -38,6 +38,7 @@ export function ProgressBar({ value, label }: ProgressBarProps) {
         aria-valuemax={100}
       >
         <motion.div
+          key={clampedValue}
           className="progress-fill relative h-full rounded-full bg-gradient-to-r from-primary via-accent to-primary-600 shadow-[0_6px_18px_rgba(59,130,246,0.25)]"
           style={style}
           data-pulsing={microEnabled && clampedValue > 0 ? 'true' : undefined}

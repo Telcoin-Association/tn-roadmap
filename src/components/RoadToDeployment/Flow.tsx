@@ -218,7 +218,7 @@ export function RoadToDeploymentFlow({ onSelectPhase }: FlowProps) {
               Road to deployment
             </h2>
             <p className="max-w-2xl text-sm text-fg-muted">
-              Follow how Genesis, Horizon, and Zenith flow from critical fixes into live deployment.
+              Follow how Horizon (Devnet), Adiri (Testnet), and Mainnet flow from critical fixes into live deployment.
             </p>
           </div>
           <div className="max-w-xs rounded-2xl border-2 border-border bg-card p-4 shadow-glow">
