@@ -7,18 +7,18 @@ describe('formatList', () => {
   });
 
   it('returns single item unchanged', () => {
-    expect(formatList(['Genesis'])).toBe('Genesis');
+    expect(formatList(['Horizon'])).toBe('Horizon');
   });
 
   it('joins two items with and', () => {
-    expect(formatList(['Genesis', 'Horizon'])).toBe('Genesis and Horizon');
+    expect(formatList(['Horizon', 'Adiri'])).toBe('Horizon and Adiri');
   });
 
   it('joins more than two items with commas and and', () => {
-    expect(formatList(['Genesis', 'Horizon', 'Zeinith'])).toBe('Genesis, Horizon, and Zeinith');
+    expect(formatList(['Horizon', 'Adiri', 'Mainnet'])).toBe('Horizon, Adiri, and Mainnet');
   });
 
   it('ignores blank strings', () => {
-    expect(formatList(['Genesis', ' ', 'Zeinith'])).toBe('Genesis and Zeinith');
+    expect(formatList(['Horizon', ' ', 'Mainnet'])).toBe('Horizon and Mainnet');
   });
 });
