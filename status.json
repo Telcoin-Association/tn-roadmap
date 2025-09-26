@@ -5,19 +5,22 @@
       "key": "devnet",
       "title": "Genesis",
       "status": "in_progress",
-      "summary": "Fixing the final high-priority security issues before relaunching Genesis (formerly Devnet) to unblock Horizon."
+      "summary": "Fixing the final high-priority security issues before relaunching Genesis (formerly Devnet) to unblock Horizon.",
+      "learnMore": "Genesis is the name for the Telcoin Network’s development environment (previously called Devnet). It’s where new features, protocol upgrades, and network improvements are first deployed and tested by the core engineering team.\n\nAt this stage, the focus is on fixing the last set of high-priority security findings and validating that all the moving parts of the network perform as expected. Genesis isn’t designed for public use—it’s primarily an internal proving ground—but it plays a critical role in unblocking progress to the next stage, Horizon. Once Genesis reaches stability, the network will be ready for broader testing with external partners."
     },
     {
       "key": "testnet",
       "title": "Horizon",
       "status": "upcoming",
-      "summary": "Launching after Genesis stabilizes. Early Horizon iterations may be unstable until audits complete."
+      "summary": "Launching after Genesis stabilizes. Early Horizon iterations may be unstable until audits complete.",
+      "learnMore": "Horizon is the Telcoin Network’s public testnet, where the community and partners—including mobile network operators (MNOs) spinning up validator nodes—can interact with the network in a live but non-production setting.\n\nThis stage follows Genesis stabilization and will roll out in phases. Early iterations of Horizon may still see instability or bugs as the network undergoes continuous upgrades and audit cycles. That’s intentional: Horizon is where real-world testing happens, and where we make sure validator participation, governance mechanics, and protocol updates all function securely before moving to mainnet.\n\nHorizon represents a critical milestone because it’s the first time the broader ecosystem—validators, developers, and community members—can meaningfully engage with the Telcoin Network."
     },
     {
       "key": "mainnet",
       "title": "Zenith",
       "status": "upcoming",
-      "summary": "Zenith (Mainnet) follows Horizon stability and the final security competition."
+      "summary": "Zenith (Mainnet) follows Horizon stability and the final security competition.",
+      "learnMore": "Zenith is the name for the Telcoin Network’s mainnet launch—the culmination of the Genesis and Horizon phases. Once Horizon has achieved stability and passed the final rounds of audits and the open security competition, the network will transition to Zenith.\n\nZenith represents the full public launch of the Telcoin Network, where validators, developers, and users can rely on the system for real value transfer and application deployment. It’s the point at which the network moves from testing to production, with the security and decentralization guarantees expected of a Layer 1 blockchain."
     }
   ],
   "security": {
