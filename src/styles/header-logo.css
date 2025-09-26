@@ -15,7 +15,7 @@ body > header > div::before {
   transform: translate(-65%, -50%);
   width: min(220px, 32vw);
   aspect-ratio: 1 / 1;
-  background-image: url('../assets/telcoin-ring.svg');
+  background-image: url('../assets/telcoin-ring-animated.svg');
   background-repeat: no-repeat;
   background-size: contain;
   pointer-events: none;
@@ -27,5 +27,11 @@ body > header > div::before {
 @media (max-width: 1023px) {
   body > header > div::before {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body > header > div::before {
+    background-image: url('../assets/telcoin-ring.svg');
   }
 }
