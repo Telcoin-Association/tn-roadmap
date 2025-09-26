@@ -8,6 +8,7 @@ import { SecurityAudits } from './components/SecurityAudits';
 import { loadStatus, type Status } from './data/loadStatus';
 import { SECTION_COPY } from './data/sectionCopy';
 import { formatList } from './utils/formatList';
+import { getUiFlag } from './utils/uiFlags';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -41,6 +42,34 @@ function HeaderSkeleton() {
 
 export default function App() {
   const [status, setStatus] = useState<Status | null>(null);
+
+  useEffect(() => {
+    if (!getUiFlag('starfield')) {
+      return;
+    }
+
+    let cleanup: (() => void) | undefined;
+    let cancelled = false;
+
+    import('./background/starfield.js')
+      .then((module) => {
+        if (cancelled) {
+          return;
+        }
+
+        cleanup = module.initStarfield?.();
+      })
+      .catch((error) => {
+        if (import.meta.env.DEV) {
+          console.error('Failed to initialize starfield background', error);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+      cleanup?.();
+    };
+  }, []);
   useEffect(() => {
     const data = loadStatus();
     const timeout = window.setTimeout(() => {
