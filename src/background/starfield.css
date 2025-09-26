@@ -1,0 +1,30 @@
+#bg-starfield {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  display: block;
+  background: radial-gradient(circle at 20% 15%, rgba(80, 180, 255, 0.08), transparent 60%),
+    radial-gradient(circle at 80% 10%, rgba(160, 130, 255, 0.1), transparent 60%),
+    radial-gradient(circle at 50% 85%, rgba(78, 160, 255, 0.08), transparent 70%);
+  transition: opacity 600ms ease-out;
+}
+
+#bg-starfield.is-static {
+  background: radial-gradient(circle at 20% 20%, rgba(92, 174, 255, 0.12), transparent 55%),
+    radial-gradient(circle at 80% 15%, rgba(161, 132, 255, 0.12), transparent 55%),
+    radial-gradient(circle at 50% 75%, rgba(80, 162, 255, 0.1), transparent 65%),
+    linear-gradient(180deg, rgba(7, 11, 25, 0.95) 0%, rgba(10, 18, 40, 0.92) 55%, rgba(5, 10, 24, 0.98) 100%);
+}
+
+#bg-starfield.is-hidden {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #bg-starfield {
+    transition: none;
+  }
+}
