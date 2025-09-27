@@ -22,14 +22,29 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: '.nvmrc'
           cache: npm
       - name: Install dependencies
         run: npm ci
       - name: Validate roadmap data
         run: npm run validate:status
+      - name: Run unit tests
+        run: npm test
+      - name: Type check
+        run: npm run typecheck
       - name: Build site
         run: npm run build
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+      - name: Run e2e smoke tests
+        run: npm run e2e
+      - name: Upload Playwright screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-screenshots
+          path: tests/__screenshots__/
+          if-no-files-found: warn
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
