@@ -20,11 +20,8 @@ export function ProgressBar({ value, label }: ProgressBarProps) {
   return (
     <div className="space-y-2">
       {label ? (
-        <div className="flex items-center justify-between text-sm text-fg-muted">
+        <div className="text-sm font-medium text-fg-muted">
           <span>{label}</span>
-          <span className="font-medium text-fg">
-            {clampedValue}%
-          </span>
         </div>
       ) : null}
       <div
@@ -38,9 +35,20 @@ export function ProgressBar({ value, label }: ProgressBarProps) {
         <motion.div
           className="relative h-full rounded-full bg-gradient-to-r from-primary via-accent to-primary-600 shadow-[0_6px_18px_rgba(59,130,246,0.25)]"
           style={style}
-          initial={{ width: 0 }}
-          animate={{ width: `${clampedValue}%` }}
-          transition={reduceMotion ? { duration: 0 } : { duration: 1.1, ease: 'easeOut' }}
+          initial={{ width: 0, opacity: 1 }}
+          animate={
+            reduceMotion
+              ? { width: `${clampedValue}%`, opacity: 1 }
+              : { width: `${clampedValue}%`, opacity: [1, 0.65, 1] }
+          }
+          transition={
+            reduceMotion
+              ? { duration: 0 }
+              : {
+                  width: { duration: 1.1, ease: 'easeOut' },
+                  opacity: { duration: 1.5, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }
+                }
+          }
         />
       </div>
     </div>

@@ -1,13 +1,14 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import type { Phase } from '../data/statusSchema';
 import { CompassIcon, LaunchIcon, MainnetIcon, NetworkIcon, TestnetIcon } from './icons';
 import { formatList } from '../utils/formatList';
 
-const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; ariaLabel: string }> = {
+const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; ariaLabel: string; shouldPulse?: boolean }> = {
   in_progress: {
     text: 'In progress',
     className: 'border-primary/50 bg-primary/20 text-primary',
-    ariaLabel: 'Phase is in progress'
+    ariaLabel: 'Phase is in progress',
+    shouldPulse: true
   },
   upcoming: {
     text: 'Upcoming',
@@ -27,6 +28,12 @@ const PHASE_ICONS: Partial<Record<Phase['key'], typeof NetworkIcon>> = {
   mainnet: MainnetIcon
 };
 
+const PHASE_CODE_NAMES: Record<Phase['key'], string> = {
+  devnet: 'Horizon',
+  testnet: 'Adiri',
+  mainnet: 'Mainnet'
+};
+
 type PhaseOverviewProps = {
   phases: Phase[];
 };
@@ -35,6 +42,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
   const phaseTitles = phases.map((phase) => phase.title);
   const readablePhaseList = formatList(phaseTitles);
   const phaseListText = readablePhaseList || 'each network phase';
+  const reduceMotion = useReducedMotion();
 
   return (
     <section aria-labelledby="phase-overview-heading" className="space-y-6">
@@ -68,16 +76,26 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-fg">{phase.title}</h3>
-                    <p className="text-xs uppercase tracking-[0.2em] text-fg-muted/70">{phase.key}</p>
+                    <p className="text-xs uppercase tracking-[0.2em] text-fg-muted/70">
+                      {PHASE_CODE_NAMES[phase.key]}
+                    </p>
                   </div>
                 </div>
-                <span
+                <motion.span
                   aria-label={badge.ariaLabel}
                   className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${badge.className}`}
                   role="status"
+                  animate={
+                    !reduceMotion && badge.shouldPulse ? { opacity: [1, 0.5, 1] } : undefined
+                  }
+                  transition={
+                    !reduceMotion && badge.shouldPulse
+                      ? { duration: 1.2, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }
+                      : undefined
+                  }
                 >
                   {badge.text}
-                </span>
+                </motion.span>
               </header>
               <p className="text-sm leading-relaxed text-fg-muted transition group-hover:text-fg">
                 {phase.summary}

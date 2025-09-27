@@ -3,21 +3,21 @@
   "phases": [
     {
       "key": "devnet",
-      "title": "Genesis",
+      "title": "Horizon",
       "status": "in_progress",
-      "summary": "Fixing the final high-priority security issues before relaunching Genesis (formerly Devnet) to unblock Horizon."
+      "summary": "Finalizing high-priority security fixes and validating the Horizon development environment ahead of broader testing."
     },
     {
       "key": "testnet",
-      "title": "Horizon",
+      "title": "Adiri",
       "status": "upcoming",
-      "summary": "Launching after Genesis stabilizes. Early Horizon iterations may be unstable until audits complete."
+      "summary": "Preparing the Adiri public testnet so partners and community validators can exercise the network in a live setting."
     },
     {
       "key": "mainnet",
-      "title": "Zenith",
+      "title": "Mainnet",
       "status": "upcoming",
-      "summary": "Zenith (Mainnet) follows Horizon stability and the final security competition."
+      "summary": "Planning the Mainnet launch once Adiri is stable and the final audits and security competition are complete."
     }
   ],
   "security": {
@@ -31,10 +31,10 @@
   },
   "roadmap": [
     { "title": "Fix remaining vulnerabilities", "state": "in_progress" },
-    { "title": "Relaunch Genesis", "state": "up_next" },
-    { "title": "Launch Horizon", "state": "planned" },
+    { "title": "Stabilize Horizon environment", "state": "up_next" },
+    { "title": "Open Adiri public testnet", "state": "planned" },
     { "title": "Final audits & competition", "state": "planned" },
-    { "title": "Zenith launch", "state": "planned" }
+    { "title": "Mainnet launch", "state": "planned" }
   ],
   "links": {
     "governanceForum": "https://forum.telcoin.org/",
