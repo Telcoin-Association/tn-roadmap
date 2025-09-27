@@ -33,6 +33,8 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
   const linkButtons = [
     { label: 'Governance Forum', href: links.governanceForum },
     { label: 'Technical Docs', href: links.technicalDocs },
+    { label: 'TelcoinTAO on X', href: 'https://x.com/TelcoinTAO' },
+    { label: 'Telcoin Association', href: 'https://www.telcoin.org/' },
     { label: 'Faucet', href: 'https://www.telcoin.network/faucet' }
   ];
 

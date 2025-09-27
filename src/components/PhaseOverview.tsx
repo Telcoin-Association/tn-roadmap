@@ -65,9 +65,10 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
               key={phase.key}
               className="group flex h-full flex-col gap-4 rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow focus-within:-translate-y-1"
               whileHover={{ y: -8 }}
+              data-phase-card
             >
-              <header className="flex items-start justify-between gap-4">
-                <div className="flex items-center gap-3">
+              <header className="flex items-start justify-between gap-4" data-phase-card-header>
+                <div className="flex items-center gap-3" data-phase-card-title-group>
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                     <Icon className="h-6 w-6" />
                   </div>
