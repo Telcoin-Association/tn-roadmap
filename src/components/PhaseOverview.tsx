@@ -63,7 +63,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           return (
             <motion.article
               key={phase.key}
-              className="group flex h-full flex-col gap-5 rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow focus-within:-translate-y-1"
+              className="group flex h-full flex-col gap-4 rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow focus-within:-translate-y-1"
               whileHover={{ y: -8 }}
             >
               <header className="flex items-start justify-between gap-4">
