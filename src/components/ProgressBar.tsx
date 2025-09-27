@@ -24,9 +24,7 @@ export function ProgressBar({ value, label }: ProgressBarProps) {
       {label ? (
         <div className="flex items-center justify-between text-sm text-fg-muted">
           <span>{label}</span>
-          <span className="font-medium text-fg">
-            {clampedValue}%
-          </span>
+          <span className="sr-only">{clampedValue}% complete</span>
         </div>
       ) : null}
       <div

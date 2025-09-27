@@ -151,8 +151,8 @@ export default function App() {
                     </svg>
                   </div>
                   <div className="space-y-3">
-                    <h1 className="text-3xl font-extrabold text-fg md:text-4xl">{SECTION_COPY.header.title}</h1>
-                    <p className="max-w-xl text-base text-fg-muted md:text-lg">{headerDescription}</p>
+                    <h1 className="text-2xl font-extrabold text-fg md:text-3xl">{SECTION_COPY.header.title}</h1>
+                    <p className="max-w-xl text-sm text-fg-muted md:text-base">{headerDescription}</p>
                   </div>
                 </div>
                 <div className="w-full max-w-sm rounded-3xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
@@ -230,8 +230,28 @@ export default function App() {
           </>
         )}
       </main>
-      <footer className="border-t-2 border-border/60 bg-card py-8 text-center text-sm text-fg-muted backdrop-blur">
-        © 2025 Telcoin Network
+      <footer className="border-t-2 border-border/60 bg-card py-8 text-sm text-fg-muted backdrop-blur">
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-6 text-center md:flex-row md:justify-between md:px-8 md:text-left">
+          <span>© 2025 Telcoin Network</span>
+          <div className="flex flex-wrap justify-center gap-2">
+            <a
+              className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-4 py-2 font-semibold text-fg transition-transform transition-colors duration-200 ease-out hover:-translate-y-0.5 hover:bg-primary/10 hover:text-primary focus-visible:-translate-y-0.5"
+              href="https://x.com/TelcoinTAO"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              TelcoinTAO on X
+            </a>
+            <a
+              className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-4 py-2 font-semibold text-fg transition-transform transition-colors duration-200 ease-out hover:-translate-y-0.5 hover:bg-primary/10 hover:text-primary focus-visible:-translate-y-0.5"
+              href="https://www.telcoin.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Telcoin Association
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   );
