@@ -6,6 +6,7 @@ import { ProgressBar } from './components/ProgressBar';
 import { RoadToMainnet } from './components/RoadToMainnet';
 import { SecurityAudits } from './components/SecurityAudits';
 import { loadStatus, type Status } from './data/loadStatus';
+import { TelcoinAnimatedLogo } from './components/TelcoinAnimatedLogo';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -82,7 +83,10 @@ export default function App() {
             >
               <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-start md:justify-between md:text-left">
                 <div className="space-y-3">
-                  <h1 className="text-2xl font-extrabold text-fg md:text-3xl">Telcoin Network Status</h1>
+                  <div className="flex items-center justify-center gap-4 md:justify-start">
+                    <TelcoinAnimatedLogo className="h-16 w-16 flex-shrink-0" />
+                    <h1 className="text-2xl font-extrabold text-fg md:text-3xl">Telcoin Network Status</h1>
+                  </div>
                   <p className="max-w-xl text-sm text-fg-muted md:text-base">{headerDescription}</p>
                 </div>
                 <div className="w-full max-w-sm rounded-3xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
