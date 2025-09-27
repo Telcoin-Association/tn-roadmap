@@ -38,12 +38,6 @@
     margin-bottom: calc(var(--space-y-vertical) * var(--tw-space-y-reverse, 0));
   }
 
-  [data-phase-card]:is(:hover, :focus-within) {
-    box-shadow: 0 30px 85px -56px hsl(201 92% 56% / 0.58);
-  }
-}
-
-@layer components {
   [data-phase-card] {
     position: relative;
     isolation: isolate;
@@ -65,6 +59,10 @@
     opacity: 0.35;
     transition: opacity 200ms ease;
     pointer-events: none;
+  }
+
+  [data-phase-card]:is(:hover, :focus-within) {
+    box-shadow: 0 30px 85px -56px hsl(201 92% 56% / 0.58);
   }
 
   [data-phase-card]:is(:hover, :focus-within)::before {

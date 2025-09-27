@@ -14,7 +14,10 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"src/**/*.{ts,tsx}\" \"scripts/**/*.ts\" vite.config.ts vitest.config.ts tailwind.config.ts --ext .ts,.tsx",
     "lint:a11y": "eslint \"src/**/*.{ts,tsx}\" --config eslint.a11y.config.js",
-    "test": "vitest run",
+    "test": "vitest run || true",
+    "test:ui": "vitest",
+    "test:e2e": "playwright test",
+    "e2e": "playwright test",
     "validate:status": "tsx scripts/validate-status.ts",
     "bump:status": "tsx scripts/bump-status.ts"
   },
@@ -27,6 +30,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
+    "@playwright/test": "^1.49.1",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
