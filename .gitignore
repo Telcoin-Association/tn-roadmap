@@ -7,5 +7,3 @@ dist
 coverage
 npm-debug.log*
 tsconfig.tsbuildinfo
-tests/__screenshots__/
-test-results/
