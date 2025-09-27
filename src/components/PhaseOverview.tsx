@@ -41,10 +41,10 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
   const microEnabled = useMemo(() => getUiFlag('micro'), []);
 
   return (
-    <section aria-labelledby="phase-overview-heading" className="space-y-6">
+    <section aria-labelledby="phase-overview-heading" className="space-y-4">
       <div className="flex items-start gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/20 text-primary">
-          <CompassIcon className="h-6 w-6" />
+        <div className="flex h-8 w-8 items-center justify-center rounded-2xl bg-primary/20 text-primary">
+          <CompassIcon className="h-5 w-5" />
         </div>
         <div className="space-y-1">
           <h2 id="phase-overview-heading" className="text-xl font-bold text-fg">
@@ -63,14 +63,14 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           return (
             <motion.article
               key={phase.key}
-              className="group flex h-full flex-col gap-4 rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow focus-within:-translate-y-1"
+              className="group flex h-full flex-col gap-3 rounded-2xl border-2 border-border/60 bg-card p-4 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow focus-within:-translate-y-1"
               whileHover={{ y: -8 }}
               data-phase-card
             >
-              <header className="flex items-start justify-between gap-4" data-phase-card-header>
-                <div className="flex items-center gap-3" data-phase-card-title-group>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Icon className="h-6 w-6" />
+              <header className="flex items-start justify-between gap-3" data-phase-card-header>
+                <div className="flex items-center gap-2.5" data-phase-card-title-group>
+                  <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <Icon className="h-5 w-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-fg">{phase.title}</h3>
@@ -79,7 +79,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                 </div>
                 <span
                   aria-label={badge.ariaLabel}
-                  className={`${microEnabled ? 'live-indicator ' : ''}inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${badge.className}`}
+                  className={`${microEnabled ? 'live-indicator ' : ''}inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${badge.className}`}
                   data-live={isLive ? 'true' : undefined}
                   role="status"
                 >
