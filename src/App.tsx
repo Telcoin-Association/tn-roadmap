@@ -90,7 +90,7 @@ export default function App() {
                   <p className="max-w-xl text-sm text-fg-muted md:text-base">{headerDescription}</p>
                 </div>
                 <div className="w-full max-w-sm rounded-3xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
-                  <ProgressBar value={status.meta.overallTrajectoryPct} label="Overall trajectory" />
+                  <ProgressBar value={status.meta.overallTrajectoryPct} label="Road to Mainnet" />
                   <p className="mt-4 text-sm text-fg-muted">
                     Last updated <time dateTime={status.meta.lastUpdated}>{formattedLastUpdated}</time>
                   </p>

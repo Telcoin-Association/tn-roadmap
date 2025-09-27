@@ -1,5 +1,5 @@
 {
-  "meta": { "lastUpdated": "2025-09-23T19:00:00Z", "overallTrajectoryPct": 25 },
+  "meta": { "lastUpdated": "2025-09-23T19:00:00Z", "overallTrajectoryPct": 60 },
   "phases": [
     {
       "key": "devnet",
@@ -11,7 +11,7 @@
       "key": "testnet",
       "title": "Adiri",
       "status": "upcoming",
-      "summary": "Preparing the Adiri public testnet so partners and community validators can exercise the network in a live setting."
+      "summary": "Preparing the Adiri public testnet so partners and MNO validators can exercise the network in a live setting."
     },
     {
       "key": "mainnet",
