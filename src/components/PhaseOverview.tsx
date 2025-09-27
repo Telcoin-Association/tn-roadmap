@@ -104,7 +104,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                   {phase.summary}
                 </p>
 
-                <div className="mt-auto pt-2 md:pt-4" data-phase-card-footer>
+                <div className="pt-2 md:pt-4" data-phase-card-footer>
                   <a
                     className="inline-flex items-center text-[0.58rem] font-semibold text-primary transition hover:text-primary/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:text-xs"
                     href={phase.learnMore}
