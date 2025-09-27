@@ -41,21 +41,21 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
   const microEnabled = useMemo(() => getUiFlag('micro'), []);
 
   return (
-    <section aria-labelledby="phase-overview-heading" className="space-y-6">
-      <div className="flex items-start gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/20 text-primary">
-          <CompassIcon className="h-6 w-6" />
+    <section aria-labelledby="phase-overview-heading" className="space-y-2.5">
+      <div className="flex items-start gap-1.5">
+        <div className="flex h-[1.125rem] w-[1.125rem] items-center justify-center rounded-2xl bg-primary/20 text-primary">
+          <CompassIcon className="h-3 w-3" />
         </div>
-        <div className="space-y-1">
-          <h2 id="phase-overview-heading" className="text-xl font-bold text-fg">
+        <div className="space-y-0.5">
+          <h2 id="phase-overview-heading" className="text-[0.95rem] font-semibold text-fg">
             {SECTION_COPY.phaseOverview.heading}
           </h2>
-          <p className="text-sm text-fg-muted">
+          <p className="text-[0.65rem] leading-tight text-fg-muted">
             {SECTION_COPY.phaseOverview.descriptionTemplate(phaseListText)}
           </p>
         </div>
       </div>
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-3 md:grid-cols-3">
         {phases.map((phase) => {
           const badge = STATUS_LABELS[phase.status];
           const Icon = PHASE_ICONS[phase.key] ?? NetworkIcon;
@@ -63,32 +63,40 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           return (
             <motion.article
               key={phase.key}
-              className="group flex h-full flex-col gap-4 rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow focus-within:-translate-y-1"
+              className="group relative h-full overflow-hidden rounded-[20px] p-[0.5px] transition will-change-transform hover:-translate-y-1 focus-within:-translate-y-1"
               whileHover={{ y: -8 }}
               data-phase-card
             >
-              <header className="flex items-start justify-between gap-4" data-phase-card-header>
-                <div className="flex items-center gap-3" data-phase-card-title-group>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Icon className="h-6 w-6" />
+              <div
+                className="flex h-full flex-col gap-0.5 rounded-[18px] border border-white/10 bg-card/85 px-2 pb-2 pt-1.5 backdrop-blur"
+                data-phase-card-surface
+              >
+                <header className="flex items-center justify-between gap-2" data-phase-card-header>
+                  <div className="flex items-center gap-1.5" data-phase-card-title-group>
+                    <div className="flex h-[1.125rem] w-[1.125rem] items-center justify-center rounded-2xl bg-primary/12 text-primary">
+                      <Icon className="h-3 w-3" />
+                    </div>
+                    <div className="space-y-0.5">
+                      <h3 className="text-[0.74rem] font-semibold leading-tight text-fg">{phase.title}</h3>
+                      <p className="text-[0.5rem] uppercase tracking-[0.28em] text-fg-muted/70">{phase.key}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-fg">{phase.title}</h3>
-                    <p className="text-xs uppercase tracking-[0.2em] text-fg-muted/70">{phase.key}</p>
-                  </div>
-                </div>
-                <span
-                  aria-label={badge.ariaLabel}
-                  className={`${microEnabled ? 'live-indicator ' : ''}inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${badge.className}`}
-                  data-live={isLive ? 'true' : undefined}
-                  role="status"
+                  <span
+                    aria-label={badge.ariaLabel}
+                    className={`${microEnabled ? 'live-indicator ' : ''}inline-flex items-center rounded-full border border-white/10 bg-white/5 px-1 py-[0.18rem] text-[0.54rem] font-semibold tracking-wide backdrop-blur-sm ${badge.className}`}
+                    data-live={isLive ? 'true' : undefined}
+                    role="status"
+                  >
+                    {badge.text}
+                  </span>
+                </header>
+                <p
+                  className="text-[0.62rem] leading-tight text-fg-muted transition group-hover:text-fg group-focus-within:text-fg"
+                  data-phase-card-summary
                 >
-                  {badge.text}
-                </span>
-              </header>
-              <p className="text-sm leading-relaxed text-fg-muted transition group-hover:text-fg">
-                {phase.summary}
-              </p>
+                  {phase.summary}
+                </p>
+              </div>
             </motion.article>
           );
         })}
