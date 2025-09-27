@@ -57,7 +57,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-3 items-stretch">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3 items-start">
         {phases.map((phase) => {
           const badge = STATUS_LABELS[phase.status];
           const Icon = PHASE_ICONS[phase.key] ?? NetworkIcon;
