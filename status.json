@@ -1,26 +1,23 @@
 {
-  "meta": { "lastUpdated": "2025-09-26T16:38:37Z", "overallTrajectoryPct": 25 },
+  "meta": { "lastUpdated": "2025-09-23T19:00:00Z", "overallTrajectoryPct": 25 },
   "phases": [
     {
       "key": "devnet",
-      "title": "Horizon",
+      "title": "Genesis",
       "status": "in_progress",
-      "summary": "Fixing the final high-priority security issues before relaunching Horizon (Devnet, formerly Genesis) to unblock Adiri.",
-      "learnMore": "Horizon is the Telcoin Network’s development environment—the space formerly known as Genesis or Devnet. It’s where new features, protocol upgrades, and network improvements are first deployed and tested by the core engineering team.\n\nAt this stage, the focus is on fixing the last set of high-priority security findings and validating that all the moving parts of the network perform as expected. Horizon isn’t designed for public use—it’s primarily an internal proving ground—but it plays a critical role in unblocking progress to the next stage, Adiri. Once Horizon reaches stability, the network will be ready for broader testing with external partners."
+      "summary": "Fixing the final high-priority security issues before relaunching Genesis (formerly Devnet) to unblock Horizon."
     },
     {
       "key": "testnet",
-      "title": "Adiri",
+      "title": "Horizon",
       "status": "upcoming",
-      "summary": "Launching after Horizon (Devnet) stabilizes. Early Adiri iterations may be unstable until audits complete.",
-      "learnMore": "Adiri is the Telcoin Network’s public testnet, where the community and partners—including mobile network operators (MNOs) spinning up validator nodes—can interact with the network in a live but non-production setting. Formerly called Horizon, Adiri follows Horizon (Devnet) stabilization and will roll out in phases.\n\nEarly iterations of Adiri may still see instability or bugs as the network undergoes continuous upgrades and audit cycles. That’s intentional: Adiri is where real-world testing happens, and where we make sure validator participation, governance mechanics, and protocol updates all function securely before moving to mainnet.\n\nAdiri represents a critical milestone because it’s the first time the broader ecosystem—validators, developers, and community members—can meaningfully engage with the Telcoin Network."
+      "summary": "Launching after Genesis stabilizes. Early Horizon iterations may be unstable until audits complete."
     },
     {
       "key": "mainnet",
-      "title": "Mainnet",
+      "title": "Zenith",
       "status": "upcoming",
-      "summary": "Mainnet launch follows Adiri stability and the final security competition.",
-      "learnMore": "Mainnet is the culmination of the Horizon (Devnet) and Adiri (Testnet) phases—formerly referred to as Zenith. Once Adiri has achieved stability and passed the final rounds of audits and the open security competition, the network will transition to Mainnet.\n\nMainnet represents the full public launch of the Telcoin Network, where validators, developers, and users can rely on the system for real value transfer and application deployment. It’s the point at which the network moves from testing to production, with the security and decentralization guarantees expected of a Layer 1 blockchain."
+      "summary": "Zenith (Mainnet) follows Horizon stability and the final security competition."
     }
   ],
   "security": {
@@ -33,31 +30,11 @@
     "afterPriorityFixes": { "high": 0, "medium": 14, "low": 36 }
   },
   "roadmap": [
-    {
-      "title": "Fix remaining vulnerabilities",
-      "state": "in_progress",
-      "details": "Fix remaining vulnerabilities"
-    },
-    {
-      "title": "Relaunch Horizon",
-      "state": "up_next",
-      "details": "Relaunch Horizon (Devnet)"
-    },
-    {
-      "title": "Launch Adiri",
-      "state": "planned",
-      "details": "Launch Adiri (Testnet)"
-    },
-    {
-      "title": "Final audits & competition",
-      "state": "planned",
-      "details": "Final audits & competition"
-    },
-    {
-      "title": "Mainnet launch",
-      "state": "planned",
-      "details": "Mainnet launch"
-    }
+    { "title": "Fix remaining vulnerabilities", "state": "in_progress" },
+    { "title": "Relaunch Genesis", "state": "up_next" },
+    { "title": "Launch Horizon", "state": "planned" },
+    { "title": "Final audits & competition", "state": "planned" },
+    { "title": "Zenith launch", "state": "planned" }
   ],
   "links": {
     "governanceForum": "https://forum.telcoin.org/",

@@ -22,8 +22,7 @@ export const statusSchema = z.object({
         key: z.enum(['devnet', 'testnet', 'mainnet']),
         title: z.string().min(1),
         status: phaseStatusSchema,
-        summary: z.string().min(1),
-        learnMore: z.string().min(1)
+        summary: z.string().min(1)
       })
     )
     .length(3),
@@ -44,8 +43,7 @@ export const statusSchema = z.object({
   roadmap: z.array(
     z.object({
       title: z.string().min(1),
-      state: roadmapStateSchema,
-      details: z.string().min(1)
+      state: roadmapStateSchema
     })
   ),
   links: z.object({

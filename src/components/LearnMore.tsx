@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import type { Phase, Status } from '../data/statusSchema';
 import { ChevronIcon, ExternalLinkIcon, InfoIcon } from './icons';
-import { SECTION_COPY } from '../data/sectionCopy';
 
 type LearnMoreProps = {
   phases: Phase[];
@@ -16,13 +15,13 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
     setOpenId(defaultOpenId);
   }, [defaultOpenId]);
 
-  const details = phases.reduce<Record<Phase['key'], string>>((acc, phase) => {
-    acc[phase.key] = phase.learnMore ?? phase.summary;
+  const summaries = phases.reduce<Record<Phase['key'], string>>((acc, phase) => {
+    acc[phase.key] = phase.summary;
     return acc;
   }, Object.create(null));
 
   const questions = useMemo(
-    () => phases.map((phase) => ({ id: phase.key, title: SECTION_COPY.learnMore.questionTemplate(phase.title) })),
+    () => phases.map((phase) => ({ id: phase.key, title: `What is ${phase.title}?` })),
     [phases]
   );
 
@@ -33,8 +32,6 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
   const linkButtons = [
     { label: 'Governance Forum', href: links.governanceForum },
     { label: 'Technical Docs', href: links.technicalDocs },
-    { label: 'TelcoinTAO on X', href: 'https://x.com/TelcoinTAO' },
-    { label: 'Telcoin Association', href: 'https://www.telcoin.org/' },
     { label: 'Faucet', href: 'https://www.telcoin.network/faucet' }
   ];
 
@@ -46,15 +43,16 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
         </div>
         <div className="space-y-1">
           <h2 id="learn-more-heading" className="text-xl font-bold text-fg">
-            {SECTION_COPY.learnMore.heading}
+            Learn more
           </h2>
-          <p className="text-sm text-fg-muted">{SECTION_COPY.learnMore.description}</p>
+          <p className="text-sm text-fg-muted">
+            Dive deeper into each network phase and the documentation supporting the roadmap.
+          </p>
         </div>
       </div>
       <div className="space-y-4">
         {questions.map((question) => {
           const isOpen = openId === question.id;
-          const content = (details[question.id] ?? SECTION_COPY.learnMore.defaultSummary).split('\n\n');
           return (
             <article
               key={question.id}
@@ -84,13 +82,9 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
                 role="region"
                 aria-live="polite"
                 aria-hidden={!isOpen}
-                className={`px-6 pb-6 text-sm leading-relaxed text-fg-muted transition-[max-height,opacity] duration-300 ease-out ${isOpen ? 'max-h-[900px] opacity-100' : 'max-h-0 opacity-0'}`}
+                className={`px-6 pb-6 text-sm leading-relaxed text-fg-muted transition-[max-height,opacity] duration-300 ease-out ${isOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}
               >
-                <div className="space-y-3">
-                  {content.map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
-                  ))}
-                </div>
+                {summaries[question.id] ?? 'Details coming soon.'}
               </div>
             </article>
           );

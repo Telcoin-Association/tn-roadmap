@@ -1,8 +1,5 @@
-import { useCallback, useMemo, useState } from 'react';
 import type { RoadmapItem } from '../data/statusSchema';
 import { ChevronIcon, LaunchIcon, NetworkIcon, TimelineIcon } from './icons';
-import { SECTION_COPY } from '../data/sectionCopy';
-import { getUiFlag } from '../utils/uiFlags';
 
 type RoadToMainnetProps = {
   steps: RoadmapItem[];
@@ -39,16 +36,6 @@ const STATE_STYLES: Record<
 };
 
 export function RoadToMainnet({ steps }: RoadToMainnetProps) {
-  const [expandedSteps, setExpandedSteps] = useState<Record<string, boolean>>({});
-  const microEnabled = useMemo(() => getUiFlag('micro'), []);
-
-  const handleToggle = useCallback((title: string) => {
-    setExpandedSteps((prev) => ({
-      ...prev,
-      [title]: !prev[title]
-    }));
-  }, []);
-
   return (
     <section aria-labelledby="roadmap-heading" className="space-y-6">
       <div className="flex items-start gap-3">
@@ -57,53 +44,33 @@ export function RoadToMainnet({ steps }: RoadToMainnetProps) {
         </div>
         <div className="space-y-1">
           <h2 id="roadmap-heading" className="text-xl font-bold text-fg">
-            {SECTION_COPY.roadmap.heading}
+            Road to Mainnet
           </h2>
-          <p className="text-sm text-fg-muted">{SECTION_COPY.roadmap.description}</p>
+          <p className="text-sm text-fg-muted">
+            Milestones required to unlock mainnet launch readiness.
+          </p>
         </div>
       </div>
       <div className="rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
         <ol className="space-y-4">
-          {steps.map((step, index) => {
+          {steps.map((step) => {
             const style = STATE_STYLES[step.state];
             const Icon = style.icon;
-            const isLive = step.state === 'in_progress';
-            const isExpanded = Boolean(expandedSteps[step.title]);
-            const detailsId = `roadmap-step-${index}-details`;
             return (
               <li
                 key={step.title}
-                className="roadmap-step flex flex-col gap-3 rounded-2xl border-2 border-white/10 bg-white/5 p-4 text-sm text-fg backdrop-blur"
-                data-expanded={isExpanded ? 'true' : 'false'}
+                className="flex flex-col gap-3 rounded-2xl border-2 border-white/10 bg-white/5 p-4 text-sm text-fg backdrop-blur"
               >
-                <button
-                  type="button"
-                  className="roadmap-step-toggle"
-                  onClick={() => handleToggle(step.title)}
-                  aria-expanded={isExpanded}
-                  aria-controls={detailsId}
-                >
-                  <div className="roadmap-step-header flex items-center justify-between gap-3">
-                    <span
-                      className={`${microEnabled ? 'live-indicator ' : ''}inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${style.chip}`}
-                      data-live={microEnabled && isLive ? 'true' : undefined}
-                    >
-                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/15 text-primary shadow-soft" aria-hidden="true">
-                        <Icon className="h-4 w-4" />
-                      </span>
-                      {style.label}
+                <div className="flex items-center justify-between gap-3">
+                  <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${style.chip}`}>
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/15 text-primary shadow-soft" aria-hidden="true">
+                      <Icon className="h-4 w-4" />
                     </span>
-                    <ChevronIcon className="h-4 w-4 text-fg-muted/80" aria-hidden="true" data-role="chevron" />
-                  </div>
-                </button>
-                <h3 className="text-base font-semibold text-fg">{step.title}</h3>
-                <div
-                  id={detailsId}
-                  className="roadmap-step-details text-sm text-fg-muted"
-                  aria-hidden={!isExpanded}
-                >
-                  <div className="roadmap-step-details-inner leading-relaxed">{step.details}</div>
+                    {style.label}
+                  </span>
+                  <ChevronIcon className="h-4 w-4 text-fg-muted/80" aria-hidden="true" />
                 </div>
+                <h3 className="text-base font-semibold text-fg">{step.title}</h3>
               </li>
             );
           })}

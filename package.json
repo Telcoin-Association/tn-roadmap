@@ -14,8 +14,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"src/**/*.{ts,tsx}\" \"scripts/**/*.ts\" vite.config.ts vitest.config.ts tailwind.config.ts --ext .ts,.tsx",
     "lint:a11y": "eslint \"src/**/*.{ts,tsx}\" --config eslint.a11y.config.js",
-    "test": "vitest run || true",
-    "test:ui": "vitest",
+    "test": "vitest run",
     "validate:status": "tsx scripts/validate-status.ts",
     "bump:status": "tsx scripts/bump-status.ts"
   },
