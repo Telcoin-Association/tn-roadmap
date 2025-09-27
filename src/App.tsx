@@ -183,50 +183,25 @@ export default function App() {
           </>
         ) : (
           <>
-            <motion.section
-              variants={sectionVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-            >
+            <section>
               <PhaseOverview phases={status.phases} />
-            </motion.section>
+            </section>
 
-            <motion.section
-              id="security-section"
-              variants={sectionVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.05 }}
-            >
+            <section id="security-section">
               <SecurityAudits
                 notes={status.security.notes}
                 publicFindings={status.security.publicFindings}
                 afterPriorityFixes={status.security.afterPriorityFixes}
               />
-            </motion.section>
+            </section>
 
-            <motion.section
-              variants={sectionVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.05 }}
-            >
+            <section>
               <RoadToMainnet steps={status.roadmap} />
-            </motion.section>
+            </section>
 
-            <motion.section
-              variants={sectionVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.05 }}
-            >
+            <section>
               <LearnMore phases={status.phases} links={status.links} />
-            </motion.section>
+            </section>
           </>
         )}
       </main>

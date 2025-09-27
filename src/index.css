@@ -101,4 +101,54 @@
     -webkit-line-clamp: 2;
     overflow: hidden;
   }
+
+  /* Global compact scaler (~60% of current vertical rhythm) */
+  .phase-compact {
+    --phase-scale: 0.6;
+  }
+
+  .phase-compact [data-phase-card-surface] {
+    padding-top: calc(var(--phase-scale) * 16px);
+    padding-bottom: calc(var(--phase-scale) * 16px);
+    padding-left: calc(var(--phase-scale) * 16px);
+    padding-right: calc(var(--phase-scale) * 16px);
+    gap: calc(var(--phase-scale) * 12px);
+  }
+
+  .phase-compact [data-phase-card-header] {
+    gap: calc(var(--phase-scale) * 12px);
+    margin-bottom: calc(var(--phase-scale) * 6px);
+  }
+
+  .phase-compact [data-phase-card-title-group] > div:first-child {
+    width: calc(var(--phase-scale) * 36px);
+    height: calc(var(--phase-scale) * 36px);
+  }
+
+  .phase-compact [data-phase-card-title-group] svg {
+    width: calc(var(--phase-scale) * 20px);
+    height: calc(var(--phase-scale) * 20px);
+  }
+
+  .phase-compact [data-phase-card-title-group] h3 {
+    font-size: calc(var(--phase-scale) * 24px);
+    line-height: calc(var(--phase-scale) * 28px);
+  }
+
+  .phase-compact [data-phase-card-title-group] p {
+    font-size: calc(var(--phase-scale) * 12px);
+    letter-spacing: 0.28em;
+  }
+
+  .phase-compact [role='status'] {
+    padding: calc(var(--phase-scale) * 4px) calc(var(--phase-scale) * 10px);
+    font-size: calc(var(--phase-scale) * 12px);
+  }
+
+  .phase-compact [data-phase-card-summary] {
+    font-size: calc(var(--phase-scale) * 14px);
+    line-height: calc(var(--phase-scale) * 20px);
+    margin-top: calc(var(--phase-scale) * 2px);
+    min-height: calc(var(--phase-scale) * 40px);
+  }
 }

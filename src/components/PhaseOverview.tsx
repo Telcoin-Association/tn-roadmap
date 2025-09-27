@@ -42,7 +42,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
   const microEnabled = useMemo(() => getUiFlag('micro'), []);
 
   return (
-    <section aria-labelledby="phase-overview-heading" className="space-y-3 md:space-y-4">
+    <section aria-labelledby="phase-overview-heading" className="phase-compact space-y-3 md:space-y-4">
       <div className="flex items-start gap-2 md:gap-3">
         <div className="flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-2xl bg-primary/20 text-primary">
           <CompassIcon className="h-4 w-4 md:h-5 md:w-5" />
@@ -57,7 +57,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-3 items-stretch">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-3 items-stretch">
         {phases.map((phase) => {
           const badge = STATUS_LABELS[phase.status];
           const Icon = PHASE_ICONS[phase.key] ?? NetworkIcon;
