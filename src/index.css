@@ -37,6 +37,10 @@
     margin-top: calc(var(--space-y-vertical) * (1 - var(--tw-space-y-reverse, 0)));
     margin-bottom: calc(var(--space-y-vertical) * var(--tw-space-y-reverse, 0));
   }
+
+  [data-phase-card]:is(:hover, :focus-within) {
+    box-shadow: 0 30px 85px -56px hsl(201 92% 56% / 0.58);
+  }
 }
 
 @layer components {
