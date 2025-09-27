@@ -43,12 +43,12 @@
   [data-phase-card] {
     position: relative;
     isolation: isolate;
-    border-radius: 1.375rem;
+    border-radius: 1.25rem;
     background:
-      radial-gradient(circle at 12% -25%, hsl(201 92% 60% / 0.45), transparent 58%),
-      radial-gradient(circle at 90% 120%, hsl(248 83% 64% / 0.32), transparent 56%),
-      linear-gradient(150deg, hsl(220 74% 16% / 0.9), hsl(220 74% 9% / 0.92));
-    box-shadow: 0 28px 75px -52px hsl(220 70% 9% / 0.65);
+      radial-gradient(circle at 12% -20%, hsl(201 92% 60% / 0.45), transparent 54%),
+      radial-gradient(circle at 90% 120%, hsl(248 83% 64% / 0.32), transparent 52%),
+      linear-gradient(150deg, hsl(220 74% 16% / 0.92), hsl(220 74% 10% / 0.94));
+    box-shadow: 0 24px 70px -54px hsl(220 70% 9% / 0.62);
     transition: box-shadow 200ms ease, transform 200ms ease;
   }
 
@@ -70,9 +70,9 @@
   [data-phase-card-surface] {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    border-radius: calc(1.375rem - 2px);
-    background: linear-gradient(160deg, hsl(222 60% 18% / 0.9), hsl(222 64% 10% / 0.9));
+    gap: 0.2rem;
+    border-radius: calc(1.25rem - 4px);
+    background: linear-gradient(160deg, hsl(222 60% 18% / 0.92), hsl(222 64% 10% / 0.9));
   }
 
   [data-phase-card-header] {
@@ -96,7 +96,7 @@
   [data-phase-card-summary] {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     overflow: hidden;
   }
 }
