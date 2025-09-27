@@ -24,3 +24,15 @@
     @apply outline-none ring-2 ring-offset-2 ring-offset-bg;
   }
 }
+
+/* Password gate overlay (client-side only) */
+.gate-overlay{position:fixed;inset:0;display:grid;place-items:center;background:radial-gradient(120% 120% at 50% 0%,rgba(20,30,60,.9),rgba(5,10,20,.98));backdrop-filter:blur(6px);z-index:50}
+.gate-card{width:min(92vw,440px);border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(13,20,36,.9);padding:20px 18px 18px;box-shadow:0 24px 60px -30px rgba(0,0,0,.6)}
+.gate-title{margin:0 0 6px;font-size:20px;font-weight:700;color:#fff}
+.gate-sub{margin:0 0 14px;color:rgba(255,255,255,.7)}
+.gate-form{display:flex;gap:10px}
+.gate-input{flex:1;min-width:0;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0c1426;color:#fff;padding:10px 12px}
+.gate-btn{border-radius:10px;border:1px solid rgba(255,255,255,.18);background:#1f6feb;color:#fff;padding:10px 14px;font-weight:600}
+.gate-btn:disabled{opacity:.6;cursor:not-allowed}
+.gate-error{color:#ffadad;margin-top:10px}
+.gate-note{color:rgba(255,255,255,.5);margin-top:8px;font-size:12px}
