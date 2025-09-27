@@ -52,10 +52,13 @@
     transition: box-shadow 200ms ease, transform 200ms ease;
   }
 
+/* index.css */
+@layer utilities {
   [data-phase-card]:is(:hover, :focus-within) {
     box-shadow: 0 30px 85px -56px hsl(201 92% 56% / 0.58);
   }
-
+}
+main
   [data-phase-card]::before {
     content: '';
     position: absolute;
