@@ -26,7 +26,7 @@ const renderApp = () => {
 const isAccessGranted = () => {
   try {
     return window.sessionStorage.getItem(ACCESS_TOKEN_STORAGE_KEY) === 'true';
-  } catch (error) {
+  } catch {
     return false;
   }
 };

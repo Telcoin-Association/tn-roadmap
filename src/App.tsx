@@ -233,24 +233,6 @@ export default function App() {
       <footer className="border-t-2 border-border/60 bg-card py-8 text-sm text-fg-muted backdrop-blur">
         <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-6 text-center md:flex-row md:justify-between md:px-8 md:text-left">
           <span>© 2025 Telcoin Network</span>
-          <div className="flex flex-wrap justify-center gap-2">
-            <a
-              className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-4 py-2 font-semibold text-fg transition-transform transition-colors duration-200 ease-out hover:-translate-y-0.5 hover:bg-primary/10 hover:text-primary focus-visible:-translate-y-0.5"
-              href="https://x.com/TelcoinTAO"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              TelcoinTAO on X
-            </a>
-            <a
-              className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-4 py-2 font-semibold text-fg transition-transform transition-colors duration-200 ease-out hover:-translate-y-0.5 hover:bg-primary/10 hover:text-primary focus-visible:-translate-y-0.5"
-              href="https://www.telcoin.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Telcoin Association
-            </a>
-          </div>
         </div>
       </footer>
     </div>
