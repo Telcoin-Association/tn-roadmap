@@ -12,6 +12,9 @@ async function sha256Hex(input: string) {
 }
 
 export default function PasswordGate(props: { children: React.ReactNode }) {
+  const GATE_DISABLED = import.meta.env.VITE_DISABLE_GATE === "1";
+  if (GATE_DISABLED) return <>{props.children}</>;
+
   const [ok, setOk] = useState<boolean | null>(null);
   const [error, setError] = useState<string>("");
 
