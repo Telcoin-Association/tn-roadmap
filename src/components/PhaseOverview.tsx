@@ -66,12 +66,12 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           return (
             <motion.article
               key={phase.key}
-              className="group relative flex h-full flex-col overflow-hidden rounded-[20px] bg-[radial-gradient(circle_at_12%_-20%,hsl(201_92%_60%/0.5),transparent_52%),radial-gradient(circle_at_92%_120%,hsl(248_83%_64%/0.36),transparent_54%),linear-gradient(150deg,hsl(220_74%_14%/0.9),hsl(220_74%_10%/0.95))] p-[0.5px] shadow-[0_24px_70px_-54px_hsl(220_72%_6%/0.68)] transition will-change-transform hover:-translate-y-1 hover:shadow-[0_30px_85px_-56px_hsl(201_92%_56%/0.6)] focus-within:-translate-y-1 focus-within:shadow-[0_30px_85px_-56px_hsl(201_92%_56%/0.6)]"
+              className="group relative flex flex-col overflow-hidden rounded-[20px] bg-[radial-gradient(circle_at_12%_-20%,hsl(201_92%_60%/0.5),transparent_52%),radial-gradient(circle_at_92%_120%,hsl(248_83%_64%/0.36),transparent_54%),linear-gradient(150deg,hsl(220_74%_14%/0.9),hsl(220_74%_10%/0.95))] p-[0.5px] shadow-[0_24px_70px_-54px_hsl(220_72%_6%/0.68)] transition will-change-transform hover:-translate-y-1 hover:shadow-[0_30px_85px_-56px_hsl(201_92%_56%/0.6)] focus-within:-translate-y-1 focus-within:shadow-[0_30px_85px_-56px_hsl(201_92%_56%/0.6)]"
               whileHover={{ y: -8 }}
               data-phase-card
             >
               <div
-                className="flex h-full flex-col gap-1 rounded-[18px] border border-white/10 bg-card/85 px-2 pb-2 pt-2 backdrop-blur md:gap-3 md:px-4 md:pb-4 md:pt-3"
+                className="flex flex-col gap-1 rounded-[18px] border border-white/10 bg-card/85 px-2 pb-2 pt-2 backdrop-blur md:gap-3 md:px-4 md:pb-4 md:pt-3"
                 data-phase-card-surface
               >
                 <header className="flex items-start justify-between gap-2 md:gap-3" data-phase-card-header>
