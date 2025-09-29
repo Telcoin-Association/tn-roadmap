@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import type { Phase } from '../data/statusSchema';
-import { CompassIcon, LaunchIcon, MainnetIcon, NetworkIcon, TestnetIcon } from './icons';
+import { AdiriLogoIcon, CompassIcon, HorizonLogoIcon, MainnetIcon, NetworkIcon } from './icons';
 import { formatList } from '../utils/formatList';
 
 const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; ariaLabel: string; shouldPulse?: boolean }> = {
@@ -23,8 +23,8 @@ const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; 
 };
 
 const PHASE_ICONS: Partial<Record<Phase['key'], typeof NetworkIcon>> = {
-  devnet: LaunchIcon,
-  testnet: TestnetIcon,
+  devnet: HorizonLogoIcon,
+  testnet: AdiriLogoIcon,
   mainnet: MainnetIcon
 };
 
