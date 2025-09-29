@@ -34,6 +34,12 @@ const PHASE_LOGOS: Partial<Record<Phase['key'], { src: string; alt: string }>> =
   mainnet: { src: '/IMG/Mainnet.svg', alt: 'Mainnet Logo' }
 };
 
+const PHASE_ANCHORS: Partial<Record<Phase['key'], { href: string; ariaLabel: string }>> = {
+  devnet: { href: '#what-is-horizon', ariaLabel: 'Jump to What is Horizon' },
+  testnet: { href: '#what-is-adiri', ariaLabel: 'Jump to What is Adiri' },
+  mainnet: { href: '#what-is-mainnet', ariaLabel: 'Jump to What is Mainnet' }
+};
+
 type PhaseOverviewProps = {
   phases: Phase[];
 };
@@ -69,15 +75,12 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           const badge = STATUS_LABELS[phase.status];
           const Icon = NetworkIcon;
           const logo = PHASE_LOGOS[phase.key];
+          const anchor = PHASE_ANCHORS[phase.key];
 
           const subtitle = 'Release';
 
-          return (
-            <motion.article
-              key={phase.key}
-              className="group flex h-full flex-col gap-5 rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow focus-within:-translate-y-1"
-              whileHover={{ y: -8 }}
-            >
+          const cardInner = (
+            <>
               <header className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-primary/10 text-primary md:h-10 md:w-10">
@@ -120,6 +123,34 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
               <p className="text-sm leading-relaxed text-fg-muted transition group-hover:text-fg">
                 {phase.summary}
               </p>
+            </>
+          );
+
+          if (anchor) {
+            return (
+              <a
+                key={phase.key}
+                href={anchor.href}
+                aria-label={anchor.ariaLabel}
+                className="group block focus:outline-none"
+              >
+                <motion.article
+                  className="flex h-full flex-col gap-5 rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow"
+                  whileHover={{ y: -8 }}
+                >
+                  {cardInner}
+                </motion.article>
+              </a>
+            );
+          }
+
+          return (
+            <motion.article
+              key={phase.key}
+              className="group flex h-full flex-col gap-5 rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow"
+              whileHover={{ y: -8 }}
+            >
+              {cardInner}
             </motion.article>
           );
         })}
