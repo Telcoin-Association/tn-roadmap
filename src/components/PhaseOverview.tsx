@@ -1,6 +1,12 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import type { Phase } from '../data/statusSchema';
+codex/replace-phase-overview-logo-with-adiri.svg
 import { AdiriLogoIcon, CompassIcon, HorizonLogoIcon, MainnetIcon, NetworkIcon } from './icons';
+=======
+import { CompassIcon, LaunchIcon, MainnetIcon, NetworkIcon, TestnetIcon } from './icons';
+import adiriLogo from '../assets/Adiri logo.svg';
+import horizonLogo from '../assets/Horizon logo.svg';
+ main
 import { formatList } from '../utils/formatList';
 
 const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; ariaLabel: string; shouldPulse?: boolean }> = {
@@ -26,6 +32,13 @@ const PHASE_ICONS: Partial<Record<Phase['key'], typeof NetworkIcon>> = {
   devnet: HorizonLogoIcon,
   testnet: AdiriLogoIcon,
   mainnet: MainnetIcon
+};
+
+const PHASE_LOGOS: Partial<
+  Record<Phase['key'], { alt: string; src: string }>
+> = {
+  devnet: { src: horizonLogo, alt: 'Horizon phase logo' },
+  testnet: { src: adiriLogo, alt: 'Adiri phase logo' }
 };
 
 const PHASE_CODE_NAMES: Record<Phase['key'], string> = {
@@ -63,6 +76,9 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
         {phases.map((phase) => {
           const badge = STATUS_LABELS[phase.status];
           const Icon = PHASE_ICONS[phase.key] ?? NetworkIcon;
+          const logo = PHASE_LOGOS[phase.key];
+          const hasLogo = Boolean(logo);
+
           return (
             <motion.article
               key={phase.key}
@@ -71,8 +87,20 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
             >
               <header className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Icon className="h-6 w-6" />
+                  <div
+                    className={`flex h-12 w-12 items-center justify-center rounded-2xl ${
+                      hasLogo ? '' : 'bg-primary/10 text-primary'
+                    }`}
+                  >
+                    {hasLogo && logo ? (
+                      <img
+                        alt={logo.alt}
+                        className="h-10 w-10 object-contain"
+                        src={logo.src}
+                      />
+                    ) : (
+                      <Icon className="h-6 w-6" />
+                    )}
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-fg">{phase.title}</h3>
