@@ -81,13 +81,13 @@ export default function App() {
               transition={{ duration: 0.5, ease: 'easeOut' }}
               className="space-y-8"
             >
-              <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-start md:justify-between md:text-left">
-                <div className="space-y-3">
-                  <div className="flex items-center justify-center gap-4 md:justify-start">
-                    <TelcoinAnimatedLogo className="h-16 w-16 flex-shrink-0" />
+              <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
+                  <TelcoinAnimatedLogo className="h-32 w-32 shrink-0" />
+                  <div className="space-y-3 text-left">
                     <h1 className="text-2xl font-extrabold text-fg md:text-3xl">Telcoin Network Status</h1>
+                    <p className="max-w-xl text-sm text-fg-muted md:text-base">{headerDescription}</p>
                   </div>
-                  <p className="max-w-xl text-sm text-fg-muted md:text-base">{headerDescription}</p>
                 </div>
                 <div className="w-full max-w-sm rounded-3xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
                   <ProgressBar value={status.meta.overallTrajectoryPct} label="Road to Mainnet" />
