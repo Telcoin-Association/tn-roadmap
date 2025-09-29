@@ -31,8 +31,8 @@ const LEARN_MORE_CONTENT: Record<Phase['key'], { title: string; body: string[] }
   mainnet: {
     title: 'What is Mainnet',
     body: [
-      'Mainnet is the name for the Telcoin Network’s mainnet launch—the culmination of the Horizon and Adiri phases. Once Adiri has achieved stability and passed the final rounds of audits and the open security competition, the network will transition to Mainnet.',
-      'Mainnet represents the full public launch of the Telcoin Network, where validators, developers, and users can rely on the system for real value transfer and application deployment. It’s the point at which the network moves from testing to production, with the security and decentralization guarantees expected of a Layer 1 blockchain.'
+      'Mainnet is the Telcoin Network’s full launch, following the Horizon and Adiri phases. It marks the transition from testing to production, where validators, developers, and users can rely on the system for real value transfer and application deployment.',
+      'Mainnet will roll out in two stages—Alpha Mainnet and Beta Mainnet—but both are part of the same Mainnet launch. Alpha focuses on initial deployment and stability under real conditions, while Beta expands participation and prepares the network for full-scale operation. Together, these phases deliver the security and decentralization guarantees expected of a Layer 1 blockchain.'
     ]
   }
 };
@@ -44,8 +44,40 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
     return activePhase?.key ?? orderedSections[0]?.key ?? null;
   }, [orderedSections]);
   const [openId, setOpenId] = useState<Phase['key'] | null>(defaultOpenId);
+
   useEffect(() => {
-    setOpenId(defaultOpenId);
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const hashToPhaseKey: Record<string, Phase['key']> = {
+      'what-is-horizon': 'devnet',
+      'what-is-adiri': 'testnet',
+      'what-is-mainnet': 'mainnet'
+    };
+
+    const applyHash = () => {
+      const hash = window.location.hash.replace('#', '');
+      const matchedPhase = hashToPhaseKey[hash];
+
+      if (matchedPhase) {
+        setOpenId(matchedPhase);
+
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } else {
+        setOpenId(defaultOpenId);
+      }
+    };
+
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
+
+    return () => {
+      window.removeEventListener('hashchange', applyHash);
+    };
   }, [defaultOpenId]);
 
   const sections = orderedSections.map((section) => ({
@@ -103,7 +135,15 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
           return (
             <article
               key={section.id}
-              id={`learn-more-${section.id}`}
+              id={
+                isHorizon
+                  ? 'what-is-horizon'
+                  : isAdiri
+                    ? 'what-is-adiri'
+                    : isMainnet
+                      ? 'what-is-mainnet'
+                      : `learn-more-${section.id}`
+              }
               className="overflow-hidden rounded-2xl border-2 border-border/60 bg-card shadow-soft backdrop-blur"
             >
               <motion.button
