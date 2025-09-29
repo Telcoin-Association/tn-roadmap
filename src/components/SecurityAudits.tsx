@@ -1,5 +1,6 @@
+import type { ReactNode } from 'react';
+
 import type { Status } from '../data/statusSchema';
-import { NetworkIcon, ShieldIcon, SparkIcon } from './icons';
 
 type SecurityAuditsProps = Pick<Status['security'], 'notes' | 'publicFindings' | 'afterPriorityFixes'>;
 
@@ -13,18 +14,18 @@ const STAT_LABELS: Record<string, string> = {
 function StatCard({
   title,
   metrics,
-  icon: Icon
+  icon
 }: {
   title: string;
   metrics: Record<string, number>;
-  icon: typeof NetworkIcon;
+  icon: ReactNode;
 }) {
   const entries = Object.entries(metrics);
   return (
     <article className="flex flex-1 flex-col gap-4 rounded-2xl border-2 border-border/60 bg-card p-5 shadow-soft backdrop-blur">
       <header className="flex items-center gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20 text-primary">
-          <Icon className="h-5 w-5" />
+          {icon}
         </div>
         <h3 className="text-lg font-semibold text-fg">{title}</h3>
       </header>
@@ -47,11 +48,16 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
     <section aria-labelledby="security-heading" className="space-y-6">
       <div className="flex items-start gap-3">
         <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/20 text-primary">
-          <ShieldIcon className="h-6 w-6" />
+          <img
+            src="/IMG/Audit.svg"
+            alt="Security and Audits"
+            className="h-6 w-6 md:h-7 md:w-7 shrink-0"
+            loading="eager"
+          />
         </div>
         <div className="space-y-1">
           <h2 id="security-heading" className="text-xl font-bold text-fg">
-            Security &amp; audits
+            Security and Audits
           </h2>
           <p className="text-sm text-fg-muted">
             Highlights from recent reviews and what remains before mainnet readiness.
@@ -65,7 +71,12 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
             {notes.map((note) => (
               <li key={note} className="flex items-start gap-3">
                 <span aria-hidden="true" className="mt-1">
-                  <SparkIcon className="h-4 w-4 text-accent" />
+                  <img
+                    src="/IMG/Checkmark.svg"
+                    alt="Security note"
+                    className="h-4 w-4 md:h-5 md:w-5 shrink-0"
+                    loading="eager"
+                  />
                 </span>
                 <span>{note}</span>
               </li>
@@ -73,8 +84,30 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
           </ul>
         </article>
         <div className="flex flex-col gap-4">
-          <StatCard title="Priority Findings (public-facing)" metrics={publicFindings} icon={NetworkIcon} />
-          <StatCard title="After Priority Fixes (remaining)" metrics={afterPriorityFixes} icon={ShieldIcon} />
+          <StatCard
+            title="Priority Findings (public-facing)"
+            metrics={publicFindings}
+            icon={
+              <img
+                src="/IMG/Audit.svg"
+                alt="Priority findings"
+                className="h-6 w-6 md:h-7 md:w-7 shrink-0"
+                loading="eager"
+              />
+            }
+          />
+          <StatCard
+            title="After Priority Fixes (remaining)"
+            metrics={afterPriorityFixes}
+            icon={
+              <img
+                src="/IMG/Audit.svg"
+                alt="After priority fixes (remaining)"
+                className="h-6 w-6 md:h-7 md:w-7 shrink-0"
+                loading="eager"
+              />
+            }
+          />
         </div>
       </div>
     </section>

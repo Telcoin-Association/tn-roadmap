@@ -70,7 +70,12 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
     <section aria-labelledby="learn-more-heading" className="space-y-6">
       <div className="flex items-start gap-3">
         <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/20 text-primary">
-          <InfoIcon className="h-6 w-6" />
+          <img
+            src="/IMG/Info.svg"
+            alt="Learn more"
+            className="h-6 w-6 md:h-7 md:w-7 shrink-0"
+            loading="eager"
+          />
         </div>
         <div className="space-y-1">
           <h2 id="learn-more-heading" className="text-xl font-bold text-fg">
