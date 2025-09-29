@@ -1,6 +1,8 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import type { Phase } from '../data/statusSchema';
 import { CompassIcon, LaunchIcon, MainnetIcon, NetworkIcon, TestnetIcon } from './icons';
+import adiriLogo from '../assets/adiri.svg';
+import horizonLogo from '../assets/horizon.svg';
 import { formatList } from '../utils/formatList';
 
 const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; ariaLabel: string; shouldPulse?: boolean }> = {
@@ -26,6 +28,13 @@ const PHASE_ICONS: Partial<Record<Phase['key'], typeof NetworkIcon>> = {
   devnet: LaunchIcon,
   testnet: TestnetIcon,
   mainnet: MainnetIcon
+};
+
+const PHASE_LOGOS: Partial<
+  Record<Phase['key'], { alt: string; src: string }>
+> = {
+  devnet: { src: horizonLogo, alt: 'Horizon phase logo' },
+  testnet: { src: adiriLogo, alt: 'Adiri phase logo' }
 };
 
 const PHASE_CODE_NAMES: Record<Phase['key'], string> = {
@@ -63,6 +72,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
         {phases.map((phase) => {
           const badge = STATUS_LABELS[phase.status];
           const Icon = PHASE_ICONS[phase.key] ?? NetworkIcon;
+          const logo = PHASE_LOGOS[phase.key];
           return (
             <motion.article
               key={phase.key}
@@ -72,7 +82,15 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
               <header className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Icon className="h-6 w-6" />
+                    {logo ? (
+                      <img
+                        alt={logo.alt}
+                        className="h-9 w-9"
+                        src={logo.src}
+                      />
+                    ) : (
+                      <Icon className="h-6 w-6" />
+                    )}
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-fg">{phase.title}</h3>
