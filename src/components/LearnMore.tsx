@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
+import HorizonLogoUrl from '@/assets/horizon.svg?url';
+import AdiriLogoUrl from '@/assets/adiri.svg?url';
 import type { Phase, Status } from '../data/statusSchema';
 import { ChevronIcon, ExternalLinkIcon, InfoIcon } from './icons';
 
@@ -80,6 +82,10 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
       <div className="space-y-4">
         {sections.map((section) => {
           const isOpen = openId === section.id;
+          const t = section.title?.trim().toLowerCase();
+          const isHorizon = t === 'what is horizon';
+          const isAdiri = t === 'what is adiri';
+          const rowLogo = isHorizon ? HorizonLogoUrl : isAdiri ? AdiriLogoUrl : undefined;
           return (
             <article
               key={section.id}
@@ -95,9 +101,19 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
                 whileTap={{ scale: 0.99 }}
               >
                 <span className="flex items-center gap-3 text-base font-semibold text-fg">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/20 text-primary">
-                    <InfoIcon className="h-5 w-5" />
-                  </span>
+                  <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    {rowLogo ? (
+                      <img
+                        src={rowLogo}
+                        alt={isHorizon ? 'Horizon logo' : 'Adiri logo'}
+                        className="h-7 w-7 shrink-0 object-contain md:h-8 md:w-8"
+                        loading="eager"
+                        decoding="async"
+                      />
+                    ) : (
+                      <InfoIcon className="h-5 w-5 md:h-6 md:w-6" />
+                    )}
+                  </div>
                   {section.title}
                 </span>
                 <span aria-hidden="true" className={`transition-transform ${isOpen ? 'rotate-90' : ''}`}>
