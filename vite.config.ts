@@ -18,5 +18,10 @@ const base = hasCustomDomain ? '/' : defaultBase;
 
 export default defineConfig(({ command }) => ({
   base: command === 'serve' ? '/' : base,
-  plugins: [react(), svgr()]
+  plugins: [react(), svgr()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
+  }
 }));
