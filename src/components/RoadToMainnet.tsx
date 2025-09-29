@@ -1,5 +1,7 @@
+import type { ReactNode } from 'react';
+
 import type { RoadmapItem } from '../data/statusSchema';
-import { ChevronIcon, LaunchIcon, NetworkIcon, TimelineIcon } from './icons';
+import { ChevronIcon, LaunchIcon } from './icons';
 
 type RoadToMainnetProps = {
   steps: RoadmapItem[];
@@ -7,30 +9,51 @@ type RoadToMainnetProps = {
 
 const STATE_STYLES: Record<
   RoadmapItem['state'],
-  { border: string; label: string; icon: typeof NetworkIcon; chip: string }
+  { border: string; label: string; icon: ReactNode; chip: string }
 > = {
   in_progress: {
     border: 'border-primary/50',
     label: 'In progress',
-    icon: LaunchIcon,
+    icon: (
+      <img
+        src="/IMG/Loading.svg"
+        alt="In progress"
+        className="h-4 w-4 md:h-5 md:w-5 shrink-0"
+        loading="eager"
+      />
+    ),
     chip: 'bg-primary/15 text-primary'
   },
   up_next: {
     border: 'border-border/80',
     label: 'Up next',
-    icon: TimelineIcon,
+    icon: (
+      <img
+        src="/IMG/coming.svg"
+        alt="Up next"
+        className="h-4 w-4 md:h-5 md:w-5 shrink-0"
+        loading="eager"
+      />
+    ),
     chip: 'bg-white/10 text-fg-muted'
   },
   planned: {
     border: 'border-border/80',
     label: 'Planned',
-    icon: NetworkIcon,
+    icon: (
+      <img
+        src="/IMG/Info.svg"
+        alt="Planned"
+        className="h-4 w-4 md:h-5 md:w-5 shrink-0"
+        loading="eager"
+      />
+    ),
     chip: 'bg-white/5 text-fg-muted'
   },
   complete: {
     border: 'border-success/40',
     label: 'Complete',
-    icon: LaunchIcon,
+    icon: <LaunchIcon className="h-4 w-4 md:h-5 md:w-5" aria-hidden="true" />,
     chip: 'bg-success/15 text-success'
   }
 };
@@ -40,7 +63,12 @@ export function RoadToMainnet({ steps }: RoadToMainnetProps) {
     <section aria-labelledby="roadmap-heading" className="space-y-6">
       <div className="flex items-start gap-3">
         <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/20 text-primary">
-          <TimelineIcon className="h-6 w-6" />
+          <img
+            src="/IMG/Bookmark.svg"
+            alt="Road to Mainnet"
+            className="h-6 w-6 md:h-7 md:w-7 shrink-0"
+            loading="eager"
+          />
         </div>
         <div className="space-y-1">
           <h2 id="roadmap-heading" className="text-xl font-bold text-fg">
@@ -55,7 +83,6 @@ export function RoadToMainnet({ steps }: RoadToMainnetProps) {
         <ol className="space-y-4">
           {steps.map((step) => {
             const style = STATE_STYLES[step.state];
-            const Icon = style.icon;
             return (
               <li
                 key={step.title}
@@ -64,7 +91,7 @@ export function RoadToMainnet({ steps }: RoadToMainnetProps) {
                 <div className="flex items-center justify-between gap-3">
                   <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${style.chip}`}>
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/15 text-primary shadow-soft" aria-hidden="true">
-                      <Icon className="h-4 w-4" />
+                      {style.icon}
                     </span>
                     {style.label}
                   </span>

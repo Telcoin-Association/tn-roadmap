@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import HorizonLogoUrl from '@/assets/horizon.svg?url';
 import AdiriLogoUrl from '@/assets/adiri.svg?url';
 import type { Phase } from '../data/statusSchema';
-import { CompassIcon, NetworkIcon } from './icons';
+import { NetworkIcon } from './icons';
 import { formatList } from '../utils/formatList';
 
 const STATUS_LABELS: Record<
@@ -48,7 +48,12 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
     <section aria-labelledby="phase-overview-heading" className="space-y-6">
       <div className="flex items-start gap-3">
         <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/20 text-primary">
-          <CompassIcon className="h-6 w-6" />
+          <img
+            src="/IMG/Info.svg"
+            alt="Phase overview"
+            className="h-6 w-6 md:h-7 md:w-7 shrink-0"
+            loading="eager"
+          />
         </div>
         <div className="space-y-1">
           <h2 id="phase-overview-heading" className="text-xl font-bold text-fg">
