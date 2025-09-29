@@ -5,6 +5,8 @@ import AdiriLogoUrl from '@/assets/adiri.svg?url';
 import type { Phase, Status } from '../data/statusSchema';
 import { ChevronIcon, ExternalLinkIcon, InfoIcon } from './icons';
 
+const MAINNET_LOGO_URL = '/IMG/Mainnet.svg';
+
 type LearnMoreProps = {
   phases: Phase[];
   links: Status['links'];
@@ -85,7 +87,14 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
           const t = section.title?.trim().toLowerCase();
           const isHorizon = t === 'what is horizon';
           const isAdiri = t === 'what is adiri';
-          const rowLogo = isHorizon ? HorizonLogoUrl : isAdiri ? AdiriLogoUrl : undefined;
+          const isMainnet = t === 'what is mainnet';
+          const rowLogo = isHorizon
+            ? { src: HorizonLogoUrl, alt: 'Horizon logo' }
+            : isAdiri
+              ? { src: AdiriLogoUrl, alt: 'Adiri logo' }
+              : isMainnet
+                ? { src: MAINNET_LOGO_URL, alt: 'Mainnet logo' }
+                : undefined;
           return (
             <article
               key={section.id}
@@ -104,8 +113,8 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
                   <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                     {rowLogo ? (
                       <img
-                        src={rowLogo}
-                        alt={isHorizon ? 'Horizon logo' : 'Adiri logo'}
+                        src={rowLogo.src}
+                        alt={rowLogo.alt}
                         className="h-7 w-7 shrink-0 object-contain md:h-8 md:w-8"
                         loading="eager"
                         decoding="async"
