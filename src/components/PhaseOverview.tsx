@@ -37,12 +37,6 @@ const PHASE_LOGOS: Partial<Record<Phase['key'], { src: string; alt: string }>> =
   testnet: { src: AdiriLogoUrl, alt: 'Adiri logo' }
 };
 
-const PHASE_CODE_NAMES: Record<Phase['key'], string> = {
-  devnet: 'Horizon',
-  testnet: 'Adiri',
-  mainnet: 'Mainnet'
-};
-
 type PhaseOverviewProps = {
   phases: Phase[];
 };
@@ -74,6 +68,8 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           const Icon = PHASE_ICONS[phase.key] ?? NetworkIcon;
           const logo = PHASE_LOGOS[phase.key];
 
+          const subtitle = 'Release';
+
           return (
             <motion.article
               key={phase.key}
@@ -97,8 +93,11 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-fg">{phase.title}</h3>
-                    <p className="text-xs uppercase tracking-[0.2em] text-fg-muted/70">
-                      {PHASE_CODE_NAMES[phase.key]}
+                    <p
+                      className="text-xs uppercase tracking-[0.2em] text-fg-muted/70"
+                      data-phase-subtitle="release"
+                    >
+                      {subtitle}
                     </p>
                   </div>
                 </div>
