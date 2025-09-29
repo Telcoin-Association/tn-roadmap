@@ -1,5 +1,8 @@
 import type { SVGProps } from 'react';
 
+import AdiriLogoSvg from '../../IMG/Adiri logo.svg?react';
+import HorizonLogoSvg from '../../IMG/Horizon logo.svg?react';
+
 type IconProps = SVGProps<SVGSVGElement>;
 
 const baseClasses = 'h-6 w-6 text-primary';
@@ -43,6 +46,26 @@ export function LaunchIcon({ className, ...props }: IconProps) {
       />
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 9l3 3" />
     </svg>
+  );
+}
+
+export function AdiriLogoIcon({ className, ...props }: IconProps) {
+  return (
+    <AdiriLogoSvg
+      aria-hidden="true"
+      className={`${baseClasses} ${className ?? ''}`}
+      {...props}
+    />
+  );
+}
+
+export function HorizonLogoIcon({ className, ...props }: IconProps) {
+  return (
+    <HorizonLogoSvg
+      aria-hidden="true"
+      className={`${baseClasses} ${className ?? ''}`}
+      {...props}
+    />
   );
 }
 
