@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 254.29 248">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #4066de;
+      }
+
+      .cls-2 {
+        clip-rule: evenodd;
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <path class="cls-2" d="M171.46,185.36l-11.89-20.73c-1.27-2.21-3.44-3.46-5.98-3.46l-85.28.25c-1.28,0-2.38-.63-3.01-1.74-.64-1.11-.63-2.38,0-3.49l14.02-24.28,55.36-.15c1.28,0,2.37-.65,3.02-1.76.65-1.11.65-2.38.01-3.49l-12.87-22.45c-.64-1.11-1.73-1.74-3.01-1.74l-19.44.05c-1.27,0-2.37-.62-3-1.73-.64-1.11-.63-2.38.01-3.49l24.8-42.95c.64-1.11,1.74-1.75,3.02-1.75,1.28,0,2.37.63,3,1.73,25.05,43.69,50.11,87.37,75.17,131.06.64,1.11,1.73,1.74,3,1.73,1.28,0,2.37-.64,3.01-1.75l12.01-20.79c1.28-2.21,1.29-4.74.02-6.94L146.25,22.92c-1.27-2.2-3.45-3.46-5.99-3.46l-25.93.08c-2.54,0-4.73,1.27-6,3.49l-43.87,75.99c-1.28,2.21-1.28,4.73-.02,6.94l14.88,25.95-29.92.09c-2.54,0-4.72,1.28-6,3.49l-13.02,22.56c-1.28,2.22-1.29,4.74-.02,6.94l12.9,22.5c1.27,2.21,3.45,3.47,5.98,3.46l119.19-.35c1.27,0,2.37-.65,3.01-1.75s.65-2.39.01-3.49"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="230.94" y1="171.76" x2="82.92" y2="137.42" gradientTransform="translate(-18.71 293.89) rotate(-90) scale(1.04)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4066de"/>
+      <stop offset=".2" stop-color="#3e68de"/>
+      <stop offset=".34" stop-color="#3a72e2"/>
+      <stop offset=".47" stop-color="#3382e7"/>
+      <stop offset=".59" stop-color="#2a98ef"/>
+      <stop offset=".69" stop-color="#1db5f8"/>
+      <stop offset=".75" stop-color="#16c8ff"/>
+    </linearGradient>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path class="cls-1" d="M127.14,0C56.92,0,0,55.52,0,124s56.92,124,127.14,124,127.14-55.52,127.14-124S197.36,0,127.14,0ZM127.24,236.57c-63.28,0-114.57-50.4-114.57-112.57S63.96,11.43,127.24,11.43s114.57,50.4,114.57,112.57-51.3,112.57-114.57,112.57Z"/>
+    <g class="cls-4">
+      <rect class="cls-3" x="44.83" y="47.95" width="196.58" height="170.36" transform="translate(-43.74 190.51) rotate(-60)"/>
+    </g>
+  </g>
+</svg>

@@ -1,15 +1,15 @@
 import { motion, useReducedMotion } from 'framer-motion';
+
+import HorizonLogoUrl from '@/assets/horizon.svg?url';
+import AdiriLogoUrl from '@/assets/adiri.svg?url';
 import type { Phase } from '../data/statusSchema';
-codex/replace-phase-overview-logo-with-adiri.svg
-import { AdiriLogoIcon, CompassIcon, HorizonLogoIcon, MainnetIcon, NetworkIcon } from './icons';
-=======
-import { CompassIcon, LaunchIcon, MainnetIcon, NetworkIcon, TestnetIcon } from './icons';
-import adiriLogo from '../assets/Adiri logo.svg';
-import horizonLogo from '../assets/Horizon logo.svg';
- main
+import { CompassIcon, MainnetIcon, NetworkIcon } from './icons';
 import { formatList } from '../utils/formatList';
 
-const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; ariaLabel: string; shouldPulse?: boolean }> = {
+const STATUS_LABELS: Record<
+  Phase['status'],
+  { text: string; className: string; ariaLabel: string; shouldPulse?: boolean }
+> = {
   in_progress: {
     text: 'In progress',
     className: 'border-primary/50 bg-primary/20 text-primary',
@@ -29,16 +29,12 @@ const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; 
 };
 
 const PHASE_ICONS: Partial<Record<Phase['key'], typeof NetworkIcon>> = {
-  devnet: HorizonLogoIcon,
-  testnet: AdiriLogoIcon,
   mainnet: MainnetIcon
 };
 
-const PHASE_LOGOS: Partial<
-  Record<Phase['key'], { alt: string; src: string }>
-> = {
-  devnet: { src: horizonLogo, alt: 'Horizon phase logo' },
-  testnet: { src: adiriLogo, alt: 'Adiri phase logo' }
+const PHASE_LOGOS: Partial<Record<Phase['key'], { src: string; alt: string }>> = {
+  devnet: { src: HorizonLogoUrl, alt: 'Horizon logo' },
+  testnet: { src: AdiriLogoUrl, alt: 'Adiri logo' }
 };
 
 const PHASE_CODE_NAMES: Record<Phase['key'], string> = {
@@ -77,7 +73,6 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           const badge = STATUS_LABELS[phase.status];
           const Icon = PHASE_ICONS[phase.key] ?? NetworkIcon;
           const logo = PHASE_LOGOS[phase.key];
-          const hasLogo = Boolean(logo);
 
           return (
             <motion.article
@@ -87,19 +82,17 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
             >
               <header className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-2xl ${
-                      hasLogo ? '' : 'bg-primary/10 text-primary'
-                    }`}
-                  >
-                    {hasLogo && logo ? (
+                  <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-primary/10 text-primary md:h-10 md:w-10">
+                    {logo ? (
                       <img
-                        alt={logo.alt}
-                        className="h-10 w-10 object-contain"
                         src={logo.src}
+                        alt={logo.alt}
+                        className="h-9 w-9 shrink-0 object-contain md:h-10 md:w-10"
+                        loading="eager"
+                        decoding="async"
                       />
                     ) : (
-                      <Icon className="h-6 w-6" />
+                      <Icon className="h-5 w-5 md:h-6 md:w-6" />
                     )}
                   </div>
                   <div>
@@ -113,9 +106,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                   aria-label={badge.ariaLabel}
                   className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${badge.className}`}
                   role="status"
-                  animate={
-                    !reduceMotion && badge.shouldPulse ? { opacity: [1, 0.5, 1] } : undefined
-                  }
+                  animate={!reduceMotion && badge.shouldPulse ? { opacity: [1, 0.5, 1] } : undefined}
                   transition={
                     !reduceMotion && badge.shouldPulse
                       ? { duration: 1.2, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }

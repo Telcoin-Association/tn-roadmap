@@ -16,7 +16,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["vitest/globals", "vite/client", "node"]
+    "types": ["vitest/globals", "vite/client", "node"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src", "scripts", "vite.config.ts", "tailwind.config.ts", "postcss.config.js"],
   "exclude": ["dist", "node_modules"]
