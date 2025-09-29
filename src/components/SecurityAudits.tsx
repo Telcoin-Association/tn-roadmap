@@ -70,14 +70,12 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
           <ul className="mt-4 space-y-3 text-sm text-fg-muted">
             {notes.map((note) => (
               <li key={note} className="flex items-start gap-3">
-                <span aria-hidden="true" className="mt-1">
-                  <img
-                    src="/IMG/Checkmark.svg"
-                    alt="Security note"
-                    className="h-4 w-4 md:h-5 md:w-5 shrink-0"
-                    loading="eager"
-                  />
-                </span>
+                <img
+                  src="/IMG/Checkmark.svg"
+                  alt="Security note"
+                  className="h-5 w-5 md:h-6 md:w-6 shrink-0"
+                  loading="eager"
+                />
                 <span>{note}</span>
               </li>
             ))}
