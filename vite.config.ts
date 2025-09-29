@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import svgr from 'vite-plugin-svgr';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -17,5 +18,5 @@ const base = hasCustomDomain ? '/' : defaultBase;
 
 export default defineConfig(({ command }) => ({
   base: command === 'serve' ? '/' : base,
-  plugins: [react()]
+  plugins: [react(), svgr()]
 }));
