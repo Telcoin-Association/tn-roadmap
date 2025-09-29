@@ -1,8 +1,12 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import type { Phase } from '../data/statusSchema';
+codex/replace-phase-overview-logo-with-adiri.svg
+import { AdiriLogoIcon, CompassIcon, HorizonLogoIcon, MainnetIcon, NetworkIcon } from './icons';
+=======
 import { CompassIcon, LaunchIcon, MainnetIcon, NetworkIcon, TestnetIcon } from './icons';
 import adiriLogo from '../assets/Adiri logo.svg';
 import horizonLogo from '../assets/Horizon logo.svg';
+ main
 import { formatList } from '../utils/formatList';
 
 const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; ariaLabel: string; shouldPulse?: boolean }> = {
@@ -25,8 +29,8 @@ const STATUS_LABELS: Record<Phase['status'], { text: string; className: string; 
 };
 
 const PHASE_ICONS: Partial<Record<Phase['key'], typeof NetworkIcon>> = {
-  devnet: LaunchIcon,
-  testnet: TestnetIcon,
+  devnet: HorizonLogoIcon,
+  testnet: AdiriLogoIcon,
   mainnet: MainnetIcon
 };
 
