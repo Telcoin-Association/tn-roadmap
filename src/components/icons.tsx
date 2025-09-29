@@ -1,9 +1,10 @@
-import type { SVGProps } from 'react';
+import type { ComponentPropsWithoutRef, SVGProps } from 'react';
 import { useId } from 'react';
 
 import HorizonLogoSvg from '../../IMG/Horizon logo.svg?react';
 
 type IconProps = SVGProps<SVGSVGElement>;
+type ImageIconProps = ComponentPropsWithoutRef<'img'>;
 
 const baseClasses = 'h-6 w-6 text-primary';
 
@@ -138,24 +139,14 @@ export function TestnetIcon({ className, ...props }: IconProps) {
   );
 }
 
-export function MainnetIcon({ className, ...props }: IconProps) {
+export function MainnetIcon({ className, alt = 'Mainnet Logo', ...props }: ImageIconProps) {
   return (
-    <svg
-      aria-hidden="true"
-      className={`${baseClasses} ${className ?? ''}`}
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={1.5}
+    <img
+      src="/IMG/Mainnet.svg"
+      alt={alt}
+      className={`h-auto w-full ${className ?? ''}`}
       {...props}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 3l6.928 4v8L12 19l-6.928-4V7z"
-      />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 7l4 2.309v4.382L12 16l-4-2.309V9.309z" />
-    </svg>
+    />
   );
 }
 

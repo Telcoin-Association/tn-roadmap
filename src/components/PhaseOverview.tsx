@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import HorizonLogoUrl from '@/assets/horizon.svg?url';
 import AdiriLogoUrl from '@/assets/adiri.svg?url';
 import type { Phase } from '../data/statusSchema';
-import { CompassIcon, MainnetIcon, NetworkIcon } from './icons';
+import { CompassIcon, NetworkIcon } from './icons';
 import { formatList } from '../utils/formatList';
 
 const STATUS_LABELS: Record<
@@ -28,13 +28,10 @@ const STATUS_LABELS: Record<
   }
 };
 
-const PHASE_ICONS: Partial<Record<Phase['key'], typeof NetworkIcon>> = {
-  mainnet: MainnetIcon
-};
-
 const PHASE_LOGOS: Partial<Record<Phase['key'], { src: string; alt: string }>> = {
   devnet: { src: HorizonLogoUrl, alt: 'Horizon logo' },
-  testnet: { src: AdiriLogoUrl, alt: 'Adiri logo' }
+  testnet: { src: AdiriLogoUrl, alt: 'Adiri logo' },
+  mainnet: { src: '/IMG/Mainnet.svg', alt: 'Mainnet Logo' }
 };
 
 type PhaseOverviewProps = {
@@ -65,7 +62,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
       <div className="grid gap-6 md:grid-cols-3">
         {phases.map((phase) => {
           const badge = STATUS_LABELS[phase.status];
-          const Icon = PHASE_ICONS[phase.key] ?? NetworkIcon;
+          const Icon = NetworkIcon;
           const logo = PHASE_LOGOS[phase.key];
 
           const subtitle = 'Release';
@@ -83,7 +80,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                       <img
                         src={logo.src}
                         alt={logo.alt}
-                        className="h-9 w-9 shrink-0 object-contain md:h-10 md:w-10"
+                        className="h-auto w-full max-h-9 max-w-9 shrink-0 object-contain md:max-h-10 md:max-w-10"
                         loading="eager"
                         decoding="async"
                       />
