@@ -144,7 +144,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                   {phase.summary}
                 </p>
               </div>
-              <div className="mt-auto pt-4" data-milestones-row="">
+              <div className="pt-4" data-milestones-row="">
                 <MilestoneBlock phase={milestonePhaseKey} />
               </div>
             </div>
