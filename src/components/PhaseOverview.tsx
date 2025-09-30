@@ -129,7 +129,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                   {badge.text}
                 </motion.span>
               </header>
-              <p className="text-sm leading-relaxed text-fg-muted transition group-hover:text-fg">
+              <p className="flex-1 text-sm leading-relaxed text-fg-muted transition group-hover:text-fg">
                 {phase.summary}
               </p>
               <MilestoneBlock phase={milestonePhaseKey} />

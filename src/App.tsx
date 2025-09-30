@@ -91,6 +91,32 @@ export default function App() {
                     <p className="max-w-xl text-sm text-fg-muted md:text-base">
                       {headerDescription}
                     </p>
+                    <div className="flex flex-wrap gap-3">
+                      <a
+                        href="https://github.com/telcoin-association/telcoin-network"
+                        className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        GitHub
+                      </a>
+                      <a
+                        href="https://telscan.io/"
+                        className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Explorer
+                      </a>
+                      <a
+                        href="https://www.telcoin.network/faucet"
+                        className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Faucet
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <div className="w-full min-w-[260px] max-w-sm rounded-3xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
