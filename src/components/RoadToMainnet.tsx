@@ -88,15 +88,11 @@ export default function RoadToMainnet() {
           ))}
         </div>
 
-        {/* Detail tiles */}
+        {/* Detail list */}
         <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-          <ul className="grid gap-3 sm:grid-cols-2">
+          <ul className="space-y-6">
             {items.map((m) => (
-              <li
-                key={m.slug}
-                id={roadToMainnetId(tab, m.slug)}
-                className="scroll-mt-24 rounded-xl border border-white/10 bg-white/5 p-4"
-              >
+              <li key={m.slug} id={roadToMainnetId(tab, m.slug)} className="scroll-mt-24">
                 <div className="text-sm font-semibold text-white/90">{m.text}</div>
                 {m.details && m.details.length > 0 && (
                   <ul className="mt-2 list-disc pl-5 text-sm leading-6 text-white/80">
