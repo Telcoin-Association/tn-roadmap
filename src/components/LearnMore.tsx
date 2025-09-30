@@ -25,9 +25,9 @@ const LEARN_MORE_CONTENT: Record<Phase['key'], { title: string; body: string[] }
   testnet: {
     title: 'What is Adiri',
     body: [
-      'Adiri is the Telcoin Network’s public testnet, where the community and partners—including mobile network operators (MNOs) spinning up validator nodes—can interact with the network in a live but non-production setting.',
+      'Adiri is Telcoin Network’s public testnet, where the community and partners—including mobile network operators (MNOs) spinning up validator nodes—can interact with the network in a live but non-production setting.',
       'This stage follows Horizon stabilization and will roll out in phases. Early iterations of Adiri may still see instability or bugs as the network undergoes continuous upgrades and audit cycles. That’s intentional: Adiri is where real-world testing happens, and where we make sure validator participation, governance mechanics, and protocol updates all function securely before moving to mainnet.',
-      'Adiri represents a critical milestone because it’s the first time the broader ecosystem—validators, developers, and community members—can meaningfully engage with the Telcoin Network.',
+      'Adiri represents a critical milestone because it’s the first time the broader ecosystem—validators, developers, and community members—can meaningfully engage with Telcoin Network.',
     ],
   },
   mainnet: {

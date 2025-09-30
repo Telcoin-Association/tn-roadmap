@@ -23,16 +23,20 @@
   "security": {
     "notes": [
       "Major architectural changes complete (one in progress).",
-      "Every patch ships with added tests (caught 3 bugs missed in audit).",
-      "Next: another audit competition → enables insurance + 24/7 post-launch coverage."
+      "Every patch ships with added tests (caught 4 bugs so far missed in competition).",
+      "Next: focused security assessments (p2p network, key management, execution layer)"
     ],
     "publicFindings": { "high": 3, "medium": 2, "low": 5, "info": 4 },
-    "afterPriorityFixes": { "high": 0, "medium": 14, "low": 36 }
+    "afterPriorityFixes": { "high": 0, "medium": 14, "low": 36, "info": 20 }
   },
   "roadmap": [
-    { "title": "Fix remaining vulnerabilities", "state": "in_progress" },
+    { "title": "Patch public vulnerabilities", "state": "in_progress" },
     { "title": "Stabilize Horizon environment", "state": "up_next" },
     { "title": "Open Adiri public testnet", "state": "planned" },
+    {
+      "title": "Address remaining findings from security competition",
+      "state": "up_next"
+    },
     { "title": "Final audits & competition", "state": "planned" },
     { "title": "Mainnet launch", "state": "planned" }
   ],
