@@ -65,7 +65,7 @@ export default function App() {
 
   const showSkeleton = status === null;
   const headerDescription =
-    'Visibility into Telcoin Network development and what remains before launch.';
+    'Visibility into Telcoin Network development and what remains before launching mainnet.';
 
   return (
     <div className="min-h-screen bg-bg bg-hero-ambient text-fg">
