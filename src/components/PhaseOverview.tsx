@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 
-import MilestoneDropdown from '@/components/MilestoneDropdown';
+import MilestoneBlock from '@/components/MilestoneBlock';
 import type { PhaseKey } from '@/data/milestones';
 import HorizonLogoUrl from '@/assets/horizon.svg?url';
 import AdiriLogoUrl from '@/assets/adiri.svg?url';
@@ -132,7 +132,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
               <p className="text-sm leading-relaxed text-fg-muted transition group-hover:text-fg">
                 {phase.summary}
               </p>
-              <MilestoneDropdown phase={milestonePhaseKey} />
+              <MilestoneBlock phase={milestonePhaseKey} />
             </>
           );
 

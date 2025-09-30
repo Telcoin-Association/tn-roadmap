@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { LearnMore } from './components/LearnMore';
 import { PhaseOverview } from './components/PhaseOverview';
 import { ProgressBar } from './components/ProgressBar';
-import { RoadToMainnet } from './components/RoadToMainnet';
+import RoadToMainnet from './components/RoadToMainnet';
 import { SecurityAudits } from './components/SecurityAudits';
 import { loadStatus, type Status } from './data/loadStatus';
 import { TelcoinAnimatedLogo } from './components/TelcoinAnimatedLogo';
