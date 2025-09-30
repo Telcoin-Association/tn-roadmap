@@ -24,7 +24,8 @@
     "notes": [
       "Major architectural changes complete (one in progress).",
       "Every patch ships with added tests (caught 4 bugs so far missed in competition).",
-      "Next: focused security assessments (p2p network, key management, execution layer)"
+      "Next: focused security assessments (p2p network, key management, execution layer)",
+      "Track issues on GitHub"
     ],
     "publicFindings": { "high": 3, "medium": 2, "low": 5, "info": 4 },
     "afterPriorityFixes": { "high": 0, "medium": 14, "low": 36, "info": 20 }
