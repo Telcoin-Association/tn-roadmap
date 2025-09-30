@@ -6,6 +6,20 @@
     <meta name="robots" content="noindex,nofollow" />
     <title>Telcoin Network Roadmap</title>
     <meta name="description" content="Live status of the Telcoin Network roadmap." />
+    <!-- Favicon (external, no binaries in repo) -->
+    <link id="app-favicon" rel="icon" href="https://telcoin.org/favicon.ico" />
+    <script>
+      // Fallback to telcoin.network if telcoin.org icon fails
+      (function () {
+        var link = document.getElementById('app-favicon');
+        if (!link) return;
+        var probe = new Image();
+        probe.onerror = function () {
+          link.href = 'https://telcoin.network/favicon.ico';
+        };
+        probe.src = link.href + '?v=1';
+      })();
+    </script>
   </head>
   <body class="bg-bg text-fg antialiased">
     <div id="root"></div>
