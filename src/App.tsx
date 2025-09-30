@@ -157,7 +157,7 @@ export default function App() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, ease: 'easeOut', delay: 0.05 }}
             >
-              <RoadToMainnet steps={status.roadmap} />
+              <RoadToMainnet />
             </motion.section>
 
             <motion.section
