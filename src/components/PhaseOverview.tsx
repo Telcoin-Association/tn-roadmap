@@ -78,7 +78,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           </p>
         </div>
       </div>
-      <div className="grid gap-6 md:grid-cols-3">
+      <div data-phase-grid="" className="grid gap-6 md:grid-cols-3 items-stretch">
         {phases.map((phase) => {
           const badge = STATUS_LABELS[phase.status];
           const Icon = NetworkIcon;
@@ -89,79 +89,91 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           const milestonePhaseKey = PHASE_TO_DROPDOWN_KEY[phase.key];
 
           const cardInner = (
-            <>
-              <header className="flex items-start justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-primary/10 text-primary md:h-10 md:w-10">
-                    {logo ? (
-                      <img
-                        src={logo.src}
-                        alt={logo.alt}
-                        className="h-auto w-full max-h-9 max-w-9 shrink-0 object-contain md:max-h-10 md:max-w-10"
-                        loading="eager"
-                        decoding="async"
-                      />
-                    ) : (
-                      <Icon className="h-5 w-5 md:h-6 md:w-6" />
-                    )}
+            <div
+              data-phase-card-content=""
+              className="grid h-full flex-1 grid-rows-[auto,1fr,auto]"
+            >
+              <div className="space-y-5">
+                <header className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-primary/10 text-primary md:h-10 md:w-10">
+                      {logo ? (
+                        <img
+                          src={logo.src}
+                          alt={logo.alt}
+                          className="h-auto w-full max-h-9 max-w-9 shrink-0 object-contain md:max-h-10 md:max-w-10"
+                          loading="eager"
+                          decoding="async"
+                        />
+                      ) : (
+                        <Icon className="h-5 w-5 md:h-6 md:w-6" />
+                      )}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-fg">{phase.title}</h3>
+                      <p
+                        className="text-xs uppercase tracking-[0.2em] text-fg-muted/70"
+                        data-phase-subtitle="release"
+                      >
+                        {subtitle}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-fg">{phase.title}</h3>
-                    <p
-                      className="text-xs uppercase tracking-[0.2em] text-fg-muted/70"
-                      data-phase-subtitle="release"
-                    >
-                      {subtitle}
-                    </p>
-                  </div>
-                </div>
-                <motion.span
-                  aria-label={badge.ariaLabel}
-                  className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${badge.className}`}
-                  role="status"
-                  animate={!reduceMotion && badge.shouldPulse ? { opacity: [1, 0.5, 1] } : undefined}
-                  transition={
-                    !reduceMotion && badge.shouldPulse
-                      ? { duration: 1.2, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }
-                      : undefined
-                  }
-                >
-                  {badge.text}
-                </motion.span>
-              </header>
-              <p className="flex-1 text-sm leading-relaxed text-fg-muted transition group-hover:text-fg">
-                {phase.summary}
-              </p>
-              <MilestoneBlock phase={milestonePhaseKey} />
-            </>
+                  <motion.span
+                    aria-label={badge.ariaLabel}
+                    className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${badge.className}`}
+                    role="status"
+                    animate={!reduceMotion && badge.shouldPulse ? { opacity: [1, 0.5, 1] } : undefined}
+                    transition={
+                      !reduceMotion && badge.shouldPulse
+                        ? { duration: 1.2, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }
+                        : undefined
+                    }
+                  >
+                    {badge.text}
+                  </motion.span>
+                </header>
+                <p className="text-sm leading-relaxed text-fg-muted transition group-hover:text-fg">
+                  {phase.summary}
+                </p>
+              </div>
+              <div />
+              <div className="pt-4">
+                <MilestoneBlock phase={milestonePhaseKey} />
+              </div>
+            </div>
           );
 
           if (anchor) {
             return (
-              <a
-                key={phase.key}
-                href={anchor.href}
-                aria-label={anchor.ariaLabel}
-                className="group block focus:outline-none"
-              >
-                <motion.article
-                  className="flex h-full flex-col gap-5 rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow"
-                  whileHover={{ y: -8 }}
+              <div key={phase.key} className="h-full">
+                <a
+                  href={anchor.href}
+                  aria-label={anchor.ariaLabel}
+                  className="group block h-full focus:outline-none"
                 >
-                  {cardInner}
-                </motion.article>
-              </a>
+                  <motion.article
+                    data-phase-card=""
+                    className="flex h-full flex-col overflow-hidden rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow"
+                    whileHover={{ y: -8 }}
+                  >
+                    {cardInner}
+                  </motion.article>
+                </a>
+              </div>
             );
           }
 
           return (
-            <motion.article
-              key={phase.key}
-              className="group flex h-full flex-col gap-5 rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow"
-              whileHover={{ y: -8 }}
-            >
-              {cardInner}
-            </motion.article>
+            <div key={phase.key} className="h-full">
+              <motion.article
+                data-phase-card=""
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow"
+                whileHover={{ y: -8 }}
+              >
+                {cardInner}
+              </motion.article>
+            </div>
           );
         })}
       </div>
