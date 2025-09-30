@@ -16,31 +16,40 @@ const LEARN_MORE_CONTENT: Record<Phase['key'], { title: string; body: string[] }
   devnet: {
     title: 'What is Horizon',
     body: [
-      "Horizon is the name for the Telcoin Network’s development environment (previously called Devnet). It’s where new features, protocol upgrades, and network improvements are first deployed and tested by the core engineering team.",
-      "At this stage, the focus is on fixing the last set of high-priority security findings and validating that all the moving parts of the network perform as expected. Horizon isn’t designed for public use—it’s primarily an internal proving ground—but it plays a critical role in unblocking progress to the next stage, Adiri. Once Horizon reaches stability, the network will be ready for broader testing with external partners."
-    ]
+      "Horizon (also referred to as Devnet) is Telcoin Network's development environment—a public testing ground where new features, protocol upgrades, and network improvements are first deployed and tested.",
+      'Like all development networks, Horizon is designed for experimentation. Developers can build applications, test integrations, and explore network capabilities using test tokens that have no real-world value. This creates a safe space for innovation without financial risk, though it also means the network may occasionally break or restart as new code is deployed—this instability is completely normal and expected.',
+      'Our current priority is addressing security vulnerabilities identified during our recent 4-week public security competition. By fixing these issues on Horizon first, we ensure that bad actors cannot exploit these weaknesses when the network moves to higher-stakes environments.',
+      "Horizon serves as the essential first step in our three-stage deployment process: Devnet → Testnet → Mainnet. Every piece of code must prove itself here before advancing to the next stage. Once Horizon demonstrates the necessary stability and security, we'll be ready to progress to Adiri, where broader ecosystem testing with external partners can begin.",
+    ],
   },
   testnet: {
     title: 'What is Adiri',
     body: [
       'Adiri is the Telcoin Network’s public testnet, where the community and partners—including mobile network operators (MNOs) spinning up validator nodes—can interact with the network in a live but non-production setting.',
       'This stage follows Horizon stabilization and will roll out in phases. Early iterations of Adiri may still see instability or bugs as the network undergoes continuous upgrades and audit cycles. That’s intentional: Adiri is where real-world testing happens, and where we make sure validator participation, governance mechanics, and protocol updates all function securely before moving to mainnet.',
-      'Adiri represents a critical milestone because it’s the first time the broader ecosystem—validators, developers, and community members—can meaningfully engage with the Telcoin Network.'
-    ]
+      'Adiri represents a critical milestone because it’s the first time the broader ecosystem—validators, developers, and community members—can meaningfully engage with the Telcoin Network.',
+    ],
   },
   mainnet: {
     title: 'What is Mainnet',
     body: [
-      'Mainnet is the Telcoin Network’s full launch, following the Horizon and Adiri phases. It marks the transition from testing to production, where validators, developers, and users can rely on the system for real value transfer and application deployment.',
-      'Mainnet will roll out in two stages—Alpha Mainnet and Beta Mainnet—but both are part of the same Mainnet launch. Alpha focuses on initial deployment and stability under real conditions, while Beta expands participation and prepares the network for full-scale operation. Together, these phases deliver the security and decentralization guarantees expected of a Layer 1 blockchain.'
-    ]
-  }
+      'Mainnet represents the full launch of Telcoin Network—the moment we transition from testing to production and deliver a live, fully operational Layer 1 blockchain.ale operation. Together, these phases deliver the security and decentralization guarantees expected of a Layer 1 blockchain.',
+      'This is where everything becomes real. Mainnet will use actual Telcoin (TEL) as its native currency, enabling genuine value transfer, real economic activity, and production-ready application deployment. Unlike the testing phases, every transaction, every smart contract, and every piece of value on Mainnet will have real-world significance.',
+      'Mainnet is the culmination of all our development efforts—the secure, decentralized network that validators, developers, and users can trust for critical operations. After proving our technology through rigorous testing on Horizon and Adiri, Mainnet represents our commitment to delivering the security, performance, and decentralization guarantees expected of a world-class L1 blockchain.',
+      'For the Telcoin community, Mainnet launch marks a pivotal milestone: the transformation of years of development into a live network that will power the future of accessible financial services. This is when Telcoin Network stops being a promise and becomes a standard.',
+    ],
+  },
 };
 
 export function LearnMore({ phases, links }: LearnMoreProps) {
-  const orderedSections = useMemo(() => phases.map((phase) => ({ key: phase.key, status: phase.status })), [phases]);
+  const orderedSections = useMemo(
+    () => phases.map((phase) => ({ key: phase.key, status: phase.status })),
+    [phases]
+  );
   const defaultOpenId = useMemo(() => {
-    const activePhase = orderedSections.find((section) => section.status === 'in_progress');
+    const activePhase = orderedSections.find(
+      (section) => section.status === 'in_progress'
+    );
     return activePhase?.key ?? orderedSections[0]?.key ?? null;
   }, [orderedSections]);
   const [openId, setOpenId] = useState<Phase['key'] | null>(defaultOpenId);
@@ -53,7 +62,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
     const hashToPhaseKey: Record<string, Phase['key']> = {
       'what-is-horizon': 'devnet',
       'what-is-adiri': 'testnet',
-      'what-is-mainnet': 'mainnet'
+      'what-is-mainnet': 'mainnet',
     };
 
     const applyHash = () => {
@@ -83,7 +92,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
   const sections = orderedSections.map((section) => ({
     id: section.key,
     title: LEARN_MORE_CONTENT[section.key]?.title ?? 'Learn more',
-    body: LEARN_MORE_CONTENT[section.key]?.body ?? ['Details coming soon.']
+    body: LEARN_MORE_CONTENT[section.key]?.body ?? ['Details coming soon.'],
   }));
 
   const toggle = (id: Phase['key']) => {
@@ -95,7 +104,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
     { label: 'Technical Docs', href: links.technicalDocs },
     { label: 'Faucet', href: 'https://www.telcoin.network/faucet' },
     { label: 'Telcoin Association', href: 'https://www.telcoin.org/' },
-    { label: 'Telcoin TAO Twitter', href: 'https://x.com/TelcoinTAO' }
+    { label: 'Telcoin TAO Twitter', href: 'https://x.com/TelcoinTAO' },
   ];
 
   return (
@@ -114,7 +123,8 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
             Learn more
           </h2>
           <p className="text-sm text-fg-muted">
-            Dive deeper into each network phase and the documentation supporting the roadmap.
+            Dive deeper into each network phase and the documentation supporting the
+            roadmap.
           </p>
         </div>
       </div>
@@ -170,7 +180,10 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
                   </div>
                   {section.title}
                 </span>
-                <span aria-hidden="true" className={`transition-transform ${isOpen ? 'rotate-90' : ''}`}>
+                <span
+                  aria-hidden="true"
+                  className={`transition-transform ${isOpen ? 'rotate-90' : ''}`}
+                >
                   <ChevronIcon className="h-4 w-4" />
                 </span>
               </motion.button>
