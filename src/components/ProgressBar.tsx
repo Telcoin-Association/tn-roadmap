@@ -25,7 +25,7 @@ export function ProgressBar({ value, label }: ProgressBarProps) {
         </div>
       ) : null}
       <div
-        className="relative h-3 w-full overflow-hidden rounded-full bg-border/50"
+        className="relative h-3 w-full overflow-hidden rounded-full border border-white/30 bg-border/40"
         role="progressbar"
         aria-label={label ?? 'Overall progress'}
         aria-valuenow={clampedValue}
