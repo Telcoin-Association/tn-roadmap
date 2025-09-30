@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState, type MouseEvent } from 'react';
 import { motion } from 'framer-motion';
 import { LearnMore } from './components/LearnMore';
 import { PhaseOverview } from './components/PhaseOverview';
@@ -7,6 +7,7 @@ import RoadToMainnet from './components/RoadToMainnet';
 import { SecurityAudits } from './components/SecurityAudits';
 import { loadStatus, type Status } from './data/loadStatus';
 import { TelcoinAnimatedLogo } from './components/TelcoinAnimatedLogo';
+import LastUpdated from '@/components/LastUpdated';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -49,23 +50,16 @@ export default function App() {
     return () => window.clearTimeout(timeout);
   }, []);
 
-  const formattedLastUpdated = useMemo(() => {
-    if (!status) return '';
-    try {
-      return new Intl.DateTimeFormat('en-US', {
-        dateStyle: 'medium',
-        timeStyle: 'short',
-        timeZone: 'UTC',
-      }).format(new Date(status.meta.lastUpdated));
-    } catch (error) {
-      console.error('Failed to format last updated timestamp', error);
-      return status.meta.lastUpdated;
-    }
-  }, [status]);
-
   const showSkeleton = status === null;
   const headerDescription =
     'Visibility into Telcoin Network development and what remains before launching mainnet.';
+
+  const onHome = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const base = window.location.pathname + window.location.search;
+    history.replaceState(null, '', base);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div className="min-h-screen bg-bg bg-hero-ambient text-fg">
@@ -82,7 +76,12 @@ export default function App() {
               className="space-y-8"
             >
               <div className="flex flex-wrap items-start gap-6 md:flex-nowrap md:justify-between">
-                <div className="flex min-w-0 flex-1 flex-wrap items-start gap-4">
+                <a
+                  href="/"
+                  onClick={onHome}
+                  aria-label="Telcoin Roadmap home"
+                  className="flex min-w-0 flex-1 flex-wrap items-start gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
                   <TelcoinAnimatedLogo className="h-28 w-28 shrink-0 md:h-32 md:w-32" />
                   <div className="min-w-[220px] flex-1 space-y-3 text-left">
                     <h1 className="text-2xl font-extrabold text-fg md:text-3xl">
@@ -118,16 +117,15 @@ export default function App() {
                       </a>
                     </div>
                   </div>
-                </div>
-                <div className="w-full min-w-[260px] max-w-sm rounded-3xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
-                  <ProgressBar
-                    value={status.meta.overallTrajectoryPct}
-                    label="Road to Mainnet"
-                  />
-                  <p className="mt-4 text-sm text-fg-muted">
-                    Last updated{' '}
-                    <time dateTime={status.meta.lastUpdated}>{formattedLastUpdated}</time>
-                  </p>
+                </a>
+                <div className="flex w-full min-w-[260px] max-w-sm flex-col items-start gap-4 md:items-end">
+                  <LastUpdated />
+                  <div className="w-full rounded-3xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
+                    <ProgressBar
+                      value={status.meta.overallTrajectoryPct}
+                      label="Road to Mainnet"
+                    />
+                  </div>
                 </div>
               </div>
             </motion.div>
