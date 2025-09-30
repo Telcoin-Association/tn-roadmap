@@ -1,7 +1,10 @@
 import { motion, useReducedMotion } from 'framer-motion';
 
+import MilestoneDropdown from '@/components/MilestoneDropdown';
+import type { PhaseKey } from '@/data/milestones';
 import HorizonLogoUrl from '@/assets/horizon.svg?url';
 import AdiriLogoUrl from '@/assets/adiri.svg?url';
+import { requestRoadToMainnetTab } from '@/utils/roadToMainnet';
 import type { Phase } from '../data/statusSchema';
 import { NetworkIcon } from './icons';
 import { formatList } from '../utils/formatList';
@@ -34,10 +37,10 @@ const PHASE_LOGOS: Partial<Record<Phase['key'], { src: string; alt: string }>> =
   mainnet: { src: '/IMG/Mainnet.svg', alt: 'Mainnet Logo' }
 };
 
-const PHASE_ANCHORS: Partial<Record<Phase['key'], { href: string; ariaLabel: string }>> = {
-  devnet: { href: '#what-is-horizon', ariaLabel: 'Jump to What is Horizon' },
-  testnet: { href: '#what-is-adiri', ariaLabel: 'Jump to What is Adiri' },
-  mainnet: { href: '#what-is-mainnet', ariaLabel: 'Jump to What is Mainnet' }
+const PHASE_TO_DROPDOWN_KEY: Record<Phase['key'], PhaseKey> = {
+  devnet: 'horizon',
+  testnet: 'adiri',
+  mainnet: 'mainnet'
 };
 
 type PhaseOverviewProps = {
@@ -75,9 +78,13 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           const badge = STATUS_LABELS[phase.status];
           const Icon = NetworkIcon;
           const logo = PHASE_LOGOS[phase.key];
-          const anchor = PHASE_ANCHORS[phase.key];
+          const anchor = {
+            href: '#roadmap-heading',
+            ariaLabel: `Jump to Road to Mainnet milestones for ${phase.title}`,
+          };
 
           const subtitle = 'Release';
+          const milestonePhaseKey = PHASE_TO_DROPDOWN_KEY[phase.key];
 
           const cardInner = (
             <>
@@ -123,6 +130,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
               <p className="text-sm leading-relaxed text-fg-muted transition group-hover:text-fg">
                 {phase.summary}
               </p>
+              <MilestoneDropdown phase={milestonePhaseKey} />
             </>
           );
 
@@ -133,6 +141,10 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                 href={anchor.href}
                 aria-label={anchor.ariaLabel}
                 className="group block focus:outline-none"
+                onClick={(event) => {
+                  event.preventDefault();
+                  requestRoadToMainnetTab(milestonePhaseKey, { scroll: true });
+                }}
               >
                 <motion.article
                   className="flex h-full flex-col gap-5 rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow"

@@ -1,66 +1,91 @@
-import type { ReactNode } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import type { PhaseKey } from '@/data/milestones';
+import { MILESTONES } from '@/data/milestones';
+import CheckIconUrl from '/IMG/Checkmark.svg?url';
+import {
+  ROAD_TO_MAINNET_EVENT,
+  type RoadToMainnetEventDetail,
+} from '@/utils/roadToMainnet';
 
-import type { RoadmapItem } from '../data/statusSchema';
-import { ChevronIcon, LaunchIcon } from './icons';
-
-type RoadToMainnetProps = {
-  steps: RoadmapItem[];
+const TAB_LABELS: Record<PhaseKey, string> = {
+  horizon: 'Horizon',
+  adiri: 'Adiri',
+  mainnet: 'Mainnet',
 };
 
-const STATE_STYLES: Record<
-  RoadmapItem['state'],
-  { border: string; label: string; icon: ReactNode; chip: string }
-> = {
-  in_progress: {
-    border: 'border-primary/50',
-    label: 'In progress',
-    icon: (
-      <img
-        src="/IMG/Loading.svg"
-        alt="In progress"
-        className="h-4 w-4 md:h-5 md:w-5 shrink-0"
-        loading="eager"
-      />
-    ),
-    chip: 'bg-primary/15 text-primary'
-  },
-  up_next: {
-    border: 'border-border/80',
-    label: 'Up next',
-    icon: (
-      <img
-        src="/IMG/coming.svg"
-        alt="Up next"
-        className="h-4 w-4 md:h-5 md:w-5 shrink-0"
-        loading="eager"
-      />
-    ),
-    chip: 'bg-white/10 text-fg-muted'
-  },
-  planned: {
-    border: 'border-border/80',
-    label: 'Planned',
-    icon: (
-      <img
-        src="/IMG/Info.svg"
-        alt="Planned"
-        className="h-4 w-4 md:h-5 md:w-5 shrink-0"
-        loading="eager"
-      />
-    ),
-    chip: 'bg-white/5 text-fg-muted'
-  },
-  complete: {
-    border: 'border-success/40',
-    label: 'Complete',
-    icon: <LaunchIcon className="h-4 w-4 md:h-5 md:w-5" aria-hidden="true" />,
-    chip: 'bg-success/15 text-success'
-  }
-};
+export function RoadToMainnet() {
+  const [tab, setTab] = useState<PhaseKey>('horizon');
+  const tabs: PhaseKey[] = ['horizon', 'adiri', 'mainnet'];
+  const sectionRef = useRef<HTMLElement | null>(null);
 
-export function RoadToMainnet({ steps }: RoadToMainnetProps) {
+  const HASH_PREFIX = '#road-to-mainnet-tab-';
+
+  const handleTabSelect = useCallback(
+    (phase: PhaseKey, options?: { scroll?: boolean; updateHash?: boolean }) => {
+      setTab(phase);
+
+      if (typeof window !== 'undefined' && options?.updateHash !== false) {
+        const targetHash = `${HASH_PREFIX}${phase}`;
+        if (window.location.hash !== targetHash) {
+          window.history.replaceState(null, '', targetHash);
+        }
+      }
+
+      if (options?.scroll && sectionRef.current) {
+        sectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    },
+    [],
+  );
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const validPhases: PhaseKey[] = ['horizon', 'adiri', 'mainnet'];
+
+    const applyHash = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith(HASH_PREFIX)) {
+        const candidate = hash.slice(HASH_PREFIX.length) as PhaseKey;
+        if (validPhases.includes(candidate)) {
+          handleTabSelect(candidate, { updateHash: false });
+        }
+      }
+    };
+
+    applyHash();
+
+    const handleHashChange = () => {
+      applyHash();
+    };
+
+    const handleEvent = (event: Event) => {
+      const detail = (event as CustomEvent<RoadToMainnetEventDetail>).detail;
+      if (!detail) {
+        return;
+      }
+
+      handleTabSelect(detail.phase, { scroll: detail.scroll });
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    document.addEventListener(ROAD_TO_MAINNET_EVENT, handleEvent as EventListener);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      document.removeEventListener(ROAD_TO_MAINNET_EVENT, handleEvent as EventListener);
+    };
+  }, [HASH_PREFIX, handleTabSelect]);
+
   return (
-    <section aria-labelledby="roadmap-heading" className="space-y-6">
+    <section
+      ref={sectionRef}
+      aria-labelledby="roadmap-heading"
+      className="space-y-6"
+      data-road-to-mainnet=""
+    >
       <div className="flex items-start gap-3">
         <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/20 text-primary">
           <img
@@ -80,28 +105,63 @@ export function RoadToMainnet({ steps }: RoadToMainnetProps) {
         </div>
       </div>
       <div className="rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
-        <ol className="space-y-4">
-          {steps.map((step) => {
-            const style = STATE_STYLES[step.state];
+        <div className="mb-5 inline-flex rounded-xl bg-white/5 p-1" role="tablist" aria-label="Road to Mainnet phases">
+          {tabs.map((t) => {
+            const selected = tab === t;
             return (
-              <li
-                key={step.title}
-                className="flex flex-col gap-3 rounded-2xl border-2 border-white/10 bg-white/5 p-4 text-sm text-fg backdrop-blur"
+              <button
+                key={t}
+                type="button"
+                id={`road-to-mainnet-tab-${t}`}
+                onClick={() => handleTabSelect(t)}
+                className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${selected ? 'bg-white/15 text-white' : 'text-white/70 hover:text-white/90'}`}
+                role="tab"
+                aria-selected={selected}
+                aria-controls={`road-to-mainnet-panel-${t}`}
+                data-road-to-mainnet-tab={t}
               >
-                <div className="flex items-center justify-between gap-3">
-                  <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${style.chip}`}>
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/15 text-primary shadow-soft" aria-hidden="true">
-                      {style.icon}
-                    </span>
-                    {style.label}
-                  </span>
-                  <ChevronIcon className="h-4 w-4 text-fg-muted/80" aria-hidden="true" />
-                </div>
-                <h3 className="text-base font-semibold text-fg">{step.title}</h3>
-              </li>
+                {TAB_LABELS[t]}
+              </button>
             );
           })}
-        </ol>
+        </div>
+
+        <div
+          id={`road-to-mainnet-panel-${tab}`}
+          role="tabpanel"
+          aria-labelledby={`road-to-mainnet-tab-${tab}`}
+          data-road-to-mainnet-panel={tab}
+        >
+          <ul className="space-y-3">
+            {MILESTONES[tab].map((m, i) => (
+              <li
+                key={i}
+                className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-inner transition hover:border-white/15 hover:bg-white/10"
+              >
+                <div className="flex items-start gap-3">
+                  {m.done ? (
+                    <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />
+                  ) : (
+                    <span className="mt-[6px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />
+                  )}
+                  <div className="space-y-2">
+                    <span className="block text-sm font-semibold leading-6 text-white">{m.text}</span>
+                    {m.details?.length ? (
+                      <ul className="space-y-1 text-sm leading-6 text-white/75" data-road-to-mainnet-milestone-details="">
+                        {m.details.map((detail, detailIndex) => (
+                          <li key={detailIndex} className="flex items-start gap-2">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40" />
+                            <span className="flex-1">{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );
