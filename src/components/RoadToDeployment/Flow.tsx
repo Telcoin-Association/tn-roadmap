@@ -74,7 +74,7 @@ function RoadmapNode({ data }: NodeProps<FlowNodeData>) {
         onMouseLeave={() => toggleHover(false)}
         onFocus={() => toggleHover(true)}
         onBlur={() => toggleHover(false)}
-        className={`flex min-w-[220px] flex-col gap-3 rounded-2xl border-2 bg-card p-4 text-left shadow-glow transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg ${statusStyle} hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_55px_-25px_hsl(201_92%_56%/0.45)]`}
+        className={`flex w-[clamp(16rem,80vw,22rem)] min-w-[16rem] flex-col gap-3 rounded-2xl border-2 bg-card p-4 text-left shadow-glow transition duration-200 ease-out focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg ${statusStyle} hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_55px_-25px_hsl(201_92%_56%/0.45)]`}
       >
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-fg-muted/80">
           {phase.subtitle ?? 'Milestone'}
@@ -239,8 +239,9 @@ export function RoadToDeploymentFlow({ onSelectPhase }: FlowProps) {
         </div>
       </header>
       <div
-        className="rounded-3xl border-2 border-border/60 bg-card/80 p-6 shadow-glow h-[32rem] md:h-[26rem]"
+        className="rounded-3xl border-2 border-border/60 bg-card/80 p-6 shadow-glow"
         data-testid="roadmap-flow"
+        style={{ height: 'clamp(28rem, 70vh, 40rem)' }}
       >
         <ReactFlow
           nodes={nodes}
