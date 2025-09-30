@@ -10,7 +10,7 @@ import { TelcoinAnimatedLogo } from './components/TelcoinAnimatedLogo';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 }
+  visible: { opacity: 1, y: 0 },
 };
 
 function SkeletonSection({ className }: { className?: string }) {
@@ -55,7 +55,7 @@ export default function App() {
       return new Intl.DateTimeFormat('en-US', {
         dateStyle: 'medium',
         timeStyle: 'short',
-        timeZone: 'UTC'
+        timeZone: 'UTC',
       }).format(new Date(status.meta.lastUpdated));
     } catch (error) {
       console.error('Failed to format last updated timestamp', error);
@@ -65,7 +65,7 @@ export default function App() {
 
   const showSkeleton = status === null;
   const headerDescription =
-    'Visibility into our Horizon, Adiri, and Mainnet progress and what remains before launch.';
+    'Visibility into Telcoin Network development and what remains before launching mainnet.';
 
   return (
     <div className="min-h-screen bg-bg bg-hero-ambient text-fg">
@@ -85,14 +85,22 @@ export default function App() {
                 <div className="flex min-w-0 flex-1 flex-wrap items-start gap-4">
                   <TelcoinAnimatedLogo className="h-28 w-28 shrink-0 md:h-32 md:w-32" />
                   <div className="min-w-[220px] flex-1 space-y-3 text-left">
-                    <h1 className="text-2xl font-extrabold text-fg md:text-3xl">Telcoin Network Status</h1>
-                    <p className="max-w-xl text-sm text-fg-muted md:text-base">{headerDescription}</p>
+                    <h1 className="text-2xl font-extrabold text-fg md:text-3xl">
+                      Telcoin Network Roadmap
+                    </h1>
+                    <p className="max-w-xl text-sm text-fg-muted md:text-base">
+                      {headerDescription}
+                    </p>
                   </div>
                 </div>
                 <div className="w-full min-w-[260px] max-w-sm rounded-3xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
-                  <ProgressBar value={status.meta.overallTrajectoryPct} label="Road to Mainnet" />
+                  <ProgressBar
+                    value={status.meta.overallTrajectoryPct}
+                    label="Road to Mainnet"
+                  />
                   <p className="mt-4 text-sm text-fg-muted">
-                    Last updated <time dateTime={status.meta.lastUpdated}>{formattedLastUpdated}</time>
+                    Last updated{' '}
+                    <time dateTime={status.meta.lastUpdated}>{formattedLastUpdated}</time>
                   </p>
                 </div>
               </div>

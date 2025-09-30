@@ -1,6 +1,6 @@
 # Telcoin Network Status
 
-Production-ready static roadmap for the Telcoin Network. The site is built with Vite, React, TypeScript, and TailwindCSS and deploys to GitHub Pages.
+Production-ready static roadmap for Telcoin Network. The site is built with Vite, React, TypeScript, and TailwindCSS and deploys to GitHub Pages.
 
 ## Getting started
 
