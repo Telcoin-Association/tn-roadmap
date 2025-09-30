@@ -1,9 +1,11 @@
+import { useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 import MilestoneBlock from '@/components/MilestoneBlock';
 import type { PhaseKey } from '@/data/milestones';
 import HorizonLogoUrl from '@/assets/horizon.svg?url';
 import AdiriLogoUrl from '@/assets/adiri.svg?url';
+import { useEqualizeMinHeight } from '@/hooks/useEqualizeMinHeight';
 import type { Phase } from '../data/statusSchema';
 import { NetworkIcon } from './icons';
 import { formatList } from '../utils/formatList';
@@ -57,6 +59,9 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
   const readablePhaseList = formatList(phaseTitles);
   const phaseListText = readablePhaseList || 'each network phase';
   const reduceMotion = useReducedMotion();
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEqualizeMinHeight(gridRef, '[data-phase-above]');
 
   return (
     <section aria-labelledby="phase-overview-heading" className="space-y-6">
@@ -78,7 +83,11 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           </p>
         </div>
       </div>
-      <div data-phase-grid="" className="grid gap-6 md:grid-cols-3 items-stretch">
+      <div
+        ref={gridRef}
+        data-phase-grid=""
+        className="grid gap-6 md:grid-cols-3 items-stretch"
+      >
         {phases.map((phase) => {
           const badge = STATUS_LABELS[phase.status];
           const Icon = NetworkIcon;
@@ -87,13 +96,11 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
 
           const subtitle = 'Release';
           const milestonePhaseKey = PHASE_TO_DROPDOWN_KEY[phase.key];
+          const dataPhase = milestonePhaseKey;
 
           const cardInner = (
-            <div
-              data-phase-card-content=""
-              className="grid h-full flex-1 grid-rows-[auto,1fr,auto]"
-            >
-              <div className="space-y-5">
+            <div data-phase-card-content="" className="flex h-full flex-1 flex-col">
+              <div className="space-y-5" data-phase-above="">
                 <header className="flex items-start justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-primary/10 text-primary md:h-10 md:w-10">
@@ -137,8 +144,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                   {phase.summary}
                 </p>
               </div>
-              <div />
-              <div className="pt-4">
+              <div className="mt-auto pt-4" data-milestones-row="">
                 <MilestoneBlock phase={milestonePhaseKey} />
               </div>
             </div>
@@ -154,6 +160,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                 >
                   <motion.article
                     data-phase-card=""
+                    data-phase={dataPhase}
                     className="flex h-full flex-col overflow-hidden rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow"
                     whileHover={{ y: -8 }}
                   >
@@ -168,6 +175,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
             <div key={phase.key} className="h-full">
               <motion.article
                 data-phase-card=""
+                data-phase={dataPhase}
                 className="group flex h-full flex-col overflow-hidden rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow"
                 whileHover={{ y: -8 }}
               >

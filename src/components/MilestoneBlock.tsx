@@ -12,7 +12,7 @@ export default function MilestoneBlock({ phase }: Props) {
     <div data-phase-card-milestones="">
       {/* Mini header pill */}
       <div className="flex w-full items-center rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90">
-        <span className="tracking-wide">Milestones</span>
+        <span>Milestones</span>
       </div>
 
       {/* Always-open list */}
