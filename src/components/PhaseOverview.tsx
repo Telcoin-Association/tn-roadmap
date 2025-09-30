@@ -1,5 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 
+import MilestoneDropdown from '@/components/MilestoneDropdown';
+import type { PhaseKey } from '@/data/milestones';
 import HorizonLogoUrl from '@/assets/horizon.svg?url';
 import AdiriLogoUrl from '@/assets/adiri.svg?url';
 import type { Phase } from '../data/statusSchema';
@@ -32,6 +34,12 @@ const PHASE_LOGOS: Partial<Record<Phase['key'], { src: string; alt: string }>> =
   devnet: { src: HorizonLogoUrl, alt: 'Horizon logo' },
   testnet: { src: AdiriLogoUrl, alt: 'Adiri logo' },
   mainnet: { src: '/IMG/Mainnet.svg', alt: 'Mainnet Logo' }
+};
+
+const PHASE_TO_DROPDOWN_KEY: Record<Phase['key'], PhaseKey> = {
+  devnet: 'horizon',
+  testnet: 'adiri',
+  mainnet: 'mainnet'
 };
 
 const PHASE_ANCHORS: Partial<Record<Phase['key'], { href: string; ariaLabel: string }>> = {
@@ -78,6 +86,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           const anchor = PHASE_ANCHORS[phase.key];
 
           const subtitle = 'Release';
+          const milestonePhaseKey = PHASE_TO_DROPDOWN_KEY[phase.key];
 
           const cardInner = (
             <>
@@ -123,6 +132,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
               <p className="text-sm leading-relaxed text-fg-muted transition group-hover:text-fg">
                 {phase.summary}
               </p>
+              <MilestoneDropdown phase={milestonePhaseKey} />
             </>
           );
 
