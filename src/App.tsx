@@ -217,17 +217,7 @@ export default function App() {
         )}
       </main>
       <footer className="border-t-2 border-border/60 bg-card py-8 text-center text-sm text-fg-muted backdrop-blur">
-        <div className="flex flex-col items-center gap-2">
-          <span>© 2025 Telcoin Network</span>
-          <a
-            href="https://chainlist.org/chain/2017"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-primary transition hover:text-primary/80 hover:underline"
-          >
-            Adiri RPC
-          </a>
-        </div>
+        © 2025 Telcoin Network
       </footer>
     </div>
   );
