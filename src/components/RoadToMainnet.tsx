@@ -12,27 +12,16 @@ const TABS: { key: TabKey; label: string }[] = [
   { key: 'issues', label: 'Track Issues' }
 ];
 
-type IssueLabel = { id: number; name: string };
-
-type Issue = {
-  id: number;
-  number: number;
-  title: string;
-  html_url: string;
-  updated_at: string;
-  labels: IssueLabel[];
-  pull_request?: unknown;
-};
-
-const ISSUES_API_URL =
-  'https://api.github.com/repos/Telcoin-Association/telcoin-network/issues?state=open&per_page=100';
+const escapeHtml = (value: string) =>
+  value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 
 export default function RoadToMainnet() {
   const [tab, setTab] = useState<TabKey>('horizon');
-  const [issuesState, setIssuesState] = useState<{
-    status: 'idle' | 'loading' | 'error' | 'success';
-    data: Issue[];
-  }>({ status: 'idle', data: [] });
 
   // On hash change or first load, infer tab from '#road-to-mainnet-{phase}-...'
   useEffect(() => {
@@ -69,94 +58,81 @@ export default function RoadToMainnet() {
   }, [tab]);
 
   useEffect(() => {
-    if (tab !== 'issues' || issuesState.status !== 'idle') {
+    if (tab !== 'issues' || typeof window === 'undefined') {
       return;
     }
 
-    let isMounted = true;
-    setIssuesState({ status: 'loading', data: [] });
+    const el = document.getElementById('issues');
+    if (!el) {
+      return;
+    }
 
-    const controller = new AbortController();
+    let cancelled = false;
+    el.innerHTML = 'Loading…';
 
-    const fetchIssues = async () => {
+    (async () => {
       try {
-        const res = await fetch(ISSUES_API_URL, {
-          headers: { Accept: 'application/vnd.github+json' },
-          signal: controller.signal
-        });
-
-        if (!res.ok) {
-          throw new Error('Request failed');
+        const response = await fetch('/roadmap.json', { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
         }
 
-        const payload = (await res.json()) as Issue[];
-        const issues = payload.filter((issue) => !issue.pull_request);
-
-        if (isMounted) {
-          setIssuesState({ status: 'success', data: issues });
-        }
-      } catch (error) {
-        if (!isMounted || (error instanceof DOMException && error.name === 'AbortError')) {
+        const data = await response.json();
+        if (cancelled) {
           return;
         }
 
-        setIssuesState({ status: 'error', data: [] });
-      }
-    };
+        if (!Array.isArray(data) || data.length === 0) {
+          el.innerHTML = "<div style='opacity:.7'>No open issues.</div>";
+          return;
+        }
 
-    fetchIssues();
+        const markup = data
+          .map((item) => {
+            if (
+              typeof item !== 'object' ||
+              item === null ||
+              typeof item.number !== 'number' ||
+              typeof item.title !== 'string' ||
+              typeof item.url !== 'string' ||
+              typeof item.updatedAt !== 'string'
+            ) {
+              return '';
+            }
+
+            const formattedDate = new Date(item.updatedAt).toLocaleDateString();
+            const safeTitle = escapeHtml(item.title);
+            const safeUrl = escapeHtml(item.url);
+
+            return `
+      <article style="padding:12px;border:1px solid #e5e7eb;border-radius:12px;background:#fff">
+        <a href="${safeUrl}" target="_blank" rel="noopener" style="font-weight:600;text-decoration:none">
+          ${safeTitle}
+        </a>
+        <div style="margin-top:6px;font-size:12px;opacity:.75">
+          #${item.number} • updated ${formattedDate}
+        </div>
+      </article>
+    `;
+          })
+          .filter(Boolean)
+          .join('');
+
+        el.innerHTML = markup || "<div style='opacity:.7'>No open issues.</div>";
+      } catch (error) {
+        if (cancelled) {
+          return;
+        }
+
+        const message = error instanceof Error && error.message ? error.message : String(error);
+        el.innerHTML = `<pre style="white-space:pre-wrap;color:#b91c1c">Failed to load roadmap.json\n${escapeHtml(message)}</pre>`;
+      }
+    })();
 
     return () => {
-      isMounted = false;
-      controller.abort();
+      cancelled = true;
     };
-  }, [tab, issuesState.status]);
-
-  const renderIssues = () => {
-    if (issuesState.status === 'loading') {
-      return <div className="text-sm text-white/80">Loading open issues…</div>;
-    }
-
-    if (issuesState.status === 'error') {
-      return <div className="text-sm text-white/80">Couldn’t load issues.</div>;
-    }
-
-    if (issuesState.status === 'success' && issuesState.data.length === 0) {
-      return <div className="text-sm text-white/80">No open issues.</div>;
-    }
-
-    return issuesState.data.map((issue) => {
-      const updatedAt = new Date(issue.updated_at).toLocaleDateString();
-      return (
-        <article
-          key={issue.id}
-          className="rounded-xl border border-white/15 bg-white/10 p-4 text-sm text-white/90 transition hover:border-white/25 hover:bg-white/15"
-        >
-          <a
-            href={issue.html_url}
-            target="_blank"
-            rel="noreferrer"
-            className="font-semibold text-white hover:underline"
-          >
-            {issue.title}
-          </a>
-          {issue.labels?.length ? (
-            <div className="mt-2 flex flex-wrap gap-2">
-              {issue.labels.map((label) => (
-                <span
-                  key={label.id ?? `${issue.id}-${label.name}`}
-                  className="inline-flex items-center rounded-full border border-white/20 px-2 py-0.5 text-xs text-white/80"
-                >
-                  {label.name}
-                </span>
-              ))}
-            </div>
-          ) : null}
-          <div className="mt-2 text-xs text-white/60">#{issue.number} • updated {updatedAt}</div>
-        </article>
-      );
-    });
-  };
+  }, [tab]);
 
   return (
     <section
@@ -205,13 +181,7 @@ export default function RoadToMainnet() {
         {/* Detail list */}
         <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
           {tab === 'issues' ? (
-            <section
-              id="issues"
-              className="grid gap-3"
-              aria-live={issuesState.status === 'loading' ? 'polite' : 'off'}
-            >
-              {renderIssues()}
-            </section>
+            <section id="issues" style={{ display: 'grid', gap: '12px' }} />
           ) : (
             <ul className="space-y-6">
               {MILESTONES[tab].map((m) => (
