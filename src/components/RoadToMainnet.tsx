@@ -12,14 +12,6 @@ const TABS: { key: TabKey; label: string }[] = [
   { key: 'issues', label: 'Track Issues' }
 ];
 
-const escapeHtml = (value: string) =>
-  value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-
 export default function RoadToMainnet() {
   const [tab, setTab] = useState<TabKey>('horizon');
 
@@ -62,72 +54,119 @@ export default function RoadToMainnet() {
       return;
     }
 
-    const el = document.getElementById('issues');
-    if (!el) {
+    const mount = document.getElementById('issues-feed');
+    if (!mount) {
       return;
     }
 
-    let cancelled = false;
-    el.innerHTML = 'Loading…';
+    type IssueLike = {
+      title?: string;
+      url?: string;
+      html_url?: string;
+      number?: number | string;
+      id?: number | string;
+      updated_at?: string;
+      updatedAt?: string;
+      updated?: string;
+    };
 
-    (async () => {
-      try {
-        const response = await fetch("roadmap.json", { cache: 'no-store' });
+    const normalize = (data: unknown): IssueLike[] => {
+      if (Array.isArray(data)) {
+        return data as IssueLike[];
+      }
+
+      if (data && typeof data === 'object') {
+        const obj = data as Record<string, unknown>;
+
+        if (obj.phases && typeof obj.phases === 'object') {
+          return Object.values(obj.phases as Record<string, IssueLike[]>).flat();
+        }
+
+        if (Array.isArray(obj.issues)) {
+          return obj.issues as IssueLike[];
+        }
+
+        if (Array.isArray(obj.items)) {
+          return obj.items as IssueLike[];
+        }
+      }
+
+      return [];
+    };
+
+    let cancelled = false;
+    mount.textContent = 'Loading…';
+
+    const url = new URL('roadmap.json', window.location.href);
+    url.searchParams.set('t', Date.now().toString());
+
+    fetch(url.toString(), { cache: 'no-store' })
+      .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}`);
         }
-
-        const data = await response.json();
+        return response.json();
+      })
+      .then((raw) => {
         if (cancelled) {
           return;
         }
 
-        if (!Array.isArray(data) || data.length === 0) {
-          el.innerHTML = "<div style='opacity:.7'>No open issues.</div>";
+        console.log('[Track Issues] raw roadmap.json:', raw);
+        const list = normalize(raw);
+        console.log('[Track Issues] normalized issues:', list);
+
+        if (!list.length) {
+          mount.innerHTML = "<div style='opacity:.7'>No open issues.</div>";
           return;
         }
 
-        const markup = data
-          .map((item) => {
-            if (
-              typeof item !== 'object' ||
-              item === null ||
-              typeof item.number !== 'number' ||
-              typeof item.title !== 'string' ||
-              typeof item.url !== 'string' ||
-              typeof item.updatedAt !== 'string'
-            ) {
-              return '';
-            }
+        const frag = document.createDocumentFragment();
+        list.forEach((issue) => {
+          const card = document.createElement('article');
+          card.style.cssText =
+            'padding:12px;border:1px solid #23304a;border-radius:12px;background:#0f1a33;';
 
-            const formattedDate = new Date(item.updatedAt).toLocaleDateString();
-            const safeTitle = escapeHtml(item.title);
-            const safeUrl = escapeHtml(item.url);
+          const a = document.createElement('a');
+          a.href =
+            (typeof issue.url === 'string' && issue.url) ||
+            (typeof issue.html_url === 'string' && issue.html_url) ||
+            '#';
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.style.cssText = 'font-weight:600;text-decoration:none;color:#cfe8ff;';
+          a.textContent =
+            (typeof issue.title === 'string' && issue.title) || '(untitled issue)';
 
-            return `
-      <article style="padding:12px;border:1px solid #e5e7eb;border-radius:12px;background:#fff">
-        <a href="${safeUrl}" target="_blank" rel="noopener" style="font-weight:600;text-decoration:none">
-          ${safeTitle}
-        </a>
-        <div style="margin-top:6px;font-size:12px;opacity:.75">
-          #${item.number} • updated ${formattedDate}
-        </div>
-      </article>
-    `;
-          })
-          .filter(Boolean)
-          .join('');
+          const meta = document.createElement('div');
+          meta.style.cssText = 'margin-top:6px;font-size:12px;opacity:.75;color:#cfe8ff;';
+          const id =
+            (typeof issue.number !== 'undefined' && issue.number) ??
+            (typeof issue.id !== 'undefined' && issue.id) ??
+            '—';
+          const dt =
+            (typeof issue.updated_at === 'string' && issue.updated_at) ||
+            (typeof issue.updatedAt === 'string' && issue.updatedAt) ||
+            (typeof issue.updated === 'string' && issue.updated) ||
+            null;
+          const when = dt ? new Date(dt).toLocaleDateString() : '—';
+          meta.textContent = `#${id} • updated ${when}`;
 
-        el.innerHTML = markup || "<div style='opacity:.7'>No open issues.</div>";
-      } catch (error) {
+          card.append(a, meta);
+          frag.appendChild(card);
+        });
+
+        mount.innerHTML = '';
+        mount.appendChild(frag);
+      })
+      .catch((err) => {
         if (cancelled) {
           return;
         }
 
-        const message = error instanceof Error && error.message ? error.message : String(error);
-        el.innerHTML = `<pre style="white-space:pre-wrap;color:#b91c1c">Failed to load roadmap.json\n${escapeHtml(message)}</pre>`;
-      }
-    })();
+        const message = err instanceof Error ? err.message : String(err);
+        mount.innerHTML = `<pre style="white-space:pre-wrap;color:#ff6b6b;background:#131c33;border:1px solid #23304a;border-radius:12px;padding:12px;">Failed to load roadmap.json\n${message}</pre>`;
+      });
 
     return () => {
       cancelled = true;
@@ -181,7 +220,7 @@ export default function RoadToMainnet() {
         {/* Detail list */}
         <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
           {tab === 'issues' ? (
-            <section id="issues" style={{ display: 'grid', gap: '12px' }} />
+            <div id="issues-feed" style={{ display: 'grid', gap: '12px' }} />
           ) : (
             <ul className="space-y-6">
               {MILESTONES[tab].map((m) => (
