@@ -1,11 +1,5 @@
 [
   {
-    "number": 448,
-    "title": "separating for follow up PR",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/448",
-    "updated_at": "2025-10-01T17:18:35Z"
-  },
-  {
     "number": 447,
     "title": "NodeRecord: Prevent Imposters",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/447",
@@ -16,12 +10,6 @@
     "title": "NodeRecord: External Identify Event",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/446",
     "updated_at": "2025-09-30T23:24:56Z"
-  },
-  {
-    "number": 445,
-    "title": "Re-propose headers when no progress is being made.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/445",
-    "updated_at": "2025-10-01T17:57:07Z"
   },
   {
     "number": 444,
@@ -298,5 +286,245 @@
     "title": "Vote Resending Logic is Unbounded and Allows Request Amplification",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/399",
     "updated_at": "2025-09-29T15:19:32Z"
+  },
+  {
+    "number": 398,
+    "title": "Transaction can be dropped in the gossip network",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/398",
+    "updated_at": "2025-09-29T14:57:13Z"
+  },
+  {
+    "number": 397,
+    "title": "Unbounded Validator Enumeration Leading to DoS in Critical Protocol Functions",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/397",
+    "updated_at": "2025-09-29T14:52:00Z"
+  },
+  {
+    "number": 396,
+    "title": "Blocking Wait for Peer Connection Allows Remote Denial of Service in Primary Network Initialization",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/396",
+    "updated_at": "2025-09-29T14:21:08Z"
+  },
+  {
+    "number": 395,
+    "title": "Unbounded Peer Dial Loop Can Cause Resource Exhaustion and Targeted Abuse",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/395",
+    "updated_at": "2025-09-29T14:14:15Z"
+  },
+  {
+    "number": 394,
+    "title": "Infinite loop in vote requests allows single malicious validator to halt consensus",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/394",
+    "updated_at": "2025-09-29T13:59:08Z"
+  },
+  {
+    "number": 393,
+    "title": "Committee creation ignores actual validator stakes leading to voting power imbalance",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/393",
+    "updated_at": "2025-09-29T13:48:54Z"
+  },
+  {
+    "number": 392,
+    "title": "`PrimaryNetworkHandle::publish_consensus` Race Condition / Out-of-Order Gossip",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/392",
+    "updated_at": "2025-09-29T13:37:46Z"
+  },
+  {
+    "number": 391,
+    "title": "Lack of Startup Equivocation Guard Enables Unintentional Double-Signing After Crash/Restore",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/391",
+    "updated_at": "2025-09-29T13:32:06Z"
+  },
+  {
+    "number": 390,
+    "title": "Malicious staker could submit a BLS signature that doesn't belong to them, leading to denial-of-service",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/390",
+    "updated_at": "2025-09-29T10:18:04Z"
+  },
+  {
+    "number": 389,
+    "title": "RecoverableWrapper::closeCase function deletes the unsettledRecord even when funds are frozen",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/389",
+    "updated_at": "2025-09-26T17:13:26Z"
+  },
+  {
+    "number": 388,
+    "title": "Attacker can avoid getting stolen funds frozen via front running",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/388",
+    "updated_at": "2025-09-26T16:50:09Z"
+  },
+  {
+    "number": 387,
+    "title": "`unwrapDisabled` mapping is not populated",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/387",
+    "updated_at": "2025-09-26T16:38:37Z"
+  },
+  {
+    "number": 386,
+    "title": "WorkerNetwork event loop causes infinite CPU spin on channel closure",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/386",
+    "updated_at": "2025-09-26T16:22:58Z"
+  },
+  {
+    "number": 385,
+    "title": "Incorrect checking in the `_ejectFromCommittees` function",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/385",
+    "updated_at": "2025-09-26T16:28:34Z"
+  },
+  {
+    "number": 384,
+    "title": "Evaluate the Layered DB before mainnet",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/384",
+    "updated_at": "2025-09-25T18:33:13Z"
+  },
+  {
+    "number": 376,
+    "title": "Optimization: Parallelize Transaction Recovery during Batch Execution",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/376",
+    "updated_at": "2025-09-12T13:31:49Z"
+  },
+  {
+    "number": 375,
+    "title": "The tn_latestHeader RPC fails.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/375",
+    "updated_at": "2025-09-07T19:47:33Z"
+  },
+  {
+    "number": 326,
+    "title": "Remove Google KMS from Faucet for Testnet",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/326",
+    "updated_at": "2025-06-06T19:10:35Z"
+  },
+  {
+    "number": 325,
+    "title": "Apply Incentives before Close Epoch",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/325",
+    "updated_at": "2025-06-16T15:39:50Z"
+  },
+  {
+    "number": 306,
+    "title": "Consider Supporting Multiple `Multiaddr` per Node",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/306",
+    "updated_at": "2025-05-15T21:27:54Z"
+  },
+  {
+    "number": 301,
+    "title": "PeerManager to Track Validators",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/301",
+    "updated_at": "2025-05-13T23:09:51Z"
+  },
+  {
+    "number": 297,
+    "title": "Authorize Worker Batch Gossip",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/297",
+    "updated_at": "2025-05-07T15:59:10Z"
+  },
+  {
+    "number": 257,
+    "title": "Rust-Analyzer doesn't work for `tn-test-utils`",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/257",
+    "updated_at": "2025-04-21T15:59:16Z"
+  },
+  {
+    "number": 254,
+    "title": "Network Metrics",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/254",
+    "updated_at": "2025-04-14T14:36:34Z"
+  },
+  {
+    "number": 250,
+    "title": "Inbound Failures: Report Penalty from Codec",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/250",
+    "updated_at": "2025-04-12T17:32:25Z"
+  },
+  {
+    "number": 237,
+    "title": "Consider having workers sign batches when they report to other workers.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/237",
+    "updated_at": "2025-03-14T16:48:45Z"
+  },
+  {
+    "number": 233,
+    "title": "Add a metric to track how far behind fully validated blocks are from the chain tip.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/233",
+    "updated_at": "2025-02-26T23:17:36Z"
+  },
+  {
+    "number": 214,
+    "title": "Consolidate committed round updates watch channel",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/214",
+    "updated_at": "2025-02-12T08:40:22Z"
+  },
+  {
+    "number": 212,
+    "title": "Move `CertificateFetcher` into state-sync",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/212",
+    "updated_at": "2025-02-10T14:54:57Z"
+  },
+  {
+    "number": 210,
+    "title": "TaskManager: Limit BatchSync Requests",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/210",
+    "updated_at": "2025-02-07T16:02:21Z"
+  },
+  {
+    "number": 209,
+    "title": "Move primary network's vote handler into header validator",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/209",
+    "updated_at": "2025-02-06T14:47:39Z"
+  },
+  {
+    "number": 190,
+    "title": "Consensus Bus: Helper Methods",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/190",
+    "updated_at": "2025-01-28T12:41:42Z"
+  },
+  {
+    "number": 181,
+    "title": "CI Improvements",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/181",
+    "updated_at": "2025-05-06T22:51:49Z"
+  },
+  {
+    "number": 166,
+    "title": "Generate rust docs on merge",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/166",
+    "updated_at": "2025-01-16T16:54:21Z"
+  },
+  {
+    "number": 165,
+    "title": "Verify Proposed Worker Transactions",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/165",
+    "updated_at": "2025-01-10T14:15:13Z"
+  },
+  {
+    "number": 155,
+    "title": "Axelar Bridging",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/155",
+    "updated_at": "2025-04-29T22:38:01Z"
+  },
+  {
+    "number": 137,
+    "title": "Gossipsub: `TryFrom<&[u8]>` for Network Types",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/137",
+    "updated_at": "2024-12-05T18:31:35Z"
+  },
+  {
+    "number": 46,
+    "title": "Improve the sync nature of the consensus DB access.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/46",
+    "updated_at": "2024-08-16T19:50:09Z"
+  },
+  {
+    "number": 43,
+    "title": "High Traffic Optimization",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/43",
+    "updated_at": "2024-08-13T15:27:11Z"
+  },
+  {
+    "number": 38,
+    "title": "Passing Config to CLI",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/38",
+    "updated_at": "2024-08-07T20:52:39Z"
   }
 ]
