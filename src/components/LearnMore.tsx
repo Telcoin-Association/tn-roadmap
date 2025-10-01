@@ -14,12 +14,9 @@ type LearnMoreProps = {
 
 const LEARN_MORE_CONTENT: Record<Phase['key'], { title: string; body: string[] }> = {
   devnet: {
-    title: 'What is Horizon',
+    title: 'History of the Telcoin Network',
     body: [
-      "Horizon (also referred to as Devnet) is Telcoin Network's development environment a public testing ground where new features, protocol upgrades, and network improvements are first deployed and tested.",
-      'Like all development networks, Horizon is designed for experimentation. Developers can build applications, test integrations, and explore network capabilities using test tokens that have no real-world value. This creates a safe space for innovation without financial risk, though it also means the network may occasionally break or restart as new code is deployed this instability is completely normal and expected.',
-      'Our current priority is addressing security vulnerabilities identified during our recent 4-week public security competition. By fixing these issues on Horizon first, we ensure that bad actors cannot exploit these weaknesses when the network moves to higher-stakes environments.',
-      "Horizon serves as the essential first step in our three-stage deployment process: Devnet → Testnet → Mainnet. Every piece of code must prove itself here before advancing to the next stage. Once Horizon demonstrates the necessary stability and security, we'll be ready to progress to Adiri, where broader ecosystem testing with external partners can begin.",
+      'The Telcoin Network has been years in the making, building on Telcoin’s mission to connect telecom and financial services through blockchain.',
     ],
   },
   testnet: {
@@ -60,7 +57,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
     }
 
     const hashToPhaseKey: Record<string, Phase['key']> = {
-      'what-is-horizon': 'devnet',
+      'history-of-the-telcoin-network': 'devnet',
       'what-is-adiri': 'testnet',
       'what-is-mainnet': 'mainnet',
     };
@@ -132,10 +129,10 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
         {sections.map((section) => {
           const isOpen = openId === section.id;
           const t = section.title?.trim().toLowerCase();
-          const isHorizon = t === 'what is horizon';
+          const isHistory = t === 'history of the telcoin network';
           const isAdiri = t === 'what is adiri';
           const isMainnet = t === 'what is mainnet';
-          const rowLogo = isHorizon
+          const rowLogo = isHistory
             ? { src: HorizonLogoUrl, alt: 'Horizon logo' }
             : isAdiri
               ? { src: AdiriLogoUrl, alt: 'Adiri logo' }
@@ -146,8 +143,8 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
             <article
               key={section.id}
               id={
-                isHorizon
-                  ? 'what-is-horizon'
+                isHistory
+                  ? 'history-of-the-telcoin-network'
                   : isAdiri
                     ? 'what-is-adiri'
                     : isMainnet
