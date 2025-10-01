@@ -137,7 +137,7 @@ export default function App() {
                   </div>
                 </div>
                 <div className="flex w-full max-w-full flex-col items-start gap-4 md:w-auto md:min-w-[260px] md:max-w-sm md:items-end">
-                  <div className="w-full border bg-card p-6 backdrop-blur tc-border-cyan-40 tc-radius-16 tc-shadow-cyan-30-20">
+                  <div className="w-full rounded-3xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
                     <ProgressBar
                       value={status.meta.overallTrajectoryPct}
                       label="Road to Mainnet"
