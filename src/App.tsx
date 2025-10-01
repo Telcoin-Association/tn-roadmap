@@ -63,7 +63,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-bg bg-hero-ambient text-fg">
-      <header className="border-b-2 border-border/60 bg-card backdrop-blur">
+      <header className="bg-card backdrop-blur">
         <div className="mx-auto max-w-5xl px-6 py-16 md:px-8">
           {showSkeleton ? (
             <HeaderSkeleton />
@@ -137,7 +137,7 @@ export default function App() {
                   </div>
                 </div>
                 <div className="flex w-full max-w-full flex-col items-start gap-4 md:w-auto md:min-w-[260px] md:max-w-sm md:items-end">
-                  <div className="w-full rounded-3xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
+                  <div className="w-full rounded-3xl border border-[#19C8FF]/40 bg-card p-6 shadow-[0_0_30px_rgba(25,200,255,0.2)] backdrop-blur">
                     <ProgressBar
                       value={status.meta.overallTrajectoryPct}
                       label="Road to Mainnet"
