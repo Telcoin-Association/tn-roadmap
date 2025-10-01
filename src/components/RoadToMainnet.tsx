@@ -121,8 +121,11 @@ export default function RoadToMainnet() {
           return;
         }
 
-        const frag = document.createDocumentFragment();
-        list.forEach((issue) => {
+        const pageSize = 10;
+        const totalPages = Math.max(1, Math.ceil(list.length / pageSize));
+        let page = 0;
+
+        const createCard = (issue: IssueLike) => {
           const card = document.createElement('article');
           card.style.cssText =
             'padding:12px;border:1px solid #23304a;border-radius:12px;background:#0f1a33;';
@@ -153,11 +156,71 @@ export default function RoadToMainnet() {
           meta.textContent = `#${id} • updated ${when}`;
 
           card.append(a, meta);
-          frag.appendChild(card);
-        });
+          return card;
+        };
 
-        mount.innerHTML = '';
-        mount.appendChild(frag);
+        const renderPage = () => {
+          const frag = document.createDocumentFragment();
+          const items = list.slice(page * pageSize, page * pageSize + pageSize);
+
+          const grid = document.createElement('div');
+          grid.style.cssText = 'display:grid;gap:12px;';
+          items.forEach((issue) => {
+            grid.appendChild(createCard(issue));
+          });
+          frag.appendChild(grid);
+
+          if (totalPages > 1) {
+            const nav = document.createElement('div');
+            nav.style.cssText =
+              'display:flex;align-items:center;justify-content:flex-end;gap:12px;margin-top:12px;';
+
+            const status = document.createElement('span');
+            status.style.cssText = 'font-size:12px;color:#cfe8ffb3;';
+            status.textContent = `Page ${page + 1} of ${totalPages}`;
+
+            const buttonStyle = (btn: HTMLButtonElement) => {
+              btn.style.cssText =
+                'border:1px solid #23304a;border-radius:9999px;background:transparent;color:#cfe8ff;padding:6px 12px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:4px;transition:opacity .2s ease;';
+              btn.style.opacity = btn.disabled ? '0.35' : '1';
+              btn.style.cursor = btn.disabled ? 'not-allowed' : 'pointer';
+            };
+
+            const prev = document.createElement('button');
+            prev.type = 'button';
+            prev.textContent = '‹ Prev';
+            prev.disabled = page === 0;
+            buttonStyle(prev);
+            prev.addEventListener('click', () => {
+              if (page === 0) {
+                return;
+              }
+              page -= 1;
+              renderPage();
+            });
+
+            const next = document.createElement('button');
+            next.type = 'button';
+            next.textContent = 'Next ›';
+            next.disabled = page >= totalPages - 1;
+            buttonStyle(next);
+            next.addEventListener('click', () => {
+              if (page >= totalPages - 1) {
+                return;
+              }
+              page += 1;
+              renderPage();
+            });
+
+            nav.append(prev, status, next);
+            frag.appendChild(nav);
+          }
+
+          mount.innerHTML = '';
+          mount.appendChild(frag);
+        };
+
+        renderPage();
       })
       .catch((err) => {
         if (cancelled) {
