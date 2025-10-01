@@ -15,7 +15,7 @@ const STATUS_LABELS: Record<
   { text: string; className: string; ariaLabel: string; shouldPulse?: boolean }
 > = {
   in_progress: {
-    text: 'In progress',
+    text: 'Active',
     className: 'border-primary/50 bg-primary/20 text-primary',
     ariaLabel: 'Phase is in progress',
     shouldPulse: true

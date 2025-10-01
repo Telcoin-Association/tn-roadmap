@@ -117,12 +117,12 @@ export default function App() {
                           Explorer
                         </a>
                         <a
-                          href="https://www.telcoin.network/faucet"
+                          href="https://github.com/Telcoin-Association/telcoin-network/issues"
                           className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                           target="_blank"
                           rel="noreferrer"
                         >
-                          Faucet
+                          Track Issues
                         </a>
                         <a
                           href="https://docs.telcoin.network/telcoin-network/"
@@ -142,7 +142,7 @@ export default function App() {
                       value={status.meta.overallTrajectoryPct}
                       label="Road to Mainnet"
                     />
-                    <div className="mt-4 flex w-full justify-end">
+                    <div className="mt-4 flex w-full justify-center">
                       <LastUpdated />
                     </div>
                   </div>
