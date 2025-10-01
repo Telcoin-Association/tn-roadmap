@@ -15,10 +15,9 @@ const STATUS_LABELS: Record<
   { text: string; className: string; ariaLabel: string; shouldPulse?: boolean }
 > = {
   in_progress: {
-    text: 'Active',
+    text: 'In Progress',
     className: 'border-primary/50 bg-primary/20 text-primary',
-    ariaLabel: 'Phase is in progress',
-    shouldPulse: true
+    ariaLabel: 'Phase is in progress'
   },
   upcoming: {
     text: 'Upcoming',
@@ -30,6 +29,18 @@ const STATUS_LABELS: Record<
     className: 'border-success/40 bg-success/15 text-success',
     ariaLabel: 'Phase is complete'
   }
+};
+
+const ADIRI_ACTIVE_BADGE: {
+  text: string;
+  className: string;
+  ariaLabel: string;
+  shouldPulse: boolean;
+} = {
+  text: 'Active',
+  className: 'border-primary/50 bg-primary/20 text-primary',
+  ariaLabel: 'Adiri phase is active',
+  shouldPulse: true
 };
 
 const PHASE_LOGOS: Partial<Record<Phase['key'], { src: string; alt: string }>> = {
@@ -96,7 +107,10 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
         className="grid gap-6 items-stretch"
       >
         {visiblePhases.map((phase) => {
-          const badge = STATUS_LABELS[phase.status];
+          const badge =
+            phase.key === 'testnet' && phase.status === 'in_progress'
+              ? ADIRI_ACTIVE_BADGE
+              : STATUS_LABELS[phase.status];
           const Icon = NetworkIcon;
           const logo = PHASE_LOGOS[phase.key];
           const anchor = PHASE_ANCHORS[phase.key];
