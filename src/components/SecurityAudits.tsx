@@ -22,10 +22,7 @@ function StatCard({
 }) {
   const entries = Object.entries(metrics);
   return (
-    <article
-      data-priority-findings=""
-      className="flex flex-1 flex-col gap-4 border bg-white/5 p-5 shadow-soft backdrop-blur tc-border-cadet-60 tc-radius-16"
-    >
+    <article className="flex flex-1 flex-col gap-4 rounded-2xl border-2 border-border/60 bg-card p-5 shadow-soft backdrop-blur">
       <header className="flex items-center gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20 text-primary">
           {icon}
@@ -68,10 +65,7 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
         </div>
       </div>
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
-        <article
-          data-security-notes=""
-          className="border p-6 shadow-soft backdrop-blur tc-bg-172552 tc-border-cadet-60 tc-radius-16"
-        >
+        <article className="rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
           <h3 className="text-lg font-semibold text-fg">Security notes</h3>
           <ul className="mt-4 space-y-3 text-sm text-fg-muted">
             {notes.map((note) => (

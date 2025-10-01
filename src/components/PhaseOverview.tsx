@@ -161,7 +161,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                   <motion.article
                     data-phase-card=""
                     data-phase={dataPhase}
-                    className="flex h-full flex-col overflow-hidden border bg-white/5 p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow tc-border-cadet-60 tc-radius-16"
+                    className="flex h-full flex-col overflow-hidden rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow"
                     whileHover={{ y: -8 }}
                   >
                     {cardInner}
@@ -176,7 +176,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
               <motion.article
                 data-phase-card=""
                 data-phase={dataPhase}
-                className="group flex h-full flex-col overflow-hidden border bg-white/5 p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow tc-border-cadet-60 tc-radius-16"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow"
                 whileHover={{ y: -8 }}
               >
                 {cardInner}
