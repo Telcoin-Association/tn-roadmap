@@ -262,7 +262,7 @@ export default function RoadToMainnet() {
         </div>
       </div>
 
-      <div className="rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
+      <div className="rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-[6px] shadow-soft backdrop-blur">
         {/* Tabs */}
         <div className="mb-5 inline-flex rounded-xl bg-white/5 p-1">
           {TABS.map(({ key, label }) => (
@@ -281,7 +281,7 @@ export default function RoadToMainnet() {
         </div>
 
         {/* Detail list */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+        <div className="rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-[6px]">
           {tab === 'issues' ? (
             <div id="issues-feed" style={{ display: 'grid', gap: '12px' }} />
           ) : (

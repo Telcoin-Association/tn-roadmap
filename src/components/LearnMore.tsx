@@ -151,7 +151,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
                       ? 'what-is-mainnet'
                       : `learn-more-${section.id}`
               }
-              className="overflow-hidden rounded-2xl border-2 border-border/60 bg-card shadow-soft backdrop-blur"
+              className="overflow-hidden rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] shadow-soft backdrop-blur"
             >
               <motion.button
                 type="button"
