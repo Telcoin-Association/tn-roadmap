@@ -160,7 +160,7 @@ export default function RoadToMainnet() {
         </div>
       </div>
 
-      <div className="rounded-2xl border-2 border-border/60 bg-card p-6 shadow-soft backdrop-blur">
+      <div className="border bg-white/5 p-6 shadow-soft backdrop-blur tc-border-cadet-60 tc-radius-16">
         {/* Tabs */}
         <div className="mb-5 inline-flex rounded-xl bg-white/5 p-1">
           {TABS.map(({ key, label }) => (
@@ -179,13 +179,17 @@ export default function RoadToMainnet() {
         </div>
 
         {/* Detail list */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+        <div className="border bg-white/5 p-5 tc-border-cadet-60 tc-radius-8">
           {tab === 'issues' ? (
             <section id="issues" style={{ display: 'grid', gap: '12px' }} />
           ) : (
             <ul className="space-y-6">
               {MILESTONES[tab].map((m) => (
-                <li key={m.slug} id={roadToMainnetId(tab, m.slug)} className="scroll-mt-24">
+                <li
+                  key={m.slug}
+                  id={roadToMainnetId(tab, m.slug)}
+                  className="scroll-mt-24 border bg-white/5 transition hover:bg-white/10 tc-border-cadet-60 tc-radius-8"
+                >
                   <div className="text-sm font-semibold text-white/90">{m.text}</div>
                   {m.details && m.details.length > 0 && (
                     <ul className="mt-2 list-disc pl-5 text-sm leading-6 text-white/80">
