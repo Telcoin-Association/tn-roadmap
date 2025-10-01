@@ -72,7 +72,7 @@ export default function RoadToMainnet() {
 
     (async () => {
       try {
-        const response = await fetch('/roadmap.json', { cache: 'no-store' });
+        const response = await fetch("roadmap.json", { cache: 'no-store' });
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}`);
         }
