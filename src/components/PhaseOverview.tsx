@@ -45,7 +45,10 @@ const PHASE_TO_DROPDOWN_KEY: Record<Phase['key'], PhaseKey> = {
 };
 
 const PHASE_ANCHORS: Partial<Record<Phase['key'], { href: string; ariaLabel: string }>> = {
-  devnet: { href: '#what-is-horizon', ariaLabel: 'Jump to What is Horizon' },
+  devnet: {
+    href: '#history-of-the-telcoin-network',
+    ariaLabel: 'Jump to History of the Telcoin Network'
+  },
   testnet: { href: '#what-is-adiri', ariaLabel: 'Jump to What is Adiri' },
   mainnet: { href: '#what-is-mainnet', ariaLabel: 'Jump to What is Mainnet' }
 };
@@ -55,7 +58,11 @@ type PhaseOverviewProps = {
 };
 
 export function PhaseOverview({ phases }: PhaseOverviewProps) {
-  const phaseTitles = phases.map((phase) => phase.title);
+  const visiblePhaseOrder: Phase['key'][] = ['testnet', 'mainnet'];
+  const visiblePhases = visiblePhaseOrder
+    .map((key) => phases.find((phase) => phase.key === key))
+    .filter((phase): phase is Phase => Boolean(phase));
+  const phaseTitles = visiblePhases.map((phase) => phase.title);
   const readablePhaseList = formatList(phaseTitles);
   const phaseListText = readablePhaseList || 'each network phase';
   const reduceMotion = useReducedMotion();
@@ -86,9 +93,9 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
       <div
         ref={gridRef}
         data-phase-grid=""
-        className="grid gap-6 md:grid-cols-3 items-stretch"
+        className="grid gap-6 items-stretch"
       >
-        {phases.map((phase) => {
+        {visiblePhases.map((phase) => {
           const badge = STATUS_LABELS[phase.status];
           const Icon = NetworkIcon;
           const logo = PHASE_LOGOS[phase.key];
