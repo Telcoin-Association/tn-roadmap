@@ -1,1 +1,302 @@
-[]
+[
+  {
+    "number": 447,
+    "title": "NodeRecord: Prevent Imposters",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/447",
+    "updated_at": "2025-09-30T23:28:29Z"
+  },
+  {
+    "number": 446,
+    "title": "NodeRecord: External Identify Event",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/446",
+    "updated_at": "2025-09-30T23:24:56Z"
+  },
+  {
+    "number": 445,
+    "title": "Re-propose headers when no progress is being made.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/445",
+    "updated_at": "2025-09-30T23:13:16Z"
+  },
+  {
+    "number": 444,
+    "title": "Kademlia: Peer Manager",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/444",
+    "updated_at": "2025-09-30T22:58:08Z"
+  },
+  {
+    "number": 443,
+    "title": "Non-persistent header tracking leads to transaction loss on node restart",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/443",
+    "updated_at": "2025-09-30T21:40:22Z"
+  },
+  {
+    "number": 442,
+    "title": "Logic error in Proposer's `calc_min_delay()` function leads to reduced network throughput",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/442",
+    "updated_at": "2025-09-30T21:37:16Z"
+  },
+  {
+    "number": 441,
+    "title": "primary: requested_parents DoS issue",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/441",
+    "updated_at": "2025-09-30T21:34:22Z"
+  },
+  {
+    "number": 440,
+    "title": "Transactions Are Removed From The MemPool Prematurely Which Results In Transactions Getting Lost After Epoch Transitions",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/440",
+    "updated_at": "2025-09-30T21:24:18Z"
+  },
+  {
+    "number": 439,
+    "title": "Permanent leader selection bias creates distorted consensus reward distribution",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/439",
+    "updated_at": "2025-09-30T21:12:54Z"
+  },
+  {
+    "number": 438,
+    "title": "Force burning a validator in the scheduled committees will reduce the size of future committees",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/438",
+    "updated_at": "2025-09-30T21:06:10Z"
+  },
+  {
+    "number": 437,
+    "title": "Gossip message authorization bypass",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/437",
+    "updated_at": "2025-09-30T21:02:07Z"
+  },
+  {
+    "number": 436,
+    "title": "Observer crash during peer rotation when peer list is empty",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/436",
+    "updated_at": "2025-09-30T20:55:47Z"
+  },
+  {
+    "number": 435,
+    "title": "Unfair authority selection in `retrieve_first_nodes` based on stake distribution rather than reputation scores",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/435",
+    "updated_at": "2025-09-30T20:49:25Z"
+  },
+  {
+    "number": 434,
+    "title": "Bad nodes face economic exclusion through irrecoverable reputation score trap",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/434",
+    "updated_at": "2025-09-30T20:42:33Z"
+  },
+  {
+    "number": 433,
+    "title": "Cache inconsistency in `_clean` function affects burn operations",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/433",
+    "updated_at": "2025-09-30T20:36:52Z"
+  },
+  {
+    "number": 432,
+    "title": "Leader swap table panic causes network-wide shutdown",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/432",
+    "updated_at": "2025-09-30T20:22:19Z"
+  },
+  {
+    "number": 431,
+    "title": "Validator doing successful exit can be very improbable due to committee selection mechanism",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/431",
+    "updated_at": "2025-09-30T20:16:19Z"
+  },
+  {
+    "number": 430,
+    "title": "Identify: External Confirmation of IP Address",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/430",
+    "updated_at": "2025-09-30T20:09:12Z"
+  },
+  {
+    "number": 429,
+    "title": "Attacker uses underflow to prevent `closeCase()` from transferring stolen funds to victim",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/429",
+    "updated_at": "2025-09-30T17:48:28Z"
+  },
+  {
+    "number": 428,
+    "title": "Attacker can brick iTEL bridging and transfers taking advantage of caching flaw",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/428",
+    "updated_at": "2025-09-30T11:44:25Z"
+  },
+  {
+    "number": 427,
+    "title": "The same BLS pubkeys can be registered to 2 validators",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/427",
+    "updated_at": "2025-09-30T11:33:07Z"
+  },
+  {
+    "number": 426,
+    "title": "Worker PeerExchange DoS",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/426",
+    "updated_at": "2025-09-30T11:25:16Z"
+  },
+  {
+    "number": 425,
+    "title": "Insecure CVV discovery mechanism that allow attacker to manipulate validator committee",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/425",
+    "updated_at": "2025-09-30T11:15:41Z"
+  },
+  {
+    "number": 424,
+    "title": "DOS through high gas limit declarations",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/424",
+    "updated_at": "2025-09-30T10:47:07Z"
+  },
+  {
+    "number": 423,
+    "title": "Silent Ignoring of `fetch_batches` Failures Leads to Execution Deadlock",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/423",
+    "updated_at": "2025-09-29T22:14:15Z"
+  },
+  {
+    "number": 422,
+    "title": "Certificate store index partial cleanup",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/422",
+    "updated_at": "2025-09-29T22:12:05Z"
+  },
+  {
+    "number": 421,
+    "title": "KadStore Counter Bug Enables Trivial Network DoS",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/421",
+    "updated_at": "2025-09-29T22:07:40Z"
+  },
+  {
+    "number": 420,
+    "title": "Blocking on to_worker.send Can Deadlock the Builder",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/420",
+    "updated_at": "2025-09-29T22:05:01Z"
+  },
+  {
+    "number": 419,
+    "title": "Older version of reth (v1.4.8) is used which has multiple discovered bugs inside",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/419",
+    "updated_at": "2025-09-29T22:01:35Z"
+  },
+  {
+    "number": 418,
+    "title": "Historical Committee Query Fails After Validator Unstake Due to Burnt NFT Check",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/418",
+    "updated_at": "2025-09-29T21:58:58Z"
+  },
+  {
+    "number": 417,
+    "title": "Precision Loss in Incentive Calculation Enables Silent Protocol Fund Lockup and Undermines Fair Reward Allocation",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/417",
+    "updated_at": "2025-09-29T21:56:52Z"
+  },
+  {
+    "number": 416,
+    "title": "Ring buffer wraparound in `getEpochInfo` function can return invalid data",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/416",
+    "updated_at": "2025-09-29T21:53:18Z"
+  },
+  {
+    "number": 415,
+    "title": "Non-persistent transaction pool implementation leads to transaction loss during node restarts",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/415",
+    "updated_at": "2025-09-29T21:49:54Z"
+  },
+  {
+    "number": 414,
+    "title": "RecoverableWrapper does not cache properly until the first record expires",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/414",
+    "updated_at": "2025-09-29T21:48:03Z"
+  },
+  {
+    "number": 413,
+    "title": "Premature Certificate Rejection Due to Missing Quorum Recalculation",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/413",
+    "updated_at": "2025-09-29T21:14:37Z"
+  },
+  {
+    "number": 412,
+    "title": "Blocks can be built and broadcast against a stale parent when a canonical update occurs mid‑build",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/412",
+    "updated_at": "2025-09-29T21:08:23Z"
+  },
+  {
+    "number": 411,
+    "title": "`TNEvmHandler::reward_beneficiary` should use `gas.spent_sub_refunded` instead of unchecked subtraction",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/411",
+    "updated_at": "2025-09-29T21:04:59Z"
+  },
+  {
+    "number": 410,
+    "title": "`RethEnv::build_block_from_batch_payload` writes but never reads from `total_fees`",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/410",
+    "updated_at": "2025-09-29T21:03:44Z"
+  },
+  {
+    "number": 409,
+    "title": "`RecordUtil.deleteAt` fails to reset `rd.tail` when the queue has a single value",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/409",
+    "updated_at": "2025-09-29T21:01:58Z"
+  },
+  {
+    "number": 408,
+    "title": "`RecoverableWrapper._mintSettled` is unused",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/408",
+    "updated_at": "2025-09-29T21:00:28Z"
+  },
+  {
+    "number": 407,
+    "title": "`Certificate::verify` checks unnecessary round condition",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/407",
+    "updated_at": "2025-09-29T20:58:34Z"
+  },
+  {
+    "number": 406,
+    "title": "Batch timestamp can be any value in the future",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/406",
+    "updated_at": "2025-09-29T20:57:25Z"
+  },
+  {
+    "number": 405,
+    "title": "Parent Header Fallback Vulnerability",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/405",
+    "updated_at": "2025-09-29T20:55:32Z"
+  },
+  {
+    "number": 404,
+    "title": "Method `upgradeStakeVersion` is currently useless",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/404",
+    "updated_at": "2025-09-29T20:50:17Z"
+  },
+  {
+    "number": 403,
+    "title": "`batch-validator` uses incorrect timestamp for `max_batch_size` and `max_batch_gas`",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/403",
+    "updated_at": "2025-09-29T20:39:59Z"
+  },
+  {
+    "number": 402,
+    "title": "`QuorumWaiter::verify_batch` doesn't decrease `available_stake` when matches `Ok`",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/402",
+    "updated_at": "2025-09-29T20:35:34Z"
+  },
+  {
+    "number": 401,
+    "title": "Ineffective IP Address Banning Due to Inverted Logic",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/401",
+    "updated_at": "2025-09-29T20:32:36Z"
+  },
+  {
+    "number": 400,
+    "title": "Worker not configured to subscribe to the tn-worker topic",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/400",
+    "updated_at": "2025-09-29T15:24:53Z"
+  },
+  {
+    "number": 399,
+    "title": "Vote Resending Logic is Unbounded and Allows Request Amplification",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/399",
+    "updated_at": "2025-09-29T15:19:32Z"
+  },
+  {
+    "number": 398,
+    "title": "Transaction can be dropped in the gossip network",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/398",
+    "updated_at": "2025-09-29T14:57:13Z"
+  }
+]
