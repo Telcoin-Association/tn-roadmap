@@ -99,6 +99,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
   const linkButtons = [
     { label: 'Governance Forum', href: links.governanceForum },
     { label: 'Technical Docs', href: links.technicalDocs },
+    { label: 'Adiri RPC', href: 'https://chainlist.org/chain/2017' },
     { label: 'Track Issues', href: 'https://github.com/Telcoin-Association/telcoin-network/issues' },
     { label: 'Telcoin Association', href: 'https://www.telcoin.org/' },
     { label: 'Telcoin TAO Twitter', href: 'https://x.com/TelcoinTAO' },
