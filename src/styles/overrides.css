@@ -1,0 +1,15 @@
+/* Screenshot-driven tweaks (no layout/content changes) */
+
+/* Cyan outline + soft glow for header status tile */
+.tc-border-cyan-40 { border-color: rgba(25, 200, 255, 0.4); }
+.tc-shadow-cyan-30-20 { filter: drop-shadow(0 10px 30px rgba(25, 200, 255, 0.2)); }
+
+/* Cadet outline used across cards/panels */
+.tc-border-cadet-60 { border-color: rgba(201, 207, 237, 0.6); }
+
+/* Corner radii */
+.tc-radius-16 { border-radius: 16px; }
+.tc-radius-8 { border-radius: 8px; }
+
+/* Security notes tint */
+.tc-bg-172552 { background-color: #172552; }
