@@ -20,13 +20,15 @@ jobs:
 
       - name: Fetch open issues (REST API)
         run: |
+          set -e
+          mkdir -p public
           curl -s \
             -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/Telcoin-Association/telcoin-network/issues?state=open&per_page=100" \
-            | jq '[ .[] | select(.pull_request | not) | {number, title, url: .html_url, updated_at} ]' > roadmap.json
-          echo "Preview roadmap.json:"
-          head -n 20 roadmap.json || true
-          test -s roadmap.json
+            | jq '[ .[] | select(.pull_request | not) | {number, title, url: .html_url, updated_at} ]' > public/roadmap.json
+          echo "Preview:"
+          head -n 20 public/roadmap.json || true
+          test -s public/roadmap.json
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v6
@@ -37,6 +39,6 @@ jobs:
           branch: automation/roadmap-json
           base: main
           add-paths: |
-            roadmap.json
+            public/roadmap.json
           labels: |
             automation
