@@ -54,6 +54,25 @@ export default function App() {
   const headerDescription =
     'Visibility into Telcoin Network development and what remains before launching mainnet.';
 
+  const headerLinks = [
+    {
+      href: 'https://github.com/telcoin-association/telcoin-network',
+      label: 'GitHub',
+    },
+    {
+      href: 'https://telscan.io/',
+      label: 'Explorer',
+    },
+    {
+      href: 'https://www.telcoin.network/faucet',
+      label: 'Faucet',
+    },
+    {
+      href: 'https://docs.telcoin.network/telcoin-network/',
+      label: 'Docs',
+    },
+  ];
+
   const onHome = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const base = window.location.pathname + window.location.search;
@@ -75,9 +94,9 @@ export default function App() {
               transition={{ duration: 0.5, ease: 'easeOut' }}
               className="space-y-8"
             >
-              <div className="flex flex-wrap items-start gap-6 md:flex-nowrap md:justify-between">
+              <div className="flex flex-col gap-6 md:flex-nowrap md:flex-row md:items-start md:justify-between">
                 <div className="flex min-w-0 flex-1 flex-col gap-4">
-                  <div className="flex min-w-0 items-start gap-4">
+                  <div className="grid min-w-0 gap-4 md:grid-cols-[auto_1fr] md:items-start md:gap-4">
                     <a
                       href="/"
                       onClick={onHome}
@@ -86,7 +105,7 @@ export default function App() {
                     >
                       <TelcoinAnimatedLogo className="h-28 w-28 shrink-0 md:h-32 md:w-32" />
                     </a>
-                    <div className="min-w-[220px] flex-1 text-left">
+                    <div className="min-w-[220px] flex-1 text-left md:col-start-2">
                       <a
                         href="/"
                         onClick={onHome}
@@ -99,41 +118,20 @@ export default function App() {
                           {headerDescription}
                         </p>
                       </a>
-                      <div className="mt-4 flex flex-wrap gap-3">
-                        <a
-                          href="https://github.com/telcoin-association/telcoin-network"
-                          className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          GitHub
-                        </a>
-                        <a
-                          href="https://telscan.io/"
-                          className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Explorer
-                        </a>
-                        <a
-                          href="https://www.telcoin.network/faucet"
-                          className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Faucet
-                        </a>
-                        <a
-                          href="https://docs.telcoin.network/telcoin-network/"
-                          className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Docs
-                        </a>
-                      </div>
                     </div>
+                  </div>
+                  <div className="mt-4 hidden flex-wrap gap-3 md:flex">
+                    {headerLinks.map(({ href, label }) => (
+                      <a
+                        key={label}
+                        href={href}
+                        className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {label}
+                      </a>
+                    ))}
                   </div>
                 </div>
                 <div className="flex w-full max-w-full flex-col items-start gap-4 md:w-auto md:min-w-[260px] md:max-w-sm md:items-end">
@@ -146,6 +144,19 @@ export default function App() {
                       <LastUpdated />
                     </div>
                   </div>
+                </div>
+                <div className="mt-2 flex flex-wrap gap-3 md:hidden">
+                  {headerLinks.map(({ href, label }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {label}
+                    </a>
+                  ))}
                 </div>
               </div>
             </motion.div>
