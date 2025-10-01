@@ -121,7 +121,7 @@ export default function RoadToMainnet() {
           return;
         }
 
-        const pageSize = 10;
+        const pageSize = 5;
         const totalPages = Math.max(1, Math.ceil(list.length / pageSize));
         let page = 0;
 
