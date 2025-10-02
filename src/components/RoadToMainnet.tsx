@@ -405,9 +405,19 @@ export default function RoadToMainnet() {
                 <li key={m.slug} id={roadToMainnetId(tab, m.slug)} className="scroll-mt-24">
                   <div className="text-sm font-semibold text-white/90">{m.text}</div>
                   {m.details && m.details.length > 0 && (
-                    <ul className="mt-2 list-disc pl-5 text-sm leading-6 text-white/80">
+                    <ul className="mt-2 space-y-3">
                       {m.details.map((detail, index) => (
-                        <li key={index}>{detail}</li>
+                        <li key={index} className="flex items-start gap-3">
+                          <img
+                            src={tab === 'horizon' ? '/IMG/Checkmark.svg' : '/IMG/Loading.svg'}
+                            alt=""
+                            aria-hidden="true"
+                            className={`mt-0.5 h-5 w-5 shrink-0${
+                              tab === 'adiri' ? ' motion-safe:animate-spin-slow' : ''
+                            }`}
+                          />
+                          <span className="text-sm leading-6 text-white/80">{detail}</span>
+                        </li>
                       ))}
                     </ul>
                   )}
