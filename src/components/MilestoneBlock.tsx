@@ -73,6 +73,10 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
         slug: 'improve-documentation',
       },
       {
+        text: 'Deploy new faucet service',
+        slug: 'deploy-new-faucet-service',
+      },
+      {
         text: 'Relaunch network',
         slug: 'relaunch-network',
       },

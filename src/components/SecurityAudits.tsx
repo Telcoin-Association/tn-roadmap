@@ -90,7 +90,7 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
         </article>
         <div className="flex flex-col gap-4">
           <StatCard
-            title="Public-Facing Vulnerabilities"
+            title="Priority Security Patches"
             description="Security issues reachable through public APIs, apps, or network endpoints."
             metrics={publicFindings}
             icon={
@@ -103,7 +103,7 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
             }
           />
           <StatCard
-            title="Internal Security Findings"
+            title="Remaining Security Patches"
             description="Issues relevant to validator peers and internal infrastructure, prioritized after public-facing fixes."
             metrics={afterPriorityFixes}
             icon={
