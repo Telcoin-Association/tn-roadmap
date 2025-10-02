@@ -177,7 +177,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
     { label: 'Governance Forum', href: links.governanceForum },
     { label: 'Docs', href: links.technicalDocs },
     { label: 'Adiri RPC', href: 'https://chainlist.org/chain/2017' },
-    { label: 'Track Issues', href: 'https://github.com/Telcoin-Association/telcoin-network/issues' },
+    { label: 'Wiki', href: 'https://deepwiki.com/Telcoin-Association/telcoin-network' },
     { label: 'Telcoin Association', href: 'https://www.telcoin.org/' },
     { label: 'Twitter', href: 'https://x.com/TelcoinTAO' },
   ];

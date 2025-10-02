@@ -7,7 +7,11 @@ type ProgressBarProps = {
 };
 
 export function ProgressBar({ value, label }: ProgressBarProps) {
-  const clampedValue = useMemo(() => Math.min(100, Math.max(0, Math.round(value))), [value]);
+  const clampedValue = useMemo(() => {
+    const normalizedValue = Number.isFinite(value) ? value : 0;
+    const boundedValue = Math.min(100, Math.max(0, normalizedValue));
+    return Number.parseFloat(boundedValue.toFixed(2));
+  }, [value]);
   const reduceMotion = useReducedMotion();
   const style = useMemo(
     () => ({

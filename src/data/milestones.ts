@@ -90,6 +90,13 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
+      text: 'Deploy new faucet service',
+      slug: 'deploy-new-faucet-service',
+      details: [
+        'Launch a public faucet that distributes small amounts of testnet TEL, allowing developers and community members to easily access tokens for testing applications and transactions on the network.',
+      ],
+    },
+    {
       text: 'Relaunch Network',
       slug: 'relaunch-network',
       details: [
