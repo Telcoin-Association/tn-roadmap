@@ -11,10 +11,16 @@ if (!rootElement) {
   throw new Error('Failed to find the root element');
 }
 
+const gateEnabled = import.meta.env.VITE_ENABLE_PASSWORD_GATE === '1';
+
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <PasswordGate>
+    {gateEnabled ? (
+      <PasswordGate>
+        <App />
+      </PasswordGate>
+    ) : (
       <App />
-    </PasswordGate>
+    )}
   </React.StrictMode>
 );
