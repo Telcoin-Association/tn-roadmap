@@ -96,7 +96,7 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
 ];
 
 const MAINNET_PHASE_ITEMS = [
-  '- Launch Mainnet',
+  'Launch Mainnet',
   'Cryptography security assessment',
   'P2P Network security assessment',
   'Smart contract security assessments',
