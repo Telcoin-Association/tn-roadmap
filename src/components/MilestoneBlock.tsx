@@ -1,7 +1,10 @@
+import { motion, useReducedMotion } from 'framer-motion';
+
 import type { PhaseKey } from '@/data/milestones';
 import { MILESTONES } from '@/data/milestones';
 import { roadToMainnetId } from '@/utils/ids';
 import CheckIconUrl from '/IMG/Checkmark.svg?url';
+import ActivityIconUrl from '/IMG/activity.svg?url';
 import { TimerIcon } from './icons';
 import LoadingIconUrl from '/IMG/Loading.svg?url';
 
@@ -110,6 +113,8 @@ const MAINNET_PHASE_ITEMS = [
 ];
 
 export default function MilestoneBlock({ phase }: Props) {
+  const reduceMotion = useReducedMotion();
+
   if (phase === 'adiri') {
     return (
       <div data-phase-card-milestones="">
@@ -130,9 +135,15 @@ export default function MilestoneBlock({ phase }: Props) {
                 </h4>
                 <ul className="mt-2 space-y-2">
                   {group.items.map((item) => {
+                    const isPatchSecurityFinding =
+                      group.title === 'Phase 2' && item.slug === 'patch-security-findings';
+                    const shouldAnimate = isPatchSecurityFinding && !reduceMotion;
+
                     return (
                       <li key={item.slug} className="flex items-start gap-3">
-                        {group.icon === 'check' ? (
+                        {isPatchSecurityFinding ? (
+                          <img src={ActivityIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />
+                        ) : group.icon === 'check' ? (
                           <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />
                         ) : group.icon === 'timer' ? (
                           <TimerIcon className="mt-0.5 h-4 w-4 shrink-0 text-white/80" />
@@ -145,15 +156,26 @@ export default function MilestoneBlock({ phase }: Props) {
                         ) : (
                           <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />
                         )}
-                        <span
-                          className={`text-sm leading-6 text-white/90 ${
-                            group.title === 'Phase 2' && item.slug === 'patch-security-findings'
-                              ? 'font-semibold text-white motion-safe:animate-pulse'
-                              : ''
-                          }`}
-                        >
-                          {item.text}
-                        </span>
+                        {isPatchSecurityFinding ? (
+                          <motion.span
+                            className="text-sm font-semibold leading-6 text-white"
+                            animate={shouldAnimate ? { opacity: [1, 0.5, 1] } : undefined}
+                            transition={
+                              shouldAnimate
+                                ? {
+                                    duration: 1.2,
+                                    repeat: Infinity,
+                                    repeatType: 'reverse',
+                                    ease: 'easeInOut',
+                                  }
+                                : undefined
+                            }
+                          >
+                            {item.text}
+                          </motion.span>
+                        ) : (
+                          <span className="text-sm leading-6 text-white/90">{item.text}</span>
+                        )}
                       </li>
                     );
                   })}
