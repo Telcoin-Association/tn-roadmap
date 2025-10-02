@@ -18,9 +18,7 @@ export default function MilestoneBlock({ phase }: Props) {
       {/* Always-open list */}
       <ul className="mt-3 space-y-2">
         {items.map((m, i) => {
-          const targetSlug =
-            phase === 'adiri' && m.slug === 'phase-1' ? 'phase-2' : m.slug;
-          const targetId = roadToMainnetId(phase, targetSlug);
+          const targetId = roadToMainnetId(phase, m.slug);
           const href = `#${targetId}`;
           return (
             <li key={i} className="flex items-start gap-3">
