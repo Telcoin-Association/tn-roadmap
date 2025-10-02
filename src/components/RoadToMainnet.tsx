@@ -38,9 +38,9 @@ const TABS: { key: TabKey; label: string }[] = [
   { key: 'horizon', label: 'Adiri Phase 1' },
   { key: 'adiri', label: 'Adiri Phase 2' },
   { key: 'adiri-phase-3', label: 'Adiri Phase 3' },
-  { key: 'history', label: 'History' },
   { key: 'mainnet', label: 'Mainnet' },
-  { key: 'issues', label: 'Track Issues' }
+  { key: 'issues', label: 'Track Issues' },
+  { key: 'history', label: 'History' }
 ];
 
 const isTabKey = (value: string): value is TabKey => TABS.some((tab) => tab.key === value);

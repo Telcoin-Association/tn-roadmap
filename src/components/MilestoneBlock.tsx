@@ -3,12 +3,13 @@ import { MILESTONES } from '@/data/milestones';
 import { roadToMainnetId } from '@/utils/ids';
 import CheckIconUrl from '/IMG/Checkmark.svg?url';
 import { TimerIcon } from './icons';
+import LoadingIconUrl from '/IMG/Loading.svg?url';
 
 type Props = { phase: PhaseKey };
 
 type AdiriPhaseGroup = {
   title: string;
-  icon: 'check' | 'timer';
+  icon: 'check' | 'timer' | 'loading';
   href: string;
   items: {
     text: string;
@@ -52,7 +53,7 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
   },
   {
     title: 'Phase 2',
-    icon: 'timer',
+    icon: 'loading',
     href: '#road-to-mainnet-adiri-tab',
     items: [
       {
@@ -79,7 +80,7 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
   },
   {
     title: 'Phase 3',
-    icon: 'timer',
+    icon: 'loading',
     href: '#road-to-mainnet-adiri-phase-3-tab',
     items: [
       {
@@ -87,7 +88,7 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
         slug: 'integrate-adiri-testnet-with-bridge-solution',
       },
       {
-        text: 'Decentralize network (onboard partners)',
+        text: 'Decentralize network (onboard MNO Validators)',
         slug: 'decentralize-network-onboard-partners',
       },
     ],
@@ -130,10 +131,24 @@ export default function MilestoneBlock({ phase }: Props) {
                           <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />
                         ) : group.icon === 'timer' ? (
                           <TimerIcon className="mt-0.5 h-4 w-4 shrink-0 text-white/80" />
+                        ) : group.icon === 'loading' ? (
+                          <img
+                            src={LoadingIconUrl}
+                            alt=""
+                            className="mt-0.5 h-4 w-4 shrink-0 text-white/80 motion-safe:animate-spin"
+                          />
                         ) : (
                           <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />
                         )}
-                        <span className="text-sm leading-6 text-white/90">{item.text}</span>
+                        <span
+                          className={`text-sm leading-6 text-white/90 ${
+                            group.title === 'Phase 2' && item.slug === 'patch-security-findings'
+                              ? 'font-semibold text-white motion-safe:animate-pulse'
+                              : ''
+                          }`}
+                        >
+                          {item.text}
+                        </span>
                       </li>
                     );
                   })}
@@ -155,7 +170,11 @@ export default function MilestoneBlock({ phase }: Props) {
         <ul className="mt-3 space-y-2">
           {MAINNET_PHASE_ITEMS.map((text) => (
             <li key={text} className="flex items-start gap-3">
-              <TimerIcon className="mt-0.5 h-4 w-4 shrink-0 text-white/80" />
+              <img
+                src={LoadingIconUrl}
+                alt=""
+                className="mt-0.5 h-4 w-4 shrink-0 motion-safe:animate-spin"
+              />
               <span className="text-sm leading-6 text-white/90">{text}</span>
             </li>
           ))}
