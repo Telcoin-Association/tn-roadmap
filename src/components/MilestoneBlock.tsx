@@ -2,6 +2,7 @@ import type { PhaseKey } from '@/data/milestones';
 import { MILESTONES } from '@/data/milestones';
 import { roadToMainnetId } from '@/utils/ids';
 import CheckIconUrl from '/IMG/Checkmark.svg?url';
+import { TimerIcon } from './icons';
 
 type Props = { phase: PhaseKey };
 
@@ -67,26 +68,34 @@ export default function MilestoneBlock({ phase }: Props) {
           <span>Milestones</span>
         </div>
         <div className="mt-3 space-y-4">
-          {ADIRI_PHASE_GROUPS.map((group) => (
-            <div key={group.title}>
-              <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">{group.title}</h4>
-              <ul className="mt-2 space-y-2">
-                {group.items.map((item) => {
-                  const targetPhase = item.targetPhase ?? phase;
-                  const targetId = roadToMainnetId(targetPhase, item.slug);
-                  const href = `#${targetId}`;
-                  return (
-                    <li key={item.slug} className="flex items-start gap-3">
-                      <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />
-                      <a href={href} className="text-sm leading-6 text-white/90 hover:underline">
-                        {item.text}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
+          {ADIRI_PHASE_GROUPS.map((group) => {
+            const isPhaseOne = group.title.trim().toLowerCase() === 'phase 1';
+
+            return (
+              <div key={group.title}>
+                <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">{group.title}</h4>
+                <ul className="mt-2 space-y-2">
+                  {group.items.map((item) => {
+                    const targetPhase = item.targetPhase ?? phase;
+                    const targetId = roadToMainnetId(targetPhase, item.slug);
+                    const href = `#${targetId}`;
+                    return (
+                      <li key={item.slug} className="flex items-start gap-3">
+                        {isPhaseOne ? (
+                          <TimerIcon className="mt-0.5 h-4 w-4 shrink-0 text-white/80" />
+                        ) : (
+                          <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />
+                        )}
+                        <a href={href} className="text-sm leading-6 text-white/90 hover:underline">
+                          {item.text}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </div>
     );

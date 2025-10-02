@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import HorizonLogoUrl from '@/assets/horizon.svg?url';
 import AdiriLogoUrl from '@/assets/adiri.svg?url';
 import type { Phase, Status } from '../data/statusSchema';
 import { ChevronIcon, ExternalLinkIcon, InfoIcon } from './icons';
@@ -138,11 +137,36 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
       (section) => !LEARN_MORE_PHASE_ORDER.includes(section.id)
     );
 
-    return [
+    const combinedSections = [
       ...sortedPhaseSections,
       ...remainingPhaseSections,
       ...ADDITIONAL_LEARN_MORE_SECTIONS,
     ];
+
+    const normalizeTitle = (title: string | undefined) =>
+      title?.trim().toLowerCase() ?? '';
+
+    const historyIndex = combinedSections.findIndex(
+      (section) => normalizeTitle(section.title) === 'history of the telcoin network',
+    );
+
+    if (historyIndex === -1) {
+      return combinedSections;
+    }
+
+    const [historySection] = combinedSections.splice(historyIndex, 1);
+    const regulationIndex = combinedSections.findIndex(
+      (section) => normalizeTitle(section.title) === 'regulation and compliance',
+    );
+
+    if (regulationIndex === -1) {
+      combinedSections.push(historySection);
+      return combinedSections;
+    }
+
+    combinedSections.splice(regulationIndex + 1, 0, historySection);
+
+    return combinedSections;
   }, [orderedSections]);
 
   const toggle = (id: string) => {
@@ -186,13 +210,11 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
           const isHistory = t === 'history of the telcoin network';
           const isAdiri = t === 'what is adiri';
           const isMainnet = t === 'what is mainnet';
-          const rowLogo = isHistory
-            ? { src: HorizonLogoUrl, alt: 'Horizon logo' }
-            : isAdiri
-              ? { src: AdiriLogoUrl, alt: 'Adiri logo' }
-              : isMainnet
-                ? { src: MAINNET_LOGO_URL, alt: 'Mainnet logo' }
-                : undefined;
+          const rowLogo = isAdiri
+            ? { src: AdiriLogoUrl, alt: 'Adiri logo' }
+            : isMainnet
+              ? { src: MAINNET_LOGO_URL, alt: 'Mainnet logo' }
+              : undefined;
           return (
             <article
               key={section.id}
