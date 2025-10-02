@@ -18,7 +18,9 @@ export default function MilestoneBlock({ phase }: Props) {
       {/* Always-open list */}
       <ul className="mt-3 space-y-2">
         {items.map((m, i) => {
-          const targetId = roadToMainnetId(phase, m.slug);
+          const targetSlug =
+            phase === 'adiri' && m.slug === 'phase-1' ? 'phase-2' : m.slug;
+          const targetId = roadToMainnetId(phase, targetSlug);
           const href = `#${targetId}`;
           const showAdiriPhaseOneDetails =
             phase === 'adiri' && m.slug === 'phase-1' && m.details && m.details.length > 0;

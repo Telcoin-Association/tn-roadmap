@@ -50,41 +50,11 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     {
       text: 'Phase 2',
       slug: 'phase-2',
-    },
-    {
-      text: 'Genesis Opening Ceremony with MNO Partners',
-      slug: 'genesis-opening-ceremony-with-mno-partners',
       details: [
-        'Adiri testnet genesis ceremony with MNO partners',
-        'Begin onboarding MNO partners to Adiri testnet',
-      ],
-    },
-    {
-      text: 'MNO Onboarding',
-      slug: 'mno-onboarding',
-      details: [
-        'White glove onboarding MNO partners to Adiri testnet',
-      ],
-    },
-    {
-      text: 'Integrate Adiri Testnets with Bridge Solution',
-      slug: 'integrate-adiri-testnets-with-bridge-solution',
-      details: [
-        'Bridge integration for Adiri Testnet',
-      ],
-    },
-    {
-      text: 'Adiri Alpha Audits',
-      slug: 'adiri-alpha-audits',
-      details: [
-        'RecoverableWrapper',
-        'BLS library',
-        'Libp2p',
-        'State sync',
-        'Execution layer',
-        'Cryptographic key management',
-        'Bridge',
-        'Competition',
+        'Genesis Opening Ceremony with MNO Partners',
+        'MNO Onboarding',
+        'Integrate Adiri Testnets with Bridge Solution',
+        'Adiri Alpha Audits',
       ],
     },
   ],
