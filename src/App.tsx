@@ -217,7 +217,10 @@ export default function App() {
         )}
       </main>
       <footer className="border-t-2 border-border/60 bg-card py-8 text-center text-sm text-fg-muted backdrop-blur">
-        © 2025 Telcoin Network
+        © 2025{' '}
+        <a href="https://www.telcoin.network/" className="text-primary hover:underline">
+          Telcoin Network
+        </a>
       </footer>
     </div>
   );
