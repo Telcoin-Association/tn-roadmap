@@ -13,6 +13,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
   horizon: [
     {
       text: 'Pre-Cantina Competition',
+      done: true,
       slug: 'pre-cantina-competition',
       details: [
         'Preparation phase to finalize core components and stabilize the network ahead of the open security competition run by Cantina.',
@@ -20,6 +21,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Initial Spin-Up of TAO-Controlled Validator Nodes',
+      done: true,
       slug: 'initial-spin-up-of-tao-controlled-validator-nodes',
       details: [
         'Deployment of the first validator set operated by the Telcoin Autonomous Organization (TAO) to secure and coordinate early network operations.',
@@ -27,6 +29,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Launch Block Explorer',
+      done: true,
       slug: 'launch-block-explorer',
       details: [
         'Public release of a Telcoin Network block explorer, enabling developers and the community to view blocks, transactions, and validator activity transparently.',
@@ -34,6 +37,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Demo PoC',
+      done: true,
       slug: 'demo-poc',
       details: [
         'Demonstration of a proof-of-concept application to showcase the network’s functionality and real-world use cases.',
@@ -41,6 +45,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Feature Complete',
+      done: true,
       slug: 'feature-complete',
       details: [
         'Reaching the point where all planned core features are implemented and the network is functionally ready for audit and testing.',
@@ -48,6 +53,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: '4-Week Security Assessment',
+      done: true,
       slug: '4-week-security-assessment',
       details: [
         'A dedicated month-long review involving audits, penetration testing, and vulnerability assessment to identify and resolve security issues before Mainnet launch.',
