@@ -37,7 +37,7 @@ const LEARN_MORE_CONTENT: Record<Phase['key'], { title: string; body: string[] }
   mainnet: {
     title: 'What is Mainnet',
     body: [
-      'Mainnet represents the full launch of Telcoin Network the moment we transition from testing to production and deliver a live, fully operational Layer 1 blockchain.ale operation. Together, these phases deliver the security and decentralization guarantees expected of a Layer 1 blockchain.',
+      'Mainnet represents the full launch of Telcoin Network the moment we transition from testing to production and deliver a live, fully operational Layer 1 blockchain operation. Together, these phases deliver the security and decentralization guarantees expected of a Layer 1 blockchain.',
       'This is where everything becomes real. Mainnet will use actual Telcoin (TEL) as its native currency, enabling genuine value transfer, real economic activity, and production-ready application deployment. Unlike the testing phases, every transaction, every smart contract, and every piece of value on Mainnet will have real-world significance.',
       'Mainnet is the culmination of all our development efforts the secure, decentralized network that validators, developers, and users can trust for critical operations. After proving our technology through rigorous testing across Adiri environments, Mainnet represents our commitment to delivering the security, performance, and decentralization guarantees expected of a world-class L1 blockchain.',
       'For the Telcoin community, Mainnet launch marks a pivotal milestone: the transformation of years of development into a live network that will power the future of accessible financial services. This is when Telcoin Network stops being a promise and becomes a standard.',
