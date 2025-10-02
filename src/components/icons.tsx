@@ -205,6 +205,27 @@ export function TimelineIcon({ className, ...props }: IconProps) {
   );
 }
 
+export function TimerIcon({ className, ...props }: IconProps) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={`${baseClasses} ${className ?? ''}`}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      {...props}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M10 2h4" />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 6a8 8 0 108 8h0a8 8 0 10-8-8zm0 4v4l2.5 2.5"
+      />
+    </svg>
+  );
+}
+
 export function InfoIcon({ className, ...props }: IconProps) {
   return (
     <svg
