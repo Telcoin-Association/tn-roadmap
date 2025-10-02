@@ -32,12 +32,14 @@ export const statusSchema = z.object({
   security: z.object({
     notes: z.array(z.string().min(1)).nonempty(),
     publicFindings: z.object({
+      critical: nonNegativeInt,
       high: nonNegativeInt,
       medium: nonNegativeInt,
       low: nonNegativeInt,
       info: nonNegativeInt,
     }),
     afterPriorityFixes: z.object({
+      critical: nonNegativeInt,
       high: nonNegativeInt,
       medium: nonNegativeInt,
       low: nonNegativeInt,

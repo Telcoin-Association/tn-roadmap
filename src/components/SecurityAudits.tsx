@@ -4,7 +4,10 @@ import type { Status } from '../data/statusSchema';
 
 type SecurityAuditsProps = Pick<Status['security'], 'notes' | 'publicFindings' | 'afterPriorityFixes'>;
 
+type SeverityMetrics = Status['security']['publicFindings'];
+
 const STAT_LABELS: Record<string, string> = {
+  critical: 'Critical',
   high: 'High',
   medium: 'Medium',
   low: 'Low',
@@ -19,10 +22,11 @@ function StatCard({
 }: {
   title: string;
   description?: string;
-  metrics: Record<string, number>;
+  metrics: SeverityMetrics;
   icon: ReactNode;
 }) {
-  const entries = Object.entries(metrics);
+  const { critical, ...remainingMetrics } = metrics;
+  const entries = Object.entries(remainingMetrics);
   return (
     <article className="flex flex-1 flex-col gap-4 rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-5 shadow-soft backdrop-blur">
       <header className="flex items-start gap-3">
@@ -36,6 +40,11 @@ function StatCard({
           ) : null}
         </div>
       </header>
+      {typeof critical === 'number' ? (
+        <span className="inline-block w-fit rounded-md bg-red-600 px-3 py-1 text-xs font-semibold text-white">
+          {STAT_LABELS.critical}: {critical}
+        </span>
+      ) : null}
       <dl className="grid grid-cols-2 gap-4 text-sm">
         {entries.map(([key, value]) => (
           <div key={key} className="flex flex-col rounded-xl border border-white/10 bg-white/5 p-3 text-fg backdrop-blur">
