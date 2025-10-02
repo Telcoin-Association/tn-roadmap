@@ -12,11 +12,16 @@ type LearnMoreProps = {
   links: Status['links'];
 };
 
+type LearnMoreSection = { id: string; title: string; body: string[] };
+
 const LEARN_MORE_CONTENT: Record<Phase['key'], { title: string; body: string[] }> = {
   devnet: {
     title: 'History of the Telcoin Network',
     body: [
-      'The Telcoin Network has been years in the making, building on Telcoin’s mission to connect telecom and financial services through blockchain.',
+      'The Telcoin Network has been years in the making, starting with the vision to unite telecommunications and blockchain into a single, compliant infrastructure for global financial services.',
+      'Development began with the Genesis phase (Devnet), where the team focused on core architecture, validator models, and securing the system through rigorous internal testing. This was followed by Alpha Testnet (2023), which opened the door for early validation and developer experimentation.',
+      'In Beta Testnet (2024), mobile network operators (MNOs) and partners began participating under real world conditions, stress-testing performance and compliance at scale. These stages laid the foundation for the upcoming Mainnet launch, which will arrive in two phases: Alpha Mainnet (targeted 2025 Q4) and Beta Mainnet (2026 Q2).',
+      'From its earliest planning to today, the Telcoin Network has stayed focused on telecom grade standards, GSMA aligned validator governance, and real world use cases like payments, stablecoin remittances, and mobile financial services. Each milestone brings the network closer to delivering secure, compliant, and decentralized financial access to every mobile phone user worldwide.',
     ],
   },
   testnet: {
@@ -38,6 +43,30 @@ const LEARN_MORE_CONTENT: Record<Phase['key'], { title: string; body: string[] }
   },
 };
 
+const ADDITIONAL_LEARN_MORE_SECTIONS: LearnMoreSection[] = [
+  {
+    id: 'enterprise-ready-platform',
+    title: 'Enterprise Ready Platform',
+    body: [
+      'The Telcoin Network is designed for enterprises across telecom, fintech, and beyond. By combining GSMA grade standards with EVM compatibility, it offers a secure and compliant platform where operators can deploy blockchain-based financial services at scale. Mobile network operators and their subsidiaries can launch automated, programmable services tailored to local markets, seamlessly bridging existing financial systems with blockchain. This enables enterprises to deliver scalable, real world financial products directly to mobile users worldwide.',
+    ],
+  },
+  {
+    id: 'trust-and-security',
+    title: 'Trust and Security',
+    body: [
+      'Trust and security are embedded into the foundation of the Telcoin Network. Validators are GSMA Operator Members, leveraging their established infrastructure, compliance frameworks, and regulatory expertise to secure the network. Every stage of development has been reinforced by external audits, rigorous testing, and an open security competition to identify and resolve potential vulnerabilities. This layered approach ensures the Telcoin Network not only meets telecom grade standards of reliability but also delivers the decentralization and resilience expected of a public blockchain.',
+    ],
+  },
+  {
+    id: 'regulation-and-compliance',
+    title: 'Regulation and Compliance',
+    body: [
+      'The Telcoin Network is built with compliance at its core. By anchoring validator participation to GSMA Operator Members and their subsidiaries, the network ensures that only entities with proven regulatory standing can secure the system. This model bridges blockchain with global telecom and financial compliance standards, enabling enterprises to innovate without sacrificing oversight. From KYC/AML readiness to interoperability with existing financial rails, the Telcoin Network is designed to meet the regulatory expectations of jurisdictions worldwide while preserving the openness and transparency of a public blockchain.',
+    ],
+  },
+];
+
 export function LearnMore({ phases, links }: LearnMoreProps) {
   const orderedSections = useMemo(
     () => phases.map((phase) => ({ key: phase.key, status: phase.status })),
@@ -49,7 +78,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
     );
     return activePhase?.key ?? orderedSections[0]?.key ?? null;
   }, [orderedSections]);
-  const [openId, setOpenId] = useState<Phase['key'] | null>(defaultOpenId);
+  const [openId, setOpenId] = useState<string | null>(defaultOpenId);
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -86,13 +115,17 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
     };
   }, [defaultOpenId]);
 
-  const sections = orderedSections.map((section) => ({
-    id: section.key,
-    title: LEARN_MORE_CONTENT[section.key]?.title ?? 'Learn more',
-    body: LEARN_MORE_CONTENT[section.key]?.body ?? ['Details coming soon.'],
-  }));
+  const sections = useMemo<LearnMoreSection[]>(() => {
+    const phaseSections = orderedSections.map((section) => ({
+      id: section.key,
+      title: LEARN_MORE_CONTENT[section.key]?.title ?? 'Learn more',
+      body: LEARN_MORE_CONTENT[section.key]?.body ?? ['Details coming soon.'],
+    }));
 
-  const toggle = (id: Phase['key']) => {
+    return [...phaseSections, ...ADDITIONAL_LEARN_MORE_SECTIONS];
+  }, [orderedSections]);
+
+  const toggle = (id: string) => {
     setOpenId((current) => (current === id ? null : id));
   };
 
