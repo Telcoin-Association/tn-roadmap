@@ -52,7 +52,7 @@ const TABS: { key: TabKey; label: string }[] = [
   { key: 'adiri', label: 'Adiri Phase 2' },
   { key: 'adiri-phase-3', label: 'Adiri Phase 3' },
   { key: 'mainnet', label: 'Mainnet' },
-  { key: 'issues', label: 'Wiki' },
+  { key: 'issues', label: 'Track Issues' },
   { key: 'history', label: 'History' }
 ];
 
@@ -160,9 +160,9 @@ export default function RoadToMainnet() {
           return;
         }
 
-        console.log('[Wiki feed] raw roadmap.json:', raw);
+        console.log('[Track Issues feed] raw roadmap.json:', raw);
         const list = normalize(raw);
-        console.log('[Wiki feed] normalized issues:', list);
+        console.log('[Track Issues feed] normalized issues:', list);
 
         if (!list.length) {
           mount.innerHTML = "<div style='opacity:.7'>No open issues.</div>";
@@ -319,7 +319,7 @@ export default function RoadToMainnet() {
         className="rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur"
       >
         {/* Tabs */}
-        <div className="mb-5 flex flex-wrap justify-center gap-2 rounded-xl bg-white/5 p-1 sm:mx-auto sm:inline-flex sm:flex-nowrap sm:justify-center sm:gap-1">
+        <div className="mx-auto mb-5 flex flex-wrap justify-center gap-2 rounded-xl bg-white/5 p-1 sm:gap-1">
           {TABS.map(({ key, label }) => (
             <button
               key={key}
