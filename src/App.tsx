@@ -77,16 +77,16 @@ export default function App() {
             >
               <div className="flex flex-wrap items-start gap-6 md:flex-nowrap md:justify-between">
                 <div className="flex min-w-0 flex-1 flex-col gap-4">
-                  <div className="flex min-w-0 flex-col items-start gap-4 sm:flex-row">
+                  <div className="flex min-w-0 flex-col items-center gap-4 sm:flex-row sm:items-start">
                     <a
                       href="/"
                       onClick={onHome}
                       aria-label="Telcoin Roadmap home"
-                      className="flex shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                      className="mx-auto flex shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:mx-0"
                     >
                       <TelcoinAnimatedLogo className="h-24 w-24 shrink-0 sm:h-28 sm:w-28 md:h-32 md:w-32" />
                     </a>
-                    <div className="min-w-0 flex-1 text-left sm:min-w-[220px]">
+                    <div className="min-w-0 flex-1 text-center sm:min-w-[220px] sm:text-left">
                       <a
                         href="/"
                         onClick={onHome}
@@ -99,7 +99,7 @@ export default function App() {
                           {headerDescription}
                         </p>
                       </a>
-                      <div className="mt-4 flex flex-wrap gap-3">
+                      <div className="mt-4 flex flex-wrap justify-center gap-3 sm:justify-start">
                         <a
                           href="https://github.com/telcoin-association/telcoin-network"
                           className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
@@ -123,14 +123,6 @@ export default function App() {
                           rel="noreferrer"
                         >
                           Faucet
-                        </a>
-                        <a
-                          href="https://docs.telcoin.network/telcoin-network/"
-                          className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Docs
                         </a>
                       </div>
                     </div>
