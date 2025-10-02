@@ -25,18 +25,18 @@ export const ROADMAP: Phase[] = [
     title: 'Relaunch Genesis',
     subtitle: 'Devnet relaunch',
     status: 'up_next',
-    description: 'Stabilize Genesis to unblock Horizon relaunch.',
+    description: 'Stabilize Genesis to unblock Adiri relaunch.',
     dependsOn: ['fixes'],
     links: [{ label: 'See Genesis readiness', href: '#learn-more-devnet' }]
   },
   {
     id: 'horizon',
-    title: 'Launch Horizon',
+    title: 'Launch Adiri',
     subtitle: 'Public Testnet',
     status: 'planned',
     description: 'Early iterations guarded; audits complete.',
     dependsOn: ['genesis'],
-    links: [{ label: 'Review Horizon plan', href: '#learn-more-testnet' }]
+    links: [{ label: 'Review Adiri plan', href: '#learn-more-testnet' }]
   },
   {
     id: 'audits',

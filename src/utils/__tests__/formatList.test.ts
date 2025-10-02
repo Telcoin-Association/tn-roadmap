@@ -11,11 +11,11 @@ describe('formatList', () => {
   });
 
   it('joins two items with and', () => {
-    expect(formatList(['Genesis', 'Horizon'])).toBe('Genesis and Horizon');
+    expect(formatList(['Genesis', 'Adiri'])).toBe('Genesis and Adiri');
   });
 
   it('joins more than two items with commas and and', () => {
-    expect(formatList(['Genesis', 'Horizon', 'Zeinith'])).toBe('Genesis, Horizon, and Zeinith');
+    expect(formatList(['Genesis', 'Adiri', 'Zeinith'])).toBe('Genesis, Adiri, and Zeinith');
   });
 
   it('ignores blank strings', () => {
