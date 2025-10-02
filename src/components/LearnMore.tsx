@@ -20,10 +20,11 @@ const LEARN_MORE_CONTENT: Record<Phase['key'], { title: string; body: string[] }
   devnet: {
     title: 'History of the Telcoin Network',
     body: [
-      'The Telcoin Network has been years in the making, starting with the vision to unite telecommunications and blockchain into a single, compliant infrastructure for global financial services.',
-      'Development began with the Genesis phase (Devnet), where the team focused on core architecture, validator models, and securing the system through rigorous internal testing. This was followed by Alpha Testnet (2023), which opened the door for early validation and developer experimentation.',
-      'In Beta Testnet (2024), mobile network operators (MNOs) and partners began participating under real world conditions, stress-testing performance and compliance at scale. These stages laid the foundation for the upcoming Mainnet launch, which will arrive in two phases: Alpha Mainnet (targeted 2025 Q4) and Beta Mainnet (2026 Q2).',
-      'From its earliest planning to today, the Telcoin Network has stayed focused on telecom grade standards, GSMA aligned validator governance, and real world use cases like payments, stablecoin remittances, and mobile financial services. Each milestone brings the network closer to delivering secure, compliant, and decentralized financial access to every mobile phone user worldwide.',
+      'The Telcoin Network has been years in the making, driven by the vision to unite telecommunications and blockchain into a single, compliant infrastructure for global financial services.',
+      'Development began with the Genesis phase (Devnet), where the team focused on building the core architecture, validator model, and security foundations through rigorous internal testing.',
+      'The network then advanced into the Adiri phase (Testnet), which is active today. Adiri enables validators, mobile network operators (MNOs), developers, and ecosystem partners to engage with the system under real world conditions. This phase is focused on stress testing performance, validating compliance frameworks, and preparing the network for a secure, decentralized launch.',
+      'The upcoming Mainnet will mark the transition from testing to production, delivering a fully decentralized, secure, and scalable Layer 1 blockchain where validators, developers, and users can rely on the system for real value transfer and application deployment.',
+      'From its earliest planning to the present day, the Telcoin Network has remained focused on telecom grade standards, GSMA aligned validator governance, and real world use cases like payments, stablecoin remittances, and mobile financial services bringing it ever closer to delivering secure, compliant, and decentralized financial access to every mobile phone user worldwide.',
     ],
   },
   testnet: {
