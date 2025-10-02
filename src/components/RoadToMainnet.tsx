@@ -268,8 +268,10 @@ export default function RoadToMainnet() {
 
     return () => {
       cancelled = true;
-      mount.replaceChildren();
-      mount.textContent = '';
+      if (mount.id === 'issues-feed') {
+        mount.replaceChildren();
+        mount.textContent = '';
+      }
     };
   }, [tab]);
 
@@ -323,9 +325,9 @@ export default function RoadToMainnet() {
         {/* Detail list */}
         <div className="rounded-[16px] bg-[#172552] p-6">
           {tab === 'issues' ? (
-            <div id="issues-feed" style={{ display: 'grid', gap: '12px' }} />
+            <div key="issues" id="issues-feed" style={{ display: 'grid', gap: '12px' }} />
           ) : tab === 'adiri-phase-3' ? (
-            <ul className="space-y-4">
+            <ul key="adiri-phase-3" className="space-y-4">
               {ADIRI_PHASE_3_ITEMS.map((item) => (
                 <li key={item.slug} className="flex items-start gap-3">
                   <img
@@ -339,7 +341,7 @@ export default function RoadToMainnet() {
               ))}
             </ul>
           ) : tab === 'mainnet' ? (
-            <ul className="space-y-4">
+            <ul key="mainnet" className="space-y-4">
               {MAINNET_PHASE_ITEMS.map((item) => (
                 <li key={item.slug} className="flex items-start gap-3">
                   <img
@@ -353,7 +355,7 @@ export default function RoadToMainnet() {
               ))}
             </ul>
           ) : tab === 'history' ? (
-            <div className="space-y-6">
+            <div key="history" className="space-y-6">
               <ul className="space-y-4">
                 {HISTORY_ITEMS.map((item) => (
                   <li key={item.slug} className="flex items-start gap-3">
@@ -380,7 +382,7 @@ export default function RoadToMainnet() {
               </div>
             </div>
           ) : isPhaseKey(tab) ? (
-            <ul className="space-y-6">
+            <ul key={tab} className="space-y-6">
               {MILESTONES[tab].map((m) => (
                 <li key={m.slug} id={roadToMainnetId(tab, m.slug)} className="scroll-mt-24">
                   <div className="text-sm font-semibold text-white/90">{m.text}</div>
