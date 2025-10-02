@@ -13,6 +13,9 @@ type LearnMoreProps = {
 };
 
 type LearnMoreSection = { id: string; title: string; body: string[] };
+type LearnMorePhaseSection = LearnMoreSection & { id: Phase['key'] };
+
+const LEARN_MORE_PHASE_ORDER: Phase['key'][] = ['testnet', 'mainnet', 'devnet'];
 
 const LEARN_MORE_CONTENT: Record<Phase['key'], { title: string; body: string[] }> = {
   devnet: {
@@ -73,6 +76,11 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
     [phases]
   );
   const defaultOpenId = useMemo(() => {
+    const hasAdiri = orderedSections.some((section) => section.key === 'testnet');
+    if (hasAdiri) {
+      return 'testnet';
+    }
+
     const activePhase = orderedSections.find(
       (section) => section.status === 'in_progress'
     );
@@ -116,13 +124,25 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
   }, [defaultOpenId]);
 
   const sections = useMemo<LearnMoreSection[]>(() => {
-    const phaseSections = orderedSections.map((section) => ({
+    const phaseSections = orderedSections.map<LearnMorePhaseSection>((section) => ({
       id: section.key,
       title: LEARN_MORE_CONTENT[section.key]?.title ?? 'Learn more',
       body: LEARN_MORE_CONTENT[section.key]?.body ?? ['Details coming soon.'],
     }));
 
-    return [...phaseSections, ...ADDITIONAL_LEARN_MORE_SECTIONS];
+    const sortedPhaseSections = LEARN_MORE_PHASE_ORDER.flatMap((key) =>
+      phaseSections.filter((section) => section.id === key)
+    );
+
+    const remainingPhaseSections = phaseSections.filter(
+      (section) => !LEARN_MORE_PHASE_ORDER.includes(section.id)
+    );
+
+    return [
+      ...sortedPhaseSections,
+      ...remainingPhaseSections,
+      ...ADDITIONAL_LEARN_MORE_SECTIONS,
+    ];
   }, [orderedSections]);
 
   const toggle = (id: string) => {
