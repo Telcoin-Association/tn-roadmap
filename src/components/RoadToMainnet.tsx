@@ -18,6 +18,15 @@ const SHARED_ADIRI_PHASE_3_ITEMS: CustomItem[] = [
 
 const ADIRI_PHASE_3_ITEMS: CustomItem[] = SHARED_ADIRI_PHASE_3_ITEMS;
 
+const MAINNET_PHASE_ITEMS: CustomItem[] = [
+  { text: 'Cryptography security assessment', slug: 'cryptography-security-assessment' },
+  { text: 'P2P Network security assessment', slug: 'p2p-network-security-assessment' },
+  { text: 'Smart contract security assessments', slug: 'smart-contract-security-assessments' },
+  { text: 'Execution layer security assessment', slug: 'execution-layer-security-assessment' },
+  { text: 'State synchronization security assessment', slug: 'state-synchronization-security-assessment' },
+  { text: 'Patch security findings', slug: 'patch-security-findings' },
+];
+
 const HISTORY_ITEMS: CustomItem[] = SHARED_ADIRI_PHASE_3_ITEMS.map((item) => ({
   ...item,
   slug: `history-${item.slug}`,
@@ -36,8 +45,7 @@ const TABS: { key: TabKey; label: string }[] = [
 
 const isTabKey = (value: string): value is TabKey => TABS.some((tab) => tab.key === value);
 
-const isPhaseKey = (value: TabKey): value is PhaseKey =>
-  value === 'horizon' || value === 'adiri' || value === 'mainnet';
+const isPhaseKey = (value: TabKey): value is 'horizon' | 'adiri' => value === 'horizon' || value === 'adiri';
 
 export default function RoadToMainnet() {
   const [tab, setTab] = useState<TabKey>('horizon');
@@ -289,7 +297,10 @@ export default function RoadToMainnet() {
         </div>
       </div>
 
-      <div className="rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur">
+      <div
+        id={`road-to-mainnet-${tab}-tab`}
+        className="rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur"
+      >
         {/* Tabs */}
         <div className="mb-5 flex flex-wrap gap-2 rounded-xl bg-white/5 p-1 sm:inline-flex sm:flex-nowrap sm:gap-1">
           {TABS.map(({ key, label }) => (
@@ -314,6 +325,20 @@ export default function RoadToMainnet() {
           ) : tab === 'adiri-phase-3' ? (
             <ul className="space-y-4">
               {ADIRI_PHASE_3_ITEMS.map((item) => (
+                <li key={item.slug} className="flex items-start gap-3">
+                  <img
+                    src="/IMG/Loading.svg"
+                    alt=""
+                    aria-hidden="true"
+                    className="mt-0.5 h-5 w-5 shrink-0"
+                  />
+                  <span className="text-sm font-semibold text-white/90">{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          ) : tab === 'mainnet' ? (
+            <ul className="space-y-4">
+              {MAINNET_PHASE_ITEMS.map((item) => (
                 <li key={item.slug} className="flex items-start gap-3">
                   <img
                     src="/IMG/Loading.svg"
