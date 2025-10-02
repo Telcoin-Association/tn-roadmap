@@ -264,13 +264,13 @@ export default function RoadToMainnet() {
 
       <div className="rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur">
         {/* Tabs */}
-        <div className="mb-5 inline-flex rounded-xl bg-white/5 p-1">
+        <div className="mb-5 flex flex-wrap gap-2 rounded-xl bg-white/5 p-1 sm:inline-flex sm:flex-nowrap sm:gap-1">
           {TABS.map(({ key, label }) => (
             <button
               key={key}
               type="button"
               onClick={() => setTab(key)}
-              className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+              className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
                 tab === key ? 'bg-white/15 text-white' : 'text-white/70 hover:text-white/90'
               }`}
               aria-pressed={tab === key}
