@@ -3,14 +3,41 @@ import type { PhaseKey } from '@/data/milestones';
 import { MILESTONES } from '@/data/milestones';
 import { ROAD_TO_MAINNET_SECTION_ID, roadToMainnetId } from '@/utils/ids';
 
-type TabKey = PhaseKey | 'issues';
+import { ExternalLinkIcon } from './icons';
+
+type CustomItem = { text: string; slug: string };
+
+const SHARED_ADIRI_PHASE_3_ITEMS: CustomItem[] = [
+  { text: 'MVP demonstrating EVM + BFT consensus', slug: 'mvp-demonstrating-evm-bft-consensus' },
+  { text: 'Demo at MWC', slug: 'demo-at-mwc' },
+  { text: 'Expand development team', slug: 'expand-development-team' },
+  { text: 'Open-sorce codebase', slug: 'open-sorce-codebase' },
+  { text: 'Upgrade p2p network layer', slug: 'upgrade-p2p-network-layer' },
+  { text: 'Consensus smart contract security assessment', slug: 'consensus-smart-contract-security-assessment' },
+];
+
+const ADIRI_PHASE_3_ITEMS: CustomItem[] = SHARED_ADIRI_PHASE_3_ITEMS;
+
+const HISTORY_ITEMS: CustomItem[] = SHARED_ADIRI_PHASE_3_ITEMS.map((item) => ({
+  ...item,
+  slug: `history-${item.slug}`,
+}));
+
+type TabKey = PhaseKey | 'adiri-phase-3' | 'history' | 'issues';
 
 const TABS: { key: TabKey; label: string }[] = [
   { key: 'horizon', label: 'Adiri Phase 1' },
   { key: 'adiri', label: 'Adiri Phase 2' },
+  { key: 'adiri-phase-3', label: 'Adiri Phase 3' },
+  { key: 'history', label: 'History' },
   { key: 'mainnet', label: 'Mainnet' },
   { key: 'issues', label: 'Track Issues' }
 ];
+
+const isTabKey = (value: string): value is TabKey => TABS.some((tab) => tab.key === value);
+
+const isPhaseKey = (value: TabKey): value is PhaseKey =>
+  value === 'horizon' || value === 'adiri' || value === 'mainnet';
 
 export default function RoadToMainnet() {
   const [tab, setTab] = useState<TabKey>('horizon');
@@ -23,8 +50,8 @@ export default function RoadToMainnet() {
 
     const applyFromHash = () => {
       const hash = window.location.hash.replace(/^#/, '');
-      const part = hash.split('-')[3] as PhaseKey | undefined; // road to mainnet {phase} ...
-      if (part && TABS.some((t) => t.key === part)) {
+      const part = hash.split('-')[3]; // road to mainnet {phase} ...
+      if (part && isTabKey(part)) {
         setTab((prev) => (prev === part ? prev : part));
       }
     };
@@ -40,7 +67,7 @@ export default function RoadToMainnet() {
     }
 
     const hash = window.location.hash.replace(/^#/, '');
-    const part = hash.split('-')[3] as PhaseKey | undefined;
+    const part = hash.split('-')[3];
     if (part && part === tab) {
       const el = document.getElementById(hash);
       if (el) {
@@ -284,7 +311,48 @@ export default function RoadToMainnet() {
         <div className="rounded-[16px] bg-[#172552] p-6">
           {tab === 'issues' ? (
             <div id="issues-feed" style={{ display: 'grid', gap: '12px' }} />
-          ) : (
+          ) : tab === 'adiri-phase-3' ? (
+            <ul className="space-y-4">
+              {ADIRI_PHASE_3_ITEMS.map((item) => (
+                <li key={item.slug} className="flex items-start gap-3">
+                  <img
+                    src="/IMG/Loading.svg"
+                    alt=""
+                    aria-hidden="true"
+                    className="mt-0.5 h-5 w-5 shrink-0"
+                  />
+                  <span className="text-sm font-semibold text-white/90">{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          ) : tab === 'history' ? (
+            <div className="space-y-6">
+              <ul className="space-y-4">
+                {HISTORY_ITEMS.map((item) => (
+                  <li key={item.slug} className="flex items-start gap-3">
+                    <img
+                      src="/IMG/Checkmark.svg"
+                      alt=""
+                      aria-hidden="true"
+                      className="mt-0.5 h-5 w-5 shrink-0"
+                    />
+                    <span className="text-sm font-semibold text-white/90">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+              <div>
+                <a
+                  href="https://github.com/orgs/Telcoin-Association/projects/2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:text-primary/80"
+                >
+                  Github closed issues
+                  <ExternalLinkIcon className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          ) : isPhaseKey(tab) ? (
             <ul className="space-y-6">
               {MILESTONES[tab].map((m) => (
                 <li key={m.slug} id={roadToMainnetId(tab, m.slug)} className="scroll-mt-24">
@@ -299,7 +367,7 @@ export default function RoadToMainnet() {
                 </li>
               ))}
             </ul>
-          )}
+          ) : null}
         </div>
       </div>
     </section>
