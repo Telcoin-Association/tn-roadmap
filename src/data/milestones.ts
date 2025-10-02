@@ -12,66 +12,82 @@ export type Milestone = {
 export const MILESTONES: Record<PhaseKey, Milestone[]> = {
   horizon: [
     {
-      text: 'Patch Public Vulnerabilities',
-      slug: 'patch-public-vulnerabilities',
-      done: true,
+      text: 'Pre-Cantina Competition',
+      slug: 'pre-cantina-competition',
       details: [
-        'Priority findings addressed and patched',
-        'Confirm patch and code hardening via 3rd party security researchers and community',
+        'Preparation phase to finalize core components and stabilize the network ahead of the open security competition run by Cantina.',
       ],
     },
     {
-      text: 'Stabilize Adiri Environment',
-      slug: 'stabilize-adiri-environment',
+      text: 'Initial Spin-Up of TAO-Controlled Validator Nodes',
+      slug: 'initial-spin-up-of-tao-controlled-validator-nodes',
       details: [
-        'Deploy public devnet nodes',
-        'Reset telscan.io',
+        'Deployment of the first validator set operated by the Telcoin Autonomous Organization (TAO) to secure and coordinate early network operations.',
       ],
     },
     {
-      text: 'Security Findings Final Patch',
-      slug: 'security-findings-final-patch',
+      text: 'Launch Block Explorer',
+      slug: 'launch-block-explorer',
       details: [
-        'After Priority Fixes (remaining) completed',
-        'Confirm patch and code hardening',
+        'Public release of a Telcoin Network block explorer, enabling developers and the community to view blocks, transactions, and validator activity transparently.',
+      ],
+    },
+    {
+      text: 'Demo PoC',
+      slug: 'demo-poc',
+      details: [
+        'Demonstration of a proof-of-concept application to showcase the network’s functionality and real-world use cases.',
+      ],
+    },
+    {
+      text: 'Feature Complete',
+      slug: 'feature-complete',
+      details: [
+        'Reaching the point where all planned core features are implemented and the network is functionally ready for audit and testing.',
+      ],
+    },
+    {
+      text: '4-Week Security Assessment',
+      slug: '4-week-security-assessment',
+      details: [
+        'A dedicated month-long review involving audits, penetration testing, and vulnerability assessment to identify and resolve security issues before Mainnet launch.',
       ],
     },
   ],
   adiri: [
     {
-      text: 'Genesis Opening Ceremony with MNO Partners',
-      slug: 'genesis-opening-ceremony-with-mno-partners',
+      text: 'Patch Security Findings',
+      slug: 'patch-security-findings',
       details: [
-        'Adiri testnet genesis ceremony with MNO partners',
-        'Begin onboarding MNO partners to Adiri testnet',
+        'Address all vulnerabilities identified during the security competition and audits to ensure the network meets telecom-grade security standards.',
       ],
     },
     {
-      text: 'MNO Onboarding',
-      slug: 'mno-onboarding',
+      text: 'Enhance Test Coverage',
+      slug: 'enhance-test-coverage',
       details: [
-        'White glove onboarding MNO partners to Adiri testnet',
+        'Expand automated and manual testing to cover edge cases, validator interactions, and stress scenarios, reducing the chance of regressions.',
       ],
     },
     {
-      text: 'Integrate Adiri Testnets with Bridge Solution',
-      slug: 'integrate-adiri-testnets-with-bridge-solution',
+      text: 'Production Harden Code Base',
+      slug: 'production-harden-code-base',
       details: [
-        'Bridge integration for Adiri Testnet',
+        'Optimize and stabilize the code for real-world use, including performance tuning, reliability improvements, and resilience under high load.',
       ],
     },
     {
-      text: 'Adiri Alpha Audits',
-      slug: 'adiri-alpha-audits',
+      text: 'Improve Documentation',
+      slug: 'improve-documentation',
       details: [
-        'RecoverableWrapper',
-        'BLS library',
-        'Libp2p',
-        'State sync',
-        'Execution layer',
-        'Cryptographic key management',
-        'Bridge',
-        'Competition',
+        'Update and expand developer, validator, and user documentation to support smooth onboarding, transparency, and ecosystem growth.',
+      ],
+    },
+    {
+      text: 'Relaunch Network',
+      slug: 'relaunch-network',
+      details: [
+        'Bring the Telcoin Network back online with fixes, improvements, and readiness for the transition into the Mainnet launch phases.',
       ],
     },
   ],
