@@ -5,7 +5,7 @@ import { ROAD_TO_MAINNET_SECTION_ID, roadToMainnetId } from '@/utils/ids';
 
 import { ExternalLinkIcon } from './icons';
 
-type CustomItem = { text: string; slug: string };
+type CustomItem = { text: string; slug: string; description?: string };
 
 const SHARED_ADIRI_PHASE_3_ITEMS: CustomItem[] = [
   { text: 'MVP demonstrating EVM + BFT consensus', slug: 'mvp-demonstrating-evm-bft-consensus' },
@@ -17,8 +17,18 @@ const SHARED_ADIRI_PHASE_3_ITEMS: CustomItem[] = [
 ];
 
 const ADIRI_PHASE_3_ITEMS: CustomItem[] = [
-  { text: 'Integrate Adiri testnet with bridge solution', slug: 'integrate-adiri-testnet-with-bridge-solution' },
-  { text: 'Decentralize network (onboard MNO Validators)', slug: 'decentralize-network-onboard-mno-validators' },
+  {
+    text: 'Integrate Adiri Testnet with Bridge Solution',
+    slug: 'integrate-adiri-testnet-with-bridge-solution',
+    description:
+      'Connect the Adiri testnet to a cross-chain bridge, enabling the movement of assets like TEL and stablecoins between the Telcoin Network and external chains for testing interoperability.',
+  },
+  {
+    text: 'Decentralize Network (Onboard MNO Validators)',
+    slug: 'decentralize-network-onboard-mno-validators',
+    description:
+      'Transition from TAO-operated validators to a broader, decentralized set by onboarding mobile network operators (MNOs) as validators, aligning governance with GSMA standards and expanding security through diverse participation.',
+  },
 ];
 
 const MAINNET_PHASE_ITEMS: CustomItem[] = [
@@ -339,7 +349,12 @@ export default function RoadToMainnet() {
                     aria-hidden="true"
                     className="mt-0.5 h-5 w-5 shrink-0 motion-safe:animate-spin-slow"
                   />
-                  <span className="text-sm font-semibold text-white/90">{item.text}</span>
+                  <div className="space-y-1 text-sm text-white/90">
+                    <div className="font-semibold">{item.text}</div>
+                    {item.description && (
+                      <p className="text-white/75">{item.description}</p>
+                    )}
+                  </div>
                 </li>
               ))}
             </ul>
