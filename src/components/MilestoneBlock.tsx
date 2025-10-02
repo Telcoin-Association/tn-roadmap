@@ -135,7 +135,7 @@ export default function MilestoneBlock({ phase }: Props) {
                           <img
                             src={LoadingIconUrl}
                             alt=""
-                            className="mt-0.5 h-4 w-4 shrink-0 text-white/80 motion-safe:animate-spin"
+                            className="mt-0.5 h-4 w-4 shrink-0 text-white/80 motion-safe:animate-spin-slow"
                           />
                         ) : (
                           <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />
@@ -173,7 +173,7 @@ export default function MilestoneBlock({ phase }: Props) {
               <img
                 src={LoadingIconUrl}
                 alt=""
-                className="mt-0.5 h-4 w-4 shrink-0 motion-safe:animate-spin"
+                className="mt-0.5 h-4 w-4 shrink-0 motion-safe:animate-spin-slow"
               />
               <span className="text-sm leading-6 text-white/90">{text}</span>
             </li>
