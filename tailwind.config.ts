@@ -37,7 +37,8 @@ const config: Config = {
       },
       animation: {
         progress: 'progress 1.4s ease-out forwards',
-        shimmer: 'shimmer 2.8s ease-in-out infinite'
+        shimmer: 'shimmer 2.8s ease-in-out infinite',
+        'spin-slow': 'spin 2.6s linear infinite'
       },
       ringColor: {
         DEFAULT: 'var(--ring)'

@@ -268,6 +268,8 @@ export default function RoadToMainnet() {
 
     return () => {
       cancelled = true;
+      mount.replaceChildren();
+      mount.textContent = '';
     };
   }, [tab]);
 
@@ -330,7 +332,7 @@ export default function RoadToMainnet() {
                     src="/IMG/Loading.svg"
                     alt=""
                     aria-hidden="true"
-                    className="mt-0.5 h-5 w-5 shrink-0"
+                    className="mt-0.5 h-5 w-5 shrink-0 motion-safe:animate-spin-slow"
                   />
                   <span className="text-sm font-semibold text-white/90">{item.text}</span>
                 </li>
@@ -344,7 +346,7 @@ export default function RoadToMainnet() {
                     src="/IMG/Loading.svg"
                     alt=""
                     aria-hidden="true"
-                    className="mt-0.5 h-5 w-5 shrink-0"
+                    className="mt-0.5 h-5 w-5 shrink-0 motion-safe:animate-spin-slow"
                   />
                   <span className="text-sm font-semibold text-white/90">{item.text}</span>
                 </li>
