@@ -6,8 +6,8 @@ import { ROAD_TO_MAINNET_SECTION_ID, roadToMainnetId } from '@/utils/ids';
 type TabKey = PhaseKey | 'issues';
 
 const TABS: { key: TabKey; label: string }[] = [
-  { key: 'horizon', label: 'Horizon' },
-  { key: 'adiri', label: 'Adiri' },
+  { key: 'horizon', label: 'Adiri Phase 1' },
+  { key: 'adiri', label: 'Adiri Phase 2' },
   { key: 'mainnet', label: 'Mainnet' },
   { key: 'issues', label: 'Track Issues' }
 ];
