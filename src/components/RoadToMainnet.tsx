@@ -286,7 +286,11 @@ export default function RoadToMainnet() {
             <div id="issues-feed" style={{ display: 'grid', gap: '12px' }} />
           ) : (
             <ul className="space-y-6">
-              {MILESTONES[tab].map((m) => (
+              {MILESTONES[
+                tab
+              ]
+                .filter((m) => !(tab === 'adiri' && m.slug === 'phase-1'))
+                .map((m) => (
                 <li key={m.slug} id={roadToMainnetId(tab, m.slug)} className="scroll-mt-24">
                   <div className="text-sm font-semibold text-white/90">{m.text}</div>
                   {m.details && m.details.length > 0 && (
