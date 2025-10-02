@@ -39,6 +39,19 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
   ],
   adiri: [
     {
+      text: 'Phase 1',
+      slug: 'phase-1',
+      details: [
+        'Patch Public Vulnerabilities',
+        'Stabilize Horizon Environment',
+        'Security Findings Final Patch',
+      ],
+    },
+    {
+      text: 'Phase 2',
+      slug: 'phase-2',
+    },
+    {
       text: 'Genesis Opening Ceremony with MNO Partners',
       slug: 'genesis-opening-ceremony-with-mno-partners',
       details: [
