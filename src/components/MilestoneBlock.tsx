@@ -20,6 +20,9 @@ export default function MilestoneBlock({ phase }: Props) {
         {items.map((m, i) => {
           const targetId = roadToMainnetId(phase, m.slug);
           const href = `#${targetId}`;
+          const showAdiriPhaseOneDetails =
+            phase === 'adiri' && m.slug === 'phase-1' && m.details && m.details.length > 0;
+
           return (
             <li key={i} className="flex items-start gap-3">
               {m.done ? (
@@ -27,10 +30,19 @@ export default function MilestoneBlock({ phase }: Props) {
               ) : (
                 <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />
               )}
-              {/* Link ties down to Road to mainnet detail item */}
-              <a href={href} className="text-sm leading-6 text-white/90 hover:underline">
-                {m.text}
-              </a>
+              <div>
+                {/* Link ties down to Road to mainnet detail item */}
+                <a href={href} className="text-sm leading-6 text-white/90 hover:underline">
+                  {m.text}
+                </a>
+                {showAdiriPhaseOneDetails && (
+                  <ul className="mt-1 list-disc pl-5 text-xs leading-5 text-white/80">
+                    {m.details?.map((detail, index) => (
+                      <li key={index}>{detail}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </li>
           );
         })}
