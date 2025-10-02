@@ -77,16 +77,16 @@ export default function App() {
             >
               <div className="flex flex-wrap items-start gap-6 md:flex-nowrap md:justify-between">
                 <div className="flex min-w-0 flex-1 flex-col gap-4">
-                  <div className="flex min-w-0 items-start gap-4">
+                  <div className="flex min-w-0 flex-col items-start gap-4 sm:flex-row">
                     <a
                       href="/"
                       onClick={onHome}
                       aria-label="Telcoin Roadmap home"
                       className="flex shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                     >
-                      <TelcoinAnimatedLogo className="h-28 w-28 shrink-0 md:h-32 md:w-32" />
+                      <TelcoinAnimatedLogo className="h-24 w-24 shrink-0 sm:h-28 sm:w-28 md:h-32 md:w-32" />
                     </a>
-                    <div className="min-w-[220px] flex-1 text-left">
+                    <div className="min-w-0 flex-1 text-left sm:min-w-[220px]">
                       <a
                         href="/"
                         onClick={onHome}
