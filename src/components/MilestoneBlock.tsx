@@ -26,8 +26,8 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
         targetPhase: 'horizon',
       },
       {
-        text: 'Stabilize Horizon Environment',
-        slug: 'stabilize-horizon-environment',
+        text: 'Stabilize Adiri Environment',
+        slug: 'stabilize-adiri-environment',
         targetPhase: 'horizon',
       },
       {

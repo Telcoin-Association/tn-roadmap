@@ -44,7 +44,7 @@ const ADIRI_ACTIVE_BADGE: {
 };
 
 const PHASE_LOGOS: Partial<Record<Phase['key'], { src: string; alt: string }>> = {
-  devnet: { src: HorizonLogoUrl, alt: 'Horizon logo' },
+  devnet: { src: HorizonLogoUrl, alt: 'Adiri logo' },
   testnet: { src: AdiriLogoUrl, alt: 'Adiri logo' },
   mainnet: { src: '/IMG/Mainnet.svg', alt: 'Mainnet Logo' }
 };

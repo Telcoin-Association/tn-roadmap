@@ -21,8 +21,8 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
-      text: 'Stabilize Horizon Environment',
-      slug: 'stabilize-horizon-environment',
+      text: 'Stabilize Adiri Environment',
+      slug: 'stabilize-adiri-environment',
       details: [
         'Deploy public devnet nodes',
         'Reset telscan.io',

@@ -3,9 +3,9 @@
   "phases": [
     {
       "key": "devnet",
-      "title": "Horizon",
+      "title": "Adiri",
       "status": "in_progress",
-      "summary": "Finalizing high-priority security fixes and validating the Horizon development environment ahead of broader testing."
+      "summary": "Finalizing high-priority security fixes and validating the Adiri development environment ahead of broader testing."
     },
     {
       "key": "testnet",
@@ -32,7 +32,7 @@
   },
   "roadmap": [
     { "title": "Patch public vulnerabilities", "state": "in_progress" },
-    { "title": "Stabilize Horizon environment", "state": "up_next" },
+    { "title": "Stabilize Adiri environment", "state": "up_next" },
     { "title": "Open Adiri public testnet", "state": "planned" },
     {
       "title": "Address remaining findings from security competition",
