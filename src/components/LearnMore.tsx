@@ -16,6 +16,21 @@ type LearnMorePhaseSection = LearnMoreSection & { id: Phase['key'] };
 
 const LEARN_MORE_PHASE_ORDER: Phase['key'][] = ['testnet', 'mainnet', 'devnet'];
 
+const SECTION_LOGOS: Record<string, { src: string; alt: string }> = {
+  'enterprise-ready-platform': {
+    src: '/IMG/coming.svg',
+    alt: 'Enterprise Ready Platform logo',
+  },
+  'trust-and-security': {
+    src: '/IMG/security.svg',
+    alt: 'Trust and Security logo',
+  },
+  'regulation-and-compliance': {
+    src: '/IMG/compliance.svg',
+    alt: 'Regulation and Compliance logo',
+  },
+};
+
 const LEARN_MORE_CONTENT: Record<Phase['key'], { title: string; body: string[] }> = {
   devnet: {
     title: 'History of the Telcoin Network',
@@ -215,7 +230,9 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
             ? { src: AdiriLogoUrl, alt: 'Adiri logo' }
             : isMainnet
               ? { src: MAINNET_LOGO_URL, alt: 'Mainnet logo' }
-              : undefined;
+              : isHistory
+                ? { src: '/IMG/history.svg', alt: 'History of the Telcoin Network logo' }
+                : SECTION_LOGOS[section.id];
           return (
             <article
               key={section.id}
