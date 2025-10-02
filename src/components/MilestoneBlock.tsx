@@ -9,6 +9,7 @@ type Props = { phase: PhaseKey };
 type AdiriPhaseGroup = {
   title: string;
   icon: 'check' | 'timer';
+  href: string;
   items: {
     text: string;
     slug: string;
@@ -21,6 +22,7 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
   {
     title: 'Phase 1',
     icon: 'check',
+    href: '#road-to-mainnet-horizon-tab',
     items: [
       {
         text: 'Pre cantina competition',
@@ -51,6 +53,7 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
   {
     title: 'Phase 2',
     icon: 'timer',
+    href: '#road-to-mainnet-adiri-tab',
     items: [
       {
         text: 'Patch security findings',
@@ -77,6 +80,7 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
   {
     title: 'Phase 3',
     icon: 'timer',
+    href: '#road-to-mainnet-adiri-phase-3-tab',
     items: [
       {
         text: 'Integrate Adiri testnet with bridge solution',
@@ -110,12 +114,16 @@ export default function MilestoneBlock({ phase }: Props) {
           {ADIRI_PHASE_GROUPS.map((group) => {
             return (
               <div key={group.title}>
-                <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">{group.title}</h4>
+                <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+                  <a
+                    href={group.href}
+                    className="inline-flex items-center gap-1 text-current transition hover:text-white/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  >
+                    {group.title}
+                  </a>
+                </h4>
                 <ul className="mt-2 space-y-2">
                   {group.items.map((item) => {
-                    const targetPhase = item.targetPhase ?? phase;
-                    const targetId = roadToMainnetId(targetPhase, item.slug);
-                    const href = `#${targetId}`;
                     return (
                       <li key={item.slug} className="flex items-start gap-3">
                         {group.icon === 'check' ? (
@@ -125,9 +133,7 @@ export default function MilestoneBlock({ phase }: Props) {
                         ) : (
                           <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />
                         )}
-                        <a href={href} className="text-sm leading-6 text-white/90 hover:underline">
-                          {item.text}
-                        </a>
+                        <span className="text-sm leading-6 text-white/90">{item.text}</span>
                       </li>
                     );
                   })}

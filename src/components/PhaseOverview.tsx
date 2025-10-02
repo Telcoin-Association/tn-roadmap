@@ -55,15 +55,6 @@ const PHASE_TO_DROPDOWN_KEY: Record<Phase['key'], PhaseKey> = {
   mainnet: 'mainnet'
 };
 
-const PHASE_ANCHORS: Partial<Record<Phase['key'], { href: string; ariaLabel: string }>> = {
-  devnet: {
-    href: '#history-of-the-telcoin-network',
-    ariaLabel: 'Jump to History of the Telcoin Network'
-  },
-  testnet: { href: '#what-is-adiri', ariaLabel: 'Jump to What is Adiri' },
-  mainnet: { href: '#what-is-mainnet', ariaLabel: 'Jump to What is Mainnet' }
-};
-
 type PhaseOverviewProps = {
   phases: Phase[];
 };
@@ -113,8 +104,6 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
               : STATUS_LABELS[phase.status];
           const Icon = NetworkIcon;
           const logo = PHASE_LOGOS[phase.key];
-          const anchor = PHASE_ANCHORS[phase.key];
-
           const subtitle = 'Release';
           const milestonePhaseKey = PHASE_TO_DROPDOWN_KEY[phase.key];
           const dataPhase = milestonePhaseKey;
@@ -170,27 +159,6 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
               </div>
             </div>
           );
-
-          if (anchor) {
-            return (
-              <div key={phase.key} className="h-full">
-                <a
-                  href={anchor.href}
-                  aria-label={anchor.ariaLabel}
-                  className="group block h-full focus:outline-none"
-                >
-                  <motion.article
-                    data-phase-card=""
-                    data-phase={dataPhase}
-                    className="flex h-full flex-col overflow-hidden rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:shadow-glow"
-                    whileHover={{ y: -8 }}
-                  >
-                    {cardInner}
-                  </motion.article>
-                </a>
-              </div>
-            );
-          }
 
           return (
             <div key={phase.key} className="h-full">
