@@ -8,6 +8,7 @@ type Props = { phase: PhaseKey };
 
 type AdiriPhaseGroup = {
   title: string;
+  icon: 'check' | 'timer';
   items: {
     text: string;
     slug: string;
@@ -19,45 +20,83 @@ type AdiriPhaseGroup = {
 const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
   {
     title: 'Phase 1',
+    icon: 'check',
     items: [
       {
-        text: 'Patch Public Vulnerabilities',
-        slug: 'patch-public-vulnerabilities',
-        targetPhase: 'horizon',
+        text: 'Pre cantina competition',
+        slug: 'pre-cantina-competition',
       },
       {
-        text: 'Stabilize Adiri Environment',
-        slug: 'stabilize-adiri-environment',
-        targetPhase: 'horizon',
+        text: 'Initial spin up of TAO controlled validator nodes',
+        slug: 'initial-spin-up-of-tao-controlled-validator-nodes',
       },
       {
-        text: 'Security Findings Final Patch',
-        slug: 'security-findings-final-patch',
-        targetPhase: 'horizon',
+        text: 'Launch block explorer',
+        slug: 'launch-block-explorer',
+      },
+      {
+        text: 'Demo PoC',
+        slug: 'demo-poc',
+      },
+      {
+        text: 'Feature complete',
+        slug: 'feature-complete',
+      },
+      {
+        text: '4-week security assessment',
+        slug: '4-week-security-assessment',
       },
     ],
   },
   {
     title: 'Phase 2',
+    icon: 'timer',
     items: [
       {
-        text: 'Genesis Opening Ceremony with MNO Partners',
-        slug: 'genesis-opening-ceremony-with-mno-partners',
+        text: 'Patch security findings',
+        slug: 'patch-security-findings',
       },
       {
-        text: 'MNO Onboarding',
-        slug: 'mno-onboarding',
+        text: 'Enhance test coverage',
+        slug: 'enhance-test-coverage',
       },
       {
-        text: 'Integrate Adiri Testnets with Bridge Solution',
-        slug: 'integrate-adiri-testnets-with-bridge-solution',
+        text: 'Production harden code base',
+        slug: 'production-harden-code-base',
       },
       {
-        text: 'Adiri Alpha Audits',
-        slug: 'adiri-alpha-audits',
+        text: 'Improve documentation',
+        slug: 'improve-documentation',
+      },
+      {
+        text: 'Relaunch network',
+        slug: 'relaunch-network',
       },
     ],
   },
+  {
+    title: 'Phase 3',
+    icon: 'timer',
+    items: [
+      {
+        text: 'Integrate Adiri testnet with bridge solution',
+        slug: 'integrate-adiri-testnet-with-bridge-solution',
+      },
+      {
+        text: 'Decentralize network (onboard partners)',
+        slug: 'decentralize-network-onboard-partners',
+      },
+    ],
+  },
+];
+
+const MAINNET_PHASE_ITEMS = [
+  'Cryptography security assessment',
+  'P2P Network security assessment',
+  'Smart contract security assessments',
+  'Execution layer security assessment',
+  'State synchronization security assessment',
+  'Patch security findings',
 ];
 
 export default function MilestoneBlock({ phase }: Props) {
@@ -69,8 +108,6 @@ export default function MilestoneBlock({ phase }: Props) {
         </div>
         <div className="mt-3 space-y-4">
           {ADIRI_PHASE_GROUPS.map((group) => {
-            const isPhaseOne = group.title.trim().toLowerCase() === 'phase 1';
-
             return (
               <div key={group.title}>
                 <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">{group.title}</h4>
@@ -81,7 +118,9 @@ export default function MilestoneBlock({ phase }: Props) {
                     const href = `#${targetId}`;
                     return (
                       <li key={item.slug} className="flex items-start gap-3">
-                        {isPhaseOne ? (
+                        {group.icon === 'check' ? (
+                          <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />
+                        ) : group.icon === 'timer' ? (
                           <TimerIcon className="mt-0.5 h-4 w-4 shrink-0 text-white/80" />
                         ) : (
                           <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />
@@ -97,6 +136,24 @@ export default function MilestoneBlock({ phase }: Props) {
             );
           })}
         </div>
+      </div>
+    );
+  }
+
+  if (phase === 'mainnet') {
+    return (
+      <div data-phase-card-milestones="">
+        <div className="flex w-full items-center rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90">
+          <span>Milestones</span>
+        </div>
+        <ul className="mt-3 space-y-2">
+          {MAINNET_PHASE_ITEMS.map((text) => (
+            <li key={text} className="flex items-start gap-3">
+              <TimerIcon className="mt-0.5 h-4 w-4 shrink-0 text-white/80" />
+              <span className="text-sm leading-6 text-white/90">{text}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }
