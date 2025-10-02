@@ -13,21 +13,28 @@ const STAT_LABELS: Record<string, string> = {
 
 function StatCard({
   title,
+  description,
   metrics,
   icon
 }: {
   title: string;
+  description?: string;
   metrics: Record<string, number>;
   icon: ReactNode;
 }) {
   const entries = Object.entries(metrics);
   return (
     <article className="flex flex-1 flex-col gap-4 rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-5 shadow-soft backdrop-blur">
-      <header className="flex items-center gap-3">
+      <header className="flex items-start gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20 text-primary">
           {icon}
         </div>
-        <h3 className="text-lg font-semibold text-fg">{title}</h3>
+        <div className="space-y-1">
+          <h3 className="text-lg font-semibold text-fg">{title}</h3>
+          {description ? (
+            <p className="text-xs text-fg-muted">{description}</p>
+          ) : null}
+        </div>
       </header>
       <dl className="grid grid-cols-2 gap-4 text-sm">
         {entries.map(([key, value]) => (
@@ -83,24 +90,26 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
         </article>
         <div className="flex flex-col gap-4">
           <StatCard
-            title="Priority Findings (public-facing)"
+            title="Public-Facing Vulnerabilities"
+            description="Security issues reachable through public APIs, apps, or network endpoints."
             metrics={publicFindings}
             icon={
               <img
                 src="/IMG/Audit.svg"
-                alt="Priority findings"
+                alt="Public-facing vulnerabilities"
                 className="h-6 w-6 md:h-7 md:w-7 shrink-0"
                 loading="eager"
               />
             }
           />
           <StatCard
-            title="After Priority Fixes (remaining)"
+            title="Internal Security Findings"
+            description="Issues relevant to validator peers and internal infrastructure, prioritized after public-facing fixes."
             metrics={afterPriorityFixes}
             icon={
               <img
                 src="/IMG/Audit.svg"
-                alt="After priority fixes (remaining)"
+                alt="Internal security findings"
                 className="h-6 w-6 md:h-7 md:w-7 shrink-0"
                 loading="eager"
               />
