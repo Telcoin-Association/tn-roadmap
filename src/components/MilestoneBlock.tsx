@@ -89,13 +89,14 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
       },
       {
         text: 'Decentralize network (onboard MNO Validators)',
-        slug: 'decentralize-network-onboard-partners',
+        slug: 'decentralize-network-onboard-mno-validators',
       },
     ],
   },
 ];
 
 const MAINNET_PHASE_ITEMS = [
+  '- Launch Mainnet',
   'Cryptography security assessment',
   'P2P Network security assessment',
   'Smart contract security assessments',

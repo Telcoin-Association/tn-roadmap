@@ -11,12 +11,15 @@ const SHARED_ADIRI_PHASE_3_ITEMS: CustomItem[] = [
   { text: 'MVP demonstrating EVM + BFT consensus', slug: 'mvp-demonstrating-evm-bft-consensus' },
   { text: 'Demo at MWC', slug: 'demo-at-mwc' },
   { text: 'Expand development team', slug: 'expand-development-team' },
-  { text: 'Open-sorce codebase', slug: 'open-sorce-codebase' },
+  { text: 'Open-source codebase', slug: 'open-source-codebase' },
   { text: 'Upgrade p2p network layer', slug: 'upgrade-p2p-network-layer' },
   { text: 'Consensus smart contract security assessment', slug: 'consensus-smart-contract-security-assessment' },
 ];
 
-const ADIRI_PHASE_3_ITEMS: CustomItem[] = SHARED_ADIRI_PHASE_3_ITEMS;
+const ADIRI_PHASE_3_ITEMS: CustomItem[] = [
+  { text: 'Integrate Adiri testnet with bridge solution', slug: 'integrate-adiri-testnet-with-bridge-solution' },
+  { text: 'Decentralize network (onboard MNO Validators)', slug: 'decentralize-network-onboard-mno-validators' },
+];
 
 const MAINNET_PHASE_ITEMS: CustomItem[] = [
   { text: 'Cryptography security assessment', slug: 'cryptography-security-assessment' },
