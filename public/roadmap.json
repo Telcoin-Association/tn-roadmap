@@ -1,5 +1,11 @@
 [
   {
+    "number": 451,
+    "title": "Voting Weight",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/451",
+    "updated_at": "2025-10-03T19:44:45Z"
+  },
+  {
     "number": 449,
     "title": "Restart test fixes.",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/449",
@@ -16,12 +22,6 @@
     "title": "NodeRecord: External Identify Event",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/446",
     "updated_at": "2025-09-30T23:24:56Z"
-  },
-  {
-    "number": 444,
-    "title": "Kademlia: Peer Manager",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/444",
-    "updated_at": "2025-09-30T22:58:08Z"
   },
   {
     "number": 443,
@@ -63,13 +63,13 @@
     "number": 437,
     "title": "Gossip message authorization bypass",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/437",
-    "updated_at": "2025-09-30T21:02:07Z"
+    "updated_at": "2025-10-03T16:08:37Z"
   },
   {
     "number": 436,
     "title": "Observer crash during peer rotation when peer list is empty",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/436",
-    "updated_at": "2025-09-30T20:55:47Z"
+    "updated_at": "2025-10-03T16:08:17Z"
   },
   {
     "number": 435,
@@ -273,7 +273,7 @@
     "number": 402,
     "title": "`QuorumWaiter::verify_batch` doesn't decrease `available_stake` when matches `Ok`",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/402",
-    "updated_at": "2025-09-29T20:35:34Z"
+    "updated_at": "2025-10-03T21:00:45Z"
   },
   {
     "number": 401,
@@ -285,7 +285,7 @@
     "number": 400,
     "title": "Worker not configured to subscribe to the tn-worker topic",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/400",
-    "updated_at": "2025-09-29T15:24:53Z"
+    "updated_at": "2025-10-03T16:07:48Z"
   },
   {
     "number": 399,
@@ -333,7 +333,7 @@
     "number": 392,
     "title": "`PrimaryNetworkHandle::publish_consensus` Race Condition / Out-of-Order Gossip",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/392",
-    "updated_at": "2025-09-29T13:37:46Z"
+    "updated_at": "2025-10-03T16:07:14Z"
   },
   {
     "number": 391,
@@ -412,12 +412,6 @@
     "title": "Consider Supporting Multiple `Multiaddr` per Node",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/306",
     "updated_at": "2025-05-15T21:27:54Z"
-  },
-  {
-    "number": 301,
-    "title": "PeerManager to Track Validators",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/301",
-    "updated_at": "2025-05-13T23:09:51Z"
   },
   {
     "number": 297,
