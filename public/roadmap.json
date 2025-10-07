@@ -207,7 +207,7 @@
     "number": 413,
     "title": "Premature Certificate Rejection Due to Missing Quorum Recalculation",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/413",
-    "updated_at": "2025-09-29T21:14:37Z"
+    "updated_at": "2025-10-06T15:29:31Z"
   },
   {
     "number": 412,
@@ -219,7 +219,7 @@
     "number": 411,
     "title": "`TNEvmHandler::reward_beneficiary` should use `gas.spent_sub_refunded` instead of unchecked subtraction",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/411",
-    "updated_at": "2025-09-29T21:04:59Z"
+    "updated_at": "2025-10-06T15:05:56Z"
   },
   {
     "number": 410,
