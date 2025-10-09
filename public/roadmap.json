@@ -1,15 +1,15 @@
 [
   {
+    "number": 457,
+    "title": "Double check consensus bus to make sure we don't have channels not being read from.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/457",
+    "updated_at": "2025-10-08T15:28:34Z"
+  },
+  {
     "number": 451,
     "title": "Voting Weight",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/451",
     "updated_at": "2025-10-03T19:44:45Z"
-  },
-  {
-    "number": 449,
-    "title": "Restart test fixes.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/449",
-    "updated_at": "2025-10-01T21:47:44Z"
   },
   {
     "number": 447,
@@ -58,18 +58,6 @@
     "title": "Force burning a validator in the scheduled committees will reduce the size of future committees",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/438",
     "updated_at": "2025-09-30T21:06:10Z"
-  },
-  {
-    "number": 437,
-    "title": "Gossip message authorization bypass",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/437",
-    "updated_at": "2025-10-03T16:08:37Z"
-  },
-  {
-    "number": 436,
-    "title": "Observer crash during peer rotation when peer list is empty",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/436",
-    "updated_at": "2025-10-03T16:08:17Z"
   },
   {
     "number": 435,
@@ -144,12 +132,6 @@
     "updated_at": "2025-09-30T10:47:07Z"
   },
   {
-    "number": 423,
-    "title": "Silent Ignoring of `fetch_batches` Failures Leads to Execution Deadlock",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/423",
-    "updated_at": "2025-09-29T22:14:15Z"
-  },
-  {
     "number": 422,
     "title": "Certificate store index partial cleanup",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/422",
@@ -216,12 +198,6 @@
     "updated_at": "2025-09-29T21:08:23Z"
   },
   {
-    "number": 411,
-    "title": "`TNEvmHandler::reward_beneficiary` should use `gas.spent_sub_refunded` instead of unchecked subtraction",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/411",
-    "updated_at": "2025-10-06T15:05:56Z"
-  },
-  {
     "number": 410,
     "title": "`RethEnv::build_block_from_batch_payload` writes but never reads from `total_fees`",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/410",
@@ -270,22 +246,10 @@
     "updated_at": "2025-09-29T20:39:59Z"
   },
   {
-    "number": 402,
-    "title": "`QuorumWaiter::verify_batch` doesn't decrease `available_stake` when matches `Ok`",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/402",
-    "updated_at": "2025-10-03T21:00:45Z"
-  },
-  {
     "number": 401,
     "title": "Ineffective IP Address Banning Due to Inverted Logic",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/401",
     "updated_at": "2025-09-29T20:32:36Z"
-  },
-  {
-    "number": 400,
-    "title": "Worker not configured to subscribe to the tn-worker topic",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/400",
-    "updated_at": "2025-10-03T16:07:48Z"
   },
   {
     "number": 399,
