@@ -25,7 +25,9 @@
       "Major architectural changes complete (one in progress).",
       "Every patch ships with added tests (caught 4 bugs so far missed in competition).",
       "Next: focused security assessments (p2p network, key management, execution layer)",
-      "Track issues on GitHub"
+      "Track issues on GitHub",
+      "Finished trustless syncing (big lift)",
+      "Identified two new vulnerabilities while applying patches"
     ],
     "publicFindings": { "critical": 0, "high": 3, "medium": 2, "low": 5, "info": 4 },
     "afterPriorityFixes": { "critical": 0, "high": 0, "medium": 14, "low": 36, "info": 20 }
