@@ -22,6 +22,12 @@ type AdiriPhaseGroup = {
   }[];
 };
 
+const ACTIVE_PHASE_2_SLUGS = new Set([
+  'patch-security-findings',
+  'enhance-test-coverage',
+  'improve-documentation',
+]);
+
 const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
   {
     title: 'Phase 1',
@@ -135,13 +141,13 @@ export default function MilestoneBlock({ phase }: Props) {
                 </h4>
                 <ul className="mt-2 space-y-2">
                   {group.items.map((item) => {
-                    const isPatchSecurityFinding =
-                      group.title === 'Phase 2' && item.slug === 'patch-security-findings';
-                    const shouldAnimate = isPatchSecurityFinding && !reduceMotion;
+                    const isActivePhase2Item =
+                      group.title === 'Phase 2' && ACTIVE_PHASE_2_SLUGS.has(item.slug);
+                    const shouldAnimate = isActivePhase2Item && !reduceMotion;
 
                     return (
                       <li key={item.slug} className="flex items-start gap-3">
-                        {isPatchSecurityFinding ? (
+                        {isActivePhase2Item ? (
                           <img src={ActivityIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />
                         ) : group.icon === 'check' ? (
                           <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />
@@ -156,7 +162,7 @@ export default function MilestoneBlock({ phase }: Props) {
                         ) : (
                           <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />
                         )}
-                        {isPatchSecurityFinding ? (
+                        {isActivePhase2Item ? (
                           <motion.span
                             className="text-sm font-semibold leading-6 text-white"
                             animate={shouldAnimate ? { opacity: [1, 0.5, 1] } : undefined}
