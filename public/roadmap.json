@@ -138,18 +138,6 @@
     "updated_at": "2025-09-29T22:12:05Z"
   },
   {
-    "number": 421,
-    "title": "KadStore Counter Bug Enables Trivial Network DoS",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/421",
-    "updated_at": "2025-09-29T22:07:40Z"
-  },
-  {
-    "number": 420,
-    "title": "Blocking on to_worker.send Can Deadlock the Builder",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/420",
-    "updated_at": "2025-09-29T22:05:01Z"
-  },
-  {
     "number": 419,
     "title": "Older version of reth (v1.4.8) is used which has multiple discovered bugs inside",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/419",
@@ -184,12 +172,6 @@
     "title": "RecoverableWrapper does not cache properly until the first record expires",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/414",
     "updated_at": "2025-09-29T21:48:03Z"
-  },
-  {
-    "number": 413,
-    "title": "Premature Certificate Rejection Due to Missing Quorum Recalculation",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/413",
-    "updated_at": "2025-10-07T01:16:48Z"
   },
   {
     "number": 412,
