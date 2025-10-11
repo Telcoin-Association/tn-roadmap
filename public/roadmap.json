@@ -15,13 +15,7 @@
     "number": 447,
     "title": "NodeRecord: Prevent Imposters",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/447",
-    "updated_at": "2025-09-30T23:28:29Z"
-  },
-  {
-    "number": 446,
-    "title": "NodeRecord: External Identify Event",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/446",
-    "updated_at": "2025-09-30T23:24:56Z"
+    "updated_at": "2025-10-10T17:49:23Z"
   },
   {
     "number": 443,
@@ -117,7 +111,7 @@
     "number": 426,
     "title": "Worker PeerExchange DoS",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/426",
-    "updated_at": "2025-09-30T11:25:16Z"
+    "updated_at": "2025-10-10T22:59:43Z"
   },
   {
     "number": 425,
@@ -130,24 +124,6 @@
     "title": "DOS through high gas limit declarations",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/424",
     "updated_at": "2025-09-30T10:47:07Z"
-  },
-  {
-    "number": 422,
-    "title": "Certificate store index partial cleanup",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/422",
-    "updated_at": "2025-09-29T22:12:05Z"
-  },
-  {
-    "number": 421,
-    "title": "KadStore Counter Bug Enables Trivial Network DoS",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/421",
-    "updated_at": "2025-09-29T22:07:40Z"
-  },
-  {
-    "number": 420,
-    "title": "Blocking on to_worker.send Can Deadlock the Builder",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/420",
-    "updated_at": "2025-09-29T22:05:01Z"
   },
   {
     "number": 419,
@@ -184,12 +160,6 @@
     "title": "RecoverableWrapper does not cache properly until the first record expires",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/414",
     "updated_at": "2025-09-29T21:48:03Z"
-  },
-  {
-    "number": 413,
-    "title": "Premature Certificate Rejection Due to Missing Quorum Recalculation",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/413",
-    "updated_at": "2025-10-07T01:16:48Z"
   },
   {
     "number": 412,
