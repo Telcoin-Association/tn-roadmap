@@ -410,61 +410,70 @@ export default function RoadToMainnet() {
             </div>
           ) : isPhaseKey(tab) ? (
             <ul key={tab} className="space-y-6">
-              {MILESTONES[tab].map((m) => (
-                <li key={m.slug} id={roadToMainnetId(tab, m.slug)} className="scroll-mt-24">
-                  <div className="text-sm font-semibold text-white/90">{m.text}</div>
-                  {m.details && m.details.length > 0 && (
-                    <ul className="mt-2 space-y-3">
-                      {m.details.map((detail, index) => {
-                        const isActivePhase2Item =
-                          tab === 'adiri' && ACTIVE_PHASE_2_SLUGS.has(m.slug);
-                        const shouldAnimate = isActivePhase2Item && !reduceMotion;
+              {MILESTONES[tab].map((m) => {
+                const isActivePhase2Milestone = tab === 'adiri' && ACTIVE_PHASE_2_SLUGS.has(m.slug);
+                const shouldAnimateHeading = isActivePhase2Milestone && !reduceMotion;
 
-                        return (
-                          <li key={index} className="flex items-start gap-3">
-                            <img
-                              src={
-                                isActivePhase2Item
-                                  ? ActivityIconUrl
-                                  : tab === 'horizon'
-                                  ? '/IMG/Checkmark.svg'
-                                  : '/IMG/Loading.svg'
+                return (
+                  <li key={m.slug} id={roadToMainnetId(tab, m.slug)} className="scroll-mt-24">
+                    {isActivePhase2Milestone ? (
+                      <motion.div
+                        className="text-sm font-semibold text-white/90"
+                        animate={shouldAnimateHeading ? { opacity: [1, 0.5, 1] } : undefined}
+                        transition={
+                          shouldAnimateHeading
+                            ? {
+                                duration: 1.2,
+                                repeat: Infinity,
+                                repeatType: 'reverse',
+                                ease: 'easeInOut',
                               }
-                              alt=""
-                              aria-hidden="true"
-                              className={`mt-0.5 h-5 w-5 shrink-0${
-                                !isActivePhase2Item && tab === 'adiri'
-                                  ? ' motion-safe:animate-spin-slow'
-                                  : ''
-                              }`}
-                            />
-                            {isActivePhase2Item ? (
-                              <motion.span
-                                className="text-sm font-semibold leading-6 text-white"
-                                animate={shouldAnimate ? { opacity: [1, 0.5, 1] } : undefined}
-                                transition={
-                                  shouldAnimate
-                                    ? {
-                                        duration: 1.2,
-                                        repeat: Infinity,
-                                        repeatType: 'reverse',
-                                        ease: 'easeInOut',
-                                      }
-                                    : undefined
-                                }
+                            : undefined
+                        }
+                      >
+                        {m.text}
+                      </motion.div>
+                    ) : (
+                      <div className="text-sm font-semibold text-white/90">{m.text}</div>
+                    )}
+                    {m.details && m.details.length > 0 && (
+                      <ul className="mt-2 space-y-3">
+                        {m.details.map((detail, index) => {
+                          const iconSrc = isActivePhase2Milestone
+                            ? ActivityIconUrl
+                            : tab === 'horizon'
+                            ? '/IMG/Checkmark.svg'
+                            : '/IMG/Loading.svg';
+
+                          return (
+                            <li key={index} className="flex items-start gap-3">
+                              <img
+                                src={iconSrc}
+                                alt=""
+                                aria-hidden="true"
+                                className={`mt-0.5 h-5 w-5 shrink-0${
+                                  !isActivePhase2Milestone && tab === 'adiri'
+                                    ? ' motion-safe:animate-spin-slow'
+                                    : ''
+                                }`}
+                              />
+                              <span
+                                className={`text-sm leading-6${
+                                  isActivePhase2Milestone
+                                    ? ' font-semibold text-white'
+                                    : ' text-white/80'
+                                }`}
                               >
                                 {detail}
-                              </motion.span>
-                            ) : (
-                              <span className="text-sm leading-6 text-white/80">{detail}</span>
-                            )}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  )}
-                </li>
-              ))}
+                              </span>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           ) : null}
         </div>
