@@ -1,9 +1,11 @@
+import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import type { PhaseKey } from '@/data/milestones';
 import { MILESTONES } from '@/data/milestones';
 import { ROAD_TO_MAINNET_SECTION_ID, roadToMainnetId } from '@/utils/ids';
 
 import { ExternalLinkIcon } from './icons';
+import ActivityIconUrl from '/IMG/activity.svg?url';
 
 type CustomItem = { text: string; slug: string; description?: string };
 
@@ -45,6 +47,12 @@ const HISTORY_ITEMS: CustomItem[] = SHARED_ADIRI_PHASE_3_ITEMS.map((item) => ({
   slug: `history-${item.slug}`,
 }));
 
+const ACTIVE_PHASE_2_SLUGS = new Set<string>([
+  'patch-security-findings',
+  'enhance-test-coverage',
+  'improve-documentation',
+]);
+
 type TabKey = PhaseKey | 'adiri-phase-3' | 'history' | 'issues';
 
 const TABS: { key: TabKey; label: string }[] = [
@@ -62,6 +70,7 @@ const isPhaseKey = (value: TabKey): value is 'horizon' | 'adiri' => value === 'h
 
 export default function RoadToMainnet() {
   const [tab, setTab] = useState<TabKey>('horizon');
+  const reduceMotion = useReducedMotion();
 
   // On hash change or first load, infer tab from '#road-to-mainnet-{phase}-...'
   useEffect(() => {
@@ -401,28 +410,62 @@ export default function RoadToMainnet() {
             </div>
           ) : isPhaseKey(tab) ? (
             <ul key={tab} className="space-y-6">
-              {MILESTONES[tab].map((m) => (
-                <li key={m.slug} id={roadToMainnetId(tab, m.slug)} className="scroll-mt-24">
-                  <div className="text-sm font-semibold text-white/90">{m.text}</div>
+              {MILESTONES[tab].map((m) => {
+                const isActivePhase2Item = tab === 'adiri' && ACTIVE_PHASE_2_SLUGS.has(m.slug);
+                const shouldAnimateHeading = isActivePhase2Item && !reduceMotion;
+
+                return (
+                  <li key={m.slug} id={roadToMainnetId(tab, m.slug)} className="scroll-mt-24">
+                    {isActivePhase2Item ? (
+                      <motion.div
+                        className="text-sm font-semibold text-white/90"
+                        animate={shouldAnimateHeading ? { opacity: [1, 0.5, 1] } : undefined}
+                        transition={
+                          shouldAnimateHeading
+                            ? {
+                                duration: 1.2,
+                                repeat: Infinity,
+                                repeatType: 'reverse',
+                                ease: 'easeInOut',
+                              }
+                            : undefined
+                        }
+                      >
+                        {m.text}
+                      </motion.div>
+                    ) : (
+                      <div className="text-sm font-semibold text-white/90">{m.text}</div>
+                    )}
                   {m.details && m.details.length > 0 && (
                     <ul className="mt-2 space-y-3">
                       {m.details.map((detail, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <img
-                            src={tab === 'horizon' ? '/IMG/Checkmark.svg' : '/IMG/Loading.svg'}
+                            src={
+                              isActivePhase2Item
+                                ? ActivityIconUrl
+                                : tab === 'horizon'
+                                ? '/IMG/Checkmark.svg'
+                                : '/IMG/Loading.svg'
+                            }
                             alt=""
                             aria-hidden="true"
                             className={`mt-0.5 h-5 w-5 shrink-0${
-                              tab === 'adiri' ? ' motion-safe:animate-spin-slow' : ''
+                              !isActivePhase2Item && tab === 'adiri'
+                                ? ' motion-safe:animate-spin-slow'
+                                : ''
                             }`}
                           />
-                          <span className="text-sm leading-6 text-white/80">{detail}</span>
+                          <span className={`text-sm leading-6 ${isActivePhase2Item ? 'text-white' : 'text-white/80'}`}>
+                            {detail}
+                          </span>
                         </li>
                       ))}
                     </ul>
                   )}
-                </li>
-              ))}
+                  </li>
+                );
+              })}
             </ul>
           ) : null}
         </div>
