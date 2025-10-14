@@ -12,12 +12,6 @@
     "updated_at": "2025-10-03T19:44:45Z"
   },
   {
-    "number": 447,
-    "title": "NodeRecord: Prevent Imposters",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/447",
-    "updated_at": "2025-10-10T17:49:23Z"
-  },
-  {
     "number": 443,
     "title": "Non-persistent header tracking leads to transaction loss on node restart",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/443",
@@ -82,12 +76,6 @@
     "title": "Validator doing successful exit can be very improbable due to committee selection mechanism",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/431",
     "updated_at": "2025-09-30T20:16:19Z"
-  },
-  {
-    "number": 430,
-    "title": "Identify: External Confirmation of IP Address",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/430",
-    "updated_at": "2025-09-30T20:09:12Z"
   },
   {
     "number": 429,
