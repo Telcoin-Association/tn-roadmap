@@ -29,7 +29,7 @@
       "Finished trustless syncing (big lift)",
       "Identified two new vulnerabilities while applying patches"
     ],
-    "publicFindings": { "critical": 0, "high": 3, "medium": 2, "low": 5, "info": 4 },
+    "publicFindings": { "critical": 0, "high": 1, "medium": 0, "low": 0, "info": 1 },
     "afterPriorityFixes": { "critical": 0, "high": 0, "medium": 14, "low": 36, "info": 20 }
   },
   "roadmap": [
