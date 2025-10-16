@@ -33,7 +33,7 @@
     "number": 440,
     "title": "Transactions Are Removed From The MemPool Prematurely Which Results In Transactions Getting Lost After Epoch Transitions",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/440",
-    "updated_at": "2025-09-30T21:24:18Z"
+    "updated_at": "2025-10-15T20:06:15Z"
   },
   {
     "number": 439,
@@ -100,12 +100,6 @@
     "title": "Worker PeerExchange DoS",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/426",
     "updated_at": "2025-10-10T22:59:43Z"
-  },
-  {
-    "number": 425,
-    "title": "Insecure CVV discovery mechanism that allow attacker to manipulate validator committee",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/425",
-    "updated_at": "2025-09-30T11:15:41Z"
   },
   {
     "number": 424,
