@@ -1,5 +1,11 @@
 [
   {
+    "number": 468,
+    "title": "Syncing: ERA support within Reth",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/468",
+    "updated_at": "2025-10-17T16:40:39Z"
+  },
+  {
     "number": 457,
     "title": "Double check consensus bus to make sure we don't have channels not being read from.",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/457",
@@ -18,16 +24,10 @@
     "updated_at": "2025-09-30T21:40:22Z"
   },
   {
-    "number": 442,
-    "title": "Logic error in Proposer's `calc_min_delay()` function leads to reduced network throughput",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/442",
-    "updated_at": "2025-09-30T21:37:16Z"
-  },
-  {
     "number": 441,
     "title": "primary: requested_parents DoS issue",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/441",
-    "updated_at": "2025-09-30T21:34:22Z"
+    "updated_at": "2025-10-17T22:30:37Z"
   },
   {
     "number": 440,
@@ -36,40 +36,16 @@
     "updated_at": "2025-10-15T20:06:15Z"
   },
   {
-    "number": 439,
-    "title": "Permanent leader selection bias creates distorted consensus reward distribution",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/439",
-    "updated_at": "2025-09-30T21:12:54Z"
-  },
-  {
     "number": 438,
     "title": "Force burning a validator in the scheduled committees will reduce the size of future committees",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/438",
     "updated_at": "2025-09-30T21:06:10Z"
   },
   {
-    "number": 435,
-    "title": "Unfair authority selection in `retrieve_first_nodes` based on stake distribution rather than reputation scores",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/435",
-    "updated_at": "2025-09-30T20:49:25Z"
-  },
-  {
-    "number": 434,
-    "title": "Bad nodes face economic exclusion through irrecoverable reputation score trap",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/434",
-    "updated_at": "2025-09-30T20:42:33Z"
-  },
-  {
     "number": 433,
     "title": "Cache inconsistency in `_clean` function affects burn operations",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/433",
     "updated_at": "2025-09-30T20:36:52Z"
-  },
-  {
-    "number": 432,
-    "title": "Leader swap table panic causes network-wide shutdown",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/432",
-    "updated_at": "2025-09-30T20:22:19Z"
   },
   {
     "number": 431,
@@ -108,12 +84,6 @@
     "updated_at": "2025-09-30T10:47:07Z"
   },
   {
-    "number": 419,
-    "title": "Older version of reth (v1.4.8) is used which has multiple discovered bugs inside",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/419",
-    "updated_at": "2025-09-29T22:01:35Z"
-  },
-  {
     "number": 418,
     "title": "Historical Committee Query Fails After Validator Unstake Due to Burnt NFT Check",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/418",
@@ -142,12 +112,6 @@
     "title": "RecoverableWrapper does not cache properly until the first record expires",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/414",
     "updated_at": "2025-09-29T21:48:03Z"
-  },
-  {
-    "number": 412,
-    "title": "Blocks can be built and broadcast against a stale parent when a canonical update occurs mid‑build",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/412",
-    "updated_at": "2025-09-29T21:08:23Z"
   },
   {
     "number": 410,
