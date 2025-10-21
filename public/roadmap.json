@@ -1,5 +1,11 @@
 [
   {
+    "number": 472,
+    "title": "bug: LeaderSchedule based on Certificate `nonce` instead of subdag index",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/472",
+    "updated_at": "2025-10-20T17:37:25Z"
+  },
+  {
     "number": 468,
     "title": "Syncing: ERA support within Reth",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/468",
@@ -33,7 +39,7 @@
     "number": 440,
     "title": "Transactions Are Removed From The MemPool Prematurely Which Results In Transactions Getting Lost After Epoch Transitions",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/440",
-    "updated_at": "2025-10-15T20:06:15Z"
+    "updated_at": "2025-10-20T22:12:17Z"
   },
   {
     "number": 438,
@@ -70,12 +76,6 @@
     "title": "The same BLS pubkeys can be registered to 2 validators",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/427",
     "updated_at": "2025-09-30T11:33:07Z"
-  },
-  {
-    "number": 426,
-    "title": "Worker PeerExchange DoS",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/426",
-    "updated_at": "2025-10-10T22:59:43Z"
   },
   {
     "number": 424,
