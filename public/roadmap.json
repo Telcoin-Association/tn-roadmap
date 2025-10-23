@@ -24,24 +24,6 @@
     "updated_at": "2025-10-03T19:44:45Z"
   },
   {
-    "number": 443,
-    "title": "Non-persistent header tracking leads to transaction loss on node restart",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/443",
-    "updated_at": "2025-09-30T21:40:22Z"
-  },
-  {
-    "number": 441,
-    "title": "primary: requested_parents DoS issue",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/441",
-    "updated_at": "2025-10-17T22:30:37Z"
-  },
-  {
-    "number": 440,
-    "title": "Transactions Are Removed From The MemPool Prematurely Which Results In Transactions Getting Lost After Epoch Transitions",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/440",
-    "updated_at": "2025-10-20T22:12:17Z"
-  },
-  {
     "number": 438,
     "title": "Force burning a validator in the scheduled committees will reduce the size of future committees",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/438",
@@ -52,12 +34,6 @@
     "title": "Cache inconsistency in `_clean` function affects burn operations",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/433",
     "updated_at": "2025-09-30T20:36:52Z"
-  },
-  {
-    "number": 431,
-    "title": "Validator doing successful exit can be very improbable due to committee selection mechanism",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/431",
-    "updated_at": "2025-09-30T20:16:19Z"
   },
   {
     "number": 429,
@@ -168,18 +144,6 @@
     "updated_at": "2025-09-29T20:32:36Z"
   },
   {
-    "number": 399,
-    "title": "Vote Resending Logic is Unbounded and Allows Request Amplification",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/399",
-    "updated_at": "2025-09-29T15:19:32Z"
-  },
-  {
-    "number": 398,
-    "title": "Transaction can be dropped in the gossip network",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/398",
-    "updated_at": "2025-09-29T14:57:13Z"
-  },
-  {
     "number": 397,
     "title": "Unbounded Validator Enumeration Leading to DoS in Critical Protocol Functions",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/397",
@@ -196,24 +160,6 @@
     "title": "Unbounded Peer Dial Loop Can Cause Resource Exhaustion and Targeted Abuse",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/395",
     "updated_at": "2025-09-29T14:14:15Z"
-  },
-  {
-    "number": 394,
-    "title": "Infinite loop in vote requests allows single malicious validator to halt consensus",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/394",
-    "updated_at": "2025-09-29T13:59:08Z"
-  },
-  {
-    "number": 393,
-    "title": "Committee creation ignores actual validator stakes leading to voting power imbalance",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/393",
-    "updated_at": "2025-09-29T13:48:54Z"
-  },
-  {
-    "number": 392,
-    "title": "`PrimaryNetworkHandle::publish_consensus` Race Condition / Out-of-Order Gossip",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/392",
-    "updated_at": "2025-10-03T16:07:14Z"
   },
   {
     "number": 391,
@@ -249,7 +195,7 @@
     "number": 386,
     "title": "WorkerNetwork event loop causes infinite CPU spin on channel closure",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/386",
-    "updated_at": "2025-09-26T16:22:58Z"
+    "updated_at": "2025-10-22T03:58:02Z"
   },
   {
     "number": 385,
@@ -282,12 +228,6 @@
     "updated_at": "2025-06-06T19:10:35Z"
   },
   {
-    "number": 325,
-    "title": "Apply Incentives before Close Epoch",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/325",
-    "updated_at": "2025-06-16T15:39:50Z"
-  },
-  {
     "number": 306,
     "title": "Consider Supporting Multiple `Multiaddr` per Node",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/306",
@@ -297,13 +237,7 @@
     "number": 297,
     "title": "Authorize Worker Batch Gossip",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/297",
-    "updated_at": "2025-05-07T15:59:10Z"
-  },
-  {
-    "number": 257,
-    "title": "Rust-Analyzer doesn't work for `tn-test-utils`",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/257",
-    "updated_at": "2025-04-21T15:59:16Z"
+    "updated_at": "2025-10-22T18:56:00Z"
   },
   {
     "number": 254,
