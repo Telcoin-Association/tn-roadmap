@@ -6,6 +6,9 @@ import type { PhaseKey } from '@/data/milestones';
 import HorizonLogoUrl from '@/assets/horizon.svg?url';
 import AdiriLogoUrl from '@/assets/adiri.svg?url';
 import { useEqualizeMinHeight } from '@/hooks/useEqualizeMinHeight';
+import CheckIconUrl from '/IMG/Checkmark.svg?url';
+import ActivityIconUrl from '/IMG/activity.svg?url';
+import LoadingIconUrl from '/IMG/Loading.svg?url';
 import type { Phase } from '../data/statusSchema';
 import { NetworkIcon } from './icons';
 import { formatList } from '../utils/formatList';
@@ -108,6 +111,8 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
           const milestonePhaseKey = PHASE_TO_DROPDOWN_KEY[phase.key];
           const dataPhase = milestonePhaseKey;
 
+          const showLegend = phase.key === 'testnet';
+
           const cardInner = (
             <div data-phase-card-content="" className="flex h-full flex-1 flex-col">
               <div className="space-y-5" data-phase-above="">
@@ -157,6 +162,22 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
               <div className="pt-4" data-milestones-row="">
                 <MilestoneBlock phase={milestonePhaseKey} />
               </div>
+              {showLegend ? (
+                <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs font-medium text-white/70">
+                  <span className="inline-flex items-center gap-2">
+                    <img src={CheckIconUrl} alt="" className="h-4 w-4" />
+                    Completed
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <img src={ActivityIconUrl} alt="" className="h-4 w-4" />
+                    In progress
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <img src={LoadingIconUrl} alt="" className="h-4 w-4 motion-safe:animate-spin-slow" />
+                    Queued
+                  </span>
+                </div>
+              ) : null}
             </div>
           );
 
