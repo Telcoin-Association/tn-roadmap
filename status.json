@@ -22,15 +22,12 @@
   ],
   "security": {
     "notes": [
-      "Major architectural changes complete (one in progress).",
-      "Every patch ships with added tests (caught 4 bugs so far missed in competition).",
-      "Next: focused security assessments (p2p network, key management, execution layer)",
-      "Track issues on GitHub",
-      "Finished trustless syncing (big lift)",
-      "Identified two new vulnerabilities while applying patches",
-      "Protocol team nearing completion with priority fixes (only 2 left)",
-      "Discussions on how to manage/deploy a decentralized faucet for testnet"
-    ],
+    "✔ Completed all priority fixes",
+    "✔ Major improvements to performance",
+    "✔ Working through last known bugs around epoch boundary exposed during refactors",
+    "✔ Expanded tests",
+    "✔ Closed 8 more non-priority issues from competition"
+  ],
     "publicFindings": { "critical": 0, "high": 1, "medium": 0, "low": 0, "info": 1 },
     "afterPriorityFixes": { "critical": 0, "high": 0, "medium": 14, "low": 36, "info": 20 }
   },
