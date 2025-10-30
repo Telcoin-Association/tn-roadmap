@@ -81,7 +81,7 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
       </div>
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
         <article className="rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur">
-          <h3 className="text-lg font-semibold text-fg">Developer Notes</h3>
+          <h3 className="text-lg font-semibold text-fg">Developer Notes - Updated 30th October 2025</h3>
           <ul className="mt-4 space-y-3 text-sm text-fg-muted">
             {notes.map((note) => (
               <li key={note} className="flex items-start gap-3">
