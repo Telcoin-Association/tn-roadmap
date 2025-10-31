@@ -132,12 +132,6 @@
     "updated_at": "2025-09-29T20:50:17Z"
   },
   {
-    "number": 403,
-    "title": "`batch-validator` uses incorrect timestamp for `max_batch_size` and `max_batch_gas`",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/403",
-    "updated_at": "2025-09-29T20:39:59Z"
-  },
-  {
     "number": 401,
     "title": "Ineffective IP Address Banning Due to Inverted Logic",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/401",
