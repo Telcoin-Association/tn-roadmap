@@ -2,6 +2,11 @@ import type { ReactNode } from 'react';
 
 import type { Status } from '../data/statusSchema';
 
+const UPDATED_DEVELOPER_NOTES = [
+  'Closed 16 issues last two weeks',
+  'Identify and improve storage utilization for primary consensus contract on-chain (increase performance for critical/routine protocol smart-contract interactions)',
+];
+
 type SecurityAuditsProps = Pick<Status['security'], 'notes' | 'publicFindings' | 'afterPriorityFixes'>;
 
 type SeverityMetrics = Status['security']['publicFindings'];
@@ -59,6 +64,11 @@ function StatCard({
 }
 
 export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: SecurityAuditsProps) {
+  const developerNoteSections = [
+    { title: 'Developer Notes - Updated 13th November 2025', items: UPDATED_DEVELOPER_NOTES },
+    { title: 'Developer Notes - Updated 30th October 2025', items: notes },
+  ];
+
   return (
     <section aria-labelledby="security-heading" className="space-y-6">
       <div className="flex items-start gap-3">
@@ -81,20 +91,24 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
       </div>
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
         <article className="rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur">
-          <h3 className="text-lg font-semibold text-fg">Developer Notes - Updated 30th October 2025</h3>
-          <ul className="mt-4 space-y-3 text-sm text-fg-muted">
-            {notes.map((note) => (
-              <li key={note} className="flex items-start gap-3">
-                <img
-                  src="/IMG/Checkmark.svg"
-                  alt="Developer note"
-                  className="h-5 w-5 md:h-6 md:w-6 shrink-0"
-                  loading="eager"
-                />
-                <span>{note}</span>
-              </li>
-            ))}
-          </ul>
+          {developerNoteSections.map((section, index) => (
+            <div key={section.title} className={index === 0 ? undefined : 'mt-6'}>
+              <h3 className="text-lg font-semibold text-fg">{section.title}</h3>
+              <ul className="mt-4 space-y-3 text-sm text-fg-muted">
+                {section.items.map((note) => (
+                  <li key={note} className="flex items-start gap-3">
+                    <img
+                      src="/IMG/Checkmark.svg"
+                      alt="Developer note"
+                      className="h-5 w-5 md:h-6 md:w-6 shrink-0"
+                      loading="eager"
+                    />
+                    <span>{note}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </article>
         <div className="flex flex-col gap-4">
           <StatCard

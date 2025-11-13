@@ -90,6 +90,27 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
+      text: 'Write MiCA Whitepaper (with Legal Now)',
+      slug: 'write-mica-whitepaper-with-legal-now',
+      details: [
+        'Collaborate with the legal team to produce a MiCA-compliant whitepaper that clarifies Telcoin Network’s regulatory positioning ahead of the public release.',
+      ],
+    },
+    {
+      text: 'Improve Async Logging for All Nodes in the Network',
+      slug: 'improve-async-logging-for-all-nodes',
+      details: [
+        'Enhance asynchronous logging pipelines for validator and supporting nodes to improve observability and reduce performance impact during peak load.',
+      ],
+    },
+    {
+      text: 'Stress Test Deployed Network for Public Release',
+      slug: 'stress-test-deployed-network',
+      details: [
+        'Run coordinated stress scenarios across the deployed Adiri environment to validate stability, throughput, and reliability before opening public access.',
+      ],
+    },
+    {
       text: 'Deploy new faucet service',
       slug: 'deploy-new-faucet-service',
       details: [
