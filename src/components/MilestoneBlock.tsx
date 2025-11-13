@@ -27,6 +27,9 @@ const ACTIVE_PHASE_2_SLUGS = new Set([
   'enhance-test-coverage',
   'production-harden-code-base',
   'improve-documentation',
+  'write-mica-whitepaper-with-legal-now',
+  'improve-async-logging-for-all-nodes',
+  'stress-test-deployed-network',
 ]);
 
 const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
@@ -81,6 +84,18 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
       {
         text: 'Improve documentation',
         slug: 'improve-documentation',
+      },
+      {
+        text: 'Write MiCA whitepaper (with legal now)',
+        slug: 'write-mica-whitepaper-with-legal-now',
+      },
+      {
+        text: 'Improve async logging for all nodes in the network',
+        slug: 'improve-async-logging-for-all-nodes',
+      },
+      {
+        text: 'Stress test deployed network in preparation for public release',
+        slug: 'stress-test-deployed-network',
       },
       {
         text: 'Deploy new faucet service',
