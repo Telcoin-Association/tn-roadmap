@@ -52,6 +52,9 @@ const ACTIVE_PHASE_2_SLUGS = new Set<string>([
   'enhance-test-coverage',
   'production-harden-code-base',
   'improve-documentation',
+  'write-mica-whitepaper-with-legal-now',
+  'improve-async-logging-for-all-nodes',
+  'stress-test-deployed-network',
 ]);
 
 type TabKey = PhaseKey | 'adiri-phase-3' | 'history' | 'issues';
@@ -413,30 +416,11 @@ export default function RoadToMainnet() {
             <ul key={tab} className="space-y-6">
               {MILESTONES[tab].map((m) => {
                 const isActivePhase2Milestone = tab === 'adiri' && ACTIVE_PHASE_2_SLUGS.has(m.slug);
-                const shouldAnimateHeading = isActivePhase2Milestone && !reduceMotion;
+                const shouldAnimateIcon = isActivePhase2Milestone && !reduceMotion;
 
                 return (
                   <li key={m.slug} id={roadToMainnetId(tab, m.slug)} className="scroll-mt-24">
-                    {isActivePhase2Milestone ? (
-                      <motion.div
-                        className="text-sm font-semibold text-white/90"
-                        animate={shouldAnimateHeading ? { opacity: [1, 0.5, 1] } : undefined}
-                        transition={
-                          shouldAnimateHeading
-                            ? {
-                                duration: 1.2,
-                                repeat: Infinity,
-                                repeatType: 'reverse',
-                                ease: 'easeInOut',
-                              }
-                            : undefined
-                        }
-                      >
-                        {m.text}
-                      </motion.div>
-                    ) : (
-                      <div className="text-sm font-semibold text-white/90">{m.text}</div>
-                    )}
+                    <div className="text-sm font-semibold text-white/90">{m.text}</div>
                     {m.details && m.details.length > 0 && (
                       <ul className="mt-2 space-y-3">
                         {m.details.map((detail, index) => {
@@ -448,16 +432,32 @@ export default function RoadToMainnet() {
 
                           return (
                             <li key={index} className="flex items-start gap-3">
-                              <img
-                                src={iconSrc}
-                                alt=""
-                                aria-hidden="true"
-                                className={`mt-0.5 h-5 w-5 shrink-0${
-                                  !isActivePhase2Milestone && tab === 'adiri'
-                                    ? ' motion-safe:animate-spin-slow'
-                                    : ''
-                                }`}
-                              />
+                              {shouldAnimateIcon ? (
+                                <motion.img
+                                  src={iconSrc}
+                                  alt=""
+                                  aria-hidden="true"
+                                  className="mt-0.5 h-5 w-5 shrink-0"
+                                  animate={{ opacity: [1, 0.4, 1] }}
+                                  transition={{
+                                    duration: 1.2,
+                                    repeat: Infinity,
+                                    repeatType: 'reverse',
+                                    ease: 'easeInOut',
+                                  }}
+                                />
+                              ) : (
+                                <img
+                                  src={iconSrc}
+                                  alt=""
+                                  aria-hidden="true"
+                                  className={`mt-0.5 h-5 w-5 shrink-0${
+                                    !isActivePhase2Milestone && tab === 'adiri'
+                                      ? ' motion-safe:animate-spin-slow'
+                                      : ''
+                                  }`}
+                                />
+                              )}
                               <span
                                 className={`text-sm leading-6${
                                   isActivePhase2Milestone
