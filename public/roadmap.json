@@ -24,12 +24,6 @@
     "updated_at": "2025-10-03T19:44:45Z"
   },
   {
-    "number": 438,
-    "title": "Force burning a validator in the scheduled committees will reduce the size of future committees",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/438",
-    "updated_at": "2025-09-30T21:06:10Z"
-  },
-  {
     "number": 433,
     "title": "Cache inconsistency in `_clean` function affects burn operations",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/433",
@@ -46,12 +40,6 @@
     "title": "Attacker can brick iTEL bridging and transfers taking advantage of caching flaw",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/428",
     "updated_at": "2025-09-30T11:44:25Z"
-  },
-  {
-    "number": 427,
-    "title": "The same BLS pubkeys can be registered to 2 validators",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/427",
-    "updated_at": "2025-09-30T11:33:07Z"
   },
   {
     "number": 424,
@@ -90,12 +78,6 @@
     "updated_at": "2025-09-29T21:48:03Z"
   },
   {
-    "number": 410,
-    "title": "`RethEnv::build_block_from_batch_payload` writes but never reads from `total_fees`",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/410",
-    "updated_at": "2025-09-29T21:03:44Z"
-  },
-  {
     "number": 409,
     "title": "`RecordUtil.deleteAt` fails to reset `rd.tail` when the queue has a single value",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/409",
@@ -108,40 +90,10 @@
     "updated_at": "2025-09-29T21:00:28Z"
   },
   {
-    "number": 405,
-    "title": "Parent Header Fallback Vulnerability",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/405",
-    "updated_at": "2025-09-29T20:55:32Z"
-  },
-  {
-    "number": 404,
-    "title": "Method `upgradeStakeVersion` is currently useless",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/404",
-    "updated_at": "2025-09-29T20:50:17Z"
-  },
-  {
-    "number": 401,
-    "title": "Ineffective IP Address Banning Due to Inverted Logic",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/401",
-    "updated_at": "2025-09-29T20:32:36Z"
-  },
-  {
     "number": 397,
     "title": "Unbounded Validator Enumeration Leading to DoS in Critical Protocol Functions",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/397",
     "updated_at": "2025-09-29T14:52:00Z"
-  },
-  {
-    "number": 391,
-    "title": "Lack of Startup Equivocation Guard Enables Unintentional Double-Signing After Crash/Restore",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/391",
-    "updated_at": "2025-09-29T13:32:06Z"
-  },
-  {
-    "number": 390,
-    "title": "Malicious staker could submit a BLS signature that doesn't belong to them, leading to denial-of-service",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/390",
-    "updated_at": "2025-09-29T10:18:04Z"
   },
   {
     "number": 389,
@@ -160,12 +112,6 @@
     "title": "`unwrapDisabled` mapping is not populated",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/387",
     "updated_at": "2025-09-26T16:38:37Z"
-  },
-  {
-    "number": 385,
-    "title": "Incorrect checking in the `_ejectFromCommittees` function",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/385",
-    "updated_at": "2025-09-26T16:28:34Z"
   },
   {
     "number": 384,
@@ -190,12 +136,6 @@
     "title": "Remove Google KMS from Faucet for Testnet",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/326",
     "updated_at": "2025-06-06T19:10:35Z"
-  },
-  {
-    "number": 306,
-    "title": "Consider Supporting Multiple `Multiaddr` per Node",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/306",
-    "updated_at": "2025-05-15T21:27:54Z"
   },
   {
     "number": 254,
