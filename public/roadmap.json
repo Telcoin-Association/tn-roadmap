@@ -1,5 +1,11 @@
 [
   {
+    "number": 500,
+    "title": "Epoch Record: Validator Ejection",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/500",
+    "updated_at": "2025-11-26T21:44:13Z"
+  },
+  {
     "number": 472,
     "title": "bug: LeaderSchedule based on Certificate `nonce` instead of subdag index",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/472",
