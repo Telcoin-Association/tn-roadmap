@@ -27,9 +27,12 @@ const ACTIVE_PHASE_2_SLUGS = new Set([
   'enhance-test-coverage',
   'production-harden-code-base',
   'improve-documentation',
+  'stress-test-deployed-network',
+]);
+
+const COMPLETED_PHASE_2_SLUGS = new Set([
   'write-mica-whitepaper-with-legal-now',
   'improve-async-logging-for-all-nodes',
-  'stress-test-deployed-network',
 ]);
 
 const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
@@ -86,7 +89,7 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
         slug: 'improve-documentation',
       },
       {
-        text: 'Write MiCA whitepaper (with legal now)',
+        text: 'MiCA whitepaper (with legal now)',
         slug: 'write-mica-whitepaper-with-legal-now',
       },
       {
@@ -159,11 +162,17 @@ export default function MilestoneBlock({ phase }: Props) {
                   {group.items.map((item) => {
                     const isActivePhase2Item =
                       group.title === 'Phase 2' && ACTIVE_PHASE_2_SLUGS.has(item.slug);
+                    const isCompletedPhase2Item =
+                      group.title === 'Phase 2' && COMPLETED_PHASE_2_SLUGS.has(item.slug);
                     const shouldAnimate = isActivePhase2Item && !reduceMotion;
 
-                    return (
-                      <li key={item.slug} className="flex items-start gap-3">
-                        {isActivePhase2Item ? (
+                    const renderIcon = () => {
+                      if (isCompletedPhase2Item) {
+                        return <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />;
+                      }
+
+                      if (isActivePhase2Item) {
+                        return (
                           <motion.img
                             src={ActivityIconUrl}
                             alt=""
@@ -180,21 +189,37 @@ export default function MilestoneBlock({ phase }: Props) {
                                 : undefined
                             }
                           />
-                        ) : group.icon === 'check' ? (
-                          <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />
-                        ) : group.icon === 'timer' ? (
-                          <TimerIcon className="mt-0.5 h-4 w-4 shrink-0 text-white/80" />
-                        ) : group.icon === 'loading' ? (
+                        );
+                      }
+
+                      if (group.icon === 'check') {
+                        return <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />;
+                      }
+
+                      if (group.icon === 'timer') {
+                        return <TimerIcon className="mt-0.5 h-4 w-4 shrink-0 text-white/80" />;
+                      }
+
+                      if (group.icon === 'loading') {
+                        return (
                           <img
                             src={LoadingIconUrl}
                             alt=""
                             className="mt-0.5 h-4 w-4 shrink-0 text-white/80 motion-safe:animate-spin-slow"
                           />
-                        ) : (
-                          <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />
-                        )}
+                        );
+                      }
+
+                      return <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />;
+                    };
+
+                    return (
+                      <li key={item.slug} className="flex items-start gap-3">
+                        {renderIcon()}
                         {isActivePhase2Item ? (
                           <span className="text-sm font-semibold leading-6 text-white">{item.text}</span>
+                        ) : isCompletedPhase2Item ? (
+                          <span className="text-sm leading-6 text-white/90">{item.text}</span>
                         ) : (
                           <span className="text-sm leading-6 text-white/90">{item.text}</span>
                         )}

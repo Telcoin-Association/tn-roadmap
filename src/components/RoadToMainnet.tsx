@@ -52,9 +52,12 @@ const ACTIVE_PHASE_2_SLUGS = new Set<string>([
   'enhance-test-coverage',
   'production-harden-code-base',
   'improve-documentation',
+  'stress-test-deployed-network',
+]);
+
+const COMPLETED_PHASE_2_SLUGS = new Set<string>([
   'write-mica-whitepaper-with-legal-now',
   'improve-async-logging-for-all-nodes',
-  'stress-test-deployed-network',
 ]);
 
 type TabKey = PhaseKey | 'adiri-phase-3' | 'history' | 'issues';
@@ -416,19 +419,21 @@ export default function RoadToMainnet() {
             <ul key={tab} className="space-y-6">
               {MILESTONES[tab].map((m) => {
                 const isActivePhase2Milestone = tab === 'adiri' && ACTIVE_PHASE_2_SLUGS.has(m.slug);
+                const isCompletedPhase2Milestone = tab === 'adiri' && COMPLETED_PHASE_2_SLUGS.has(m.slug);
                 const shouldAnimateIcon = isActivePhase2Milestone && !reduceMotion;
+                const isDone = Boolean(m.done) || isCompletedPhase2Milestone;
 
                 return (
                   <li key={m.slug} id={roadToMainnetId(tab, m.slug)} className="scroll-mt-24">
                     <div className="text-sm font-semibold text-white/90">{m.text}</div>
                     {m.details && m.details.length > 0 && (
                       <ul className="mt-2 space-y-3">
-                        {m.details.map((detail, index) => {
-                          const iconSrc = isActivePhase2Milestone
-                            ? ActivityIconUrl
-                            : tab === 'horizon'
-                            ? '/IMG/Checkmark.svg'
-                            : '/IMG/Loading.svg';
+                          {m.details.map((detail, index) => {
+                            const iconSrc = isActivePhase2Milestone
+                              ? ActivityIconUrl
+                              : isDone || tab === 'horizon'
+                              ? '/IMG/Checkmark.svg'
+                              : '/IMG/Loading.svg';
 
                           return (
                             <li key={index} className="flex items-start gap-3">
@@ -462,6 +467,8 @@ export default function RoadToMainnet() {
                                 className={`text-sm leading-6${
                                   isActivePhase2Milestone
                                     ? ' font-semibold text-white'
+                                    : isDone
+                                    ? ' text-white/90'
                                     : ' text-white/80'
                                 }`}
                               >
