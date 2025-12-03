@@ -422,6 +422,7 @@ export default function RoadToMainnet() {
                 const isCompletedPhase2Milestone = tab === 'adiri' && COMPLETED_PHASE_2_SLUGS.has(m.slug);
                 const shouldAnimateIcon = isActivePhase2Milestone && !reduceMotion;
                 const isDone = Boolean(m.done) || isCompletedPhase2Milestone;
+                const shouldSpin = tab === 'adiri' && !isActivePhase2Milestone && !isDone;
 
                 return (
                   <li key={m.slug} id={roadToMainnetId(tab, m.slug)} className="scroll-mt-24">
@@ -457,9 +458,7 @@ export default function RoadToMainnet() {
                                   alt=""
                                   aria-hidden="true"
                                   className={`mt-0.5 h-5 w-5 shrink-0${
-                                    !isActivePhase2Milestone && tab === 'adiri'
-                                      ? ' motion-safe:animate-spin-slow'
-                                      : ''
+                                    shouldSpin ? ' motion-safe:animate-spin-slow' : ''
                                   }`}
                                 />
                               )}
