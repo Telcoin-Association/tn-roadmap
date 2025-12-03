@@ -2,6 +2,13 @@ import type { ReactNode } from 'react';
 
 import type { Status } from '../data/statusSchema';
 
+const DECEMBER_DEVELOPER_NOTES = [
+  'Deployed latest version of protocol (devnet)',
+  'Identified some issues to address (syncing, forking, DB writing)',
+  'Closed 14 issues last three weeks',
+  'Remaining issues are related to production hardening',
+];
+
 const UPDATED_DEVELOPER_NOTES = [
   'Closed 16 issues last two weeks',
   'Identify and improve storage utilization for primary consensus contract on-chain (increase performance for critical/routine protocol smart-contract interactions)',
@@ -9,7 +16,7 @@ const UPDATED_DEVELOPER_NOTES = [
 
 type SecurityAuditsProps = Pick<Status['security'], 'notes' | 'publicFindings' | 'afterPriorityFixes'>;
 
-type SeverityMetrics = Status['security']['publicFindings'];
+  type SeverityMetrics = Status['security']['publicFindings'];
 
 const STAT_LABELS: Record<string, string> = {
   critical: 'Critical',
@@ -65,6 +72,7 @@ function StatCard({
 
 export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: SecurityAuditsProps) {
   const developerNoteSections = [
+    { title: 'Developer Notes - Updated 03rd December 2025', items: DECEMBER_DEVELOPER_NOTES },
     { title: 'Developer Notes - Updated 13th November 2025', items: UPDATED_DEVELOPER_NOTES },
     { title: 'Developer Notes - Updated 30th October 2025', items: notes },
   ];

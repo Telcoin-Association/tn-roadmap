@@ -90,14 +90,16 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
-      text: 'Write MiCA Whitepaper (with Legal Now)',
+      text: 'MiCA whitepaper (with legal now)',
+      done: true,
       slug: 'write-mica-whitepaper-with-legal-now',
       details: [
         'Collaborate with the legal team to produce a MiCA-compliant whitepaper that clarifies Telcoin Network’s regulatory positioning ahead of the public release.',
       ],
     },
     {
-      text: 'Improve Async Logging for All Nodes in the Network',
+      text: 'Improve async logging for all nodes in the network',
+      done: true,
       slug: 'improve-async-logging-for-all-nodes',
       details: [
         'Enhance asynchronous logging pipelines for validator and supporting nodes to improve observability and reduce performance impact during peak load.',
