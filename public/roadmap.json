@@ -1,5 +1,17 @@
 [
   {
+    "number": 505,
+    "title": "Fix race conditions around mode switching that can lead to consensus output being executed twice.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/505",
+    "updated_at": "2025-12-17T23:00:04Z"
+  },
+  {
+    "number": 504,
+    "title": "Finer grained DB access.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/504",
+    "updated_at": "2025-12-17T22:56:01Z"
+  },
+  {
     "number": 500,
     "title": "Epoch Record: Validator Ejection",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/500",
