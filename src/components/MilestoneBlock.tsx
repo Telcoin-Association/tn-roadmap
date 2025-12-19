@@ -24,6 +24,7 @@ type AdiriPhaseGroup = {
 
 const ACTIVE_PHASE_2_SLUGS = new Set([
   'patch-security-findings',
+  'production-harden-code-base',
   'stress-test-deployed-network',
   'relaunch-network',
 ]);
