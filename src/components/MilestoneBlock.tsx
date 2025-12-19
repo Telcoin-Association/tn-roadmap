@@ -24,15 +24,19 @@ type AdiriPhaseGroup = {
 
 const ACTIVE_PHASE_2_SLUGS = new Set([
   'patch-security-findings',
-  'enhance-test-coverage',
-  'production-harden-code-base',
-  'improve-documentation',
   'stress-test-deployed-network',
+  'relaunch-network',
 ]);
 
 const COMPLETED_PHASE_2_SLUGS = new Set([
+  'enhance-test-coverage',
+  'improve-documentation',
   'write-mica-whitepaper-with-legal-now',
   'improve-async-logging-for-all-nodes',
+]);
+
+const ACTIVE_PHASE_3_SLUGS = new Set([
+  'integrate-adiri-testnet-with-bridge-solution',
 ]);
 
 const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
@@ -164,7 +168,9 @@ export default function MilestoneBlock({ phase }: Props) {
                       group.title === 'Phase 2' && ACTIVE_PHASE_2_SLUGS.has(item.slug);
                     const isCompletedPhase2Item =
                       group.title === 'Phase 2' && COMPLETED_PHASE_2_SLUGS.has(item.slug);
-                    const shouldAnimate = isActivePhase2Item && !reduceMotion;
+                    const isActivePhase3Item =
+                      group.title === 'Phase 3' && ACTIVE_PHASE_3_SLUGS.has(item.slug);
+                    const shouldAnimate = (isActivePhase2Item || isActivePhase3Item) && !reduceMotion;
 
                     const renderIcon = () => {
                       if (isCompletedPhase2Item) {
@@ -172,6 +178,27 @@ export default function MilestoneBlock({ phase }: Props) {
                       }
 
                       if (isActivePhase2Item) {
+                        return (
+                          <motion.img
+                            src={ActivityIconUrl}
+                            alt=""
+                            className="mt-0.5 h-4 w-4 shrink-0"
+                            animate={shouldAnimate ? { opacity: [1, 0.5, 1] } : undefined}
+                            transition={
+                              shouldAnimate
+                                ? {
+                                    duration: 1.2,
+                                    repeat: Infinity,
+                                    repeatType: 'reverse',
+                                    ease: 'easeInOut',
+                                  }
+                                : undefined
+                            }
+                          />
+                        );
+                      }
+
+                      if (isActivePhase3Item) {
                         return (
                           <motion.img
                             src={ActivityIconUrl}
