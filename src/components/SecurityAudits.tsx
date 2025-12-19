@@ -72,9 +72,9 @@ function StatCard({
 
 export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: SecurityAuditsProps) {
   const developerNoteSections = [
+    { title: 'Developer Notes - Updated 19 December 2025', items: notes },
     { title: 'Developer Notes - Updated 03rd December 2025', items: DECEMBER_DEVELOPER_NOTES },
     { title: 'Developer Notes - Updated 13th November 2025', items: UPDATED_DEVELOPER_NOTES },
-    { title: 'Developer Notes - Updated 30th October 2025', items: notes },
   ];
 
   return (
