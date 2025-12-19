@@ -49,15 +49,19 @@ const HISTORY_ITEMS: CustomItem[] = SHARED_ADIRI_PHASE_3_ITEMS.map((item) => ({
 
 const ACTIVE_PHASE_2_SLUGS = new Set<string>([
   'patch-security-findings',
-  'enhance-test-coverage',
-  'production-harden-code-base',
-  'improve-documentation',
   'stress-test-deployed-network',
+  'relaunch-network',
 ]);
 
 const COMPLETED_PHASE_2_SLUGS = new Set<string>([
+  'enhance-test-coverage',
+  'improve-documentation',
   'write-mica-whitepaper-with-legal-now',
   'improve-async-logging-for-all-nodes',
+]);
+
+const ACTIVE_PHASE_3_SLUGS = new Set<string>([
+  'integrate-adiri-testnet-with-bridge-solution',
 ]);
 
 type TabKey = PhaseKey | 'adiri-phase-3' | 'history' | 'issues';
@@ -357,22 +361,48 @@ export default function RoadToMainnet() {
             <div key="issues" id="issues-feed" style={{ display: 'grid', gap: '12px' }} />
           ) : tab === 'adiri-phase-3' ? (
             <ul key="adiri-phase-3" className="space-y-4">
-              {ADIRI_PHASE_3_ITEMS.map((item) => (
-                <li key={item.slug} className="flex items-start gap-3">
-                  <img
-                    src="/IMG/Loading.svg"
-                    alt=""
-                    aria-hidden="true"
-                    className="mt-0.5 h-5 w-5 shrink-0 motion-safe:animate-spin-slow"
-                  />
-                  <div className="space-y-1 text-sm text-white/90">
-                    <div className="font-semibold">{item.text}</div>
-                    {item.description && (
-                      <p className="text-white/75">{item.description}</p>
+              {ADIRI_PHASE_3_ITEMS.map((item) => {
+                const isActivePhase3Milestone = ACTIVE_PHASE_3_SLUGS.has(item.slug);
+                const shouldAnimate = isActivePhase3Milestone && !reduceMotion;
+                const iconSrc = isActivePhase3Milestone
+                  ? ActivityIconUrl
+                  : '/IMG/Loading.svg';
+
+                return (
+                  <li key={item.slug} className="flex items-start gap-3">
+                    {shouldAnimate ? (
+                      <motion.img
+                        src={iconSrc}
+                        alt=""
+                        aria-hidden="true"
+                        className="mt-0.5 h-5 w-5 shrink-0"
+                        animate={{ opacity: [1, 0.4, 1] }}
+                        transition={{
+                          duration: 1.2,
+                          repeat: Infinity,
+                          repeatType: 'reverse',
+                          ease: 'easeInOut',
+                        }}
+                      />
+                    ) : (
+                      <img
+                        src={iconSrc}
+                        alt=""
+                        aria-hidden="true"
+                        className={`mt-0.5 h-5 w-5 shrink-0${
+                          isActivePhase3Milestone ? '' : ' motion-safe:animate-spin-slow'
+                        }`}
+                      />
                     )}
-                  </div>
-                </li>
-              ))}
+                    <div className="space-y-1 text-sm text-white/90">
+                      <div className="font-semibold">{item.text}</div>
+                      {item.description && (
+                        <p className="text-white/75">{item.description}</p>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           ) : tab === 'mainnet' ? (
             <ul key="mainnet" className="space-y-4">

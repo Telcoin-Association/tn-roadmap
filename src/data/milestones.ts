@@ -70,6 +70,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Enhance Test Coverage',
+      done: true,
       slug: 'enhance-test-coverage',
       details: [
         'Expand automated and manual testing to cover edge cases, validator interactions, and stress scenarios, reducing the chance of regressions.',
@@ -84,6 +85,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Improve Documentation',
+      done: true,
       slug: 'improve-documentation',
       details: [
         'Update and expand developer, validator, and user documentation to support smooth onboarding, transparency, and ecosystem growth.',
