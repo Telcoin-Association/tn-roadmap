@@ -25,7 +25,6 @@
   ],
   "security": {
     "notes": [
-      "Developer notes updated 19 December 2025",
       "Closed 30+ issues in the last 2 weeks",
       "Continued production hardening across core network components",
       "Database performance improvements implemented to support production workloads",
