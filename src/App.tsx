@@ -135,7 +135,7 @@ export default function App() {
                       label="Road to Mainnet"
                     />
                     <div className="mt-4 flex w-full justify-center">
-                      <LastUpdated />
+                      <LastUpdated lastUpdated={status.meta.lastUpdated} />
                     </div>
                   </div>
                 </div>
