@@ -93,6 +93,18 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
         slug: 'production-harden-database-read-write-strategy',
       },
       {
+        text: 'Production harden p2p networking',
+        slug: 'production-harden-p2p-networking',
+      },
+      {
+        text: 'Production harden syncing strategy',
+        slug: 'production-harden-syncing-strategy',
+      },
+      {
+        text: 'Integrate with bridge partner',
+        slug: 'integrate-with-bridge-partner',
+      },
+      {
         text: 'Improve documentation',
         slug: 'improve-documentation',
       },

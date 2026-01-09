@@ -86,6 +86,27 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
+      text: 'Production Harden P2P Networking',
+      slug: 'production-harden-p2p-networking',
+      details: [
+        'Strengthen peer-to-peer networking for production readiness, including stability, efficiency, and abuse resistance improvements.',
+      ],
+    },
+    {
+      text: 'Production Harden Syncing Strategy',
+      slug: 'production-harden-syncing-strategy',
+      details: [
+        'Improve syncing strategy to ensure reliable state synchronization under real-world network conditions.',
+      ],
+    },
+    {
+      text: 'Integrate with Bridge Partner',
+      slug: 'integrate-with-bridge-partner',
+      details: [
+        'Coordinate integration with a bridge partner to enable cross-chain interoperability for the Adiri network.',
+      ],
+    },
+    {
       text: 'Improve Documentation',
       done: true,
       slug: 'improve-documentation',
