@@ -14,6 +14,12 @@ const UPDATED_DEVELOPER_NOTES = [
   'Identify and improve storage utilization for primary consensus contract on-chain (increase performance for critical/routine protocol smart-contract interactions)',
 ];
 
+const JANUARY_DEVELOPER_NOTES = [
+  'Milestone achieved: all issues identified from audits resolved and patched',
+  'Redeployed devnet to put enhancements and patches into production environment',
+  'Emphasis on production-ready hardening for MNO onboarding',
+];
+
 type SecurityAuditsProps = Pick<Status['security'], 'notes' | 'publicFindings' | 'afterPriorityFixes'>;
 
   type SeverityMetrics = Status['security']['publicFindings'];
@@ -72,6 +78,7 @@ function StatCard({
 
 export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: SecurityAuditsProps) {
   const developerNoteSections = [
+    { title: 'Developer Notes - Updated 9 January 2026', items: JANUARY_DEVELOPER_NOTES },
     { title: 'Developer Notes - Updated 19 December 2025', items: notes },
     { title: 'Developer Notes - Updated 03rd December 2025', items: DECEMBER_DEVELOPER_NOTES },
     { title: 'Developer Notes - Updated 13th November 2025', items: UPDATED_DEVELOPER_NOTES },
