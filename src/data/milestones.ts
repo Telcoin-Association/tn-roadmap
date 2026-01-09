@@ -63,6 +63,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
   adiri: [
     {
       text: 'Patch Security Findings',
+      done: true,
       slug: 'patch-security-findings',
       details: [
         'Address all vulnerabilities identified during the security competition and audits to ensure the network meets telecom-grade security standards.',
@@ -77,10 +78,11 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
-      text: 'Production Harden Code Base',
-      slug: 'production-harden-code-base',
+      text: 'Production Harden Database Read/Write Strategy',
+      done: true,
+      slug: 'production-harden-database-read-write-strategy',
       details: [
-        'Optimize and stabilize the code for real-world use, including performance tuning, reliability improvements, and resilience under high load.',
+        'Harden database read and write paths for production workloads with improved performance, reliability, and resilience.',
       ],
     },
     {
@@ -108,6 +110,27 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
+      text: 'Production Harden P2P Networking',
+      slug: 'production-harden-p2p-networking',
+      details: [
+        'Strengthen peer-to-peer networking for production readiness, including stability, efficiency, and abuse resistance improvements.',
+      ],
+    },
+    {
+      text: 'Production Harden Syncing Strategy',
+      slug: 'production-harden-syncing-strategy',
+      details: [
+        'Improve syncing strategy to ensure reliable state synchronization under real-world network conditions.',
+      ],
+    },
+    {
+      text: 'Integrate with Bridge Partner',
+      slug: 'integrate-with-bridge-partner',
+      details: [
+        'Coordinate integration with a bridge partner to enable cross-chain interoperability for the Adiri network.',
+      ],
+    },
+    {
       text: 'Stress Test Deployed Network for Public Release',
       slug: 'stress-test-deployed-network',
       details: [
@@ -115,17 +138,17 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
-      text: 'Deploy new faucet service',
-      slug: 'deploy-new-faucet-service',
-      details: [
-        'Launch a public faucet that distributes small amounts of testnet TEL, allowing developers and community members to easily access tokens for testing applications and transactions on the network.',
-      ],
-    },
-    {
       text: 'Relaunch Network',
       slug: 'relaunch-network',
       details: [
         'Bring the Telcoin Network back online with fixes, improvements, and readiness for the transition into the Mainnet launch phases.',
+      ],
+    },
+    {
+      text: 'Deploy new faucet service',
+      slug: 'deploy-new-faucet-service',
+      details: [
+        'Launch a public faucet that distributes small amounts of testnet TEL, allowing developers and community members to easily access tokens for testing applications and transactions on the network.',
       ],
     },
   ],
