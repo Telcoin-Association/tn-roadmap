@@ -115,7 +115,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
-      text: 'MiCA whitepaper (with legal now)',
+      text: 'MiCA whitepaper',
       done: true,
       slug: 'write-mica-whitepaper-with-legal-now',
       details: [
