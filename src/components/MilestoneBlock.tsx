@@ -109,7 +109,7 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
         slug: 'improve-documentation',
       },
       {
-        text: 'MiCA whitepaper (with legal now)',
+        text: 'MiCA whitepaper',
         slug: 'write-mica-whitepaper-with-legal-now',
       },
       {
