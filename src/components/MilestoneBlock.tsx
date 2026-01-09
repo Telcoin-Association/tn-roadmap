@@ -23,14 +23,17 @@ type AdiriPhaseGroup = {
 };
 
 const ACTIVE_PHASE_2_SLUGS = new Set([
-  'patch-security-findings',
-  'production-harden-code-base',
+  'production-harden-p2p-networking',
+  'production-harden-syncing-strategy',
+  'integrate-with-bridge-partner',
   'stress-test-deployed-network',
   'relaunch-network',
 ]);
 
 const COMPLETED_PHASE_2_SLUGS = new Set([
+  'patch-security-findings',
   'enhance-test-coverage',
+  'production-harden-database-read-write-strategy',
   'improve-documentation',
   'write-mica-whitepaper-with-legal-now',
   'improve-async-logging-for-all-nodes',
@@ -86,8 +89,20 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
         slug: 'enhance-test-coverage',
       },
       {
-        text: 'Production harden code base',
-        slug: 'production-harden-code-base',
+        text: 'Production harden database read/write strategy',
+        slug: 'production-harden-database-read-write-strategy',
+      },
+      {
+        text: 'Production harden p2p networking',
+        slug: 'production-harden-p2p-networking',
+      },
+      {
+        text: 'Production harden syncing strategy',
+        slug: 'production-harden-syncing-strategy',
+      },
+      {
+        text: 'Integrate with bridge partner',
+        slug: 'integrate-with-bridge-partner',
       },
       {
         text: 'Improve documentation',

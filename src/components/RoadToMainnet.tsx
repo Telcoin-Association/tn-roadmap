@@ -48,13 +48,17 @@ const HISTORY_ITEMS: CustomItem[] = SHARED_ADIRI_PHASE_3_ITEMS.map((item) => ({
 }));
 
 const ACTIVE_PHASE_2_SLUGS = new Set<string>([
-  'patch-security-findings',
+  'production-harden-p2p-networking',
+  'production-harden-syncing-strategy',
+  'integrate-with-bridge-partner',
   'stress-test-deployed-network',
   'relaunch-network',
 ]);
 
 const COMPLETED_PHASE_2_SLUGS = new Set<string>([
+  'patch-security-findings',
   'enhance-test-coverage',
+  'production-harden-database-read-write-strategy',
   'improve-documentation',
   'write-mica-whitepaper-with-legal-now',
   'improve-async-logging-for-all-nodes',
