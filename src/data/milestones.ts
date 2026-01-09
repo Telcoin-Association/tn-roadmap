@@ -131,6 +131,27 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
+      text: 'Production Harden P2P Networking',
+      slug: 'production-harden-p2p-networking',
+      details: [
+        'Strengthen peer-to-peer networking for production readiness, including stability, efficiency, and abuse resistance improvements.',
+      ],
+    },
+    {
+      text: 'Production Harden Syncing Strategy',
+      slug: 'production-harden-syncing-strategy',
+      details: [
+        'Improve syncing strategy to ensure reliable state synchronization under real-world network conditions.',
+      ],
+    },
+    {
+      text: 'Integrate with Bridge Partner',
+      slug: 'integrate-with-bridge-partner',
+      details: [
+        'Coordinate integration with a bridge partner to enable cross-chain interoperability for the Adiri network.',
+      ],
+    },
+    {
       text: 'Stress Test Deployed Network for Public Release',
       slug: 'stress-test-deployed-network',
       details: [
@@ -138,17 +159,17 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
-      text: 'Deploy new faucet service',
-      slug: 'deploy-new-faucet-service',
-      details: [
-        'Launch a public faucet that distributes small amounts of testnet TEL, allowing developers and community members to easily access tokens for testing applications and transactions on the network.',
-      ],
-    },
-    {
       text: 'Relaunch Network',
       slug: 'relaunch-network',
       details: [
         'Bring the Telcoin Network back online with fixes, improvements, and readiness for the transition into the Mainnet launch phases.',
+      ],
+    },
+    {
+      text: 'Deploy new faucet service',
+      slug: 'deploy-new-faucet-service',
+      details: [
+        'Launch a public faucet that distributes small amounts of testnet TEL, allowing developers and community members to easily access tokens for testing applications and transactions on the network.',
       ],
     },
   ],
