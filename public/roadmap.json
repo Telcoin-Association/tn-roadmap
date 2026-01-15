@@ -1,21 +1,21 @@
 [
   {
-    "number": 505,
-    "title": "Fix race conditions around mode switching that can lead to consensus output being executed twice.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/505",
-    "updated_at": "2025-12-17T23:00:04Z"
+    "number": 508,
+    "title": "rm: `monitored_future`",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/508",
+    "updated_at": "2025-12-29T20:09:12Z"
   },
   {
-    "number": 504,
-    "title": "Finer grained DB access.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/504",
-    "updated_at": "2025-12-17T22:56:01Z"
+    "number": 506,
+    "title": "Database Configuration: Static File Storage",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/506",
+    "updated_at": "2026-01-07T01:45:44Z"
   },
   {
     "number": 500,
     "title": "Epoch Record: Validator Ejection",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/500",
-    "updated_at": "2025-11-26T21:44:13Z"
+    "updated_at": "2026-01-07T19:49:15Z"
   },
   {
     "number": 472,
@@ -42,100 +42,16 @@
     "updated_at": "2025-10-03T19:44:45Z"
   },
   {
-    "number": 433,
-    "title": "Cache inconsistency in `_clean` function affects burn operations",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/433",
-    "updated_at": "2025-09-30T20:36:52Z"
-  },
-  {
-    "number": 429,
-    "title": "Attacker uses underflow to prevent `closeCase()` from transferring stolen funds to victim",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/429",
-    "updated_at": "2025-09-30T17:48:28Z"
-  },
-  {
-    "number": 428,
-    "title": "Attacker can brick iTEL bridging and transfers taking advantage of caching flaw",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/428",
-    "updated_at": "2025-09-30T11:44:25Z"
-  },
-  {
-    "number": 424,
-    "title": "DOS through high gas limit declarations",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/424",
-    "updated_at": "2025-09-30T10:47:07Z"
-  },
-  {
-    "number": 418,
-    "title": "Historical Committee Query Fails After Validator Unstake Due to Burnt NFT Check",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/418",
-    "updated_at": "2025-09-29T21:58:58Z"
-  },
-  {
     "number": 417,
     "title": "Precision Loss in Incentive Calculation Enables Silent Protocol Fund Lockup and Undermines Fair Reward Allocation",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/417",
     "updated_at": "2025-09-29T21:56:52Z"
   },
   {
-    "number": 416,
-    "title": "Ring buffer wraparound in `getEpochInfo` function can return invalid data",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/416",
-    "updated_at": "2025-09-29T21:53:18Z"
-  },
-  {
     "number": 415,
     "title": "Non-persistent transaction pool implementation leads to transaction loss during node restarts",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/415",
     "updated_at": "2025-09-29T21:49:54Z"
-  },
-  {
-    "number": 414,
-    "title": "RecoverableWrapper does not cache properly until the first record expires",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/414",
-    "updated_at": "2025-09-29T21:48:03Z"
-  },
-  {
-    "number": 409,
-    "title": "`RecordUtil.deleteAt` fails to reset `rd.tail` when the queue has a single value",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/409",
-    "updated_at": "2025-09-29T21:01:58Z"
-  },
-  {
-    "number": 408,
-    "title": "`RecoverableWrapper._mintSettled` is unused",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/408",
-    "updated_at": "2025-09-29T21:00:28Z"
-  },
-  {
-    "number": 397,
-    "title": "Unbounded Validator Enumeration Leading to DoS in Critical Protocol Functions",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/397",
-    "updated_at": "2025-09-29T14:52:00Z"
-  },
-  {
-    "number": 389,
-    "title": "RecoverableWrapper::closeCase function deletes the unsettledRecord even when funds are frozen",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/389",
-    "updated_at": "2025-09-26T17:13:26Z"
-  },
-  {
-    "number": 388,
-    "title": "Attacker can avoid getting stolen funds frozen via front running",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/388",
-    "updated_at": "2025-09-26T16:50:09Z"
-  },
-  {
-    "number": 387,
-    "title": "`unwrapDisabled` mapping is not populated",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/387",
-    "updated_at": "2025-09-26T16:38:37Z"
-  },
-  {
-    "number": 384,
-    "title": "Evaluate the Layered DB before mainnet",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/384",
-    "updated_at": "2025-09-25T18:33:13Z"
   },
   {
     "number": 376,
@@ -172,18 +88,6 @@
     "title": "Add a metric to track how far behind fully validated blocks are from the chain tip.",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/233",
     "updated_at": "2025-02-26T23:17:36Z"
-  },
-  {
-    "number": 214,
-    "title": "Consolidate committed round updates watch channel",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/214",
-    "updated_at": "2025-02-12T08:40:22Z"
-  },
-  {
-    "number": 210,
-    "title": "TaskManager: Limit BatchSync Requests",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/210",
-    "updated_at": "2025-02-07T16:02:21Z"
   },
   {
     "number": 190,
