@@ -1,5 +1,17 @@
 [
   {
+    "number": 515,
+    "title": "Update `tn-contracts` submodule to use `HTTPS`",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/515",
+    "updated_at": "2026-01-16T19:09:58Z"
+  },
+  {
+    "number": 513,
+    "title": "Streaming Protocol for Network Layer",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/513",
+    "updated_at": "2026-01-14T00:08:02Z"
+  },
+  {
     "number": 508,
     "title": "rm: `monitored_future`",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/508",
