@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 
 import type { Status } from '../data/statusSchema';
 
@@ -92,6 +92,9 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
     { title: 'Developer Notes - Updated 03rd December 2025', items: DECEMBER_DEVELOPER_NOTES },
     { title: 'Developer Notes - Updated 13th November 2025', items: UPDATED_DEVELOPER_NOTES },
   ];
+  const [currentPage, setCurrentPage] = useState(0);
+  const totalPages = developerNoteSections.length;
+  const currentSection = developerNoteSections[currentPage];
 
   return (
     <section aria-labelledby="security-heading" className="space-y-6">
@@ -115,24 +118,45 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
       </div>
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
         <article className="rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur">
-          {developerNoteSections.map((section, index) => (
-            <div key={section.title} className={index === 0 ? undefined : 'mt-6'}>
-              <h3 className="text-lg font-semibold text-fg">{section.title}</h3>
-              <ul className="mt-4 space-y-3 text-sm text-fg-muted">
-                {section.items.map((note) => (
-                  <li key={note} className="flex items-start gap-3">
-                    <img
-                      src="/IMG/Checkmark.svg"
-                      alt="Developer note"
-                      className="h-5 w-5 md:h-6 md:w-6 shrink-0"
-                      loading="eager"
-                    />
-                    <span>{note}</span>
-                  </li>
-                ))}
-              </ul>
+          <div>
+            <h3 className="text-lg font-semibold text-fg">{currentSection.title}</h3>
+            <ul className="mt-4 space-y-3 text-sm text-fg-muted">
+              {currentSection.items.map((note) => (
+                <li key={note} className="flex items-start gap-3">
+                  <img
+                    src="/IMG/Checkmark.svg"
+                    alt="Developer note"
+                    className="h-5 w-5 md:h-6 md:w-6 shrink-0"
+                    loading="eager"
+                  />
+                  <span>{note}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-xs text-fg-muted">
+            <span>
+              Page {currentPage + 1} of {totalPages}
+            </span>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setCurrentPage((page) => Math.max(page - 1, 0))}
+                disabled={currentPage === 0}
+                className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-fg transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                Previous
+              </button>
+              <button
+                type="button"
+                onClick={() => setCurrentPage((page) => Math.min(page + 1, totalPages - 1))}
+                disabled={currentPage === totalPages - 1}
+                className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-fg transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                Next
+              </button>
             </div>
-          ))}
+          </div>
         </article>
         <div className="flex flex-col gap-4">
           <StatCard
