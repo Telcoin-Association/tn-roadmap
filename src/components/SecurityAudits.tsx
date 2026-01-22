@@ -20,6 +20,14 @@ const JANUARY_DEVELOPER_NOTES = [
   'Emphasis on production-ready hardening for MNO onboarding',
 ];
 
+const JANUARY_22_DEVELOPER_NOTES = [
+  'Stress testing continues to surface minor issues, all of which have now been resolved. Community testers are running observer nodes and providing feedback, with coordination underway to transition qualified observers into staked validator roles.',
+  'The BLS cryptography library is now feature complete, including a first-of-its-kind implementation using new Pectra BLS precompiles. Ongoing database and networking refactors are delivering meaningful performance improvements.',
+  'Two major technical deliverables remain in progress. Once complete, focus will shift to test coverage, documentation, and internal audits to maximize confidence ahead of final security audits.',
+  'Hardware procurement is underway for select datacenter partners, with several VM environments nearing operational readiness.',
+  'Financial planning for the 2026 bridging partner budget is being finalized.',
+];
+
 type SecurityAuditsProps = Pick<Status['security'], 'notes' | 'publicFindings' | 'afterPriorityFixes'>;
 
   type SeverityMetrics = Status['security']['publicFindings'];
@@ -78,6 +86,7 @@ function StatCard({
 
 export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: SecurityAuditsProps) {
   const developerNoteSections = [
+    { title: 'Developer Notes - Updated 22 January 2026', items: JANUARY_22_DEVELOPER_NOTES },
     { title: 'Developer Notes - Updated 9 January 2026', items: JANUARY_DEVELOPER_NOTES },
     { title: 'Developer Notes - Updated 19 December 2025', items: notes },
     { title: 'Developer Notes - Updated 03rd December 2025', items: DECEMBER_DEVELOPER_NOTES },

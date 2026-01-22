@@ -27,6 +27,7 @@ const ACTIVE_PHASE_2_SLUGS = new Set([
   'production-harden-syncing-strategy',
   'integrate-with-bridge-partner',
   'stress-test-deployed-network',
+  'confirm-specialist-researcher-availability',
   'relaunch-network',
 ]);
 
@@ -119,6 +120,10 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
       {
         text: 'Stress test deployed network in preparation for public release',
         slug: 'stress-test-deployed-network',
+      },
+      {
+        text: 'Confirming availability of specialist researchers with security partners',
+        slug: 'confirm-specialist-researcher-availability',
       },
       {
         text: 'Deploy new faucet service',

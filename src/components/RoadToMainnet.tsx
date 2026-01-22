@@ -52,6 +52,7 @@ const ACTIVE_PHASE_2_SLUGS = new Set<string>([
   'production-harden-syncing-strategy',
   'integrate-with-bridge-partner',
   'stress-test-deployed-network',
+  'confirm-specialist-researcher-availability',
   'relaunch-network',
 ]);
 

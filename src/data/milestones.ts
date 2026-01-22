@@ -138,6 +138,13 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
+      text: 'Confirming availability of specialist researchers with security partners',
+      slug: 'confirm-specialist-researcher-availability',
+      details: [
+        'Initial coordination underway with security partners to confirm availability of specialized security researchers.',
+      ],
+    },
+    {
       text: 'Deploy new faucet service',
       slug: 'deploy-new-faucet-service',
       details: [
