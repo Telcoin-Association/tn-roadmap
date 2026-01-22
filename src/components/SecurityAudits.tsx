@@ -117,8 +117,8 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
         </div>
       </div>
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
-        <article className="rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur">
-          <div>
+        <article className="flex h-full flex-col rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur">
+          <div className="flex-1">
             <h3 className="text-lg font-semibold text-fg">{currentSection.title}</h3>
             <ul className="mt-4 space-y-3 text-sm text-fg-muted">
               {currentSection.items.map((note) => (
@@ -134,7 +134,7 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
               ))}
             </ul>
           </div>
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-xs text-fg-muted">
+          <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-6 text-xs text-fg-muted">
             <span>
               Page {currentPage + 1} of {totalPages}
             </span>
