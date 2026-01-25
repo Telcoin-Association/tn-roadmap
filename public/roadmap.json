@@ -1,5 +1,17 @@
 [
   {
+    "number": 523,
+    "title": "Proposal: Split monolithic crates (tn-primary, tn-types, tn-network)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/523",
+    "updated_at": "2026-01-24T16:12:47Z"
+  },
+  {
+    "number": 521,
+    "title": "Remove old metrics in prep for new metrics.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/521",
+    "updated_at": "2026-01-24T01:02:22Z"
+  },
+  {
     "number": 515,
     "title": "Update `tn-contracts` submodule to use `HTTPS`",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/515",
