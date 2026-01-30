@@ -3,7 +3,7 @@
     "number": 523,
     "title": "Proposal: Split monolithic crates (tn-primary, tn-types, tn-network)",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/523",
-    "updated_at": "2026-01-24T16:12:47Z"
+    "updated_at": "2026-01-27T18:47:16Z"
   },
   {
     "number": 521,
@@ -22,12 +22,6 @@
     "title": "Streaming Protocol for Network Layer",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/513",
     "updated_at": "2026-01-14T00:08:02Z"
-  },
-  {
-    "number": 508,
-    "title": "rm: `monitored_future`",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/508",
-    "updated_at": "2025-12-29T20:09:12Z"
   },
   {
     "number": 506,
@@ -82,12 +76,6 @@
     "title": "Optimization: Parallelize Transaction Recovery during Batch Execution",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/376",
     "updated_at": "2026-01-22T19:47:32Z"
-  },
-  {
-    "number": 375,
-    "title": "The tn_latestHeader RPC fails.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/375",
-    "updated_at": "2025-09-07T19:47:33Z"
   },
   {
     "number": 326,
