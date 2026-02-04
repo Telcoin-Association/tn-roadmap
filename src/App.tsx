@@ -8,6 +8,7 @@ import { SecurityAudits } from './components/SecurityAudits';
 import { loadStatus, type Status } from './data/loadStatus';
 import { TelcoinAnimatedLogo } from './components/TelcoinAnimatedLogo';
 import LastUpdated from '@/components/LastUpdated';
+import { getLatestDeveloperNotesDate } from '@/data/developerNotes';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -135,7 +136,7 @@ export default function App() {
                       label="Road to Mainnet"
                     />
                     <div className="mt-4 flex w-full justify-center">
-                      <LastUpdated lastUpdated={status.meta.lastUpdated} />
+                      <LastUpdated lastUpdated={getLatestDeveloperNotesDate()} />
                     </div>
                   </div>
                 </div>
