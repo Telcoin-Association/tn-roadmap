@@ -30,7 +30,27 @@ const JANUARY_22_DEVELOPER_NOTES = [
   'Financial planning for the 2026 bridging partner budget is being finalized.',
 ];
 
+const FEBRUARY_05_DEVELOPER_NOTES = [
+  'Stress testing is ongoing and has identified some minor stability issues.',
+  'During stress testing, the devnet has occasionally paused, with nodes recovering cleanly after restart.',
+  'Overall reliability continues to improve as testing progresses.',
+  'Early findings point to database behaviour, which is being addressed as part of an ongoing refactor.',
+  'The BLS cryptography library is now feature complete.',
+  'Internal audit feedback is being worked through.',
+  'An external 9-day security assessment has been quoted by Spearbit/Cantina.',
+  'Database and networking refactors are still in progress.',
+  'Individual improvements are nearing completion.',
+  'These will be combined in a final integration update.',
+  'Open-source contributions from the community (notably TanguyDeTaxis) have been very helpful.',
+  'Significant improvements have been made to the testing infrastructure.',
+  'Build and test times are faster.',
+  'Automated testing on pull requests has been improved.',
+  'Custom RPC methods and network metrics continue to expand.',
+  'Community-run observer and validator nodes continue to support broader network testing efforts.',
+];
+
 const developerNoteDates = [
+  '2026-02-05T00:00:00Z',
   '2026-01-22T00:00:00Z',
   '2026-01-09T00:00:00Z',
   '2025-12-19T00:00:00Z',
@@ -44,6 +64,11 @@ export const getLatestDeveloperNotesDate = () =>
   );
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
+  {
+    title: 'Developer Notes - Updated 05 February 2026',
+    date: '2026-02-05',
+    items: FEBRUARY_05_DEVELOPER_NOTES,
+  },
   {
     title: 'Developer Notes - Updated 22 January 2026',
     date: '2026-01-22',
