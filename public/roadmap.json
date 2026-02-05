@@ -1,9 +1,27 @@
 [
   {
-    "number": 523,
-    "title": "Proposal: Split monolithic crates (tn-primary, tn-types, tn-network)",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/523",
-    "updated_at": "2026-01-24T16:12:47Z"
+    "number": 532,
+    "title": "feat: Fast Direct Commit Rule",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/532",
+    "updated_at": "2026-02-04T01:10:12Z"
+  },
+  {
+    "number": 531,
+    "title": "feat: Skip EVM Execution for Empty Consensus Output",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/531",
+    "updated_at": "2026-02-04T00:53:22Z"
+  },
+  {
+    "number": 530,
+    "title": "feat: `tn_` RPC Namespace Methods",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/530",
+    "updated_at": "2026-02-04T16:26:37Z"
+  },
+  {
+    "number": 529,
+    "title": "Get rid of the stored watch receivers on the consensus bus.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/529",
+    "updated_at": "2026-02-03T00:05:25Z"
   },
   {
     "number": 521,
@@ -24,12 +42,6 @@
     "updated_at": "2026-01-14T00:08:02Z"
   },
   {
-    "number": 508,
-    "title": "rm: `monitored_future`",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/508",
-    "updated_at": "2025-12-29T20:09:12Z"
-  },
-  {
     "number": 506,
     "title": "Database Configuration: Static File Storage",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/506",
@@ -39,7 +51,7 @@
     "number": 500,
     "title": "Epoch Record: Validator Ejection",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/500",
-    "updated_at": "2026-01-07T19:49:15Z"
+    "updated_at": "2026-02-04T20:58:07Z"
   },
   {
     "number": 472,
@@ -81,19 +93,13 @@
     "number": 376,
     "title": "Optimization: Parallelize Transaction Recovery during Batch Execution",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/376",
-    "updated_at": "2026-01-22T19:47:32Z"
-  },
-  {
-    "number": 375,
-    "title": "The tn_latestHeader RPC fails.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/375",
-    "updated_at": "2025-09-07T19:47:33Z"
+    "updated_at": "2026-02-04T02:48:10Z"
   },
   {
     "number": 326,
     "title": "Remove Google KMS from Faucet for Testnet",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/326",
-    "updated_at": "2026-01-22T01:48:46Z"
+    "updated_at": "2026-02-04T01:42:53Z"
   },
   {
     "number": 254,
