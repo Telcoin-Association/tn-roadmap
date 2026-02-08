@@ -18,18 +18,6 @@
     "updated_at": "2026-02-04T16:26:37Z"
   },
   {
-    "number": 529,
-    "title": "Get rid of the stored watch receivers on the consensus bus.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/529",
-    "updated_at": "2026-02-03T00:05:25Z"
-  },
-  {
-    "number": 521,
-    "title": "Remove old metrics in prep for new metrics.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/521",
-    "updated_at": "2026-01-24T01:02:22Z"
-  },
-  {
     "number": 515,
     "title": "Update `tn-contracts` submodule to use `HTTPS`",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/515",
