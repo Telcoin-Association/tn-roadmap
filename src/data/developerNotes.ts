@@ -49,7 +49,19 @@ const FEBRUARY_05_DEVELOPER_NOTES = [
   'Community-run observer and validator nodes continue to support broader network testing efforts.',
 ];
 
+const FEBRUARY_19_DEVELOPER_NOTES = [
+  'In Progress: Support P2P Streaming for Bulk Data Transfer — Implement peer-to-peer streaming mechanisms to enable efficient bulk data transfer between nodes, improving sync performance and reducing reliance on centralized distribution.',
+  'In Progress: Streamline Database Infrastructure for Production — Refactor and optimise database architecture to ensure production-grade performance, reliability, and scalability across validators and observers.',
+  'In Progress: Custom TN RPC Endpoints — Develop dedicated Telcoin Network RPC endpoints tailored to ecosystem use cases, improving performance, flexibility, and infrastructure control.',
+  'In Progress: Harden Epoch Boundary Records for Secure Syncing — Improve validation and integrity checks around epoch boundary records to ensure secure, deterministic syncing across network participants.',
+  'In Progress: Better Tools for Validators to Sync, Stake, and Activate — Enhance CLI tooling and workflows for validators to sync more efficiently, stake with clearer flows, and activate validators with improved reliability and UX.',
+  'To Do: Support Multiple Workers for Parallel Fee Markets — Enable validators to operate multiple workers to segregate transaction pools, allowing independent fee markets, use-case specific execution environments, and horizontal scalability without separate chains.',
+  'Done: Updates to Support Open-Source Contributions — Implemented structural and workflow improvements to make the repository more accessible for external contributors, improving transparency and community participation.',
+  'Done: Parallelize Testing Infrastructure — Refactored testing systems to run in parallel, significantly reducing CI times and increasing reliability of test coverage.',
+];
+
 const developerNoteDates = [
+  '2026-02-19T00:00:00Z',
   '2026-02-05T00:00:00Z',
   '2026-01-22T00:00:00Z',
   '2026-01-09T00:00:00Z',
@@ -64,6 +76,11 @@ export const getLatestDeveloperNotesDate = () =>
   );
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
+  {
+    title: 'Developer Notes - Updated 19th February 2026',
+    date: '2026-02-19',
+    items: FEBRUARY_19_DEVELOPER_NOTES,
+  },
   {
     title: 'Developer Notes - Updated 05 February 2026',
     date: '2026-02-05',

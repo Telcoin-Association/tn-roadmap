@@ -145,6 +145,64 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
+      text: 'Support P2P Streaming for Bulk Data Transfer',
+      slug: 'support-p2p-streaming-for-bulk-data-transfer',
+      details: [
+        'Implement peer-to-peer streaming mechanisms to enable efficient bulk data transfer between nodes, improving sync performance and reducing reliance on centralized distribution.',
+      ],
+    },
+    {
+      text: 'Streamline Database Infrastructure for Production',
+      slug: 'streamline-database-infrastructure-for-production',
+      details: [
+        'Refactor and optimise database architecture to ensure production-grade performance, reliability, and scalability across validators and observers.',
+      ],
+    },
+    {
+      text: 'Custom TN RPC Endpoints',
+      slug: 'custom-tn-rpc-endpoints',
+      details: [
+        'Develop dedicated Telcoin Network RPC endpoints tailored to ecosystem use cases, improving performance, flexibility, and infrastructure control.',
+      ],
+    },
+    {
+      text: 'Harden Epoch Boundary Records for Secure Syncing',
+      slug: 'harden-epoch-boundary-records-for-secure-syncing',
+      details: [
+        'Improve validation and integrity checks around epoch boundary records to ensure secure, deterministic syncing across network participants.',
+      ],
+    },
+    {
+      text: 'Better Tools for Validators to Sync, Stake, and Activate',
+      slug: 'better-tools-for-validators-to-sync-stake-and-activate',
+      details: [
+        'Enhance CLI tooling and workflows for validators to sync more efficiently, stake with clearer flows, and activate validators with improved reliability and UX.',
+      ],
+    },
+    {
+      text: 'Updates to Support Open-Source Contributions',
+      done: true,
+      slug: 'updates-to-support-open-source-contributions',
+      details: [
+        'Implemented structural and workflow improvements to make the repository more accessible for external contributors, improving transparency and community participation.',
+      ],
+    },
+    {
+      text: 'Parallelize Testing Infrastructure for Faster, More Reliable Testing',
+      done: true,
+      slug: 'parallelize-testing-infrastructure-for-faster-more-reliable-testing',
+      details: [
+        'Refactored testing systems to run in parallel, significantly reducing CI times and increasing reliability of test coverage.',
+      ],
+    },
+    {
+      text: 'Support Multiple Workers for Parallel Fee Markets',
+      slug: 'support-multiple-workers-for-parallel-fee-markets',
+      details: [
+        'Enable validators to operate multiple workers to segregate transaction pools for independent fee markets, use-case specific execution environments, and horizontal scalability without separate chains.',
+      ],
+    },
+    {
       text: 'Deploy new faucet service',
       slug: 'deploy-new-faucet-service',
       details: [
