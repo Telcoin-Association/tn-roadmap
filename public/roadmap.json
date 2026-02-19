@@ -1,39 +1,75 @@
 [
   {
+    "number": 559,
+    "title": "tests: Multi-Worker Support — PR 6: Tests",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/559",
+    "updated_at": "2026-02-14T01:25:34Z"
+  },
+  {
+    "number": 558,
+    "title": "feat: Multi-Worker Support — PR 5: Execution Engine Initialization",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/558",
+    "updated_at": "2026-02-14T01:23:47Z"
+  },
+  {
+    "number": 557,
+    "title": "feat: Multi-Worker Support — PR 4: `EpochManager` Multi-Worker Loop",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/557",
+    "updated_at": "2026-02-14T01:22:50Z"
+  },
+  {
+    "number": 556,
+    "title": "feat: Multi-Worker Support — PR 3: Per-Worker `LocalNetwork`",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/556",
+    "updated_at": "2026-02-14T01:21:41Z"
+  },
+  {
+    "number": 555,
+    "title": "feat: Multi-Worker Support — PR 2: Per-Worker Network Swarms",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/555",
+    "updated_at": "2026-02-14T01:20:17Z"
+  },
+  {
+    "number": 554,
+    "title": "feat: Multi-Worker Support — PR 1: Configuration",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/554",
+    "updated_at": "2026-02-14T01:19:21Z"
+  },
+  {
+    "number": 552,
+    "title": "feat:  Implement Multi-Anchor Consensus (Shoal++ Section 5.2)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/552",
+    "updated_at": "2026-02-14T00:24:47Z"
+  },
+  {
+    "number": 551,
+    "title": "Add fsync on parent directory after file creation and rename",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/551",
+    "updated_at": "2026-02-14T00:06:47Z"
+  },
+  {
+    "number": 547,
+    "title": "Refactor `manager.rs`: Extract Epoch Vote Collector and Harden Logic",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/547",
+    "updated_at": "2026-02-11T17:56:55Z"
+  },
+  {
+    "number": 545,
+    "title": "Calldata for Staking",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/545",
+    "updated_at": "2026-02-08T21:41:17Z"
+  },
+  {
     "number": 532,
     "title": "feat: Fast Direct Commit Rule",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/532",
     "updated_at": "2026-02-04T01:10:12Z"
   },
   {
-    "number": 531,
-    "title": "feat: Skip EVM Execution for Empty Consensus Output",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/531",
-    "updated_at": "2026-02-04T00:53:22Z"
-  },
-  {
     "number": 530,
     "title": "feat: `tn_` RPC Namespace Methods",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/530",
     "updated_at": "2026-02-04T16:26:37Z"
-  },
-  {
-    "number": 529,
-    "title": "Get rid of the stored watch receivers on the consensus bus.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/529",
-    "updated_at": "2026-02-03T00:05:25Z"
-  },
-  {
-    "number": 521,
-    "title": "Remove old metrics in prep for new metrics.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/521",
-    "updated_at": "2026-01-24T01:02:22Z"
-  },
-  {
-    "number": 515,
-    "title": "Update `tn-contracts` submodule to use `HTTPS`",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/515",
-    "updated_at": "2026-01-16T19:09:58Z"
   },
   {
     "number": 513,
@@ -64,12 +100,6 @@
     "title": "Syncing: ERA support within Reth",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/468",
     "updated_at": "2025-10-17T16:40:39Z"
-  },
-  {
-    "number": 457,
-    "title": "Double check consensus bus to make sure we don't have channels not being read from.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/457",
-    "updated_at": "2025-10-08T15:28:34Z"
   },
   {
     "number": 451,
