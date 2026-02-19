@@ -28,6 +28,11 @@ const ACTIVE_PHASE_2_SLUGS = new Set([
   'integrate-with-bridge-partner',
   'stress-test-deployed-network',
   'confirm-specialist-researcher-availability',
+  'support-p2p-streaming-for-bulk-data-transfer',
+  'streamline-database-infrastructure-for-production',
+  'custom-tn-rpc-endpoints',
+  'harden-epoch-boundary-records-for-secure-syncing',
+  'better-tools-for-validators-to-sync-stake-and-activate',
   'relaunch-network',
 ]);
 
@@ -38,6 +43,8 @@ const COMPLETED_PHASE_2_SLUGS = new Set([
   'improve-documentation',
   'write-mica-whitepaper-with-legal-now',
   'improve-async-logging-for-all-nodes',
+  'updates-to-support-open-source-contributions',
+  'parallelize-testing-infrastructure-for-faster-more-reliable-testing',
 ]);
 
 const ACTIVE_PHASE_3_SLUGS = new Set([
@@ -126,6 +133,38 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
         slug: 'confirm-specialist-researcher-availability',
       },
       {
+        text: 'Support p2p streaming for bulk data transfer',
+        slug: 'support-p2p-streaming-for-bulk-data-transfer',
+      },
+      {
+        text: 'Streamline database infrastructure for production',
+        slug: 'streamline-database-infrastructure-for-production',
+      },
+      {
+        text: 'Custom TN RPC endpoints',
+        slug: 'custom-tn-rpc-endpoints',
+      },
+      {
+        text: 'Harden epoch boundary records for secure syncing',
+        slug: 'harden-epoch-boundary-records-for-secure-syncing',
+      },
+      {
+        text: 'Better tools for validators to sync, stake, and activate',
+        slug: 'better-tools-for-validators-to-sync-stake-and-activate',
+      },
+      {
+        text: 'Updates to support open-source contributions',
+        slug: 'updates-to-support-open-source-contributions',
+      },
+      {
+        text: 'Parallelize testing infrastructure for faster, more reliable testing',
+        slug: 'parallelize-testing-infrastructure-for-faster-more-reliable-testing',
+      },
+      {
+        text: 'Support multiple workers for parallel fee markets',
+        slug: 'support-multiple-workers-for-parallel-fee-markets',
+      },
+      {
         text: 'Deploy new faucet service',
         slug: 'deploy-new-faucet-service',
       },
@@ -141,7 +180,7 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
     href: '#road-to-mainnet-adiri-phase-3-tab',
     items: [
       {
-        text: 'Integrate Adiri testnet with bridge solution',
+        text: 'Integrate with LayerZero',
         slug: 'integrate-adiri-testnet-with-bridge-solution',
       },
       {
