@@ -102,12 +102,6 @@
     "updated_at": "2025-10-17T16:40:39Z"
   },
   {
-    "number": 451,
-    "title": "Voting Weight",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/451",
-    "updated_at": "2025-10-03T19:44:45Z"
-  },
-  {
     "number": 417,
     "title": "Precision Loss in Incentive Calculation Enables Silent Protocol Fund Lockup and Undermines Fair Reward Allocation",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/417",
@@ -130,12 +124,6 @@
     "title": "Remove Google KMS from Faucet for Testnet",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/326",
     "updated_at": "2026-02-04T01:42:53Z"
-  },
-  {
-    "number": 254,
-    "title": "Network Metrics",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/254",
-    "updated_at": "2025-04-14T14:36:34Z"
   },
   {
     "number": 250,
