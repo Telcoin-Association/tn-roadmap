@@ -1,5 +1,11 @@
 [
   {
+    "number": 573,
+    "title": "Add functionality to wait for an epoch record.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/573",
+    "updated_at": "2026-03-12T18:50:49Z"
+  },
+  {
     "number": 559,
     "title": "tests: Multi-Worker Support — PR 6: Tests",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/559",
@@ -72,18 +78,6 @@
     "updated_at": "2026-02-04T16:26:37Z"
   },
   {
-    "number": 513,
-    "title": "Streaming Protocol for Network Layer",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/513",
-    "updated_at": "2026-01-14T00:08:02Z"
-  },
-  {
-    "number": 506,
-    "title": "Database Configuration: Static File Storage",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/506",
-    "updated_at": "2026-01-07T01:45:44Z"
-  },
-  {
     "number": 500,
     "title": "Epoch Record: Validator Ejection",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/500",
@@ -100,12 +94,6 @@
     "title": "Syncing: ERA support within Reth",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/468",
     "updated_at": "2025-10-17T16:40:39Z"
-  },
-  {
-    "number": 451,
-    "title": "Voting Weight",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/451",
-    "updated_at": "2025-10-03T19:44:45Z"
   },
   {
     "number": 417,
@@ -130,12 +118,6 @@
     "title": "Remove Google KMS from Faucet for Testnet",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/326",
     "updated_at": "2026-02-04T01:42:53Z"
-  },
-  {
-    "number": 254,
-    "title": "Network Metrics",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/254",
-    "updated_at": "2025-04-14T14:36:34Z"
   },
   {
     "number": 250,
