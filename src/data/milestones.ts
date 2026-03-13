@@ -94,6 +94,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Production Harden Syncing Strategy',
+      done: true,
       slug: 'production-harden-syncing-strategy',
       details: [
         'Improve syncing strategy to ensure reliable state synchronization under real-world network conditions.',
@@ -139,6 +140,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Confirming availability of specialist researchers with security partners',
+      done: true,
       slug: 'confirm-specialist-researcher-availability',
       details: [
         'Initial coordination underway with security partners to confirm availability of specialized security researchers.',
@@ -204,9 +206,25 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Deploy new faucet service',
+      done: true,
       slug: 'deploy-new-faucet-service',
       details: [
         'Launch a public faucet that distributes small amounts of testnet TEL, allowing developers and community members to easily access tokens for testing applications and transactions on the network.',
+      ],
+    },
+    {
+      text: 'TN Whitepaper',
+      slug: 'tn-whitepaper',
+      details: [
+        'Drafting and reviewing the Telcoin Network whitepaper to consolidate technical architecture, governance model, and ecosystem positioning for external stakeholders.',
+      ],
+    },
+    {
+      text: 'Isolate execution environment',
+      done: true,
+      slug: 'isolate-execution-environment',
+      details: [
+        'Completed isolation of the execution environment to improve security boundaries, operational resilience, and deterministic node behavior under production conditions.',
       ],
     },
     {
