@@ -67,6 +67,7 @@ const COMPLETED_PHASE_2_SLUGS = new Set<string>([
 
 const ACTIVE_PHASE_3_SLUGS = new Set<string>([
   'integrate-adiri-testnet-with-bridge-solution',
+  'decentralize-network-onboard-mno-validators',
 ]);
 
 type TabKey = PhaseKey | 'adiri-phase-3' | 'history' | 'issues';

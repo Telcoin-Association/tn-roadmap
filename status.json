@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-22T00:00:00Z",
+    "lastUpdated": "2026-03-13T00:00:00Z",
     "overallTrajectoryPct": 80
   },
   "phases": [
@@ -25,6 +25,12 @@
   ],
   "security": {
     "notes": [
+      "TN Whitepaper drafting moved to in progress",
+      "Develop new faucet service completed",
+      "Support multiple workers for parallel fee markets moved to in progress",
+      "Execution environment isolation completed",
+      "Confirmed availability of specialist security researchers with partners",
+      "Production harden syncing strategy completed",
       "Closed 30+ issues in the last 2 weeks",
       "Continued production hardening across core network components",
       "Database performance improvements implemented to support production workloads",
@@ -62,7 +68,7 @@
     },
     {
       "title": "Open Adiri public testnet",
-      "state": "planned"
+      "state": "up_next"
     },
     {
       "title": "Address remaining findings from security competition",
