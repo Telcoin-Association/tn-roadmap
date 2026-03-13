@@ -49,6 +49,22 @@ const FEBRUARY_05_DEVELOPER_NOTES = [
   'Community-run observer and validator nodes continue to support broader network testing efforts.',
 ];
 
+
+const MARCH_13_DEVELOPER_NOTES = [
+  'Closed 12 pull requests covering production hardening, bug fixes, and security improvements.',
+  'Production hardening syncing strategy is complete and confirming specialist researcher availability with security partners is complete.',
+  'Execution environment isolation has been completed to accelerate core protocol execution and readiness.',
+  'Support multiple workers for parallel fee markets and deploy new faucet service are now in progress.',
+  'TN Whitepaper drafting is now in progress.',
+  'Database layer upgrades were completed and merged, clearing the way for testnet launch readiness activities.',
+  'P2P streaming for bulk data transfer remains in final testing and nearing completion.',
+  'Protocol team is preparing testnet launch in MNO data center environments, with initial validator cohort planning underway.',
+  'Bridging work is advancing after receipt of initial LayerZero scoping prerequisites.',
+  'Unified web presence initiative is in wireframing phase with focus on user journeys, SEO, and audience-specific information architecture.',
+  'MWC highlighted strong MNO engagement across regions, with validator onboarding and telecom payment use-cases actively progressing.',
+  'Mainnet launch remains dependent on completion of testnet validation and security assessments.',
+];
+
 const FEBRUARY_19_DEVELOPER_NOTES = [
   'In Progress: Support P2P Streaming for Bulk Data Transfer — Implement peer-to-peer streaming mechanisms to enable efficient bulk data transfer between nodes, improving sync performance and reducing reliance on centralized distribution.',
   'In Progress: Streamline Database Infrastructure for Production — Refactor and optimise database architecture to ensure production-grade performance, reliability, and scalability across validators and observers.',
@@ -61,6 +77,7 @@ const FEBRUARY_19_DEVELOPER_NOTES = [
 ];
 
 const developerNoteDates = [
+  '2026-03-13T00:00:00Z',
   '2026-02-19T00:00:00Z',
   '2026-02-05T00:00:00Z',
   '2026-01-22T00:00:00Z',
@@ -76,6 +93,11 @@ export const getLatestDeveloperNotesDate = () =>
   );
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
+  {
+    title: 'Developer Notes - Updated 13 March 2026',
+    date: '2026-03-13',
+    items: MARCH_13_DEVELOPER_NOTES,
+  },
   {
     title: 'Developer Notes - Updated 19th February 2026',
     date: '2026-02-19',

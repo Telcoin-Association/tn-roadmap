@@ -24,10 +24,8 @@ type AdiriPhaseGroup = {
 
 const ACTIVE_PHASE_2_SLUGS = new Set([
   'production-harden-p2p-networking',
-  'production-harden-syncing-strategy',
   'integrate-with-bridge-partner',
   'stress-test-deployed-network',
-  'confirm-specialist-researcher-availability',
   'support-p2p-streaming-for-bulk-data-transfer',
   'streamline-database-infrastructure-for-production',
   'custom-tn-rpc-endpoints',
@@ -45,10 +43,20 @@ const COMPLETED_PHASE_2_SLUGS = new Set([
   'improve-async-logging-for-all-nodes',
   'updates-to-support-open-source-contributions',
   'parallelize-testing-infrastructure-for-faster-more-reliable-testing',
+  'production-harden-syncing-strategy',
+  'confirm-specialist-researcher-availability',
+  'isolate-execution-environment',
+  'deploy-new-faucet-service',
 ]);
 
 const ACTIVE_PHASE_3_SLUGS = new Set([
   'integrate-adiri-testnet-with-bridge-solution',
+  'decentralize-network-onboard-mno-validators',
+]);
+
+const NEWLY_ACTIVE_PHASE_2_SLUGS = new Set([
+  'support-multiple-workers-for-parallel-fee-markets',
+  'tn-whitepaper',
 ]);
 
 const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
@@ -169,6 +177,14 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
         slug: 'deploy-new-faucet-service',
       },
       {
+        text: 'TN Whitepaper',
+        slug: 'tn-whitepaper',
+      },
+      {
+        text: 'Isolate execution environment',
+        slug: 'isolate-execution-environment',
+      },
+      {
         text: 'Relaunch network',
         slug: 'relaunch-network',
       },
@@ -226,18 +242,21 @@ export default function MilestoneBlock({ phase }: Props) {
                   {group.items.map((item) => {
                     const isActivePhase2Item =
                       group.title === 'Phase 2' && ACTIVE_PHASE_2_SLUGS.has(item.slug);
+                    const isNewlyActivePhase2Item =
+                      group.title === 'Phase 2' && NEWLY_ACTIVE_PHASE_2_SLUGS.has(item.slug);
                     const isCompletedPhase2Item =
                       group.title === 'Phase 2' && COMPLETED_PHASE_2_SLUGS.has(item.slug);
                     const isActivePhase3Item =
                       group.title === 'Phase 3' && ACTIVE_PHASE_3_SLUGS.has(item.slug);
-                    const shouldAnimate = (isActivePhase2Item || isActivePhase3Item) && !reduceMotion;
+                    const shouldAnimate =
+                      (isActivePhase2Item || isNewlyActivePhase2Item || isActivePhase3Item) && !reduceMotion;
 
                     const renderIcon = () => {
                       if (isCompletedPhase2Item) {
                         return <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />;
                       }
 
-                      if (isActivePhase2Item) {
+                      if (isActivePhase2Item || isNewlyActivePhase2Item) {
                         return (
                           <motion.img
                             src={ActivityIconUrl}
@@ -303,7 +322,7 @@ export default function MilestoneBlock({ phase }: Props) {
                     return (
                       <li key={item.slug} className="flex items-start gap-3">
                         {renderIcon()}
-                        {isActivePhase2Item ? (
+                        {isActivePhase2Item || isNewlyActivePhase2Item ? (
                           <span className="text-sm font-semibold leading-6 text-white">{item.text}</span>
                         ) : isCompletedPhase2Item ? (
                           <span className="text-sm leading-6 text-white/90">{item.text}</span>
