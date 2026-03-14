@@ -62,7 +62,7 @@ const MARCH_13_DEVELOPER_NOTES = [
   'Bridging work is advancing after receipt of initial LayerZero scoping prerequisites.',
   'Unified web presence initiative is in wireframing phase with focus on user journeys, SEO, and audience-specific information architecture.',
   'MWC highlighted strong MNO engagement across regions, with validator onboarding and telecom payment use-cases actively progressing.',
-  'Mainnet launch remains dependent on completion of testnet validation and security assessments; Q1 mainnet timing is no longer expected.',
+  'Mainnet launch remains dependent on completion of testnet validation and security assessments.',
 ];
 
 const FEBRUARY_19_DEVELOPER_NOTES = [
