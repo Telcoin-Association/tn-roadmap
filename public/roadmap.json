@@ -1,27 +1,9 @@
 [
   {
-    "number": 598,
-    "title": "Always Replay Consensus on Startup",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/598",
-    "updated_at": "2026-03-26T18:44:35Z"
-  },
-  {
-    "number": 587,
-    "title": "Alt epoch record vote counting doesn't track unique voters",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/587",
-    "updated_at": "2026-03-22T18:18:45Z"
-  },
-  {
-    "number": 584,
-    "title": "test: Assert LZ Adapter in Genesis",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/584",
-    "updated_at": "2026-03-20T22:26:47Z"
-  },
-  {
-    "number": 576,
-    "title": "Use this error for non-eyre errors.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/576",
-    "updated_at": "2026-03-13T15:44:23Z"
+    "number": 573,
+    "title": "Add functionality to wait for an epoch record.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/573",
+    "updated_at": "2026-03-12T18:50:49Z"
   },
   {
     "number": 559,
