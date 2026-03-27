@@ -228,112 +228,128 @@ export default function MilestoneBlock({ phase }: Props) {
         </div>
         <div className="mt-3 space-y-4">
           {ADIRI_PHASE_GROUPS.map((group) => {
+            const isOpenByDefault = group.title === 'Phase 2';
             return (
-              <div key={group.title}>
-                <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+              <details
+                key={group.title}
+                open={isOpenByDefault}
+                className="group/section rounded-lg border border-white/10 bg-white/[0.03]"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-3 py-2 marker:content-['']">
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
+                    {group.title}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="text-sm text-white/60 transition-transform group-open/section:rotate-180"
+                  >
+                    ▾
+                  </span>
+                </summary>
+                <div className="px-3 pb-3">
                   <a
                     href={group.href}
-                    className="inline-flex items-center gap-1 text-current transition hover:text-white/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    className="inline-flex items-center gap-1 text-[11px] font-medium uppercase tracking-[0.12em] text-white/55 transition hover:text-white/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
-                    {group.title}
+                    View details
                   </a>
-                </h4>
-                <ul className="mt-2 space-y-2">
-                  {group.items.map((item) => {
-                    const isActivePhase2Item =
-                      group.title === 'Phase 2' && ACTIVE_PHASE_2_SLUGS.has(item.slug);
-                    const isNewlyActivePhase2Item =
-                      group.title === 'Phase 2' && NEWLY_ACTIVE_PHASE_2_SLUGS.has(item.slug);
-                    const isCompletedPhase2Item =
-                      group.title === 'Phase 2' && COMPLETED_PHASE_2_SLUGS.has(item.slug);
-                    const isActivePhase3Item =
-                      group.title === 'Phase 3' && ACTIVE_PHASE_3_SLUGS.has(item.slug);
-                    const shouldAnimate =
-                      (isActivePhase2Item || isNewlyActivePhase2Item || isActivePhase3Item) && !reduceMotion;
+                  <ul className="mt-2 space-y-2">
+                    {group.items.map((item) => {
+                      const isActivePhase2Item =
+                        group.title === 'Phase 2' && ACTIVE_PHASE_2_SLUGS.has(item.slug);
+                      const isNewlyActivePhase2Item =
+                        group.title === 'Phase 2' && NEWLY_ACTIVE_PHASE_2_SLUGS.has(item.slug);
+                      const isCompletedPhase2Item =
+                        group.title === 'Phase 2' && COMPLETED_PHASE_2_SLUGS.has(item.slug);
+                      const isActivePhase3Item =
+                        group.title === 'Phase 3' && ACTIVE_PHASE_3_SLUGS.has(item.slug);
+                      const shouldAnimate =
+                        (isActivePhase2Item || isNewlyActivePhase2Item || isActivePhase3Item) && !reduceMotion;
 
-                    const renderIcon = () => {
-                      if (isCompletedPhase2Item) {
-                        return <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />;
-                      }
+                      const renderIcon = () => {
+                        if (isCompletedPhase2Item) {
+                          return <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />;
+                        }
 
-                      if (isActivePhase2Item || isNewlyActivePhase2Item) {
-                        return (
-                          <motion.img
-                            src={ActivityIconUrl}
-                            alt=""
-                            className="mt-0.5 h-4 w-4 shrink-0"
-                            animate={shouldAnimate ? { opacity: [1, 0.5, 1] } : undefined}
-                            transition={
-                              shouldAnimate
-                                ? {
-                                    duration: 1.2,
-                                    repeat: Infinity,
-                                    repeatType: 'reverse',
-                                    ease: 'easeInOut',
-                                  }
-                                : undefined
-                            }
-                          />
-                        );
-                      }
+                        if (isActivePhase2Item || isNewlyActivePhase2Item) {
+                          return (
+                            <motion.img
+                              src={ActivityIconUrl}
+                              alt=""
+                              className="mt-0.5 h-4 w-4 shrink-0"
+                              animate={shouldAnimate ? { opacity: [1, 0.5, 1] } : undefined}
+                              transition={
+                                shouldAnimate
+                                  ? {
+                                      duration: 1.2,
+                                      repeat: Infinity,
+                                      repeatType: 'reverse',
+                                      ease: 'easeInOut',
+                                    }
+                                  : undefined
+                              }
+                            />
+                          );
+                        }
 
-                      if (isActivePhase3Item) {
-                        return (
-                          <motion.img
-                            src={ActivityIconUrl}
-                            alt=""
-                            className="mt-0.5 h-4 w-4 shrink-0"
-                            animate={shouldAnimate ? { opacity: [1, 0.5, 1] } : undefined}
-                            transition={
-                              shouldAnimate
-                                ? {
-                                    duration: 1.2,
-                                    repeat: Infinity,
-                                    repeatType: 'reverse',
-                                    ease: 'easeInOut',
-                                  }
-                                : undefined
-                            }
-                          />
-                        );
-                      }
+                        if (isActivePhase3Item) {
+                          return (
+                            <motion.img
+                              src={ActivityIconUrl}
+                              alt=""
+                              className="mt-0.5 h-4 w-4 shrink-0"
+                              animate={shouldAnimate ? { opacity: [1, 0.5, 1] } : undefined}
+                              transition={
+                                shouldAnimate
+                                  ? {
+                                      duration: 1.2,
+                                      repeat: Infinity,
+                                      repeatType: 'reverse',
+                                      ease: 'easeInOut',
+                                    }
+                                  : undefined
+                              }
+                            />
+                          );
+                        }
 
-                      if (group.icon === 'check') {
-                        return <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />;
-                      }
+                        if (group.icon === 'check') {
+                          return <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />;
+                        }
 
-                      if (group.icon === 'timer') {
-                        return <TimerIcon className="mt-0.5 h-4 w-4 shrink-0 text-white/80" />;
-                      }
+                        if (group.icon === 'timer') {
+                          return <TimerIcon className="mt-0.5 h-4 w-4 shrink-0 text-white/80" />;
+                        }
 
-                      if (group.icon === 'loading') {
-                        return (
-                          <img
-                            src={LoadingIconUrl}
-                            alt=""
-                            className="mt-0.5 h-4 w-4 shrink-0 text-white/80 motion-safe:animate-spin-slow"
-                          />
-                        );
-                      }
+                        if (group.icon === 'loading') {
+                          return (
+                            <img
+                              src={LoadingIconUrl}
+                              alt=""
+                              className="mt-0.5 h-4 w-4 shrink-0 text-white/80 motion-safe:animate-spin-slow"
+                            />
+                          );
+                        }
 
-                      return <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />;
-                    };
+                        return <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />;
+                      };
 
-                    return (
-                      <li key={item.slug} className="flex items-start gap-3">
-                        {renderIcon()}
-                        {isActivePhase2Item || isNewlyActivePhase2Item ? (
-                          <span className="text-sm font-semibold leading-6 text-white">{item.text}</span>
-                        ) : isCompletedPhase2Item ? (
-                          <span className="text-sm leading-6 text-white/90">{item.text}</span>
-                        ) : (
-                          <span className="text-sm leading-6 text-white/90">{item.text}</span>
-                        )}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
+                      return (
+                        <li key={item.slug} className="flex items-start gap-3">
+                          {renderIcon()}
+                          {isActivePhase2Item || isNewlyActivePhase2Item ? (
+                            <span className="text-sm font-semibold leading-6 text-white">{item.text}</span>
+                          ) : isCompletedPhase2Item ? (
+                            <span className="text-sm leading-6 text-white/90">{item.text}</span>
+                          ) : (
+                            <span className="text-sm leading-6 text-white/90">{item.text}</span>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </details>
             );
           })}
         </div>
