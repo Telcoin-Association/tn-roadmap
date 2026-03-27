@@ -41,7 +41,7 @@ npm run typecheck     # TypeScript strict mode
 
 ## Deployment
 
-GitHub Actions builds and deploys to Pages on every push to `main` (`.github/workflows/pages.yml`). After the first merge, confirm repository **Settings → Pages → Source** is set to “GitHub Actions” and that GitHub-owned actions are allowed.
+GitHub Actions builds and deploys to Pages on every push to `main` or `master` (`.github/workflows/pages.yml`). After the first merge, confirm repository **Settings → Pages → Source** is set to “GitHub Actions” and that GitHub-owned actions are allowed.
 
 ## License
 
