@@ -101,13 +101,6 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
-      text: 'Integrate with Bridge Partner',
-      slug: 'integrate-with-bridge-partner',
-      details: [
-        'Coordinate integration with a bridge partner to enable cross-chain interoperability for the Adiri network.',
-      ],
-    },
-    {
       text: 'Improve Documentation',
       done: true,
       slug: 'improve-documentation',
@@ -148,6 +141,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Support P2P Streaming for Bulk Data Transfer',
+      done: true,
       slug: 'support-p2p-streaming-for-bulk-data-transfer',
       details: [
         'Implement peer-to-peer streaming mechanisms to enable efficient bulk data transfer between nodes, improving sync performance and reducing reliance on centralized distribution.',
@@ -155,6 +149,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Streamline Database Infrastructure for Production',
+      done: true,
       slug: 'streamline-database-infrastructure-for-production',
       details: [
         'Refactor and optimise database architecture to ensure production-grade performance, reliability, and scalability across validators and observers.',
@@ -169,6 +164,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Harden Epoch Boundary Records for Secure Syncing',
+      done: true,
       slug: 'harden-epoch-boundary-records-for-secure-syncing',
       details: [
         'Improve validation and integrity checks around epoch boundary records to ensure secure, deterministic syncing across network participants.',
@@ -176,6 +172,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Better Tools for Validators to Sync, Stake, and Activate',
+      done: true,
       slug: 'better-tools-for-validators-to-sync-stake-and-activate',
       details: [
         'Enhance CLI tooling and workflows for validators to sync more efficiently, stake with clearer flows, and activate validators with improved reliability and UX.',
@@ -229,6 +226,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Relaunch Network',
+      done: true,
       slug: 'relaunch-network',
       details: [
         'Bring the Telcoin Network back online with fixes, improvements, and readiness for the transition into the Mainnet launch phases.',
@@ -240,6 +238,41 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       text: 'Launch',
       slug: 'launch',
       details: [], // (no extra text provided)
+    },
+    {
+      text: 'AI security scans',
+      slug: 'ai-security-scans',
+      details: [
+        'Apply AI-assisted security analysis workflows to proactively identify risks across protocol, infrastructure, and tooling before final launch readiness decisions.',
+      ],
+    },
+    {
+      text: 'Improve batch build times for increased transaction throughput',
+      slug: 'improve-batch-build-times-for-increased-transaction-throughput',
+      details: [
+        'Optimize batch build and execution pipelines so validators can process transactions more efficiently and sustain higher throughput under production traffic.',
+      ],
+    },
+    {
+      text: 'Support for dapps to build on observer nodes directly (ExEx feature)',
+      slug: 'support-for-dapps-to-build-on-observer-nodes-directly-exex-feature',
+      details: [
+        'Enable ExEx-driven workflows so developers can build dapps directly against observer nodes for faster experimentation and broader ecosystem participation.',
+      ],
+    },
+    {
+      text: 'Launch community driven testing tools',
+      slug: 'launch-community-driven-testing-tools',
+      details: [
+        'Expand community testing programs and tooling, including TEL Pets-led participation pathways, to increase real-world coverage ahead of launch.',
+      ],
+    },
+    {
+      text: 'Improve syncing times for new nodes',
+      slug: 'improve-syncing-times-for-new-nodes',
+      details: [
+        'Reduce bootstrap and sync times for newly provisioned nodes to speed validator onboarding and improve network recoverability.',
+      ],
     },
   ],
 };
