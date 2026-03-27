@@ -24,14 +24,8 @@ type AdiriPhaseGroup = {
 
 const ACTIVE_PHASE_2_SLUGS = new Set([
   'production-harden-p2p-networking',
-  'integrate-with-bridge-partner',
   'stress-test-deployed-network',
-  'support-p2p-streaming-for-bulk-data-transfer',
-  'streamline-database-infrastructure-for-production',
   'custom-tn-rpc-endpoints',
-  'harden-epoch-boundary-records-for-secure-syncing',
-  'better-tools-for-validators-to-sync-stake-and-activate',
-  'relaunch-network',
 ]);
 
 const COMPLETED_PHASE_2_SLUGS = new Set([
@@ -47,11 +41,20 @@ const COMPLETED_PHASE_2_SLUGS = new Set([
   'confirm-specialist-researcher-availability',
   'isolate-execution-environment',
   'deploy-new-faucet-service',
+  'support-p2p-streaming-for-bulk-data-transfer',
+  'streamline-database-infrastructure-for-production',
+  'harden-epoch-boundary-records-for-secure-syncing',
+  'better-tools-for-validators-to-sync-stake-and-activate',
+  'relaunch-network',
 ]);
 
 const ACTIVE_PHASE_3_SLUGS = new Set([
   'integrate-adiri-testnet-with-bridge-solution',
   'decentralize-network-onboard-mno-validators',
+  'ai-security-scans',
+  'improve-batch-build-times-for-increased-transaction-throughput',
+  'support-for-dapps-to-build-on-observer-nodes-directly-exex-feature',
+  'launch-community-driven-testing-tools',
 ]);
 
 const NEWLY_ACTIVE_PHASE_2_SLUGS = new Set([
@@ -115,10 +118,6 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
       {
         text: 'Production harden syncing strategy',
         slug: 'production-harden-syncing-strategy',
-      },
-      {
-        text: 'Integrate with bridge partner',
-        slug: 'integrate-with-bridge-partner',
       },
       {
         text: 'Improve documentation',
@@ -185,7 +184,7 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
         slug: 'isolate-execution-environment',
       },
       {
-        text: 'Relaunch network',
+        text: 'Relaunch Network',
         slug: 'relaunch-network',
       },
     ],
@@ -202,6 +201,26 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
       {
         text: 'Decentralize network (onboard MNO Validators)',
         slug: 'decentralize-network-onboard-mno-validators',
+      },
+      {
+        text: 'AI security scans',
+        slug: 'ai-security-scans',
+      },
+      {
+        text: 'Improve batch build times for increased transaction throughput',
+        slug: 'improve-batch-build-times-for-increased-transaction-throughput',
+      },
+      {
+        text: 'Support for dapps to build on observer nodes directly (ExEx feature)',
+        slug: 'support-for-dapps-to-build-on-observer-nodes-directly-exex-feature',
+      },
+      {
+        text: 'Launch community driven testing tools',
+        slug: 'launch-community-driven-testing-tools',
+      },
+      {
+        text: 'Improve syncing times for new nodes',
+        slug: 'improve-syncing-times-for-new-nodes',
       },
     ],
   },
