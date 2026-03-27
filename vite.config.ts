@@ -8,7 +8,9 @@ import svgr from 'vite-plugin-svgr';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const hasCustomDomain = fs.existsSync(path.resolve(__dirname, 'CNAME'));
+const hasCustomDomain =
+  fs.existsSync(path.resolve(__dirname, 'public', 'CNAME')) ||
+  fs.existsSync(path.resolve(__dirname, 'CNAME'));
 
 const repository = process.env.GITHUB_REPOSITORY;
 const repoName = repository?.split('/')[1]?.trim();
