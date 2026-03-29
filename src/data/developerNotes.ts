@@ -77,7 +77,7 @@ const FEBRUARY_19_DEVELOPER_NOTES = [
 ];
 
 const developerNoteDates = [
-  '2026-03-13T00:00:00Z',
+  '2026-03-29T00:00:00Z',
   '2026-02-19T00:00:00Z',
   '2026-02-05T00:00:00Z',
   '2026-01-22T00:00:00Z',
@@ -94,8 +94,8 @@ export const getLatestDeveloperNotesDate = () =>
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
   {
-    title: 'Developer Notes - Updated 13 March 2026',
-    date: '2026-03-13',
+    title: 'Developer Notes - Updated 29 March 2026',
+    date: '2026-03-29',
     items: MARCH_13_DEVELOPER_NOTES,
   },
   {

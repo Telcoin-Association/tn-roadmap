@@ -9,6 +9,7 @@ import { TimerIcon } from './icons';
 import LoadingIconUrl from '/IMG/Loading.svg?url';
 
 type Props = { phase: PhaseKey };
+type MilestoneItemStatus = 'completed' | 'in_progress' | 'queued';
 
 type AdiriPhaseGroup = {
   title: string;
@@ -236,6 +237,32 @@ const MAINNET_PHASE_ITEMS = [
   'Patch security findings',
 ];
 
+const STATUS_SORT_ORDER: Record<MilestoneItemStatus, number> = {
+  completed: 0,
+  in_progress: 1,
+  queued: 2,
+};
+
+const getAdiriItemStatus = (group: AdiriPhaseGroup, slug: string): MilestoneItemStatus => {
+  if (group.title === 'Phase 2' && COMPLETED_PHASE_2_SLUGS.has(slug)) {
+    return 'completed';
+  }
+
+  if (
+    (group.title === 'Phase 2' &&
+      (ACTIVE_PHASE_2_SLUGS.has(slug) || NEWLY_ACTIVE_PHASE_2_SLUGS.has(slug))) ||
+    (group.title === 'Phase 3' && ACTIVE_PHASE_3_SLUGS.has(slug))
+  ) {
+    return 'in_progress';
+  }
+
+  if (group.icon === 'check') {
+    return 'completed';
+  }
+
+  return 'queued';
+};
+
 export default function MilestoneBlock({ phase }: Props) {
   const reduceMotion = useReducedMotion();
 
@@ -247,7 +274,12 @@ export default function MilestoneBlock({ phase }: Props) {
         </div>
         <div className="mt-3 space-y-4">
           {ADIRI_PHASE_GROUPS.map((group) => {
-            const isOpenByDefault = group.title === 'Phase 2';
+            const isOpenByDefault = group.title === 'Phase 2' || group.title === 'Phase 3';
+            const sortedItems = [...group.items].sort((a, b) => {
+              const aOrder = STATUS_SORT_ORDER[getAdiriItemStatus(group, a.slug)];
+              const bOrder = STATUS_SORT_ORDER[getAdiriItemStatus(group, b.slug)];
+              return aOrder - bOrder;
+            });
             return (
               <details
                 key={group.title}
@@ -273,45 +305,17 @@ export default function MilestoneBlock({ phase }: Props) {
                     View details
                   </a>
                   <ul className="mt-2 space-y-2">
-                    {group.items.map((item) => {
-                      const isActivePhase2Item =
-                        group.title === 'Phase 2' && ACTIVE_PHASE_2_SLUGS.has(item.slug);
-                      const isNewlyActivePhase2Item =
-                        group.title === 'Phase 2' && NEWLY_ACTIVE_PHASE_2_SLUGS.has(item.slug);
-                      const isCompletedPhase2Item =
-                        group.title === 'Phase 2' && COMPLETED_PHASE_2_SLUGS.has(item.slug);
-                      const isActivePhase3Item =
-                        group.title === 'Phase 3' && ACTIVE_PHASE_3_SLUGS.has(item.slug);
-                      const shouldAnimate =
-                        (isActivePhase2Item || isNewlyActivePhase2Item || isActivePhase3Item) && !reduceMotion;
+                    {sortedItems.map((item) => {
+                      const itemStatus = getAdiriItemStatus(group, item.slug);
+                      const isInProgress = itemStatus === 'in_progress';
+                      const shouldAnimate = isInProgress && !reduceMotion;
 
                       const renderIcon = () => {
-                        if (isCompletedPhase2Item) {
+                        if (itemStatus === 'completed') {
                           return <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />;
                         }
 
-                        if (isActivePhase2Item || isNewlyActivePhase2Item) {
-                          return (
-                            <motion.img
-                              src={ActivityIconUrl}
-                              alt=""
-                              className="mt-0.5 h-4 w-4 shrink-0"
-                              animate={shouldAnimate ? { opacity: [1, 0.5, 1] } : undefined}
-                              transition={
-                                shouldAnimate
-                                  ? {
-                                      duration: 1.2,
-                                      repeat: Infinity,
-                                      repeatType: 'reverse',
-                                      ease: 'easeInOut',
-                                    }
-                                  : undefined
-                              }
-                            />
-                          );
-                        }
-
-                        if (isActivePhase3Item) {
+                        if (isInProgress) {
                           return (
                             <motion.img
                               src={ActivityIconUrl}
@@ -356,10 +360,8 @@ export default function MilestoneBlock({ phase }: Props) {
                       return (
                         <li key={item.slug} className="flex items-start gap-3">
                           {renderIcon()}
-                          {isActivePhase2Item || isNewlyActivePhase2Item ? (
+                          {isInProgress ? (
                             <span className="text-sm font-semibold leading-6 text-white">{item.text}</span>
-                          ) : isCompletedPhase2Item ? (
-                            <span className="text-sm leading-6 text-white/90">{item.text}</span>
                           ) : (
                             <span className="text-sm leading-6 text-white/90">{item.text}</span>
                           )}
@@ -399,6 +401,11 @@ export default function MilestoneBlock({ phase }: Props) {
   }
 
   const items = MILESTONES[phase];
+  const sortedItems = [...items].sort((a, b) => {
+    const aOrder = a.done ? STATUS_SORT_ORDER.completed : STATUS_SORT_ORDER.queued;
+    const bOrder = b.done ? STATUS_SORT_ORDER.completed : STATUS_SORT_ORDER.queued;
+    return aOrder - bOrder;
+  });
 
   return (
     <div data-phase-card-milestones="">
@@ -409,7 +416,7 @@ export default function MilestoneBlock({ phase }: Props) {
 
       {/* Always-open list */}
       <ul className="mt-3 space-y-2">
-        {items.map((m, i) => {
+        {sortedItems.map((m, i) => {
           const targetId = roadToMainnetId(phase, m.slug);
           const href = `#${targetId}`;
           return (
