@@ -274,7 +274,7 @@ export default function MilestoneBlock({ phase }: Props) {
         </div>
         <div className="mt-3 space-y-4">
           {ADIRI_PHASE_GROUPS.map((group) => {
-            const isOpenByDefault = group.title === 'Phase 3';
+            const isOpenByDefault = group.title === 'Phase 2' || group.title === 'Phase 3';
             const sortedItems = [...group.items].sort((a, b) => {
               const aOrder = STATUS_SORT_ORDER[getAdiriItemStatus(group, a.slug)];
               const bOrder = STATUS_SORT_ORDER[getAdiriItemStatus(group, b.slug)];
