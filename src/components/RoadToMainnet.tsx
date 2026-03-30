@@ -32,8 +32,17 @@ const HISTORY_ITEMS: CustomItem[] = SHARED_ADIRI_PHASE_3_ITEMS.map((item) => ({
   slug: `history-${item.slug}`,
 }));
 
+const ACTIVE_PHASE_2_SLUGS = new Set<string>([
+  'production-harden-p2p-networking',
+  'production-harden-syncing-strategy',
+  'integrate-with-bridge-partner',
+  'stress-test-deployed-network',
+  'confirm-specialist-researcher-availability',
+  'relaunch-network',
+]);
+
 const ACTIVE_PHASE_3_SLUGS = new Set<string>(
-  ADIRI_PHASE_3_ITEMS.filter(({ status }) => status === 'in_progress').map(({ slug }) => slug),
+  ADIRI_PHASE_3_ITEMS.filter(({ inProgress }) => inProgress).map(({ slug }) => slug),
 );
 
 type TabKey = PhaseKey | 'adiri-phase-3' | 'history' | 'issues';
@@ -421,10 +430,10 @@ export default function RoadToMainnet() {
           ) : isPhaseKey(tab) ? (
             <ul key={tab} className="space-y-6">
               {MILESTONES[tab].map((m) => {
-                const phaseStatus = m.status ?? (m.done ? 'completed' : 'queued');
-                const isActivePhase2Milestone = tab === 'adiri' && phaseStatus === 'in_progress';
+                const isDone = Boolean(m.done) || tab === 'horizon';
+                const isActivePhase2Milestone =
+                  tab === 'adiri' && ACTIVE_PHASE_2_SLUGS.has(m.slug) && !isDone;
                 const shouldAnimateIcon = isActivePhase2Milestone && !reduceMotion;
-                const isDone = phaseStatus === 'completed' || tab === 'horizon';
                 const shouldSpin = tab === 'adiri' && !isActivePhase2Milestone && !isDone;
 
                 return (
