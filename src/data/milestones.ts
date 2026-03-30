@@ -32,6 +32,40 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
     description:
       'Transition from TAO-operated validators to a broader, decentralized set by onboarding mobile network operators (MNOs) as validators, aligning governance with GSMA standards and expanding security through diverse participation.',
   },
+  {
+    text: 'AI Security Scans',
+    slug: 'ai-security-scans',
+    inProgress: true,
+    description:
+      'Introduce AI-assisted security scans to continuously evaluate node software and supporting services for vulnerabilities and risky changes.',
+  },
+  {
+    text: 'Improve Batch Build Times for Increased Transaction Throughput',
+    slug: 'improve-batch-build-times-for-increased-transaction-throughput',
+    inProgress: true,
+    description:
+      'Reduce batch build latency to increase effective transaction throughput and improve end-to-end execution performance under sustained load.',
+  },
+  {
+    text: 'Support for dApps to Build on Observer Nodes Directly (ExEx Feature)',
+    slug: 'support-for-dapps-to-build-on-observer-nodes-directly-exex-feature',
+    inProgress: true,
+    description:
+      'Enable dApps to build directly on observer nodes via the ExEx feature, improving development flexibility and reducing integration friction.',
+  },
+  {
+    text: 'Launch Community-Driven Testing Tools',
+    slug: 'launch-community-driven-testing-tools',
+    inProgress: true,
+    description:
+      'Release community-led testing tools and workflows so external contributors can validate network behavior and report regressions earlier.',
+  },
+  {
+    text: 'TODO: Improve Syncing Times for New Nodes',
+    slug: 'improve-syncing-times-for-new-nodes',
+    description:
+      'Further optimize initial node sync performance to reduce time-to-participation for new validators and observers.',
+  },
 ];
 
 export const MILESTONES: Record<PhaseKey, Milestone[]> = {
@@ -127,14 +161,6 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       ],
     },
     {
-      text: 'Integrate with Bridge Partner',
-      status: 'queued',
-      slug: 'integrate-with-bridge-partner',
-      details: [
-        'Coordinate integration with a bridge partner to enable cross-chain interoperability for the Adiri network.',
-      ],
-    },
-    {
       text: 'Improve Documentation',
       done: true,
       slug: 'improve-documentation',
@@ -176,7 +202,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Support P2P Streaming for Bulk Data Transfer',
-      status: 'queued',
+      done: true,
       slug: 'support-p2p-streaming-for-bulk-data-transfer',
       details: [
         'Implement peer-to-peer streaming mechanisms to enable efficient bulk data transfer between nodes, improving sync performance and reducing reliance on centralized distribution.',
@@ -184,7 +210,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Streamline Database Infrastructure for Production',
-      status: 'queued',
+      done: true,
       slug: 'streamline-database-infrastructure-for-production',
       details: [
         'Refactor and optimise database architecture to ensure production-grade performance, reliability, and scalability across validators and observers.',
@@ -200,7 +226,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Harden Epoch Boundary Records for Secure Syncing',
-      status: 'queued',
+      done: true,
       slug: 'harden-epoch-boundary-records-for-secure-syncing',
       details: [
         'Improve validation and integrity checks around epoch boundary records to ensure secure, deterministic syncing across network participants.',
@@ -208,7 +234,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Better Tools for Validators to Sync, Stake, and Activate',
-      status: 'queued',
+      done: true,
       slug: 'better-tools-for-validators-to-sync-stake-and-activate',
       details: [
         'Enhance CLI tooling and workflows for validators to sync more efficiently, stake with clearer flows, and activate validators with improved reliability and UX.',
@@ -264,7 +290,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Relaunch Network',
-      status: 'queued',
+      done: true,
       slug: 'relaunch-network',
       details: [
         'Bring the Telcoin Network back online with fixes, improvements, and readiness for the transition into the Mainnet launch phases.',

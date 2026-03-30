@@ -21,20 +21,9 @@ type AdiriPhaseGroup = {
   }[];
 };
 
-const ACTIVE_PHASE_2_SLUGS = new Set([
-  'production-harden-p2p-networking',
-  'stress-test-deployed-network',
-  'custom-tn-rpc-endpoints',
-]);
-
 const ACTIVE_PHASE_3_SLUGS = new Set(
   ADIRI_PHASE_3_ITEMS.filter(({ inProgress }) => inProgress).map(({ slug }) => slug),
 );
-
-const NEWLY_ACTIVE_PHASE_2_SLUGS = new Set([
-  'support-multiple-workers-for-parallel-fee-markets',
-  'tn-whitepaper',
-]);
 
 const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
   {
