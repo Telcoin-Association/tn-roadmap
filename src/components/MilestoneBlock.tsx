@@ -21,20 +21,11 @@ type AdiriPhaseGroup = {
   }[];
 };
 
-const ACTIVE_PHASE_2_SLUGS = new Set([
-  'production-harden-p2p-networking',
-  'stress-test-deployed-network',
-  'custom-tn-rpc-endpoints',
-]);
-
 const ACTIVE_PHASE_3_SLUGS = new Set(
-  ADIRI_PHASE_3_ITEMS.filter(({ inProgress }) => inProgress).map(({ slug }) => slug),
+  ADIRI_PHASE_3_ITEMS
+    .filter(({ status }) => status === 'in_progress')
+    .map(({ slug }) => slug),
 );
-
-const NEWLY_ACTIVE_PHASE_2_SLUGS = new Set([
-  'support-multiple-workers-for-parallel-fee-markets',
-  'tn-whitepaper',
-]);
 
 const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
   {
@@ -98,18 +89,19 @@ const STATUS_SORT_ORDER: Record<MilestoneItemStatus, number> = {
   queued: 2,
 };
 
-const ADIRI_MILESTONE_STATUS = new Map(MILESTONES.adiri.map(({ slug, done }) => [slug, Boolean(done)]));
+const ADIRI_MILESTONE_STATUS = new Map(
+  MILESTONES.adiri.map(({ slug, done, status }) => [
+    slug,
+    status ?? (done ? 'completed' : 'queued'),
+  ]),
+);
 
 const getAdiriItemStatus = (group: AdiriPhaseGroup, slug: string): MilestoneItemStatus => {
-  if (group.title === 'Phase 2' && ADIRI_MILESTONE_STATUS.get(slug)) {
-    return 'completed';
+  if (group.title === 'Phase 2') {
+    return (ADIRI_MILESTONE_STATUS.get(slug) ?? 'queued') as MilestoneItemStatus;
   }
 
-  if (
-    (group.title === 'Phase 2' &&
-      (ACTIVE_PHASE_2_SLUGS.has(slug) || NEWLY_ACTIVE_PHASE_2_SLUGS.has(slug))) ||
-    (group.title === 'Phase 3' && ACTIVE_PHASE_3_SLUGS.has(slug))
-  ) {
+  if (group.title === 'Phase 3' && ACTIVE_PHASE_3_SLUGS.has(slug)) {
     return 'in_progress';
   }
 
