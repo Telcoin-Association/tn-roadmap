@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 
 import type { PhaseKey } from '@/data/milestones';
-import { MILESTONES } from '@/data/milestones';
+import { ADIRI_PHASE_3_ITEMS, MILESTONES } from '@/data/milestones';
 import { roadToMainnetId } from '@/utils/ids';
 import CheckIconUrl from '/IMG/Checkmark.svg?url';
 import ActivityIconUrl from '/IMG/activity.svg?url';
@@ -18,50 +18,14 @@ type AdiriPhaseGroup = {
   items: {
     text: string;
     slug: string;
-    /** Allows linking to milestones that live under other phase keys */
-    targetPhase?: PhaseKey;
   }[];
 };
 
-const ACTIVE_PHASE_2_SLUGS = new Set([
-  'production-harden-p2p-networking',
-  'stress-test-deployed-network',
-  'custom-tn-rpc-endpoints',
-]);
-
-const COMPLETED_PHASE_2_SLUGS = new Set([
-  'patch-security-findings',
-  'enhance-test-coverage',
-  'production-harden-database-read-write-strategy',
-  'improve-documentation',
-  'write-mica-whitepaper-with-legal-now',
-  'improve-async-logging-for-all-nodes',
-  'updates-to-support-open-source-contributions',
-  'parallelize-testing-infrastructure-for-faster-more-reliable-testing',
-  'production-harden-syncing-strategy',
-  'confirm-specialist-researcher-availability',
-  'isolate-execution-environment',
-  'deploy-new-faucet-service',
-  'support-p2p-streaming-for-bulk-data-transfer',
-  'streamline-database-infrastructure-for-production',
-  'harden-epoch-boundary-records-for-secure-syncing',
-  'better-tools-for-validators-to-sync-stake-and-activate',
-  'relaunch-network',
-]);
-
-const ACTIVE_PHASE_3_SLUGS = new Set([
-  'integrate-adiri-testnet-with-bridge-solution',
-  'decentralize-network-onboard-mno-validators',
-  'ai-security-scans',
-  'improve-batch-build-times-for-increased-transaction-throughput',
-  'support-for-dapps-to-build-on-observer-nodes-directly-exex-feature',
-  'launch-community-driven-testing-tools',
-]);
-
-const NEWLY_ACTIVE_PHASE_2_SLUGS = new Set([
-  'support-multiple-workers-for-parallel-fee-markets',
-  'tn-whitepaper',
-]);
+const ACTIVE_PHASE_3_SLUGS = new Set(
+  ADIRI_PHASE_3_ITEMS
+    .filter(({ status }) => status === 'in_progress')
+    .map(({ slug }) => slug),
+);
 
 const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
   {
@@ -99,131 +63,13 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
     title: 'Phase 2',
     icon: 'loading',
     href: '#road-to-mainnet-adiri-tab',
-    items: [
-      {
-        text: 'Patch security findings',
-        slug: 'patch-security-findings',
-      },
-      {
-        text: 'Enhance test coverage',
-        slug: 'enhance-test-coverage',
-      },
-      {
-        text: 'Production harden database read/write strategy',
-        slug: 'production-harden-database-read-write-strategy',
-      },
-      {
-        text: 'Production harden p2p networking',
-        slug: 'production-harden-p2p-networking',
-      },
-      {
-        text: 'Production harden syncing strategy',
-        slug: 'production-harden-syncing-strategy',
-      },
-      {
-        text: 'Improve documentation',
-        slug: 'improve-documentation',
-      },
-      {
-        text: 'MiCA whitepaper',
-        slug: 'write-mica-whitepaper-with-legal-now',
-      },
-      {
-        text: 'Improve async logging for all nodes in the network',
-        slug: 'improve-async-logging-for-all-nodes',
-      },
-      {
-        text: 'Stress test deployed network in preparation for public release',
-        slug: 'stress-test-deployed-network',
-      },
-      {
-        text: 'Confirming availability of specialist researchers with security partners',
-        slug: 'confirm-specialist-researcher-availability',
-      },
-      {
-        text: 'Support p2p streaming for bulk data transfer',
-        slug: 'support-p2p-streaming-for-bulk-data-transfer',
-      },
-      {
-        text: 'Streamline database infrastructure for production',
-        slug: 'streamline-database-infrastructure-for-production',
-      },
-      {
-        text: 'Custom TN RPC endpoints',
-        slug: 'custom-tn-rpc-endpoints',
-      },
-      {
-        text: 'Harden epoch boundary records for secure syncing',
-        slug: 'harden-epoch-boundary-records-for-secure-syncing',
-      },
-      {
-        text: 'Better tools for validators to sync, stake, and activate',
-        slug: 'better-tools-for-validators-to-sync-stake-and-activate',
-      },
-      {
-        text: 'Updates to support open-source contributions',
-        slug: 'updates-to-support-open-source-contributions',
-      },
-      {
-        text: 'Parallelize testing infrastructure for faster, more reliable testing',
-        slug: 'parallelize-testing-infrastructure-for-faster-more-reliable-testing',
-      },
-      {
-        text: 'Support multiple workers for parallel fee markets',
-        slug: 'support-multiple-workers-for-parallel-fee-markets',
-      },
-      {
-        text: 'Deploy new faucet service',
-        slug: 'deploy-new-faucet-service',
-      },
-      {
-        text: 'TN Whitepaper',
-        slug: 'tn-whitepaper',
-      },
-      {
-        text: 'Isolate execution environment',
-        slug: 'isolate-execution-environment',
-      },
-      {
-        text: 'Relaunch Network',
-        slug: 'relaunch-network',
-      },
-    ],
+    items: MILESTONES.adiri.map(({ text, slug }) => ({ text, slug })),
   },
   {
     title: 'Phase 3',
     icon: 'loading',
     href: '#road-to-mainnet-adiri-phase-3-tab',
-    items: [
-      {
-        text: 'Integrate with LayerZero',
-        slug: 'integrate-adiri-testnet-with-bridge-solution',
-      },
-      {
-        text: 'Decentralize network (onboard MNO Validators)',
-        slug: 'decentralize-network-onboard-mno-validators',
-      },
-      {
-        text: 'AI security scans',
-        slug: 'ai-security-scans',
-      },
-      {
-        text: 'Improve batch build times for increased transaction throughput',
-        slug: 'improve-batch-build-times-for-increased-transaction-throughput',
-      },
-      {
-        text: 'Support for dapps to build on observer nodes directly (ExEx feature)',
-        slug: 'support-for-dapps-to-build-on-observer-nodes-directly-exex-feature',
-      },
-      {
-        text: 'Launch community driven testing tools',
-        slug: 'launch-community-driven-testing-tools',
-      },
-      {
-        text: 'Improve syncing times for new nodes',
-        slug: 'improve-syncing-times-for-new-nodes',
-      },
-    ],
+    items: ADIRI_PHASE_3_ITEMS.map(({ text, slug }) => ({ text, slug })),
   },
 ];
 
@@ -243,16 +89,19 @@ const STATUS_SORT_ORDER: Record<MilestoneItemStatus, number> = {
   queued: 2,
 };
 
+const ADIRI_MILESTONE_STATUS = new Map(
+  MILESTONES.adiri.map(({ slug, done, status }) => [
+    slug,
+    status ?? (done ? 'completed' : 'queued'),
+  ]),
+);
+
 const getAdiriItemStatus = (group: AdiriPhaseGroup, slug: string): MilestoneItemStatus => {
-  if (group.title === 'Phase 2' && COMPLETED_PHASE_2_SLUGS.has(slug)) {
-    return 'completed';
+  if (group.title === 'Phase 2') {
+    return (ADIRI_MILESTONE_STATUS.get(slug) ?? 'queued') as MilestoneItemStatus;
   }
 
-  if (
-    (group.title === 'Phase 2' &&
-      (ACTIVE_PHASE_2_SLUGS.has(slug) || NEWLY_ACTIVE_PHASE_2_SLUGS.has(slug))) ||
-    (group.title === 'Phase 3' && ACTIVE_PHASE_3_SLUGS.has(slug))
-  ) {
+  if (group.title === 'Phase 3' && ACTIVE_PHASE_3_SLUGS.has(slug)) {
     return 'in_progress';
   }
 

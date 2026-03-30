@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import type { PhaseKey } from '@/data/milestones';
-import { MILESTONES } from '@/data/milestones';
+import { ADIRI_PHASE_3_ITEMS, MILESTONES } from '@/data/milestones';
 import { ROAD_TO_MAINNET_SECTION_ID, roadToMainnetId } from '@/utils/ids';
 
 import { ExternalLinkIcon } from './icons';
@@ -18,21 +18,6 @@ const SHARED_ADIRI_PHASE_3_ITEMS: CustomItem[] = [
   { text: 'Consensus smart contract security assessment', slug: 'consensus-smart-contract-security-assessment' },
 ];
 
-const ADIRI_PHASE_3_ITEMS: CustomItem[] = [
-  {
-    text: 'Integrate Adiri Testnet with Bridge Solution',
-    slug: 'integrate-adiri-testnet-with-bridge-solution',
-    description:
-      'Connect the Adiri testnet to a cross-chain bridge, enabling the movement of assets like TEL and stablecoins between the Telcoin Network and external chains for testing interoperability.',
-  },
-  {
-    text: 'Decentralize Network (Onboard MNO Validators)',
-    slug: 'decentralize-network-onboard-mno-validators',
-    description:
-      'Transition from TAO-operated validators to a broader, decentralized set by onboarding mobile network operators (MNOs) as validators, aligning governance with GSMA standards and expanding security through diverse participation.',
-  },
-];
-
 const MAINNET_PHASE_ITEMS: CustomItem[] = [
   { text: 'Cryptography security assessment', slug: 'cryptography-security-assessment' },
   { text: 'P2P Network security assessment', slug: 'p2p-network-security-assessment' },
@@ -47,28 +32,9 @@ const HISTORY_ITEMS: CustomItem[] = SHARED_ADIRI_PHASE_3_ITEMS.map((item) => ({
   slug: `history-${item.slug}`,
 }));
 
-const ACTIVE_PHASE_2_SLUGS = new Set<string>([
-  'production-harden-p2p-networking',
-  'production-harden-syncing-strategy',
-  'integrate-with-bridge-partner',
-  'stress-test-deployed-network',
-  'confirm-specialist-researcher-availability',
-  'relaunch-network',
-]);
-
-const COMPLETED_PHASE_2_SLUGS = new Set<string>([
-  'patch-security-findings',
-  'enhance-test-coverage',
-  'production-harden-database-read-write-strategy',
-  'improve-documentation',
-  'write-mica-whitepaper-with-legal-now',
-  'improve-async-logging-for-all-nodes',
-]);
-
-const ACTIVE_PHASE_3_SLUGS = new Set<string>([
-  'integrate-adiri-testnet-with-bridge-solution',
-  'decentralize-network-onboard-mno-validators',
-]);
+const ACTIVE_PHASE_3_SLUGS = new Set<string>(
+  ADIRI_PHASE_3_ITEMS.filter(({ status }) => status === 'in_progress').map(({ slug }) => slug),
+);
 
 type TabKey = PhaseKey | 'adiri-phase-3' | 'history' | 'issues';
 
@@ -368,7 +334,8 @@ export default function RoadToMainnet() {
           ) : tab === 'adiri-phase-3' ? (
             <ul key="adiri-phase-3" className="space-y-4">
               {ADIRI_PHASE_3_ITEMS.map((item) => {
-                const isActivePhase3Milestone = ACTIVE_PHASE_3_SLUGS.has(item.slug);
+                const isActivePhase3Milestone =
+                  item.status === 'in_progress' || ACTIVE_PHASE_3_SLUGS.has(item.slug);
                 const shouldAnimate = isActivePhase3Milestone && !reduceMotion;
                 const iconSrc = isActivePhase3Milestone
                   ? ActivityIconUrl
@@ -454,10 +421,10 @@ export default function RoadToMainnet() {
           ) : isPhaseKey(tab) ? (
             <ul key={tab} className="space-y-6">
               {MILESTONES[tab].map((m) => {
-                const isActivePhase2Milestone = tab === 'adiri' && ACTIVE_PHASE_2_SLUGS.has(m.slug);
-                const isCompletedPhase2Milestone = tab === 'adiri' && COMPLETED_PHASE_2_SLUGS.has(m.slug);
+                const phaseStatus = m.status ?? (m.done ? 'completed' : 'queued');
+                const isActivePhase2Milestone = tab === 'adiri' && phaseStatus === 'in_progress';
                 const shouldAnimateIcon = isActivePhase2Milestone && !reduceMotion;
-                const isDone = Boolean(m.done) || isCompletedPhase2Milestone;
+                const isDone = phaseStatus === 'completed' || tab === 'horizon';
                 const shouldSpin = tab === 'adiri' && !isActivePhase2Milestone && !isDone;
 
                 return (
@@ -468,7 +435,7 @@ export default function RoadToMainnet() {
                           {m.details.map((detail, index) => {
                             const iconSrc = isActivePhase2Milestone
                               ? ActivityIconUrl
-                              : isDone || tab === 'horizon'
+                              : isDone
                               ? '/IMG/Checkmark.svg'
                               : '/IMG/Loading.svg';
 

@@ -3,11 +3,36 @@ export type PhaseKey = 'horizon' | 'adiri' | 'mainnet';
 export type Milestone = {
   text: string;
   done?: boolean;
+  status?: 'completed' | 'in_progress' | 'queued';
   /** hash-id friendly: e.g., "patch-public-vulnerabilities" */
   slug: string;
   /** shown only in Road to mainnet detail tiles */
   details?: string[];
 };
+
+export type CustomRoadToMainnetItem = {
+  text: string;
+  slug: string;
+  description?: string;
+  status?: 'completed' | 'in_progress' | 'queued';
+};
+
+export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
+  {
+    text: 'Integrate Adiri Testnet with Bridge Solution',
+    slug: 'integrate-adiri-testnet-with-bridge-solution',
+    status: 'in_progress',
+    description:
+      'Connect the Adiri testnet to a cross-chain bridge, enabling the movement of assets like TEL and stablecoins between the Telcoin Network and external chains for testing interoperability.',
+  },
+  {
+    text: 'Decentralize Network (Onboard MNO Validators)',
+    slug: 'decentralize-network-onboard-mno-validators',
+    status: 'in_progress',
+    description:
+      'Transition from TAO-operated validators to a broader, decentralized set by onboarding mobile network operators (MNOs) as validators, aligning governance with GSMA standards and expanding security through diverse participation.',
+  },
+];
 
 export const MILESTONES: Record<PhaseKey, Milestone[]> = {
   horizon: [
@@ -87,6 +112,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Production Harden P2P Networking',
+      status: 'in_progress',
       slug: 'production-harden-p2p-networking',
       details: [
         'Strengthen peer-to-peer networking for production readiness, including stability, efficiency, and abuse resistance improvements.',
@@ -102,6 +128,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Integrate with Bridge Partner',
+      status: 'queued',
       slug: 'integrate-with-bridge-partner',
       details: [
         'Coordinate integration with a bridge partner to enable cross-chain interoperability for the Adiri network.',
@@ -133,6 +160,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Stress Test Deployed Network for Public Release',
+      status: 'in_progress',
       slug: 'stress-test-deployed-network',
       details: [
         'Run coordinated stress scenarios across the deployed Adiri environment to validate stability, throughput, and reliability before opening public access.',
@@ -148,6 +176,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Support P2P Streaming for Bulk Data Transfer',
+      status: 'queued',
       slug: 'support-p2p-streaming-for-bulk-data-transfer',
       details: [
         'Implement peer-to-peer streaming mechanisms to enable efficient bulk data transfer between nodes, improving sync performance and reducing reliance on centralized distribution.',
@@ -155,6 +184,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Streamline Database Infrastructure for Production',
+      status: 'queued',
       slug: 'streamline-database-infrastructure-for-production',
       details: [
         'Refactor and optimise database architecture to ensure production-grade performance, reliability, and scalability across validators and observers.',
@@ -162,6 +192,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Custom TN RPC Endpoints',
+      status: 'in_progress',
       slug: 'custom-tn-rpc-endpoints',
       details: [
         'Develop dedicated Telcoin Network RPC endpoints tailored to ecosystem use cases, improving performance, flexibility, and infrastructure control.',
@@ -169,6 +200,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Harden Epoch Boundary Records for Secure Syncing',
+      status: 'queued',
       slug: 'harden-epoch-boundary-records-for-secure-syncing',
       details: [
         'Improve validation and integrity checks around epoch boundary records to ensure secure, deterministic syncing across network participants.',
@@ -176,6 +208,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Better Tools for Validators to Sync, Stake, and Activate',
+      status: 'queued',
       slug: 'better-tools-for-validators-to-sync-stake-and-activate',
       details: [
         'Enhance CLI tooling and workflows for validators to sync more efficiently, stake with clearer flows, and activate validators with improved reliability and UX.',
@@ -199,6 +232,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Support Multiple Workers for Parallel Fee Markets',
+      status: 'in_progress',
       slug: 'support-multiple-workers-for-parallel-fee-markets',
       details: [
         'Enable validators to operate multiple workers to segregate transaction pools for independent fee markets, use-case specific execution environments, and horizontal scalability without separate chains.',
@@ -214,6 +248,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'TN Whitepaper',
+      status: 'in_progress',
       slug: 'tn-whitepaper',
       details: [
         'Drafting and reviewing the Telcoin Network whitepaper to consolidate technical architecture, governance model, and ecosystem positioning for external stakeholders.',
@@ -229,6 +264,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Relaunch Network',
+      status: 'queued',
       slug: 'relaunch-network',
       details: [
         'Bring the Telcoin Network back online with fixes, improvements, and readiness for the transition into the Mainnet launch phases.',
