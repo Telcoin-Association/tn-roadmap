@@ -9,6 +9,30 @@ export type Milestone = {
   details?: string[];
 };
 
+export type CustomRoadToMainnetItem = {
+  text: string;
+  slug: string;
+  description?: string;
+  inProgress?: boolean;
+};
+
+export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
+  {
+    text: 'Integrate Adiri Testnet with Bridge Solution',
+    slug: 'integrate-adiri-testnet-with-bridge-solution',
+    inProgress: true,
+    description:
+      'Connect the Adiri testnet to a cross-chain bridge, enabling the movement of assets like TEL and stablecoins between the Telcoin Network and external chains for testing interoperability.',
+  },
+  {
+    text: 'Decentralize Network (Onboard MNO Validators)',
+    slug: 'decentralize-network-onboard-mno-validators',
+    inProgress: true,
+    description:
+      'Transition from TAO-operated validators to a broader, decentralized set by onboarding mobile network operators (MNOs) as validators, aligning governance with GSMA standards and expanding security through diverse participation.',
+  },
+];
+
 export const MILESTONES: Record<PhaseKey, Milestone[]> = {
   horizon: [
     {

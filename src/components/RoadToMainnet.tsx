@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import type { PhaseKey } from '@/data/milestones';
-import { MILESTONES } from '@/data/milestones';
+import { ADIRI_PHASE_3_ITEMS, MILESTONES } from '@/data/milestones';
 import { ROAD_TO_MAINNET_SECTION_ID, roadToMainnetId } from '@/utils/ids';
 
 import { ExternalLinkIcon } from './icons';
@@ -16,21 +16,6 @@ const SHARED_ADIRI_PHASE_3_ITEMS: CustomItem[] = [
   { text: 'Open-source codebase', slug: 'open-source-codebase' },
   { text: 'Upgrade p2p network layer', slug: 'upgrade-p2p-network-layer' },
   { text: 'Consensus smart contract security assessment', slug: 'consensus-smart-contract-security-assessment' },
-];
-
-const ADIRI_PHASE_3_ITEMS: CustomItem[] = [
-  {
-    text: 'Integrate Adiri Testnet with Bridge Solution',
-    slug: 'integrate-adiri-testnet-with-bridge-solution',
-    description:
-      'Connect the Adiri testnet to a cross-chain bridge, enabling the movement of assets like TEL and stablecoins between the Telcoin Network and external chains for testing interoperability.',
-  },
-  {
-    text: 'Decentralize Network (Onboard MNO Validators)',
-    slug: 'decentralize-network-onboard-mno-validators',
-    description:
-      'Transition from TAO-operated validators to a broader, decentralized set by onboarding mobile network operators (MNOs) as validators, aligning governance with GSMA standards and expanding security through diverse participation.',
-  },
 ];
 
 const MAINNET_PHASE_ITEMS: CustomItem[] = [
@@ -65,10 +50,9 @@ const COMPLETED_PHASE_2_SLUGS = new Set<string>([
   'improve-async-logging-for-all-nodes',
 ]);
 
-const ACTIVE_PHASE_3_SLUGS = new Set<string>([
-  'integrate-adiri-testnet-with-bridge-solution',
-  'decentralize-network-onboard-mno-validators',
-]);
+const ACTIVE_PHASE_3_SLUGS = new Set<string>(
+  ADIRI_PHASE_3_ITEMS.filter(({ inProgress }) => inProgress).map(({ slug }) => slug),
+);
 
 type TabKey = PhaseKey | 'adiri-phase-3' | 'history' | 'issues';
 
