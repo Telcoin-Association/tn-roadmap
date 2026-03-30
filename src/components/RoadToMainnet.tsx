@@ -343,7 +343,8 @@ export default function RoadToMainnet() {
           ) : tab === 'adiri-phase-3' ? (
             <ul key="adiri-phase-3" className="space-y-4">
               {ADIRI_PHASE_3_ITEMS.map((item) => {
-                const isActivePhase3Milestone = ACTIVE_PHASE_3_SLUGS.has(item.slug);
+                const isActivePhase3Milestone =
+                  item.status === 'in_progress' || ACTIVE_PHASE_3_SLUGS.has(item.slug);
                 const shouldAnimate = isActivePhase3Milestone && !reduceMotion;
                 const iconSrc = isActivePhase3Milestone
                   ? ActivityIconUrl

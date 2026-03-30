@@ -105,11 +105,7 @@ const getAdiriItemStatus = (group: AdiriPhaseGroup, slug: string): MilestoneItem
     return 'completed';
   }
 
-  if (
-    (group.title === 'Phase 2' &&
-      (ACTIVE_PHASE_2_SLUGS.has(slug) || NEWLY_ACTIVE_PHASE_2_SLUGS.has(slug))) ||
-    (group.title === 'Phase 3' && ACTIVE_PHASE_3_SLUGS.has(slug))
-  ) {
+  if (group.title === 'Phase 3' && ACTIVE_PHASE_3_SLUGS.has(slug)) {
     return 'in_progress';
   }
 
