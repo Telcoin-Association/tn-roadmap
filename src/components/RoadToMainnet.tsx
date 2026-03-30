@@ -34,11 +34,10 @@ const HISTORY_ITEMS: CustomItem[] = SHARED_ADIRI_PHASE_3_ITEMS.map((item) => ({
 
 const ACTIVE_PHASE_2_SLUGS = new Set<string>([
   'production-harden-p2p-networking',
-  'production-harden-syncing-strategy',
-  'integrate-with-bridge-partner',
   'stress-test-deployed-network',
-  'confirm-specialist-researcher-availability',
-  'relaunch-network',
+  'custom-tn-rpc-endpoints',
+  'support-multiple-workers-for-parallel-fee-markets',
+  'tn-whitepaper',
 ]);
 
 const ACTIVE_PHASE_3_SLUGS = new Set<string>(
@@ -343,8 +342,7 @@ export default function RoadToMainnet() {
           ) : tab === 'adiri-phase-3' ? (
             <ul key="adiri-phase-3" className="space-y-4">
               {ADIRI_PHASE_3_ITEMS.map((item) => {
-                const isActivePhase3Milestone =
-                  item.status === 'in_progress' || ACTIVE_PHASE_3_SLUGS.has(item.slug);
+                const isActivePhase3Milestone = ACTIVE_PHASE_3_SLUGS.has(item.slug);
                 const shouldAnimate = isActivePhase3Milestone && !reduceMotion;
                 const iconSrc = isActivePhase3Milestone
                   ? ActivityIconUrl
