@@ -87,11 +87,16 @@ const STATUS_SORT_ORDER: Record<MilestoneItemStatus, number> = {
   queued: 2,
 };
 
-const ADIRI_MILESTONE_STATUS = new Map(MILESTONES.adiri.map(({ slug, done }) => [slug, Boolean(done)]));
+const ADIRI_MILESTONE_STATUS = new Map(
+  MILESTONES.adiri.map(({ slug, done, status }) => [
+    slug,
+    done ? 'completed' : (status ?? 'queued'),
+  ]),
+);
 
 const getAdiriItemStatus = (group: AdiriPhaseGroup, slug: string): MilestoneItemStatus => {
-  if (group.title === 'Phase 2' && ADIRI_MILESTONE_STATUS.get(slug)) {
-    return 'completed';
+  if (group.title === 'Phase 2') {
+    return ADIRI_MILESTONE_STATUS.get(slug) ?? 'queued';
   }
 
   if (group.title === 'Phase 3' && ACTIVE_PHASE_3_SLUGS.has(slug)) {
