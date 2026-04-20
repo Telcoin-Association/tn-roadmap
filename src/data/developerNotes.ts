@@ -50,11 +50,20 @@ const FEBRUARY_05_DEVELOPER_NOTES = [
 ];
 
 
+
+const APRIL_20_DEVELOPER_NOTES = [
+  "The team has nearly completed prioritized work on state-breaking changes including pre-compiles and execution-level protocol changes that would cause a fork if upgraded while the network is running. This work will lock in the network's core on-chain architecture.",
+  'Testnet will have a stable release soon with final deterministic changes, supporting over 7,000 validators (up from 1,100 cap), native ERC20 interface support, and production-ready database. The stable version is intended to last indefinitely.',
+  "A pre-compile extending the ERC20 interface to native token balances was implemented so users don't need to wrap TEL for DeFi transactions or dApp integration. The core consensus registry was also improved, increasing validator capacity from ~1,100 to over 7,000 validators.",
+  'AI-assisted security scans continue at $200 per month (compared to $50,000 per week for manual research), methodically working through isolated crates. Third-party human security assessments will follow as the last security gate before mainnet launch.',
+  'Testnet will run in parallel with mainnet indefinitely as a sandbox environment using identical code, tools, and data centers (only differing by chain IDs). This allows safe testing of updates before applying them to mainnet and gives developers a testing environment.',
+];
+
 const MARCH_13_DEVELOPER_NOTES = [
   'Closed 12 pull requests covering production hardening, bug fixes, and security improvements.',
   'Production hardening syncing strategy is complete and confirming specialist researcher availability with security partners is complete.',
   'Execution environment isolation has been completed to accelerate core protocol execution and readiness.',
-  'Support multiple workers for parallel fee markets and deploy new faucet service are now in progress.',
+  'Support multiple workers for parallel fee markets and deploy new faucet service are complete.',
   'TN Whitepaper drafting is now in progress.',
   'Database layer upgrades were completed and merged, clearing the way for testnet launch readiness activities.',
   'P2P streaming for bulk data transfer remains in final testing and nearing completion.',
@@ -66,17 +75,18 @@ const MARCH_13_DEVELOPER_NOTES = [
 ];
 
 const FEBRUARY_19_DEVELOPER_NOTES = [
-  'In Progress: Support P2P Streaming for Bulk Data Transfer — Implement peer-to-peer streaming mechanisms to enable efficient bulk data transfer between nodes, improving sync performance and reducing reliance on centralized distribution.',
+  'Done: Support P2P Streaming for Bulk Data Transfer — Implement peer-to-peer streaming mechanisms to enable efficient bulk data transfer between nodes, improving sync performance and reducing reliance on centralized distribution.',
   'In Progress: Streamline Database Infrastructure for Production — Refactor and optimise database architecture to ensure production-grade performance, reliability, and scalability across validators and observers.',
   'In Progress: Custom TN RPC Endpoints — Develop dedicated Telcoin Network RPC endpoints tailored to ecosystem use cases, improving performance, flexibility, and infrastructure control.',
   'In Progress: Harden Epoch Boundary Records for Secure Syncing — Improve validation and integrity checks around epoch boundary records to ensure secure, deterministic syncing across network participants.',
   'In Progress: Better Tools for Validators to Sync, Stake, and Activate — Enhance CLI tooling and workflows for validators to sync more efficiently, stake with clearer flows, and activate validators with improved reliability and UX.',
-  'To Do: Support Multiple Workers for Parallel Fee Markets — Enable validators to operate multiple workers to segregate transaction pools, allowing independent fee markets, use-case specific execution environments, and horizontal scalability without separate chains.',
+  'Done: Support Multiple Workers for Parallel Fee Markets — Enable validators to operate multiple workers to segregate transaction pools, allowing independent fee markets, use-case specific execution environments, and horizontal scalability without separate chains.',
   'Done: Updates to Support Open-Source Contributions — Implemented structural and workflow improvements to make the repository more accessible for external contributors, improving transparency and community participation.',
   'Done: Parallelize Testing Infrastructure — Refactored testing systems to run in parallel, significantly reducing CI times and increasing reliability of test coverage.',
 ];
 
 const developerNoteDates = [
+  '2026-04-20T00:00:00Z',
   '2026-03-29T00:00:00Z',
   '2026-02-19T00:00:00Z',
   '2026-02-05T00:00:00Z',
@@ -93,6 +103,11 @@ export const getLatestDeveloperNotesDate = () =>
   );
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
+  {
+    title: 'Developer Notes - Updated 20 April 2026',
+    date: '2026-04-20',
+    items: APRIL_20_DEVELOPER_NOTES,
+  },
   {
     title: 'Developer Notes - Updated 29 March 2026',
     date: '2026-03-29',
