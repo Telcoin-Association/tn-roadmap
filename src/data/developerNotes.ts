@@ -55,7 +55,7 @@ const APRIL_20_DEVELOPER_NOTES = [
   "The team has nearly completed prioritized work on state-breaking changes including pre-compiles and execution-level protocol changes that would cause a fork if upgraded while the network is running. This work will lock in the network's core on-chain architecture.",
   'Testnet will have a stable release soon with final deterministic changes, supporting over 7,000 validators (up from 1,100 cap), native ERC20 interface support, and production-ready database. The stable version is intended to last indefinitely.',
   "A pre-compile extending the ERC20 interface to native token balances was implemented so users don't need to wrap TEL for DeFi transactions or dApp integration. The core consensus registry was also improved, increasing validator capacity from ~1,100 to over 7,000 validators.",
-  'AI-assisted security scans continue at $200 per month (compared to $50,000 per week for manual research), methodically working through isolated crates. Third-party human security assessments will follow as the last security gate before mainnet launch.',
+  'AI-assisted security scans continue on a monthly basis (compared to the far higher cost of manual research), methodically working through isolated crates. Third-party human security assessments will follow as the final security gate before mainnet launch.',
   'Testnet will run in parallel with mainnet indefinitely as a sandbox environment using identical code, tools, and data centers (only differing by chain IDs). This allows safe testing of updates before applying them to mainnet and gives developers a testing environment.',
 ];
 
