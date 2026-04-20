@@ -146,7 +146,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Production Harden P2P Networking',
-      status: 'in_progress',
+      done: true,
       slug: 'production-harden-p2p-networking',
       details: [
         'Strengthen peer-to-peer networking for production readiness, including stability, efficiency, and abuse resistance improvements.',
@@ -258,7 +258,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Support Multiple Workers for Parallel Fee Markets',
-      status: 'in_progress',
+      done: true,
       slug: 'support-multiple-workers-for-parallel-fee-markets',
       details: [
         'Enable validators to operate multiple workers to segregate transaction pools for independent fee markets, use-case specific execution environments, and horizontal scalability without separate chains.',
