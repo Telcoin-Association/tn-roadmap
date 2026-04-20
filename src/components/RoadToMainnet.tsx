@@ -7,7 +7,7 @@ import { ROAD_TO_MAINNET_SECTION_ID, roadToMainnetId } from '@/utils/ids';
 import { ExternalLinkIcon } from './icons';
 import ActivityIconUrl from '/IMG/activity.svg?url';
 
-type CustomItem = { text: string; slug: string; description?: string };
+type CustomItem = { text: string; slug: string; description?: string; inProgress?: boolean; done?: boolean };
 
 const SHARED_ADIRI_PHASE_3_ITEMS: CustomItem[] = [
   { text: 'MVP demonstrating EVM + BFT consensus', slug: 'mvp-demonstrating-evm-bft-consensus' },
@@ -33,10 +33,8 @@ const HISTORY_ITEMS: CustomItem[] = SHARED_ADIRI_PHASE_3_ITEMS.map((item) => ({
 }));
 
 const ACTIVE_PHASE_2_SLUGS = new Set<string>([
-  'production-harden-p2p-networking',
   'stress-test-deployed-network',
   'custom-tn-rpc-endpoints',
-  'support-multiple-workers-for-parallel-fee-markets',
   'tn-whitepaper',
 ]);
 
@@ -342,9 +340,12 @@ export default function RoadToMainnet() {
           ) : tab === 'adiri-phase-3' ? (
             <ul key="adiri-phase-3" className="space-y-4">
               {ADIRI_PHASE_3_ITEMS.map((item) => {
-                const isActivePhase3Milestone = ACTIVE_PHASE_3_SLUGS.has(item.slug);
+                const isDone = Boolean(item.done);
+                const isActivePhase3Milestone = ACTIVE_PHASE_3_SLUGS.has(item.slug) && !isDone;
                 const shouldAnimate = isActivePhase3Milestone && !reduceMotion;
-                const iconSrc = isActivePhase3Milestone
+                const iconSrc = isDone
+                  ? '/IMG/Checkmark.svg'
+                  : isActivePhase3Milestone
                   ? ActivityIconUrl
                   : '/IMG/Loading.svg';
 
@@ -370,7 +371,7 @@ export default function RoadToMainnet() {
                         alt=""
                         aria-hidden="true"
                         className={`mt-0.5 h-5 w-5 shrink-0${
-                          isActivePhase3Milestone ? '' : ' motion-safe:animate-spin-slow'
+                          isDone || isActivePhase3Milestone ? '' : ' motion-safe:animate-spin-slow'
                         }`}
                       />
                     )}

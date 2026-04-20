@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-29T00:00:00Z",
-    "overallTrajectoryPct": 90
+    "lastUpdated": "2026-04-20T00:00:00Z",
+    "overallTrajectoryPct": 93
   },
   "phases": [
     {
@@ -27,7 +27,8 @@
     "notes": [
       "TN Whitepaper drafting moved to in progress",
       "Develop new faucet service completed",
-      "Support multiple workers for parallel fee markets moved to in progress",
+      "Production harden P2P networking completed",
+      "Support multiple workers for parallel fee markets completed",
       "Execution environment isolation completed",
       "Confirmed availability of specialist security researchers with partners",
       "Production harden syncing strategy completed",

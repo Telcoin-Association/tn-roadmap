@@ -15,6 +15,7 @@ export type CustomRoadToMainnetItem = {
   slug: string;
   description?: string;
   inProgress?: boolean;
+  done?: boolean;
 };
 
 export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
@@ -56,13 +57,14 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
   {
     text: 'Launch Community-Driven Testing Tools',
     slug: 'launch-community-driven-testing-tools',
-    inProgress: true,
+    done: true,
     description:
       'Release community-led testing tools and workflows so external contributors can validate network behavior and report regressions earlier.',
   },
   {
-    text: 'TODO: Improve Syncing Times for New Nodes',
+    text: 'Improve Syncing Times for New Nodes',
     slug: 'improve-syncing-times-for-new-nodes',
+    inProgress: true,
     description:
       'Further optimize initial node sync performance to reduce time-to-participation for new validators and observers.',
   },
@@ -146,7 +148,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Production Harden P2P Networking',
-      status: 'in_progress',
+      done: true,
       slug: 'production-harden-p2p-networking',
       details: [
         'Strengthen peer-to-peer networking for production readiness, including stability, efficiency, and abuse resistance improvements.',
@@ -258,7 +260,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Support Multiple Workers for Parallel Fee Markets',
-      status: 'in_progress',
+      done: true,
       slug: 'support-multiple-workers-for-parallel-fee-markets',
       details: [
         'Enable validators to operate multiple workers to segregate transaction pools for independent fee markets, use-case specific execution environments, and horizontal scalability without separate chains.',
