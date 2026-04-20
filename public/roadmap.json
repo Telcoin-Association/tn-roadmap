@@ -1,9 +1,51 @@
 [
   {
-    "number": 573,
-    "title": "Add functionality to wait for an epoch record.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/573",
-    "updated_at": "2026-03-12T18:50:49Z"
+    "number": 629,
+    "title": "Stream pack files for historic epoch data when syncing.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/629",
+    "updated_at": "2026-04-15T01:08:13Z"
+  },
+  {
+    "number": 623,
+    "title": "Review batch cache code.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/623",
+    "updated_at": "2026-04-09T00:39:21Z"
+  },
+  {
+    "number": 622,
+    "title": "Refactor general consensus side storage.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/622",
+    "updated_at": "2026-04-08T18:04:54Z"
+  },
+  {
+    "number": 618,
+    "title": "Add Execution Extensions (ExEx) plugin system",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/618",
+    "updated_at": "2026-04-07T18:25:14Z"
+  },
+  {
+    "number": 614,
+    "title": "Implement per-epoch base fee adjustment via WorkerConfigs contract",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/614",
+    "updated_at": "2026-04-05T14:35:51Z"
+  },
+  {
+    "number": 610,
+    "title": "Dynamic base fee adjustment via EpochGasTarget contract",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/610",
+    "updated_at": "2026-03-30T19:28:15Z"
+  },
+  {
+    "number": 584,
+    "title": "test: Assert LZ Adapter in Genesis",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/584",
+    "updated_at": "2026-03-20T22:26:47Z"
+  },
+  {
+    "number": 576,
+    "title": "Use this error for non-eyre errors.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/576",
+    "updated_at": "2026-03-13T15:44:23Z"
   },
   {
     "number": 559,
@@ -54,18 +96,6 @@
     "updated_at": "2026-02-14T00:06:47Z"
   },
   {
-    "number": 547,
-    "title": "Refactor `manager.rs`: Extract Epoch Vote Collector and Harden Logic",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/547",
-    "updated_at": "2026-02-11T17:56:55Z"
-  },
-  {
-    "number": 545,
-    "title": "Calldata for Staking",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/545",
-    "updated_at": "2026-02-08T21:41:17Z"
-  },
-  {
     "number": 532,
     "title": "feat: Fast Direct Commit Rule",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/532",
@@ -114,22 +144,10 @@
     "updated_at": "2026-02-04T02:48:10Z"
   },
   {
-    "number": 326,
-    "title": "Remove Google KMS from Faucet for Testnet",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/326",
-    "updated_at": "2026-02-04T01:42:53Z"
-  },
-  {
     "number": 250,
     "title": "Inbound Failures: Report Penalty from Codec",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/250",
     "updated_at": "2025-04-12T17:32:25Z"
-  },
-  {
-    "number": 233,
-    "title": "Add a metric to track how far behind fully validated blocks are from the chain tip.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/233",
-    "updated_at": "2025-02-26T23:17:36Z"
   },
   {
     "number": 190,
