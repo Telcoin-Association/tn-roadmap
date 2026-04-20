@@ -18,6 +18,8 @@ type AdiriPhaseGroup = {
   items: {
     text: string;
     slug: string;
+    inProgress?: boolean;
+    done?: boolean;
   }[];
 };
 
@@ -67,7 +69,7 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
     title: 'Phase 3',
     icon: 'loading',
     href: '#road-to-mainnet-adiri-phase-3-tab',
-    items: ADIRI_PHASE_3_ITEMS.map(({ text, slug }) => ({ text, slug })),
+    items: ADIRI_PHASE_3_ITEMS.map(({ text, slug, inProgress, done }) => ({ text, slug, inProgress, done })),
   },
 ];
 
@@ -94,13 +96,22 @@ const ADIRI_MILESTONE_STATUS = new Map(
   ]),
 );
 
-const getAdiriItemStatus = (group: AdiriPhaseGroup, slug: string): MilestoneItemStatus => {
+const getAdiriItemStatus = (
+  group: AdiriPhaseGroup,
+  item: { slug: string; inProgress?: boolean; done?: boolean },
+): MilestoneItemStatus => {
   if (group.title === 'Phase 2') {
-    return ADIRI_MILESTONE_STATUS.get(slug) ?? 'queued';
+    return ADIRI_MILESTONE_STATUS.get(item.slug) ?? 'queued';
   }
 
-  if (group.title === 'Phase 3' && ACTIVE_PHASE_3_SLUGS.has(slug)) {
-    return 'in_progress';
+  if (group.title === 'Phase 3') {
+    if (item.done) {
+      return 'completed';
+    }
+
+    if (item.inProgress || ACTIVE_PHASE_3_SLUGS.has(item.slug)) {
+      return 'in_progress';
+    }
   }
 
   if (group.icon === 'check') {
@@ -123,8 +134,8 @@ export default function MilestoneBlock({ phase }: Props) {
           {ADIRI_PHASE_GROUPS.map((group) => {
             const isOpenByDefault = group.title === 'Phase 2' || group.title === 'Phase 3';
             const sortedItems = [...group.items].sort((a, b) => {
-              const aOrder = STATUS_SORT_ORDER[getAdiriItemStatus(group, a.slug)];
-              const bOrder = STATUS_SORT_ORDER[getAdiriItemStatus(group, b.slug)];
+              const aOrder = STATUS_SORT_ORDER[getAdiriItemStatus(group, a)];
+              const bOrder = STATUS_SORT_ORDER[getAdiriItemStatus(group, b)];
               return aOrder - bOrder;
             });
             return (
@@ -153,7 +164,7 @@ export default function MilestoneBlock({ phase }: Props) {
                   </a>
                   <ul className="mt-2 space-y-2">
                     {sortedItems.map((item) => {
-                      const itemStatus = getAdiriItemStatus(group, item.slug);
+                      const itemStatus = getAdiriItemStatus(group, item);
                       const isInProgress = itemStatus === 'in_progress';
                       const shouldAnimate = isInProgress && !reduceMotion;
 
