@@ -59,6 +59,16 @@ const APRIL_20_DEVELOPER_NOTES = [
   'Testnet will run in parallel with mainnet indefinitely as a sandbox environment using identical code, tools, and data centers (only differing by chain IDs). This allows safe testing of updates before applying them to mainnet and gives developers a testing environment.',
 ];
 
+const APRIL_24_DEVELOPER_NOTES = [
+  "Significant progress has been made on state-breaking changes and pre-compiles to lock in the network's core on-chain architecture.",
+  'Validator capacity has increased dramatically from approximately 1,100 to over 7,000.',
+  'Native ERC20 interface improvements now allow users to interact with TEL in DeFi without wrapping.',
+  'AI-assisted security scans continue efficiently, and third-party audits can run in parallel rather than sequentially. This means 2 or 3 audits can be conducted at the same time, and 8 weeks is an estimate of total audit time rather than a completion timeline.',
+  'Testnet nodes are being deployed in MNO data centers with improved tooling, including bash scripts and container images.',
+  'Faucet decentralization is in its final stages.',
+  'LayerZero incident learnings are being actively applied to further strengthen bridge security.',
+];
+
 const MARCH_13_DEVELOPER_NOTES = [
   'Closed 12 pull requests covering production hardening, bug fixes, and security improvements.',
   'Production hardening syncing strategy is complete and confirming specialist researcher availability with security partners is complete.',
@@ -77,7 +87,7 @@ const MARCH_13_DEVELOPER_NOTES = [
 const FEBRUARY_19_DEVELOPER_NOTES = [
   'Done: Support P2P Streaming for Bulk Data Transfer — Implement peer-to-peer streaming mechanisms to enable efficient bulk data transfer between nodes, improving sync performance and reducing reliance on centralized distribution.',
   'In Progress: Streamline Database Infrastructure for Production — Refactor and optimise database architecture to ensure production-grade performance, reliability, and scalability across validators and observers.',
-  'In Progress: Custom TN RPC Endpoints — Develop dedicated Telcoin Network RPC endpoints tailored to ecosystem use cases, improving performance, flexibility, and infrastructure control.',
+  'Done: Custom TN RPC Endpoints — Develop dedicated Telcoin Network RPC endpoints tailored to ecosystem use cases, improving performance, flexibility, and infrastructure control.',
   'In Progress: Harden Epoch Boundary Records for Secure Syncing — Improve validation and integrity checks around epoch boundary records to ensure secure, deterministic syncing across network participants.',
   'In Progress: Better Tools for Validators to Sync, Stake, and Activate — Enhance CLI tooling and workflows for validators to sync more efficiently, stake with clearer flows, and activate validators with improved reliability and UX.',
   'Done: Support Multiple Workers for Parallel Fee Markets — Enable validators to operate multiple workers to segregate transaction pools, allowing independent fee markets, use-case specific execution environments, and horizontal scalability without separate chains.',
@@ -86,6 +96,7 @@ const FEBRUARY_19_DEVELOPER_NOTES = [
 ];
 
 const developerNoteDates = [
+  '2026-04-24T00:00:00Z',
   '2026-04-20T00:00:00Z',
   '2026-03-29T00:00:00Z',
   '2026-02-19T00:00:00Z',
@@ -103,6 +114,11 @@ export const getLatestDeveloperNotesDate = () =>
   );
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
+  {
+    title: 'Developer Notes - Updated 24 April 2026',
+    date: '2026-04-24',
+    items: APRIL_24_DEVELOPER_NOTES,
+  },
   {
     title: 'Developer Notes - Updated 20 April 2026',
     date: '2026-04-20',
