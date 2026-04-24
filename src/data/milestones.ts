@@ -43,7 +43,7 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
   {
     text: 'Improve Batch Build Times for Increased Transaction Throughput',
     slug: 'improve-batch-build-times-for-increased-transaction-throughput',
-    inProgress: true,
+    done: true,
     description:
       'Reduce batch build latency to increase effective transaction throughput and improve end-to-end execution performance under sustained load.',
   },
@@ -64,7 +64,7 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
   {
     text: 'Improve Syncing Times for New Nodes',
     slug: 'improve-syncing-times-for-new-nodes',
-    inProgress: true,
+    done: true,
     description:
       'Further optimize initial node sync performance to reduce time-to-participation for new validators and observers.',
   },
@@ -220,10 +220,26 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Custom TN RPC Endpoints',
-      status: 'in_progress',
+      done: true,
       slug: 'custom-tn-rpc-endpoints',
       details: [
         'Develop dedicated Telcoin Network RPC endpoints tailored to ecosystem use cases, improving performance, flexibility, and infrastructure control.',
+      ],
+    },
+    {
+      text: 'Patch database bug for missing batches',
+      done: true,
+      slug: 'patch-database-bug-for-missing-batches',
+      details: [
+        'Patched a database issue that caused some batches to be missing, improving consistency and reliability in batch processing.',
+      ],
+    },
+    {
+      text: 'Control network parameters on-chain',
+      status: 'in_progress',
+      slug: 'control-network-parameters-on-chain',
+      details: [
+        'Implement on-chain controls for key network parameters to improve transparency, governance, and operational flexibility.',
       ],
     },
     {
