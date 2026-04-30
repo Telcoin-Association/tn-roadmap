@@ -1,15 +1,15 @@
 [
   {
-    "number": 629,
-    "title": "Stream pack files for historic epoch data when syncing.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/629",
-    "updated_at": "2026-04-15T01:08:13Z"
+    "number": 638,
+    "title": "Include reputation scores in sub dag digest.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/638",
+    "updated_at": "2026-04-29T21:18:15Z"
   },
   {
-    "number": 623,
-    "title": "Review batch cache code.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/623",
-    "updated_at": "2026-04-09T00:39:21Z"
+    "number": 634,
+    "title": "Task manager would swallow errors from critical tasks.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/634",
+    "updated_at": "2026-04-23T23:25:49Z"
   },
   {
     "number": 622,
