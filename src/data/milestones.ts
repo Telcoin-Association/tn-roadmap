@@ -20,6 +20,13 @@ export type CustomRoadToMainnetItem = {
 
 export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
   {
+    text: 'TN Whitepaper',
+    slug: 'tn-whitepaper',
+    inProgress: true,
+    description:
+      'Drafting and reviewing the Telcoin Network whitepaper to consolidate technical architecture, governance model, and ecosystem positioning for external stakeholders.',
+  },
+  {
     text: 'Integrate Adiri Testnet with Bridge Solution',
     slug: 'integrate-adiri-testnet-with-bridge-solution',
     inProgress: true,
@@ -188,7 +195,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Stress Test Deployed Network for Public Release',
-      status: 'in_progress',
+      done: true,
       slug: 'stress-test-deployed-network',
       details: [
         'Run coordinated stress scenarios across the deployed Adiri environment to validate stability, throughput, and reliability before opening public access.',
@@ -236,7 +243,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
     },
     {
       text: 'Control network parameters on-chain',
-      status: 'in_progress',
+      done: true,
       slug: 'control-network-parameters-on-chain',
       details: [
         'Implement on-chain controls for key network parameters to improve transparency, governance, and operational flexibility.',
@@ -288,14 +295,6 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       slug: 'deploy-new-faucet-service',
       details: [
         'Launch a public faucet that distributes small amounts of testnet TEL, allowing developers and community members to easily access tokens for testing applications and transactions on the network.',
-      ],
-    },
-    {
-      text: 'TN Whitepaper',
-      status: 'in_progress',
-      slug: 'tn-whitepaper',
-      details: [
-        'Drafting and reviewing the Telcoin Network whitepaper to consolidate technical architecture, governance model, and ecosystem positioning for external stakeholders.',
       ],
     },
     {

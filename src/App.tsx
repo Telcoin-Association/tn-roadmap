@@ -9,6 +9,7 @@ import { loadStatus, type Status } from './data/loadStatus';
 import { TelcoinAnimatedLogo } from './components/TelcoinAnimatedLogo';
 import LastUpdated from '@/components/LastUpdated';
 import { getLatestDeveloperNotesDate } from '@/data/developerNotes';
+import AdiriLogoUrl from '@/assets/adiri.svg?url';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -63,8 +64,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-bg bg-hero-ambient text-fg">
-      <header className="bg-card backdrop-blur">
+    <div className="relative min-h-screen bg-bg bg-hero-ambient text-fg">
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.025]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")', backgroundRepeat: 'repeat' }} />
+      <header className="relative bg-card backdrop-blur">
         <div className="mx-auto max-w-5xl px-6 py-16 md:px-8">
           {showSkeleton ? (
             <HeaderSkeleton />
@@ -93,7 +95,7 @@ export default function App() {
                         onClick={onHome}
                         className="block space-y-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                       >
-                        <h1 className="text-2xl font-extrabold text-fg md:text-3xl">
+                        <h1 className="bg-gradient-to-r from-fg via-primary to-fg bg-clip-text text-2xl font-extrabold text-transparent md:text-3xl">
                           Telcoin Network Roadmap
                         </h1>
                         <p className="max-w-xl text-sm text-fg-muted md:text-base">
@@ -144,6 +146,7 @@ export default function App() {
             </motion.div>
           )}
         </div>
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       </header>
       <main
         className="mx-auto max-w-5xl space-y-16 px-6 py-16 md:px-8"
@@ -162,29 +165,66 @@ export default function App() {
           </>
         ) : (
           <>
+            <section className="px-6 md:px-8">
+              <motion.div
+                className="relative flex flex-col items-center gap-4 overflow-hidden rounded-[16px] border border-primary/40 bg-[#172552] px-6 py-6 shadow-[0_0_30px_rgba(25,200,255,0.12)] backdrop-blur md:px-10 md:py-8"
+                animate={{ boxShadow: ['0 0 30px rgba(25,200,255,0.12)', '0 0 40px rgba(25,200,255,0.22)', '0 0 30px rgba(25,200,255,0.12)'] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5" />
+                <div className="relative flex items-center justify-center gap-4">
+                  <span className="inline-flex items-center rounded-full border border-success/40 bg-success/15 px-3 py-1 text-sm font-semibold text-success">
+                    Live
+                  </span>
+                  <p className="text-2xl font-bold text-fg md:text-3xl">
+                    Adiri Testnet Final Phase
+                  </p>
+                </div>
+                <p className="relative max-w-2xl text-center text-sm leading-relaxed text-fg-muted">
+                  Telcoin Network's Adiri testnet has launched as a stable network.
+                  This build – the final phase before mainnet – is ready for MNOs to onboard as validators and developers to build dApps.
+                </p>
+                <p className="relative text-center text-sm text-fg-muted">
+                  For developer access and support, contact{' '}
+                  <a href="mailto:devs@telcoin.org" className="text-primary hover:underline">
+                    devs@telcoin.org
+                  </a>
+                </p>
+              </motion.div>
+            </section>
+
             <section>
-              <PhaseOverview phases={status.phases} />
+              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.04] p-6 backdrop-blur-sm md:p-8">
+                <PhaseOverview phases={status.phases} />
+              </div>
             </section>
 
             <section id="security-section">
-              <SecurityAudits
-                notes={status.security.notes}
-                publicFindings={status.security.publicFindings}
-                afterPriorityFixes={status.security.afterPriorityFixes}
-              />
+              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.04] p-6 backdrop-blur-sm md:p-8">
+                <SecurityAudits
+                  notes={status.security.notes}
+                  publicFindings={status.security.publicFindings}
+                  afterPriorityFixes={status.security.afterPriorityFixes}
+                />
+              </div>
             </section>
 
             <section>
-              <RoadToMainnet />
+              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.04] p-6 backdrop-blur-sm md:p-8">
+                <RoadToMainnet />
+              </div>
             </section>
 
             <section>
-              <LearnMore phases={status.phases} links={status.links} />
+              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.04] p-6 backdrop-blur-sm md:p-8">
+                <LearnMore phases={status.phases} links={status.links} />
+              </div>
             </section>
           </>
         )}
       </main>
-      <footer className="border-t-2 border-border/60 bg-card py-8 text-center text-sm text-fg-muted backdrop-blur">
+      <footer className="relative bg-card py-8 text-center text-sm text-fg-muted backdrop-blur">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         © 2025{' '}
         <a href="https://www.telcoin.network/" className="text-primary hover:underline">
           Telcoin Network
