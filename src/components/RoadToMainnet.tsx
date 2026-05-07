@@ -33,9 +33,7 @@ const HISTORY_ITEMS: CustomItem[] = SHARED_ADIRI_PHASE_3_ITEMS.map((item) => ({
 }));
 
 const ACTIVE_PHASE_2_SLUGS = new Set<string>([
-  'stress-test-deployed-network',
   'custom-tn-rpc-endpoints',
-  'tn-whitepaper',
 ]);
 
 const ACTIVE_PHASE_3_SLUGS = new Set<string>(

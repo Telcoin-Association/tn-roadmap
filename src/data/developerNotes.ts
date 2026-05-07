@@ -59,6 +59,15 @@ const APRIL_20_DEVELOPER_NOTES = [
   'Testnet will run in parallel with mainnet indefinitely as a sandbox environment using identical code, tools, and data centers (only differing by chain IDs). This allows safe testing of updates before applying them to mainnet and gives developers a testing environment.',
 ];
 
+const MAY_07_DEVELOPER_NOTES = [
+  'Adiri testnet has officially launched as a stable network — the final phase before mainnet. MNOs can now onboard as validators and developers can build dApps directly on the network.',
+  'Block explorer is live at telscan.io, powered by a new Nethereum-based deployment with full transaction routing support.',
+  'Faucet page restored with stablecoin drip support for developer onboarding.',
+  'Community-contributed test coverage expansion underway — targeting ~125 new tests across certifier, storage, and type crates with a structured harness approach.',
+  'DNS and infrastructure finalized for stable testnet deployment across MNO data center environments.',
+  'Testnet teardown and redeployment completed to establish the stable long-running network build.',
+];
+
 const APRIL_24_DEVELOPER_NOTES = [
   "Significant progress has been made on state-breaking changes and pre-compiles to lock in the network's core on-chain architecture.",
   'Validator capacity has increased dramatically from approximately 1,100 to over 7,000.',
@@ -96,6 +105,7 @@ const FEBRUARY_19_DEVELOPER_NOTES = [
 ];
 
 const developerNoteDates = [
+  '2026-05-07T00:00:00Z',
   '2026-04-24T00:00:00Z',
   '2026-04-20T00:00:00Z',
   '2026-03-29T00:00:00Z',
@@ -114,6 +124,11 @@ export const getLatestDeveloperNotesDate = () =>
   );
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
+  {
+    title: 'Developer Notes - Updated 7 May 2026',
+    date: '2026-05-07',
+    items: MAY_07_DEVELOPER_NOTES,
+  },
   {
     title: 'Developer Notes - Updated 24 April 2026',
     date: '2026-04-24',

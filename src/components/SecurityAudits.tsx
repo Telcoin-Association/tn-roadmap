@@ -33,7 +33,7 @@ function StatCard({
       ? ([['critical', critical], ...entries] as Array<[string, number]>)
       : entries;
   return (
-    <article className="flex flex-1 flex-col gap-4 rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-5 shadow-soft backdrop-blur">
+    <article className="flex flex-1 flex-col gap-4 rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-5 shadow-soft backdrop-blur transition-all duration-300 hover:border-primary/40 hover:shadow-glow">
       <header className="flex items-start gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20 text-primary">
           {icon}
@@ -86,7 +86,7 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
         </div>
       </div>
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
-        <article className="flex h-full flex-col rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur">
+        <article className="flex h-full flex-col rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur transition-all duration-300 hover:border-primary/40 hover:shadow-glow">
           <div className="flex-1">
             <h3 className="text-lg font-semibold text-fg">{currentSection.title}</h3>
             <ul className="mt-4 space-y-3 text-sm text-fg-muted">

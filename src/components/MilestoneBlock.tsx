@@ -61,7 +61,7 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
   },
   {
     title: 'Phase 2',
-    icon: 'loading',
+    icon: 'check',
     href: '#road-to-mainnet-adiri-tab',
     items: MILESTONES.adiri.map(({ text, slug }) => ({ text, slug })),
   },
@@ -132,7 +132,7 @@ export default function MilestoneBlock({ phase }: Props) {
         </div>
         <div className="mt-3 space-y-4">
           {ADIRI_PHASE_GROUPS.map((group) => {
-            const isOpenByDefault = group.title === 'Phase 2' || group.title === 'Phase 3';
+            const isOpenByDefault = false;
             const sortedItems = [...group.items].sort((a, b) => {
               const aOrder = STATUS_SORT_ORDER[getAdiriItemStatus(group, a)];
               const bOrder = STATUS_SORT_ORDER[getAdiriItemStatus(group, b)];
@@ -148,11 +148,18 @@ export default function MilestoneBlock({ phase }: Props) {
                   <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
                     {group.title}
                   </span>
-                  <span
-                    aria-hidden="true"
-                    className="text-sm text-white/60 transition-transform group-open/section:rotate-180"
-                  >
-                    ▾
+                  <span className="flex items-center gap-2">
+                    {group.icon === 'check' && (
+                      <span className="rounded-full border border-success/30 bg-success/10 px-2 py-0.5 text-[10px] font-semibold text-success">
+                        Complete
+                      </span>
+                    )}
+                    <span
+                      aria-hidden="true"
+                      className="text-sm text-white/60 transition-transform group-open/section:rotate-180"
+                    >
+                      ▾
+                    </span>
                   </span>
                 </summary>
                 <div className="px-3 pb-3">

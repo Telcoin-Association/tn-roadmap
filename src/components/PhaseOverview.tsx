@@ -186,7 +186,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
               <motion.article
                 data-phase-card=""
                 data-phase={dataPhase}
-                className="group flex h-full flex-col overflow-hidden rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur transition hover:shadow-glow"
+                className="group flex h-full flex-col overflow-hidden rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur transition-all duration-300 hover:border-primary/40 hover:shadow-glow"
               >
                 {cardInner}
               </motion.article>
