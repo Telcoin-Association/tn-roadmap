@@ -1,15 +1,27 @@
 [
   {
-    "number": 629,
-    "title": "Stream pack files for historic epoch data when syncing.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/629",
-    "updated_at": "2026-04-15T01:08:13Z"
+    "number": 677,
+    "title": "The channels for headers and rounds are really the same joined with a interim task.  Streamline them.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/677",
+    "updated_at": "2026-05-11T23:04:40Z"
   },
   {
-    "number": 623,
-    "title": "Review batch cache code.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/623",
-    "updated_at": "2026-04-09T00:39:21Z"
+    "number": 675,
+    "title": "Add regression tests for observer epoch-0 sync and stale prior-epoch vote handling",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/675",
+    "updated_at": "2026-05-11T19:06:54Z"
+  },
+  {
+    "number": 657,
+    "title": "Wire `WorkerConfigs` into epoch-boundary base fee adjustment (worker 0 only)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/657",
+    "updated_at": "2026-05-05T22:52:44Z"
+  },
+  {
+    "number": 646,
+    "title": "Update `f+1` threshold",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/646",
+    "updated_at": "2026-05-02T21:31:01Z"
   },
   {
     "number": 622,
