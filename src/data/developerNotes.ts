@@ -59,6 +59,18 @@ const APRIL_20_DEVELOPER_NOTES = [
   'Testnet will run in parallel with mainnet indefinitely as a sandbox environment using identical code, tools, and data centers (only differing by chain IDs). This allows safe testing of updates before applying them to mainnet and gives developers a testing environment.',
 ];
 
+
+const MAY_27_DEVELOPER_NOTES = [
+  'Network is feature complete and the core foundation remains stable, with final optimizations now being implemented ahead of mainnet launch.',
+  'Adiri testnet access has expanded with broader RPC endpoint availability, improving public access to network data.',
+  'Validator onboarding is actively underway, with successful onboarding already completed and additional coordination meetings scheduled to bring more validators online.',
+  'Release process has been hardened with cryptographic signatures on official Telcoin Association releases, enabling node operators to verify binaries are maintainer-signed.',
+  'Security focus is concentrated on the network and execution layers, with daily deep scans and attack-surface analysis continuing.',
+  'Smart contract layer is confirmed ready, with final internal code review in progress before third-party audit handoff.',
+  'Discussions are in progress with Cantina to schedule the next audit round, and continuous audits will remain part of ongoing mainnet security operations.',
+  'Bridge partner coordination continues with active testing and deployment on stable Adiri testnet in preparation for full mainnet launch deployment.',
+];
+
 const MAY_07_DEVELOPER_NOTES = [
   'Adiri testnet has officially launched as a stable network — the final phase before mainnet. MNOs can now onboard as validators and developers can build dApps directly on the network.',
   'Block explorer is live at telscan.io, powered by a new Nethereum-based deployment with full transaction routing support.',
@@ -105,6 +117,7 @@ const FEBRUARY_19_DEVELOPER_NOTES = [
 ];
 
 const developerNoteDates = [
+  '2026-05-27T00:00:00Z',
   '2026-05-07T00:00:00Z',
   '2026-04-24T00:00:00Z',
   '2026-04-20T00:00:00Z',
@@ -124,6 +137,11 @@ export const getLatestDeveloperNotesDate = () =>
   );
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
+  {
+    title: 'Developer Notes - Updated 27 May 2026',
+    date: '2026-05-27',
+    items: MAY_27_DEVELOPER_NOTES,
+  },
   {
     title: 'Developer Notes - Updated 7 May 2026',
     date: '2026-05-07',
