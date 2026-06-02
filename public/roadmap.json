@@ -1,15 +1,21 @@
 [
   {
-    "number": 677,
-    "title": "The channels for headers and rounds are really the same joined with a interim task.  Streamline them.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/677",
-    "updated_at": "2026-05-11T23:04:40Z"
+    "number": 700,
+    "title": "Node crashes when the same batch digest appears in two certificates of one committed sub-DAG",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/700",
+    "updated_at": "2026-06-01T18:14:04Z"
   },
   {
-    "number": 675,
-    "title": "Add regression tests for observer epoch-0 sync and stale prior-epoch vote handling",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/675",
-    "updated_at": "2026-05-11T19:06:54Z"
+    "number": 693,
+    "title": "Public release pipeline with verifiable provenance",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/693",
+    "updated_at": "2026-05-20T14:47:49Z"
+  },
+  {
+    "number": 689,
+    "title": "Peer penalty system bans honest peers during observer joins on WAN",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/689",
+    "updated_at": "2026-05-18T19:05:57Z"
   },
   {
     "number": 657,
@@ -27,7 +33,7 @@
     "number": 622,
     "title": "Refactor general consensus side storage.",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/622",
-    "updated_at": "2026-04-08T18:04:54Z"
+    "updated_at": "2026-05-21T18:24:34Z"
   },
   {
     "number": 618,
@@ -102,16 +108,10 @@
     "updated_at": "2026-02-14T00:24:47Z"
   },
   {
-    "number": 551,
-    "title": "Add fsync on parent directory after file creation and rename",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/551",
-    "updated_at": "2026-02-14T00:06:47Z"
-  },
-  {
     "number": 532,
     "title": "feat: Fast Direct Commit Rule",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/532",
-    "updated_at": "2026-02-04T01:10:12Z"
+    "updated_at": "2026-05-21T08:34:39Z"
   },
   {
     "number": 530,
