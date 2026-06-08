@@ -60,6 +60,30 @@ const APRIL_20_DEVELOPER_NOTES = [
 ];
 
 
+const JUNE_08_DEVELOPER_NOTES = [
+  'Networking work continues across several fronts as the validator set grows. There are two classes of nodes on the network: validator nodes that participate in committee voting, and observer nodes that track committee state.',
+  'Historic state sync is performing well and relatively quick, validating the underlying system is working as intended. The team has identified friction points in how nodes stay current after their initial sync, and improvements are underway to ensure validators can smoothly transition into committees at epoch boundaries.',
+  'AI-assisted security scans continue to deliver results. The most recent scan surfaced an issue in the core consensus registry related to how certain BLS cryptographic keys are validated — specifically, a gap that could allow the same validator to register a key more than once. With a permissioned validator set the practical risk is low, but this type of gap is not acceptable heading into mainnet.',
+  'In response, the team has identified a more elegant long-term fix: moving the BLS staking library from approximately 500 lines of gas-consuming Solidity down to just 7 lines of code as an EVM pre-compile on Telcoin Network. This dramatically reduces the attack surface, has no effect on Ethereum compatibility, and reuses code already in scope for other audits — effectively extending the security budget.',
+  'This is the last known issue ahead of the consensus registry security assessment. The team has reached out to security partners and is scheduling that audit for the coming weeks.',
+  'Five new data center nodes have been onboarded over the past two weeks, with at least one more expected online shortly. The protocol team is working on on-chain tracking metrics and off-chain dashboard infrastructure to surface accurate, human-readable node participation data publicly.',
+  'In Progress: Refactoring how peer identities are tracked by nodes to production harden, simplify code, and reduce bug surfaces.',
+  'In Progress: Production hardening fallback dial attempts between validators to ensure robust connectivity for committee-voting validators.',
+  'In Progress: Differentiating peers on the network between node operator identified trusted peers and protocol verified validators to ensure robust connectivity.',
+  'In Progress: Enhancing mapping between validator BLS keys used by the application and peer IDs used by the networking layer to trigger discovery attempts when information is missing.',
+  'In Progress: Eliminating false positives for validator gossip arriving late around epoch boundaries.',
+  'In Progress: Refactoring startup to dial bootstrap nodes instead of genesis committee to reduce network burden for existing validators and offload to TA-managed observer nodes to further decentralize the network.',
+  'In Progress: Enhancing protocol identity handshakes to prevent primary/worker cross-network contamination.',
+  'In Progress: Reducing friction for syncing nodes that are caught up to the current epoch and attempting to stream consensus in real-time.',
+  'In Progress: Publishing public RPC information on node records to support off-chain RPC discovery.',
+  'Queued: Security hardening of epoch record validation for syncing nodes.',
+  'Queued: Onboarding and integrating with DVNs for TN mainnet bridge.',
+  'Queued: Moving BLS staking library to EVM precompile.',
+  'Queued: Worker gateway to reduce DoS attack surface.',
+  'Queued: Consensus registry security assessment.',
+  'Queued: Execution engine security assessment.',
+];
+
 const MAY_27_DEVELOPER_NOTES = [
   'Network is feature complete and the core foundation remains stable, with final optimizations now being implemented ahead of mainnet launch.',
   'Adiri testnet access has expanded with broader RPC endpoint availability, improving public access to network data.',
@@ -117,6 +141,7 @@ const FEBRUARY_19_DEVELOPER_NOTES = [
 ];
 
 const developerNoteDates = [
+  '2026-06-08T00:00:00Z',
   '2026-05-27T00:00:00Z',
   '2026-05-07T00:00:00Z',
   '2026-04-24T00:00:00Z',
@@ -137,6 +162,11 @@ export const getLatestDeveloperNotesDate = () =>
   );
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
+  {
+    title: 'Developer Notes - Updated 8 June 2026',
+    date: '2026-06-08',
+    items: JUNE_08_DEVELOPER_NOTES,
+  },
   {
     title: 'Developer Notes - Updated 27 May 2026',
     date: '2026-05-27',
