@@ -1,17 +1,5 @@
 [
   {
-    "number": 719,
-    "title": "Native (blst) BLS signature-verification precompile for on-chain consensus verification",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/719",
-    "updated_at": "2026-06-05T14:31:48Z"
-  },
-  {
-    "number": 717,
-    "title": "Dial Unkown BLS Keys - Validator Fallback",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/717",
-    "updated_at": "2026-06-04T16:34:02Z"
-  },
-  {
     "number": 715,
     "title": "Add `is_validator` field to `Peer` to separate committee trust from operator trust",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/715",
