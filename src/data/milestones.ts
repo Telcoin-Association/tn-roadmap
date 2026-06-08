@@ -22,7 +22,7 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
   {
     text: 'TN Whitepaper',
     slug: 'tn-whitepaper',
-    inProgress: true,
+    done: true,
     description:
       'Drafting and reviewing the Telcoin Network whitepaper to consolidate technical architecture, governance model, and ecosystem positioning for external stakeholders.',
   },
@@ -36,7 +36,7 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
   {
     text: 'Decentralize Network (Onboard MNO Validators)',
     slug: 'decentralize-network-onboard-mno-validators',
-    inProgress: true,
+    done: true,
     description:
       'Transition from TAO-operated validators to a broader, decentralized set by onboarding mobile network operators (MNOs) as validators, aligning governance with GSMA standards and expanding security through diverse participation.',
   },
