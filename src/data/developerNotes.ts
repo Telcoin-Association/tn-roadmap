@@ -67,21 +67,6 @@ const JUNE_08_DEVELOPER_NOTES = [
   'In response, the team has identified a more elegant long-term fix: moving the BLS staking library from approximately 500 lines of gas-consuming Solidity down to just 7 lines of code as an EVM pre-compile on Telcoin Network. This dramatically reduces the attack surface, has no effect on Ethereum compatibility, and reuses code already in scope for other audits — effectively extending the security budget.',
   'This is the last known issue ahead of the consensus registry security assessment. The team has reached out to security partners and is scheduling that audit for the coming weeks.',
   'Five new data center nodes have been onboarded over the past two weeks, with at least one more expected online shortly. The protocol team is working on on-chain tracking metrics and off-chain dashboard infrastructure to surface accurate, human-readable node participation data publicly.',
-  'In Progress: Refactoring how peer identities are tracked by nodes to production harden, simplify code, and reduce bug surfaces.',
-  'In Progress: Production hardening fallback dial attempts between validators to ensure robust connectivity for committee-voting validators.',
-  'In Progress: Differentiating peers on the network between node operator identified trusted peers and protocol verified validators to ensure robust connectivity.',
-  'In Progress: Enhancing mapping between validator BLS keys used by the application and peer IDs used by the networking layer to trigger discovery attempts when information is missing.',
-  'In Progress: Eliminating false positives for validator gossip arriving late around epoch boundaries.',
-  'In Progress: Refactoring startup to dial bootstrap nodes instead of genesis committee to reduce network burden for existing validators and offload to TA-managed observer nodes to further decentralize the network.',
-  'In Progress: Enhancing protocol identity handshakes to prevent primary/worker cross-network contamination.',
-  'In Progress: Reducing friction for syncing nodes that are caught up to the current epoch and attempting to stream consensus in real-time.',
-  'In Progress: Publishing public RPC information on node records to support off-chain RPC discovery.',
-  'Queued: Security hardening of epoch record validation for syncing nodes.',
-  'Queued: Onboarding and integrating with DVNs for TN mainnet bridge.',
-  'Queued: Moving BLS staking library to EVM precompile.',
-  'Queued: Worker gateway to reduce DoS attack surface.',
-  'Queued: Consensus registry security assessment.',
-  'Queued: Execution engine security assessment.',
 ];
 
 const MAY_27_DEVELOPER_NOTES = [
