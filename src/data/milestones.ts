@@ -75,6 +75,105 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
     description:
       'Further optimize initial node sync performance to reduce time-to-participation for new validators and observers.',
   },
+  {
+    text: 'Refactor Peer Identity Tracking',
+    slug: 'refactor-peer-identity-tracking',
+    inProgress: true,
+    description:
+      'Refactoring how peer identities are tracked by nodes to production harden, simplify code, and reduce bug surfaces.',
+  },
+  {
+    text: 'Production Harden Fallback Dial Attempts Between Validators',
+    slug: 'production-harden-fallback-dial-attempts',
+    inProgress: true,
+    description:
+      'Production hardening fallback dial attempts between validators to ensure robust connectivity for committee-voting validators.',
+  },
+  {
+    text: 'Differentiate Trusted Peers from Protocol-Verified Validators',
+    slug: 'differentiate-trusted-peers-from-verified-validators',
+    inProgress: true,
+    description:
+      'Differentiating peers on the network between node operator identified trusted peers and protocol verified validators to ensure robust connectivity.',
+  },
+  {
+    text: 'Enhance BLS Key to Peer ID Mapping',
+    slug: 'enhance-bls-key-to-peer-id-mapping',
+    inProgress: true,
+    description:
+      'Enhancing mapping between validator BLS keys used by the application and peer IDs used by the networking layer to trigger discovery attempts when information is missing.',
+  },
+  {
+    text: 'Eliminate False Positives for Validator Gossip at Epoch Boundaries',
+    slug: 'eliminate-validator-gossip-false-positives',
+    inProgress: true,
+    description:
+      'Eliminating false positives for validator gossip arriving late around epoch boundaries.',
+  },
+  {
+    text: 'Refactor Startup to Dial Bootstrap Nodes',
+    slug: 'refactor-startup-dial-bootstrap-nodes',
+    inProgress: true,
+    description:
+      'Refactoring startup to dial bootstrap nodes instead of genesis committee to reduce network burden for existing validators and offload to TA-managed observer nodes to further decentralize the network.',
+  },
+  {
+    text: 'Enhance Protocol Identity Handshakes',
+    slug: 'enhance-protocol-identity-handshakes',
+    inProgress: true,
+    description:
+      'Enhancing protocol identity handshakes to prevent primary/worker cross-network contamination.',
+  },
+  {
+    text: 'Reduce Friction for Real-Time Consensus Sync',
+    slug: 'reduce-friction-for-realtime-consensus-sync',
+    inProgress: true,
+    description:
+      'Reducing friction for syncing nodes that are caught up to the current epoch and attempting to stream consensus in real-time.',
+  },
+  {
+    text: 'Publish Public RPC Information on Node Records',
+    slug: 'publish-public-rpc-on-node-records',
+    inProgress: true,
+    description:
+      'Publishing public RPC information on node records to support off-chain RPC discovery.',
+  },
+  {
+    text: 'Security Hardening of Epoch Record Validation',
+    slug: 'security-harden-epoch-record-validation',
+    description:
+      'Security hardening of epoch record validation for syncing nodes.',
+  },
+  {
+    text: 'Onboard and Integrate DVNs for TN Mainnet Bridge',
+    slug: 'onboard-dvns-for-mainnet-bridge',
+    description:
+      'Onboarding and integrating with DVNs for TN mainnet bridge.',
+  },
+  {
+    text: 'Move BLS Staking Library to EVM Precompile',
+    slug: 'bls-staking-library-evm-precompile',
+    description:
+      'Moving the BLS staking library from approximately 500 lines of gas-consuming Solidity down to just 7 lines of code as an EVM pre-compile on Telcoin Network.',
+  },
+  {
+    text: 'Worker Gateway to Reduce DoS Attack Surface',
+    slug: 'worker-gateway-dos-reduction',
+    description:
+      'Worker gateway to reduce DoS attack surface.',
+  },
+  {
+    text: 'Consensus Registry Security Assessment',
+    slug: 'consensus-registry-security-assessment',
+    description:
+      'Scheduling and completing the consensus registry security assessment with external security partners.',
+  },
+  {
+    text: 'Execution Engine Security Assessment',
+    slug: 'execution-engine-security-assessment',
+    description:
+      'Scheduling and completing the execution engine security assessment.',
+  },
 ];
 
 export const MILESTONES: Record<PhaseKey, Milestone[]> = {
