@@ -1,9 +1,69 @@
 [
   {
-    "number": 715,
-    "title": "Add `is_validator` field to `Peer` to separate committee trust from operator trust",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/715",
-    "updated_at": "2026-06-03T23:11:42Z"
+    "number": 747,
+    "title": "network-libp2p: `NetworkError::RPCError(String)` conflates an explicit peer rejection with a transient remote-side failure, so the worker `QuorumWaiter` permanently gives up on a peer that hit a one-off internal error",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/747",
+    "updated_at": "2026-06-12T12:52:48Z"
+  },
+  {
+    "number": 746,
+    "title": "network-libp2p: operator-set peer-scoring ban/disconnect thresholds are silently ignored (`Peer` is pinned to `PeerConfig::default()`), and two documented `ScoreConfig` fields are dead",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/746",
+    "updated_at": "2026-06-12T12:49:23Z"
+  },
+  {
+    "number": 745,
+    "title": "network-libp2p: every dial failure is reported to the caller as the hardcoded string \"dial attempt timedout\", erasing the real `DialError` (wrong key, refused, firewall) during validator onboarding",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/745",
+    "updated_at": "2026-06-12T12:45:27Z"
+  },
+  {
+    "number": 744,
+    "title": "network-libp2p: `GetClosestPeers` query timeouts discard every peer the query already discovered, starving the discovery loop exactly when the node is short on peers",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/744",
+    "updated_at": "2026-06-12T12:42:04Z"
+  },
+  {
+    "number": 743,
+    "title": "network-libp2p: valid consensus gossip is dropped silently (and valid RPC responses become spurious `PeerMissing` errors) when the sender's BLS identity is not yet resolved, even though the request path handles that exact race",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/743",
+    "updated_at": "2026-06-12T12:39:20Z"
+  },
+  {
+    "number": 739,
+    "title": "refactor(network): consolidate the bulk request-response paths onto hardened bidirectional streams, keep single-shot RPCs on request-response",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/739",
+    "updated_at": "2026-06-11T14:45:17Z"
+  },
+  {
+    "number": 738,
+    "title": "Nodes expose no operational metrics; `--metrics` is an accepted no-op flag",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/738",
+    "updated_at": "2026-06-11T02:44:48Z"
+  },
+  {
+    "number": 728,
+    "title": "network-libp2p: req-res codec commits attacker-declared buffer sizes before the body arrives",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/728",
+    "updated_at": "2026-06-09T21:11:07Z"
+  },
+  {
+    "number": 722,
+    "title": "Network-key rotation breaks the bls_by_peer_id iff-invariant (stale entries, counter loss, zombie records)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/722",
+    "updated_at": "2026-06-08T21:02:17Z"
+  },
+  {
+    "number": 719,
+    "title": "Native (blst) BLS signature-verification precompile for on-chain consensus verification",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/719",
+    "updated_at": "2026-06-05T14:31:48Z"
+  },
+  {
+    "number": 717,
+    "title": "Dial Unkown BLS Keys - Validator Fallback",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/717",
+    "updated_at": "2026-06-10T16:00:11Z"
   },
   {
     "number": 714,
@@ -21,7 +81,7 @@
     "number": 712,
     "title": "Worker Gateway: stateless public-facing RPC proxy for worker endpoints",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/712",
-    "updated_at": "2026-06-03T21:00:27Z"
+    "updated_at": "2026-06-09T03:10:46Z"
   },
   {
     "number": 710,
@@ -34,12 +94,6 @@
     "title": "Accept late gossip from the previous committee within a configurable grace window",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/709",
     "updated_at": "2026-06-03T18:16:30Z"
-  },
-  {
-    "number": 708,
-    "title": "Network peer layer tracks only the current committee, mishandling epoch boundaries",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/708",
-    "updated_at": "2026-06-03T01:51:47Z"
   },
   {
     "number": 693,
