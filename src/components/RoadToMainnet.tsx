@@ -338,6 +338,16 @@ export default function RoadToMainnet() {
           ) : tab === 'adiri-phase-3' ? (
             <ul key="adiri-phase-3" className="space-y-4">
               {ADIRI_PHASE_3_ITEMS.map((item) => {
+                if (item.isSection) {
+                  return (
+                    <li key={item.slug} className="pt-4 first:pt-0">
+                      <div className="mb-2 text-xs font-semibold uppercase tracking-widest text-white/40">
+                        {item.text}
+                      </div>
+                    </li>
+                  );
+                }
+
                 const isDone = Boolean(item.done);
                 const isActivePhase3Milestone = ACTIVE_PHASE_3_SLUGS.has(item.slug) && !isDone;
                 const shouldAnimate = isActivePhase3Milestone && !reduceMotion;

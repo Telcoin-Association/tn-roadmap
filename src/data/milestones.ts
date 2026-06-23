@@ -16,22 +16,18 @@ export type CustomRoadToMainnetItem = {
   description?: string;
   inProgress?: boolean;
   done?: boolean;
+  isSection?: boolean;
 };
 
 export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
+  // ── Validator Onboarding & Ecosystem ─────────────────────────────────────
+  { text: 'Validator Onboarding & Ecosystem', slug: 'section-validator-onboarding', isSection: true },
   {
     text: 'TN Whitepaper',
     slug: 'tn-whitepaper',
     done: true,
     description:
       'Drafting and reviewing the Telcoin Network whitepaper to consolidate technical architecture, governance model, and ecosystem positioning for external stakeholders.',
-  },
-  {
-    text: 'Integrate Adiri Testnet with Bridge Solution',
-    slug: 'integrate-adiri-testnet-with-bridge-solution',
-    inProgress: true,
-    description:
-      'Connect the Adiri testnet to a cross-chain bridge, enabling the movement of assets like TEL and stablecoins between the Telcoin Network and external chains for testing interoperability.',
   },
   {
     text: 'Decentralize Network (Onboard MNO Validators)',
@@ -41,11 +37,11 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
       'Transition from TAO-operated validators to a broader, decentralized set by onboarding mobile network operators (MNOs) as validators, aligning governance with GSMA standards and expanding security through diverse participation.',
   },
   {
-    text: 'AI Security Scans',
-    slug: 'ai-security-scans',
-    inProgress: true,
+    text: 'Launch Community-Driven Testing Tools',
+    slug: 'launch-community-driven-testing-tools',
+    done: true,
     description:
-      'Introduce AI-assisted security scans to continuously evaluate node software and supporting services for vulnerabilities and risky changes.',
+      'Release community-led testing tools and workflows so external contributors can validate network behavior and report regressions earlier.',
   },
   {
     text: 'Improve Batch Build Times for Increased Transaction Throughput',
@@ -55,26 +51,35 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
       'Reduce batch build latency to increase effective transaction throughput and improve end-to-end execution performance under sustained load.',
   },
   {
-    text: 'Support for dApps to Build on Observer Nodes Directly (ExEx Feature)',
-    slug: 'support-for-dapps-to-build-on-observer-nodes-directly-exex-feature',
-    inProgress: true,
-    description:
-      'Enable dApps to build directly on observer nodes via the ExEx feature, improving development flexibility and reducing integration friction.',
-  },
-  {
-    text: 'Launch Community-Driven Testing Tools',
-    slug: 'launch-community-driven-testing-tools',
-    done: true,
-    description:
-      'Release community-led testing tools and workflows so external contributors can validate network behavior and report regressions earlier.',
-  },
-  {
     text: 'Improve Syncing Times for New Nodes',
     slug: 'improve-syncing-times-for-new-nodes',
     done: true,
     description:
       'Further optimize initial node sync performance to reduce time-to-participation for new validators and observers.',
   },
+  {
+    text: 'Integrate Adiri Testnet with Bridge Solution',
+    slug: 'integrate-adiri-testnet-with-bridge-solution',
+    inProgress: true,
+    description:
+      'Connect the Adiri testnet to a cross-chain bridge, enabling the movement of assets like TEL and stablecoins between the Telcoin Network and external chains for testing interoperability.',
+  },
+  {
+    text: 'Onboard and Integrate DVNs for TN Mainnet Bridge',
+    slug: 'onboard-dvns-for-mainnet-bridge',
+    description:
+      'Onboarding and integrating with DVNs for TN mainnet bridge.',
+  },
+  {
+    text: 'Support for dApps to Build on Observer Nodes Directly (ExEx Feature)',
+    slug: 'support-for-dapps-to-build-on-observer-nodes-directly-exex-feature',
+    inProgress: true,
+    description:
+      'Enable dApps to build directly on observer nodes via the ExEx feature, improving development flexibility and reducing integration friction.',
+  },
+
+  // ── P2P Networking Hardening ──────────────────────────────────────────────
+  { text: 'P2P Networking Hardening', slug: 'section-p2p-networking', isSection: true },
   {
     text: 'Refactor Peer Identity Tracking',
     slug: 'refactor-peer-identity-tracking',
@@ -83,18 +88,32 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
       'Refactoring how peer identities are tracked by nodes to production harden, simplify code, and reduce bug surfaces.',
   },
   {
-    text: 'Production Harden Fallback Dial Attempts Between Validators',
-    slug: 'production-harden-fallback-dial-attempts',
-    inProgress: true,
-    description:
-      'Production hardening fallback dial attempts between validators to ensure robust connectivity for committee-voting validators.',
-  },
-  {
     text: 'Differentiate Trusted Peers from Protocol-Verified Validators',
     slug: 'differentiate-trusted-peers-from-verified-validators',
     done: true,
     description:
       'Differentiating peers on the network between node operator identified trusted peers and protocol verified validators to ensure robust connectivity.',
+  },
+  {
+    text: 'Reduce Friction for Real-Time Consensus Sync',
+    slug: 'reduce-friction-for-realtime-consensus-sync',
+    done: true,
+    description:
+      'Reducing friction for syncing nodes that are caught up to the current epoch and attempting to stream consensus in real-time.',
+  },
+  {
+    text: 'Publish Public RPC Information on Node Records',
+    slug: 'publish-public-rpc-on-node-records',
+    done: true,
+    description:
+      'Publishing public RPC information on node records to support off-chain RPC discovery.',
+  },
+  {
+    text: 'Production Harden Fallback Dial Attempts Between Validators',
+    slug: 'production-harden-fallback-dial-attempts',
+    inProgress: true,
+    description:
+      'Production hardening fallback dial attempts between validators to ensure robust connectivity for committee-voting validators.',
   },
   {
     text: 'Enhance BLS Key to Peer ID Mapping',
@@ -124,31 +143,15 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
     description:
       'Enhancing protocol identity handshakes to prevent primary/worker cross-network contamination.',
   },
+
+  // ── Security & Mainnet Readiness ─────────────────────────────────────────
+  { text: 'Security & Mainnet Readiness', slug: 'section-security-mainnet', isSection: true },
   {
-    text: 'Reduce Friction for Real-Time Consensus Sync',
-    slug: 'reduce-friction-for-realtime-consensus-sync',
-    done: true,
+    text: 'AI Security Scans',
+    slug: 'ai-security-scans',
+    inProgress: true,
     description:
-      'Reducing friction for syncing nodes that are caught up to the current epoch and attempting to stream consensus in real-time.',
-  },
-  {
-    text: 'Publish Public RPC Information on Node Records',
-    slug: 'publish-public-rpc-on-node-records',
-    done: true,
-    description:
-      'Publishing public RPC information on node records to support off-chain RPC discovery.',
-  },
-  {
-    text: 'Security Hardening of Epoch Record Validation',
-    slug: 'security-harden-epoch-record-validation',
-    description:
-      'Security hardening of epoch record validation for syncing nodes.',
-  },
-  {
-    text: 'Onboard and Integrate DVNs for TN Mainnet Bridge',
-    slug: 'onboard-dvns-for-mainnet-bridge',
-    description:
-      'Onboarding and integrating with DVNs for TN mainnet bridge.',
+      'Ongoing AI-assisted security scans to continuously evaluate node software and supporting services for vulnerabilities and risky changes, ahead of third-party human security assessments.',
   },
   {
     text: 'Move BLS Staking Library to EVM Precompile',
@@ -161,6 +164,12 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
     slug: 'worker-gateway-dos-reduction',
     description:
       'Worker gateway to reduce DoS attack surface.',
+  },
+  {
+    text: 'Security Hardening of Epoch Record Validation',
+    slug: 'security-harden-epoch-record-validation',
+    description:
+      'Security hardening of epoch record validation for syncing nodes.',
   },
   {
     text: 'Consensus Registry Security Assessment',
@@ -229,187 +238,59 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
   ],
   adiri: [
     {
-      text: 'Patch Security Findings',
+      text: ‘Security & Audit Readiness’,
       done: true,
-      slug: 'patch-security-findings',
+      slug: ‘security-audit-readiness’,
       details: [
-        'Address all vulnerabilities identified during the security competition and audits to ensure the network meets telecom-grade security standards.',
+        ‘Patched all high, medium, and low security findings from the Cantina competition and audits’,
+        ‘Confirmed availability of specialist security researchers with Spearbit/Cantina partners’,
       ],
     },
     {
-      text: 'Enhance Test Coverage',
+      text: ‘Database Infrastructure’,
       done: true,
-      slug: 'enhance-test-coverage',
+      slug: ‘database-infrastructure’,
       details: [
-        'Expand automated and manual testing to cover edge cases, validator interactions, and stress scenarios, reducing the chance of regressions.',
+        ‘Production-hardened database read/write strategy for high-load validator environments’,
+        ‘Streamlined and refactored database architecture for production-grade reliability and scalability’,
+        ‘Patched database bug causing missing transaction batches’,
+        ‘Isolated execution environment for deterministic, secure node behavior’,
       ],
     },
     {
-      text: 'Production Harden Database Read/Write Strategy',
+      text: ‘P2P Networking & Syncing’,
       done: true,
-      slug: 'production-harden-database-read-write-strategy',
+      slug: ‘p2p-networking-and-syncing’,
       details: [
-        'Harden database read and write paths for production workloads with improved performance, reliability, and resilience.',
+        ‘Production-hardened peer-to-peer networking for stability and abuse resistance’,
+        ‘Production-hardened syncing strategy for reliable state synchronization under real-world conditions’,
+        ‘Peer-to-peer streaming for efficient bulk data transfer between nodes’,
+        ‘Hardened epoch boundary records for secure, deterministic syncing’,
+        ‘Improved CLI tooling for validators to sync, stake, and activate’,
       ],
     },
     {
-      text: 'Production Harden P2P Networking',
+      text: ‘Developer & Community Infrastructure’,
       done: true,
-      slug: 'production-harden-p2p-networking',
+      slug: ‘developer-community-infrastructure’,
       details: [
-        'Strengthen peer-to-peer networking for production readiness, including stability, efficiency, and abuse resistance improvements.',
+        ‘Expanded test coverage and parallelized CI pipeline for faster, more reliable testing’,
+        ‘Improved asynchronous logging for all validator and observer nodes’,
+        ‘Structural updates enabling open-source contributions’,
+        ‘Improved developer, validator, and user documentation’,
       ],
     },
     {
-      text: 'Production Harden Syncing Strategy',
+      text: ‘Protocol Features & Testnet Launch’,
       done: true,
-      slug: 'production-harden-syncing-strategy',
+      slug: ‘protocol-features-testnet-launch’,
       details: [
-        'Improve syncing strategy to ensure reliable state synchronization under real-world network conditions.',
-      ],
-    },
-    {
-      text: 'Improve Documentation',
-      done: true,
-      slug: 'improve-documentation',
-      details: [
-        'Update and expand developer, validator, and user documentation to support smooth onboarding, transparency, and ecosystem growth.',
-      ],
-    },
-    {
-      text: 'MiCA whitepaper',
-      done: true,
-      slug: 'write-mica-whitepaper-with-legal-now',
-      details: [
-        'Collaborate with the legal team to produce a MiCA-compliant whitepaper that clarifies Telcoin Network’s regulatory positioning ahead of the public release.',
-      ],
-    },
-    {
-      text: 'Improve async logging for all nodes in the network',
-      done: true,
-      slug: 'improve-async-logging-for-all-nodes',
-      details: [
-        'Enhance asynchronous logging pipelines for validator and supporting nodes to improve observability and reduce performance impact during peak load.',
-      ],
-    },
-    {
-      text: 'Stress Test Deployed Network for Public Release',
-      done: true,
-      slug: 'stress-test-deployed-network',
-      details: [
-        'Run coordinated stress scenarios across the deployed Adiri environment to validate stability, throughput, and reliability before opening public access.',
-      ],
-    },
-    {
-      text: 'Confirming availability of specialist researchers with security partners',
-      done: true,
-      slug: 'confirm-specialist-researcher-availability',
-      details: [
-        'Initial coordination underway with security partners to confirm availability of specialized security researchers.',
-      ],
-    },
-    {
-      text: 'Support P2P Streaming for Bulk Data Transfer',
-      done: true,
-      slug: 'support-p2p-streaming-for-bulk-data-transfer',
-      details: [
-        'Implement peer-to-peer streaming mechanisms to enable efficient bulk data transfer between nodes, improving sync performance and reducing reliance on centralized distribution.',
-      ],
-    },
-    {
-      text: 'Streamline Database Infrastructure for Production',
-      done: true,
-      slug: 'streamline-database-infrastructure-for-production',
-      details: [
-        'Refactor and optimise database architecture to ensure production-grade performance, reliability, and scalability across validators and observers.',
-      ],
-    },
-    {
-      text: 'Custom TN RPC Endpoints',
-      done: true,
-      slug: 'custom-tn-rpc-endpoints',
-      details: [
-        'Develop dedicated Telcoin Network RPC endpoints tailored to ecosystem use cases, improving performance, flexibility, and infrastructure control.',
-      ],
-    },
-    {
-      text: 'Patch database bug for missing batches',
-      done: true,
-      slug: 'patch-database-bug-for-missing-batches',
-      details: [
-        'Patched a database issue that caused some batches to be missing, improving consistency and reliability in batch processing.',
-      ],
-    },
-    {
-      text: 'Control network parameters on-chain',
-      done: true,
-      slug: 'control-network-parameters-on-chain',
-      details: [
-        'Implement on-chain controls for key network parameters to improve transparency, governance, and operational flexibility.',
-      ],
-    },
-    {
-      text: 'Harden Epoch Boundary Records for Secure Syncing',
-      done: true,
-      slug: 'harden-epoch-boundary-records-for-secure-syncing',
-      details: [
-        'Improve validation and integrity checks around epoch boundary records to ensure secure, deterministic syncing across network participants.',
-      ],
-    },
-    {
-      text: 'Better Tools for Validators to Sync, Stake, and Activate',
-      done: true,
-      slug: 'better-tools-for-validators-to-sync-stake-and-activate',
-      details: [
-        'Enhance CLI tooling and workflows for validators to sync more efficiently, stake with clearer flows, and activate validators with improved reliability and UX.',
-      ],
-    },
-    {
-      text: 'Updates to Support Open-Source Contributions',
-      done: true,
-      slug: 'updates-to-support-open-source-contributions',
-      details: [
-        'Implemented structural and workflow improvements to make the repository more accessible for external contributors, improving transparency and community participation.',
-      ],
-    },
-    {
-      text: 'Parallelize Testing Infrastructure for Faster, More Reliable Testing',
-      done: true,
-      slug: 'parallelize-testing-infrastructure-for-faster-more-reliable-testing',
-      details: [
-        'Refactored testing systems to run in parallel, significantly reducing CI times and increasing reliability of test coverage.',
-      ],
-    },
-    {
-      text: 'Support Multiple Workers for Parallel Fee Markets',
-      done: true,
-      slug: 'support-multiple-workers-for-parallel-fee-markets',
-      details: [
-        'Enable validators to operate multiple workers to segregate transaction pools for independent fee markets, use-case specific execution environments, and horizontal scalability without separate chains.',
-      ],
-    },
-    {
-      text: 'Deploy new faucet service',
-      done: true,
-      slug: 'deploy-new-faucet-service',
-      details: [
-        'Launch a public faucet that distributes small amounts of testnet TEL, allowing developers and community members to easily access tokens for testing applications and transactions on the network.',
-      ],
-    },
-    {
-      text: 'Isolate execution environment',
-      done: true,
-      slug: 'isolate-execution-environment',
-      details: [
-        'Completed isolation of the execution environment to improve security boundaries, operational resilience, and deterministic node behavior under production conditions.',
-      ],
-    },
-    {
-      text: 'Relaunch Network',
-      done: true,
-      slug: 'relaunch-network',
-      details: [
-        'Bring the Telcoin Network back online with fixes, improvements, and readiness for the transition into the Mainnet launch phases.',
+        ‘Deployed support for multiple workers enabling parallel fee markets per validator’,
+        ‘Enabled on-chain control of key network parameters’,
+        ‘Launched dedicated TN RPC endpoints and public testnet faucet service’,
+        ‘Published MiCA-compliant whitepaper with legal team’,
+        ‘Stress tested the deployed network under sustained load for public release’,
+        ‘Relaunched the Adiri public testnet’,
       ],
     },
   ],
