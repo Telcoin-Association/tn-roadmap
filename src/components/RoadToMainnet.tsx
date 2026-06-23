@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import type { PhaseKey } from '@/data/milestones';
-import { ADIRI_PHASE_3_ITEMS, MILESTONES } from '@/data/milestones';
+import { ADIRI_PHASE_3_GROUPS, MILESTONES } from '@/data/milestones';
 import { ROAD_TO_MAINNET_SECTION_ID, roadToMainnetId } from '@/utils/ids';
 
 import { ExternalLinkIcon } from './icons';
@@ -37,7 +37,7 @@ const ACTIVE_PHASE_2_SLUGS = new Set<string>([
 ]);
 
 const ACTIVE_PHASE_3_SLUGS = new Set<string>(
-  ADIRI_PHASE_3_ITEMS.filter(({ inProgress }) => inProgress).map(({ slug }) => slug),
+  ADIRI_PHASE_3_GROUPS.flatMap(({ items }) => items.filter(({ inProgress }) => inProgress).map(({ slug }) => slug)),
 );
 
 type TabKey = PhaseKey | 'adiri-phase-3' | 'history' | 'issues';
@@ -336,62 +336,59 @@ export default function RoadToMainnet() {
           {tab === 'issues' ? (
             <div key="issues" id="issues-feed" style={{ display: 'grid', gap: '12px' }} />
           ) : tab === 'adiri-phase-3' ? (
-            <ul key="adiri-phase-3" className="space-y-4">
-              {ADIRI_PHASE_3_ITEMS.map((item) => {
-                if (item.isSection) {
-                  return (
-                    <li key={item.slug} className="pt-4 first:pt-0">
-                      <div className="mb-2 text-xs font-semibold uppercase tracking-widest text-white/40">
-                        {item.text}
-                      </div>
-                    </li>
-                  );
-                }
+            <ul key="adiri-phase-3" className="space-y-6">
+              {ADIRI_PHASE_3_GROUPS.map((group) => (
+                <li key={group.slug}>
+                  <div className="mb-3 text-base font-bold text-white/95">{group.text}</div>
+                  <ul className="ml-4 space-y-3">
+                    {group.items.map((item) => {
+                      const isDone = Boolean(item.done);
+                      const isActive = ACTIVE_PHASE_3_SLUGS.has(item.slug) && !isDone;
+                      const shouldAnimate = isActive && !reduceMotion;
+                      const iconSrc = isDone
+                        ? '/IMG/Checkmark.svg'
+                        : isActive
+                        ? ActivityIconUrl
+                        : '/IMG/Loading.svg';
 
-                const isDone = Boolean(item.done);
-                const isActivePhase3Milestone = ACTIVE_PHASE_3_SLUGS.has(item.slug) && !isDone;
-                const shouldAnimate = isActivePhase3Milestone && !reduceMotion;
-                const iconSrc = isDone
-                  ? '/IMG/Checkmark.svg'
-                  : isActivePhase3Milestone
-                  ? ActivityIconUrl
-                  : '/IMG/Loading.svg';
-
-                return (
-                  <li key={item.slug} className="flex items-start gap-3">
-                    {shouldAnimate ? (
-                      <motion.img
-                        src={iconSrc}
-                        alt=""
-                        aria-hidden="true"
-                        className="mt-0.5 h-5 w-5 shrink-0"
-                        animate={{ opacity: [1, 0.4, 1] }}
-                        transition={{
-                          duration: 1.2,
-                          repeat: Infinity,
-                          repeatType: 'reverse',
-                          ease: 'easeInOut',
-                        }}
-                      />
-                    ) : (
-                      <img
-                        src={iconSrc}
-                        alt=""
-                        aria-hidden="true"
-                        className={`mt-0.5 h-5 w-5 shrink-0${
-                          isDone || isActivePhase3Milestone ? '' : ' motion-safe:animate-spin-slow'
-                        }`}
-                      />
-                    )}
-                    <div className="space-y-1 text-sm text-white/90">
-                      <div className="font-semibold">{item.text}</div>
-                      {item.description && (
-                        <p className="text-white/75">{item.description}</p>
-                      )}
-                    </div>
-                  </li>
-                );
-              })}
+                      return (
+                        <li key={item.slug} className="flex items-start gap-3">
+                          {shouldAnimate ? (
+                            <motion.img
+                              src={iconSrc}
+                              alt=""
+                              aria-hidden="true"
+                              className="mt-0.5 h-5 w-5 shrink-0"
+                              animate={{ opacity: [1, 0.4, 1] }}
+                              transition={{
+                                duration: 1.2,
+                                repeat: Infinity,
+                                repeatType: 'reverse',
+                                ease: 'easeInOut',
+                              }}
+                            />
+                          ) : (
+                            <img
+                              src={iconSrc}
+                              alt=""
+                              aria-hidden="true"
+                              className={`mt-0.5 h-5 w-5 shrink-0${
+                                isDone || isActive ? '' : ' motion-safe:animate-spin-slow'
+                              }`}
+                            />
+                          )}
+                          <div className="space-y-1 text-sm text-white/90">
+                            <div className="font-semibold">{item.text}</div>
+                            {item.description && (
+                              <p className="text-white/75">{item.description}</p>
+                            )}
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>
+              ))}
             </ul>
           ) : tab === 'mainnet' ? (
             <ul key="mainnet" className="space-y-4">
