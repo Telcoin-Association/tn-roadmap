@@ -78,7 +78,7 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
   {
     text: 'Refactor Peer Identity Tracking',
     slug: 'refactor-peer-identity-tracking',
-    inProgress: true,
+    done: true,
     description:
       'Refactoring how peer identities are tracked by nodes to production harden, simplify code, and reduce bug surfaces.',
   },
@@ -92,7 +92,7 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
   {
     text: 'Differentiate Trusted Peers from Protocol-Verified Validators',
     slug: 'differentiate-trusted-peers-from-verified-validators',
-    inProgress: true,
+    done: true,
     description:
       'Differentiating peers on the network between node operator identified trusted peers and protocol verified validators to ensure robust connectivity.',
   },
@@ -127,14 +127,14 @@ export const ADIRI_PHASE_3_ITEMS: CustomRoadToMainnetItem[] = [
   {
     text: 'Reduce Friction for Real-Time Consensus Sync',
     slug: 'reduce-friction-for-realtime-consensus-sync',
-    inProgress: true,
+    done: true,
     description:
       'Reducing friction for syncing nodes that are caught up to the current epoch and attempting to stream consensus in real-time.',
   },
   {
     text: 'Publish Public RPC Information on Node Records',
     slug: 'publish-public-rpc-on-node-records',
-    inProgress: true,
+    done: true,
     description:
       'Publishing public RPC information on node records to support off-chain RPC discovery.',
   },
