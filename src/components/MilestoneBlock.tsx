@@ -262,10 +262,20 @@ export default function MilestoneBlock({ phase }: Props) {
                         return <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />;
                       };
 
+                      const phaseSlug = group.title === 'Phase 1' ? 'horizon' : group.title === 'Phase 2' ? 'adiri' : null;
+                      const href = phaseSlug ? `#${roadToMainnetId(phaseSlug as 'horizon' | 'adiri', item.slug)}` : null;
+
                       return (
                         <li key={item.slug} className="flex items-start gap-3">
                           {renderIcon()}
-                          {isInProgress ? (
+                          {href ? (
+                            <a
+                              href={href}
+                              className={`text-sm leading-6 hover:underline${isInProgress ? ' font-semibold text-white' : ' text-white/90'}`}
+                            >
+                              {item.text}
+                            </a>
+                          ) : isInProgress ? (
                             <span className="text-sm font-semibold leading-6 text-white">{item.text}</span>
                           ) : (
                             <span className="text-sm leading-6 text-white/90">{item.text}</span>
