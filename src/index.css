@@ -99,11 +99,12 @@ html {
 }
 
 @keyframes target-highlight {
-  0%   { background-color: rgba(255, 255, 255, 0.12); }
+  0%   { background-color: rgba(45, 212, 191, 0.25); }
+  60%  { background-color: rgba(45, 212, 191, 0.15); }
   100% { background-color: transparent; }
 }
 
 :target {
-  animation: target-highlight 1.8s ease-out forwards;
+  animation: target-highlight 3s ease-out forwards;
   border-radius: 0.5rem;
 }
