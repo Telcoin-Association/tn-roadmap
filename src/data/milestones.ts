@@ -6,6 +6,8 @@ export type Milestone = {
   status?: 'completed' | 'in_progress' | 'queued';
   /** hash-id friendly: e.g., "patch-public-vulnerabilities" */
   slug: string;
+  /** short explainer shown in Road to Mainnet detail view */
+  description?: string;
   /** shown only in Road to mainnet detail tiles */
   details?: string[];
 };
@@ -256,6 +258,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       text: 'Security & Audit Readiness',
       done: true,
       slug: 'security-audit-readiness',
+      description: 'Resolved all identified security findings from initial reviews and confirmed specialist researcher availability with external security partners ahead of formal audits.',
       details: [
         'Patch Security Findings',
         'Confirming availability of specialist researchers with security partners',
@@ -265,6 +268,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       text: 'Database Infrastructure',
       done: true,
       slug: 'database-infrastructure',
+      description: 'Overhauled the database layer to meet production-grade performance and reliability requirements, including read/write strategy hardening, infrastructure consolidation, bug resolution, and execution environment isolation.',
       details: [
         'Production Harden Database Read/Write Strategy',
         'Streamline Database Infrastructure for Production',
@@ -276,6 +280,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       text: 'P2P Networking & Syncing',
       done: true,
       slug: 'p2p-networking-and-syncing',
+      description: 'Hardened peer-to-peer networking and node synchronization for production, enabling efficient bulk data transfer between nodes, secure epoch boundary handling, and improved tooling for validators to join and participate in the network.',
       details: [
         'Production Harden P2P Networking',
         'Production Harden Syncing Strategy',
@@ -288,6 +293,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       text: 'Developer & Community Infrastructure',
       done: true,
       slug: 'developer-community-infrastructure',
+      description: 'Expanded test coverage and parallelized CI to make the codebase faster and more reliable to develop against, while improving async logging and lowering the barrier for open-source community contributions.',
       details: [
         'Enhance Test Coverage',
         'Parallelize Testing Infrastructure for Faster, More Reliable Testing',
@@ -300,6 +306,7 @@ export const MILESTONES: Record<PhaseKey, Milestone[]> = {
       text: 'Protocol Features & Testnet Launch',
       done: true,
       slug: 'protocol-features-testnet-launch',
+      description: 'Shipped the final protocol features needed for a stable public testnet — including parallel fee markets, on-chain network parameter control, custom RPC endpoints, and a redeployed faucet — then stress-tested and relaunched the network as Adiri.',
       details: [
         'Support Multiple Workers for Parallel Fee Markets',
         'Control network parameters on-chain',
