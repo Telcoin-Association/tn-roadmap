@@ -177,7 +177,13 @@ export default function MilestoneBlock({ phase }: Props) {
                             {subgroup.text}
                           </div>
                           <ul className="ml-2 space-y-2">
-                            {subgroup.items.map((item) => {
+                            {[...subgroup.items].sort((a, b) => {
+                              const order = (i: typeof a) => {
+                                const s = getAdiriItemStatus(group, i);
+                                return s === 'completed' ? 0 : s === 'in_progress' ? 1 : 2;
+                              };
+                              return order(a) - order(b);
+                            }).map((item) => {
                               const itemStatus = getAdiriItemStatus(group, item);
                               const isInProgress = itemStatus === 'in_progress';
                               const shouldAnimate = isInProgress && !reduceMotion;
