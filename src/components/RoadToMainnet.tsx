@@ -67,9 +67,12 @@ export default function RoadToMainnet() {
 
     const applyFromHash = () => {
       const hash = window.location.hash.replace(/^#/, '');
-      const part = hash.split('-')[3]; // road to mainnet {phase} ...
-      if (part && isTabKey(part)) {
-        setTab((prev) => (prev === part ? prev : part));
+      // Check adiri-phase-3 first (more specific than adiri)
+      const newTab = hash.startsWith('road-to-mainnet-adiri-phase-3')
+        ? 'adiri-phase-3'
+        : (hash.split('-')[3] as TabKey | undefined);
+      if (newTab && isTabKey(newTab)) {
+        setTab((prev) => (prev === newTab ? prev : newTab));
       }
     };
 
@@ -355,7 +358,7 @@ export default function RoadToMainnet() {
                         : '/IMG/Loading.svg';
 
                       return (
-                        <li key={item.slug} className="flex items-start gap-3">
+                        <li key={item.slug} id={`road-to-mainnet-adiri-phase-3-${item.slug}`} className="scroll-mt-24 flex items-start gap-3">
                           {shouldAnimate ? (
                             <motion.img
                               src={iconSrc}
