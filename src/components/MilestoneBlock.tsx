@@ -169,6 +169,46 @@ export default function MilestoneBlock({ phase }: Props) {
                   >
                     View details
                   </a>
+                  {group.title === 'Phase 3' ? (
+                    <div className="mt-2 space-y-4">
+                      {ADIRI_PHASE_3_GROUPS.map((subgroup) => (
+                        <div key={subgroup.slug}>
+                          <div className="mb-1.5 text-xs font-bold uppercase tracking-[0.15em] text-white/60">
+                            {subgroup.text}
+                          </div>
+                          <ul className="ml-2 space-y-2">
+                            {subgroup.items.map((item) => {
+                              const itemStatus = getAdiriItemStatus(group, item);
+                              const isInProgress = itemStatus === 'in_progress';
+                              const shouldAnimate = isInProgress && !reduceMotion;
+                              return (
+                                <li key={item.slug} className="flex items-start gap-3">
+                                  {itemStatus === 'completed' ? (
+                                    <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />
+                                  ) : isInProgress ? (
+                                    <motion.img
+                                      src={ActivityIconUrl}
+                                      alt=""
+                                      className="mt-0.5 h-4 w-4 shrink-0"
+                                      animate={shouldAnimate ? { opacity: [1, 0.5, 1] } : undefined}
+                                      transition={shouldAnimate ? { duration: 1.2, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' } : undefined}
+                                    />
+                                  ) : (
+                                    <img src={LoadingIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0 motion-safe:animate-spin-slow" />
+                                  )}
+                                  {isInProgress ? (
+                                    <span className="text-sm font-semibold leading-6 text-white">{item.text}</span>
+                                  ) : (
+                                    <span className="text-sm leading-6 text-white/90">{item.text}</span>
+                                  )}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
                   <ul className="mt-2 space-y-2">
                     {sortedItems.map((item) => {
                       const itemStatus = getAdiriItemStatus(group, item);
@@ -234,6 +274,7 @@ export default function MilestoneBlock({ phase }: Props) {
                       );
                     })}
                   </ul>
+                  )}
                 </div>
               </details>
             );
