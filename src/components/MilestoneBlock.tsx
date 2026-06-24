@@ -163,12 +163,6 @@ export default function MilestoneBlock({ phase }: Props) {
                   </span>
                 </summary>
                 <div className="px-3 pb-3">
-                  <a
-                    href={group.href}
-                    className="inline-flex items-center gap-1 text-[11px] font-medium uppercase tracking-[0.12em] text-white/55 transition hover:text-white/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                  >
-                    View details
-                  </a>
                   {group.title === 'Phase 3' ? (
                     <div className="mt-2 space-y-4">
                       {ADIRI_PHASE_3_GROUPS.map((subgroup) => (
@@ -196,11 +190,13 @@ export default function MilestoneBlock({ phase }: Props) {
                                   ) : (
                                     <img src={LoadingIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0 motion-safe:animate-spin-slow" />
                                   )}
-                                  {isInProgress ? (
-                                    <span className="text-sm font-semibold leading-6 text-white">{item.text}</span>
-                                  ) : (
-                                    <span className="text-sm leading-6 text-white/90">{item.text}</span>
-                                  )}
+                                  <a
+                                    href={`#road-to-mainnet-adiri-phase-3-${item.slug}`}
+                                    className={`group/link inline-flex items-baseline gap-1 text-sm leading-6 hover:underline${isInProgress ? ' font-semibold text-white' : ' text-white/90'}`}
+                                  >
+                                    {item.text}
+                                    <span className="text-[10px] text-white/30 transition group-hover/link:text-white/60">↵</span>
+                                  </a>
                                 </li>
                               );
                             })}
@@ -271,9 +267,10 @@ export default function MilestoneBlock({ phase }: Props) {
                           {href ? (
                             <a
                               href={href}
-                              className={`text-sm leading-6 hover:underline${isInProgress ? ' font-semibold text-white' : ' text-white/90'}`}
+                              className={`group/link inline-flex items-baseline gap-1 text-sm leading-6 hover:underline${isInProgress ? ' font-semibold text-white' : ' text-white/90'}`}
                             >
                               {item.text}
+                              <span className="text-[10px] text-white/30 transition group-hover/link:text-white/60">↵</span>
                             </a>
                           ) : isInProgress ? (
                             <span className="text-sm font-semibold leading-6 text-white">{item.text}</span>
