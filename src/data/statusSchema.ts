@@ -25,7 +25,7 @@ export const statusSchema = z.object({
         key: z.enum(['devnet', 'testnet', 'mainnet']),
         title: z.string().min(1),
         status: phaseStatusSchema,
-        summary: z.string().min(1),
+        summary: z.string().min(1).optional(),
       })
     )
     .length(3),

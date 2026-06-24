@@ -13,14 +13,12 @@
     {
       "key": "testnet",
       "title": "Adiri",
-      "status": "in_progress",
-      "summary": ""
+      "status": "in_progress"
     },
     {
       "key": "mainnet",
       "title": "Mainnet",
-      "status": "upcoming",
-      "summary": ""
+      "status": "upcoming"
     }
   ],
   "security": {
