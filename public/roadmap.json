@@ -1,9 +1,57 @@
 [
   {
-    "number": 715,
-    "title": "Add `is_validator` field to `Peer` to separate committee trust from operator trust",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/715",
-    "updated_at": "2026-06-03T23:11:42Z"
+    "number": 777,
+    "title": "Over-eager peer banning on protocol-negotiation failure: downgrade `UnsupportedProtocols` penalty + guard against self-dial",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/777",
+    "updated_at": "2026-06-22T20:16:22Z"
+  },
+  {
+    "number": 776,
+    "title": "Deliver accepted gossip even when the relaying peer's BLS identity is   unresolved (drop is stronger than necessary)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/776",
+    "updated_at": "2026-06-22T21:03:49Z"
+  },
+  {
+    "number": 774,
+    "title": "Allow rotating a node's execution address without regenerating keys",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/774",
+    "updated_at": "2026-06-22T16:28:16Z"
+  },
+  {
+    "number": 765,
+    "title": "Incorporate the chain id into the libp2p protocol string.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/765",
+    "updated_at": "2026-06-18T03:40:31Z"
+  },
+  {
+    "number": 745,
+    "title": "network-libp2p: every dial failure is reported to the caller as the hardcoded string \"dial attempt timedout\", erasing the real `DialError` (wrong key, refused, firewall) during validator onboarding",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/745",
+    "updated_at": "2026-06-12T12:45:27Z"
+  },
+  {
+    "number": 739,
+    "title": "refactor(network): consolidate the bulk request-response paths onto hardened bidirectional streams, keep single-shot RPCs on request-response",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/739",
+    "updated_at": "2026-06-11T14:45:17Z"
+  },
+  {
+    "number": 738,
+    "title": "Nodes expose no operational metrics; `--metrics` is an accepted no-op flag",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/738",
+    "updated_at": "2026-06-11T02:44:48Z"
+  },
+  {
+    "number": 719,
+    "title": "Native (blst) BLS signature-verification precompile for on-chain consensus verification",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/719",
+    "updated_at": "2026-06-05T14:31:48Z"
+  },
+  {
+    "number": 717,
+    "title": "Dial Unkown BLS Keys - Validator Fallback",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/717",
+    "updated_at": "2026-06-10T16:00:11Z"
   },
   {
     "number": 714,
@@ -21,7 +69,7 @@
     "number": 712,
     "title": "Worker Gateway: stateless public-facing RPC proxy for worker endpoints",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/712",
-    "updated_at": "2026-06-03T21:00:27Z"
+    "updated_at": "2026-06-09T03:10:46Z"
   },
   {
     "number": 710,
@@ -34,12 +82,6 @@
     "title": "Accept late gossip from the previous committee within a configurable grace window",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/709",
     "updated_at": "2026-06-03T18:16:30Z"
-  },
-  {
-    "number": 708,
-    "title": "Network peer layer tracks only the current committee, mishandling epoch boundaries",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/708",
-    "updated_at": "2026-06-03T01:51:47Z"
   },
   {
     "number": 693,
