@@ -60,6 +60,17 @@ const APRIL_20_DEVELOPER_NOTES = [
 ];
 
 
+const JUNE_24_DEVELOPER_NOTES = [
+  'Team has expanded and closed over 35 pull requests this period, with strong momentum heading into the final stretch before mainnet.',
+  'Peer identity improvements are complete — the network now reliably distinguishes between protocol-verified validators and operator-designated trusted nodes across epoch boundaries.',
+  'Reduced friction for real-time syncing and snapshot synchronization, improving how nodes stay current after initial sync.',
+  'Monitoring infrastructure is live — node operators can opt in to share metrics and logs with a centralized component, helping the protocol team and operators identify and track network stability improvements.',
+  'Public RPC information is now published on node records, unblocking a public-facing community dashboard showing live network activity.',
+  'CLI tooling for developers is in progress; active meetings underway with ecosystem partners and major industry players interested in building on Telcoin Network.',
+  'Working closely with GSMA and MNO partners to define priority use cases ahead of mainnet — focused on intercarrier settlements, stablecoin remittances, and on-chain FX.',
+  'Engaged Spearbit for security audits — three audits in scope, kicking off as early as next week with staggered scheduling.',
+];
+
 const JUNE_08_DEVELOPER_NOTES = [
   'Networking work continues across several fronts as the validator set grows. There are two classes of nodes on the network: validator nodes that participate in committee voting, and observer nodes that track committee state.',
   'Historic state sync is performing well and relatively quick, validating the underlying system is working as intended. The team has identified friction points in how nodes stay current after their initial sync, and improvements are underway to ensure validators can smoothly transition into committees at epoch boundaries.',
@@ -126,6 +137,7 @@ const FEBRUARY_19_DEVELOPER_NOTES = [
 ];
 
 const developerNoteDates = [
+  '2026-06-24T00:00:00Z',
   '2026-06-08T00:00:00Z',
   '2026-05-27T00:00:00Z',
   '2026-05-07T00:00:00Z',
@@ -147,6 +159,11 @@ export const getLatestDeveloperNotesDate = () =>
   );
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
+  {
+    title: 'Developer Notes - Updated 24 June 2026',
+    date: '2026-06-24',
+    items: JUNE_24_DEVELOPER_NOTES,
+  },
   {
     title: 'Developer Notes - Updated 8 June 2026',
     date: '2026-06-08',

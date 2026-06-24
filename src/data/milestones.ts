@@ -6,6 +6,8 @@ export type Milestone = {
   status?: 'completed' | 'in_progress' | 'queued';
   /** hash-id friendly: e.g., "patch-public-vulnerabilities" */
   slug: string;
+  /** short explainer shown in Road to Mainnet detail view */
+  description?: string;
   /** shown only in Road to mainnet detail tiles */
   details?: string[];
 };

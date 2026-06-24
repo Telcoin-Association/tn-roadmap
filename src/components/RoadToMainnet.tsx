@@ -443,6 +443,9 @@ export default function RoadToMainnet() {
                 return (
                   <li key={m.slug} id={roadToMainnetId(tab, m.slug)} className="scroll-mt-24">
                     <div className="text-sm font-semibold text-white/90">{m.text}</div>
+                    {m.description && (
+                      <p className="mt-1 text-sm text-white/65">{m.description}</p>
+                    )}
                     {m.details && m.details.length > 0 && (
                       <ul className="mt-2 space-y-3">
                           {m.details.map((detail, index) => {
@@ -499,6 +502,21 @@ export default function RoadToMainnet() {
               })}
             </ul>
           ) : null}
+        </div>
+        {/* Legend */}
+        <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-white/10 pt-4 text-xs text-white/50">
+          <span className="flex items-center gap-1.5">
+            <img src="/IMG/Checkmark.svg" alt="" className="h-3.5 w-3.5" />
+            Completed
+          </span>
+          <span className="flex items-center gap-1.5">
+            <img src="/IMG/activity.svg" alt="" className="h-3.5 w-3.5" />
+            In progress
+          </span>
+          <span className="flex items-center gap-1.5">
+            <img src="/IMG/Loading.svg" alt="" className="h-3.5 w-3.5" />
+            Queued
+          </span>
         </div>
       </div>
     </section>
