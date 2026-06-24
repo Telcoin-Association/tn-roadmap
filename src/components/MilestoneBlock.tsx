@@ -127,10 +127,7 @@ export default function MilestoneBlock({ phase }: Props) {
   if (phase === 'adiri') {
     return (
       <div data-phase-card-milestones="">
-        <div className="flex w-full items-center rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90">
-          <span>Milestones</span>
-        </div>
-        <div className="mt-3 space-y-4">
+        <div className="space-y-4">
           {ADIRI_PHASE_GROUPS.map((group) => {
             const isOpenByDefault = group.title === 'Phase 3';
             const sortedItems = [...group.items].sort((a, b) => {
@@ -294,10 +291,7 @@ export default function MilestoneBlock({ phase }: Props) {
   if (phase === 'mainnet') {
     return (
       <div data-phase-card-milestones="">
-        <div className="flex w-full items-center rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90">
-          <span>Milestones</span>
-        </div>
-        <details className="group/section mt-3 rounded-lg border border-white/10 bg-white/[0.03]">
+        <details className="group/section rounded-lg border border-white/10 bg-white/[0.03]">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-3 py-2 marker:content-['']">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/80">Upcoming</span>
             <span
@@ -333,13 +327,7 @@ export default function MilestoneBlock({ phase }: Props) {
 
   return (
     <div data-phase-card-milestones="">
-      {/* Mini header pill */}
-      <div className="flex w-full items-center rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90">
-        <span>Milestones</span>
-      </div>
-
-      {/* Always-open list */}
-      <ul className="mt-3 space-y-2">
+      <ul className="space-y-2">
         {sortedItems.map((m, i) => {
           const targetId = roadToMainnetId(phase, m.slug);
           const href = `#${targetId}`;

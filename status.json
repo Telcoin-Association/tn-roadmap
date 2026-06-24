@@ -14,13 +14,13 @@
       "key": "testnet",
       "title": "Adiri",
       "status": "in_progress",
-      "summary": "Preparing the Adiri public testnet so partners and MNO validators can exercise the network in a live setting."
+      "summary": ""
     },
     {
       "key": "mainnet",
       "title": "Mainnet",
       "status": "upcoming",
-      "summary": "Mainnet launch once Adiri is stable and the final audits and security competition are complete."
+      "summary": ""
     }
   ],
   "security": {
