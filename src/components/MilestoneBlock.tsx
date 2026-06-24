@@ -177,13 +177,7 @@ export default function MilestoneBlock({ phase }: Props) {
                             {subgroup.text}
                           </div>
                           <ul className="ml-2 space-y-2">
-                            {[...subgroup.items].sort((a, b) => {
-                              const order = (i: typeof a) => {
-                                const s = getAdiriItemStatus(group, i);
-                                return s === 'completed' ? 0 : s === 'in_progress' ? 1 : 2;
-                              };
-                              return order(a) - order(b);
-                            }).map((item) => {
+                            {subgroup.items.map((item) => {
                               const itemStatus = getAdiriItemStatus(group, item);
                               const isInProgress = itemStatus === 'in_progress';
                               const shouldAnimate = isInProgress && !reduceMotion;
@@ -202,12 +196,11 @@ export default function MilestoneBlock({ phase }: Props) {
                                   ) : (
                                     <img src={LoadingIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0 motion-safe:animate-spin-slow" />
                                   )}
-                                  <a
-                                    href={`#road-to-mainnet-adiri-phase-3-${item.slug}`}
-                                    className={`text-sm leading-6 hover:underline${isInProgress ? ' font-semibold text-white' : ' text-white/90'}`}
-                                  >
-                                    {item.text}
-                                  </a>
+                                  {isInProgress ? (
+                                    <span className="text-sm font-semibold leading-6 text-white">{item.text}</span>
+                                  ) : (
+                                    <span className="text-sm leading-6 text-white/90">{item.text}</span>
+                                  )}
                                 </li>
                               );
                             })}
