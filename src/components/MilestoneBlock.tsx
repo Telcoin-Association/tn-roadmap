@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 
 import type { PhaseKey } from '@/data/milestones';
-import { ADIRI_PHASE_3_ITEMS, MILESTONES } from '@/data/milestones';
+import { ADIRI_PHASE_3_GROUPS, MILESTONES } from '@/data/milestones';
 import { roadToMainnetId } from '@/utils/ids';
 import CheckIconUrl from '/IMG/Checkmark.svg?url';
 import ActivityIconUrl from '/IMG/activity.svg?url';
@@ -24,7 +24,7 @@ type AdiriPhaseGroup = {
 };
 
 const ACTIVE_PHASE_3_SLUGS = new Set(
-  ADIRI_PHASE_3_ITEMS.filter(({ inProgress }) => inProgress).map(({ slug }) => slug),
+  ADIRI_PHASE_3_GROUPS.flatMap(({ items }) => items.filter(({ inProgress }) => inProgress).map(({ slug }) => slug)),
 );
 
 const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
@@ -69,7 +69,7 @@ const ADIRI_PHASE_GROUPS: AdiriPhaseGroup[] = [
     title: 'Phase 3',
     icon: 'loading',
     href: '#road-to-mainnet-adiri-phase-3-tab',
-    items: ADIRI_PHASE_3_ITEMS.map(({ text, slug, inProgress, done }) => ({ text, slug, inProgress, done })),
+    items: ADIRI_PHASE_3_GROUPS.flatMap(({ items }) => items.map(({ text, slug, inProgress, done }) => ({ text, slug, inProgress, done }))),
   },
 ];
 
