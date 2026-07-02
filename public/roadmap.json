@@ -1,9 +1,99 @@
 [
   {
-    "number": 715,
-    "title": "Add `is_validator` field to `Peer` to separate committee trust from operator trust",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/715",
-    "updated_at": "2026-06-03T23:11:42Z"
+    "number": 822,
+    "title": "Review of PR #811 (MissingCertificates sync cutover): out-of-bounds panic (High) plus 5 findings",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/822",
+    "updated_at": "2026-07-01T18:33:44Z"
+  },
+  {
+    "number": 821,
+    "title": "main does not compile - stale .is_some() on an unwrapped u64 in request_epoch_pack_inner (regression from #810)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/821",
+    "updated_at": "2026-07-01T15:46:35Z"
+  },
+  {
+    "number": 819,
+    "title": "network-libp2p: the gossip Reject path Fatal-bans the relaying peer for author-attributable faults (the #801/#785 fix never reached it), and author-content faults caught by the worker's deep validation now penalize no one",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/819",
+    "updated_at": "2026-07-01T03:49:55Z"
+  },
+  {
+    "number": 809,
+    "title": "`remove_validator_ip` over-decrements the banned-peer `total` (per IP), under-pruning the ban set",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/809",
+    "updated_at": "2026-06-30T02:37:46Z"
+  },
+  {
+    "number": 805,
+    "title": "Ensure rewards addresses can't break protocol (ex - smart contract reverts on receive)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/805",
+    "updated_at": "2026-06-29T17:31:06Z"
+  },
+  {
+    "number": 804,
+    "title": "refactor: Update Non-Validator Gossip for Transaction Submission",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/804",
+    "updated_at": "2026-06-29T16:50:33Z"
+  },
+  {
+    "number": 803,
+    "title": "`expect(\"only validators can vote\")` panics on a non-committee node",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/803",
+    "updated_at": "2026-06-29T16:48:28Z"
+  },
+  {
+    "number": 795,
+    "title": "Base-fee adjustment seam is a no-op",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/795",
+    "updated_at": "2026-06-26T23:39:54Z"
+  },
+  {
+    "number": 793,
+    "title": "Batch validator holds a shared container for basefees",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/793",
+    "updated_at": "2026-06-26T23:23:47Z"
+  },
+  {
+    "number": 789,
+    "title": "[Security][Resiliency] Subtraction underflow on attacker-controlled header round (`header.round() - 1`) in `check_for_missing_parents`",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/789",
+    "updated_at": "2026-06-26T19:43:57Z"
+  },
+  {
+    "number": 788,
+    "title": "[Security][Blocker] Unbounded growth of `consensus_certs` map → one Byzantine committee member OOMs every honest node",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/788",
+    "updated_at": "2026-06-26T19:42:59Z"
+  },
+  {
+    "number": 782,
+    "title": "Add the bytes needed to encode the consensus output to the consensus result gossip.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/782",
+    "updated_at": "2026-06-24T20:42:53Z"
+  },
+  {
+    "number": 739,
+    "title": "refactor(network): consolidate the bulk request-response paths onto hardened bidirectional streams, keep single-shot RPCs on request-response",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/739",
+    "updated_at": "2026-06-11T14:45:17Z"
+  },
+  {
+    "number": 738,
+    "title": "Nodes expose no operational metrics; `--metrics` is an accepted no-op flag",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/738",
+    "updated_at": "2026-06-11T02:44:48Z"
+  },
+  {
+    "number": 719,
+    "title": "Native (blst) BLS signature-verification precompile for on-chain consensus verification",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/719",
+    "updated_at": "2026-06-05T14:31:48Z"
+  },
+  {
+    "number": 717,
+    "title": "Dial Unkown BLS Keys - Validator Fallback",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/717",
+    "updated_at": "2026-06-10T16:00:11Z"
   },
   {
     "number": 714,
@@ -12,16 +102,10 @@
     "updated_at": "2026-06-03T23:09:23Z"
   },
   {
-    "number": 713,
-    "title": "Consensus gossip can multiple count the same validator.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/713",
-    "updated_at": "2026-06-03T21:41:28Z"
-  },
-  {
     "number": 712,
     "title": "Worker Gateway: stateless public-facing RPC proxy for worker endpoints",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/712",
-    "updated_at": "2026-06-03T21:00:27Z"
+    "updated_at": "2026-06-09T03:10:46Z"
   },
   {
     "number": 710,
@@ -34,12 +118,6 @@
     "title": "Accept late gossip from the previous committee within a configurable grace window",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/709",
     "updated_at": "2026-06-03T18:16:30Z"
-  },
-  {
-    "number": 708,
-    "title": "Network peer layer tracks only the current committee, mishandling epoch boundaries",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/708",
-    "updated_at": "2026-06-03T01:51:47Z"
   },
   {
     "number": 693,
@@ -70,12 +148,6 @@
     "title": "Refactor general consensus side storage.",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/622",
     "updated_at": "2026-05-21T18:24:34Z"
-  },
-  {
-    "number": 618,
-    "title": "Add Execution Extensions (ExEx) plugin system",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/618",
-    "updated_at": "2026-04-07T18:25:14Z"
   },
   {
     "number": 614,
