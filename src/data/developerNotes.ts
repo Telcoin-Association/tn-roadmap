@@ -60,6 +60,17 @@ const APRIL_20_DEVELOPER_NOTES = [
 ];
 
 
+const JULY_03_DEVELOPER_NOTES = [
+  'ExEx feature shipped — dApps can now build directly on observer nodes, improving development flexibility and reducing integration friction.',
+  'Protocol identity handshakes complete — primary/worker cross-network contamination is fully prevented.',
+  'Move BLS Staking Library to EVM Precompile is done, reducing staking contract complexity from ~500 lines of Solidity to 7 lines while reusing code already in audit scope.',
+  'Compressed BLS pubkey usage is now standardized across all validator staking actions, hardening the staking contract interface.',
+  'Worker Gateway work is underway to reduce the DoS attack surface for the execution layer.',
+  'Consensus Registry Security Assessment is now in progress with external security partners.',
+  'Two new Security & Mainnet Readiness items added: finalizing native token strategy pending TEL3 TELIP outcome, and dynamic basefee adjustments at epoch boundaries.',
+  'Bidirectional streaming for canonical tip sync is in progress, allowing nodes to stay continuously synced without relying on polling.',
+];
+
 const JUNE_24_DEVELOPER_NOTES = [
   'Team has expanded and closed over 35 pull requests this period, with strong momentum heading into the final stretch before mainnet.',
   'Peer identity improvements are complete — the network now reliably distinguishes between protocol-verified validators and operator-designated trusted nodes across epoch boundaries.',
@@ -137,6 +148,7 @@ const FEBRUARY_19_DEVELOPER_NOTES = [
 ];
 
 const developerNoteDates = [
+  '2026-07-03T00:00:00Z',
   '2026-06-24T00:00:00Z',
   '2026-06-08T00:00:00Z',
   '2026-05-27T00:00:00Z',
@@ -159,6 +171,11 @@ export const getLatestDeveloperNotesDate = () =>
   );
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
+  {
+    title: 'Developer Notes - Updated 3 July 2026',
+    date: '2026-07-03',
+    items: JULY_03_DEVELOPER_NOTES,
+  },
   {
     title: 'Developer Notes - Updated 24 June 2026',
     date: '2026-06-24',

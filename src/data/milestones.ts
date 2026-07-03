@@ -82,7 +82,7 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
       {
         text: 'Support for dApps to Build on Observer Nodes Directly (ExEx Feature)',
         slug: 'support-for-dapps-to-build-on-observer-nodes-directly-exex-feature',
-        inProgress: true,
+        done: true,
         description:
           'Enable dApps to build directly on observer nodes via the ExEx feature, improving development flexibility and reducing integration friction.',
       },
@@ -151,9 +151,16 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
       {
         text: 'Enhance Protocol Identity Handshakes',
         slug: 'enhance-protocol-identity-handshakes',
-        inProgress: true,
+        done: true,
         description:
           'Enhancing protocol identity handshakes to prevent primary/worker cross-network contamination.',
+      },
+      {
+        text: 'Bidirectional Streaming for Staying Synced at Canonical Tip',
+        slug: 'bidirectional-streaming-canonical-tip',
+        inProgress: true,
+        description:
+          'Implementing bidirectional streaming so nodes can continuously stay synced at the canonical tip without relying on polling or one-way pushes.',
       },
     ],
   },
@@ -171,14 +178,30 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
       {
         text: 'Move BLS Staking Library to EVM Precompile',
         slug: 'bls-staking-library-evm-precompile',
+        done: true,
         description:
           'Moving the BLS staking library from approximately 500 lines of gas-consuming Solidity down to just 7 lines of code as an EVM pre-compile on Telcoin Network.',
       },
       {
+        text: 'Standardize Compressed BLS Pubkey Usage for All Validator Staking Actions',
+        slug: 'standardize-compressed-bls-pubkey-staking',
+        done: true,
+        description:
+          'Ensuring all validator staking actions consistently use compressed BLS public keys, reducing ambiguity and hardening the staking contract interface.',
+      },
+      {
         text: 'Worker Gateway to Reduce DoS Attack Surface',
         slug: 'worker-gateway-dos-reduction',
+        inProgress: true,
         description:
           'Worker gateway to reduce DoS attack surface.',
+      },
+      {
+        text: 'Consensus Registry Security Assessment',
+        slug: 'consensus-registry-security-assessment',
+        inProgress: true,
+        description:
+          'Scheduling and completing the consensus registry security assessment with external security partners.',
       },
       {
         text: 'Security Hardening of Epoch Record Validation',
@@ -187,16 +210,24 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
           'Security hardening of epoch record validation for syncing nodes.',
       },
       {
-        text: 'Consensus Registry Security Assessment',
-        slug: 'consensus-registry-security-assessment',
-        description:
-          'Scheduling and completing the consensus registry security assessment with external security partners.',
-      },
-      {
         text: 'Execution Engine Security Assessment',
         slug: 'execution-engine-security-assessment',
         description:
           'Scheduling and completing the execution engine security assessment.',
+      },
+      {
+        text: 'Finalize Native Token Strategy Pending TEL3 TELIP Outcome',
+        slug: 'finalize-native-token-strategy-tel3-telip',
+        inProgress: true,
+        description:
+          'Finalizing the native token strategy for Telcoin Network mainnet, contingent on the outcome of the TEL3 TELIP governance process.',
+      },
+      {
+        text: 'Dynamic Basefee Adjustments at Epoch Boundaries',
+        slug: 'dynamic-basefee-epoch-boundaries',
+        inProgress: true,
+        description:
+          'Implementing dynamic basefee adjustments that occur at epoch boundaries, enabling more responsive fee market behaviour as network load changes.',
       },
     ],
   },
