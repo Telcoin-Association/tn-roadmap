@@ -4,6 +4,18 @@ export type DeveloperNoteSection = {
   items: string[];
 };
 
+const JULY_31_DEVELOPER_NOTES = [
+  "The past two weeks represent the most productive engineering window in the project's history: 85 pull requests and 79 issues closed across the protocol and smart contract codebases.",
+  'First independent security audit results are in from Cantina. The review covered the staking and consensus registry contracts and found no critical findings and no high severity findings. In total there were 15 findings — three mediums, 11 lows, and one informational — all of which are now closed. Twelve were resolved with patched code; three were reviewed, accepted, and will be documented with reasoning in the published report.',
+  'The medium findings all related to edge cases around validator penalty and reward logic. These improvements ultimately strengthen protections for the operators who secure the network. The staking and consensus registry contracts are now frozen and ready for mainnet.',
+  'Beyond the audit, the staking contract received additional safety improvements: delegation now carries a deadline and can be revoked, stake can be topped up after a penalty, and stake setting changes now take effect at the end of each epoch rather than requiring a manual push — reducing operational overhead and the trust required from validators.',
+  'Approximately 20 node reliability and consistency hardening items were closed in a systematic sweep. Public endpoints were scrutinized and hardened, including the worker gateway foundation which now includes rate limits, size caps, transaction screening, metrics, and a dashboard ready to scale under load.',
+  'Snapshot syncing support is now in place, allowing new nodes to join the network immediately rather than reprocessing all data from genesis. Snapshots are written every epoch for participating nodes, dramatically reducing onboarding time for incoming validators.',
+  'Metrics visibility was significantly improved, including round progressions, certificate formations, and syncing distances — giving the team and operators clearer insight into real-time network state.',
+  'The execution codebase was reorganized in preparation for external security auditors: modules are smaller and thoroughly documented, duplicate code consolidated, legacy protocol paths deleted, and the test suite is meaningfully faster with reduced timing-based flakiness.',
+  'AI-assisted security scanning continues to evolve with multi-agent sub-agents running multiple custom query angles. Cantina, the primary security partner, has access to member-only AI models including Mythos, which were applied to the TE3 staking audits. The final audit report is being prepared for publication.',
+];
+
 const DECEMBER_DEVELOPER_NOTES = [
   'Deployed latest version of protocol (devnet)',
   'Identified some issues to address (syncing, forking, DB writing)',
@@ -148,6 +160,7 @@ const FEBRUARY_19_DEVELOPER_NOTES = [
 ];
 
 const developerNoteDates = [
+  '2026-07-31T00:00:00Z',
   '2026-07-03T00:00:00Z',
   '2026-06-24T00:00:00Z',
   '2026-06-08T00:00:00Z',
@@ -171,6 +184,11 @@ export const getLatestDeveloperNotesDate = () =>
   );
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
+  {
+    title: 'Developer Notes - Updated 31 July 2026',
+    date: '2026-07-31',
+    items: JULY_31_DEVELOPER_NOTES,
+  },
   {
     title: 'Developer Notes - Updated 3 July 2026',
     date: '2026-07-03',
