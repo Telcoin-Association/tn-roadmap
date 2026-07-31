@@ -1,0 +1,740 @@
+[
+  {
+    "number": 1012,
+    "title": "refactor(engine): split the epoch boundary into three system calls",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1012",
+    "closed_at": "2026-07-30T19:11:34Z"
+  },
+  {
+    "number": 1070,
+    "title": "feat(engine): bind the WorkerConfigs runtime-update ABI",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1070",
+    "closed_at": "2026-07-30T17:56:55Z"
+  },
+  {
+    "number": 909,
+    "title": "feat(rpc): thread deadline through delegationDigest binding",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/909",
+    "closed_at": "2026-07-30T17:56:51Z"
+  },
+  {
+    "number": 1071,
+    "title": "fix(node): import PrimaryNode in close_epoch",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1071",
+    "closed_at": "2026-07-29T19:19:16Z"
+  },
+  {
+    "number": 1069,
+    "title": "Tn reth reorg",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1069",
+    "closed_at": "2026-07-29T17:03:54Z"
+  },
+  {
+    "number": 973,
+    "title": "Add a cli option and hook up the code to export exec state at the end of every epoch when enabled.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/973",
+    "closed_at": "2026-07-28T18:10:15Z"
+  },
+  {
+    "number": 1056,
+    "title": "tn-reth: count transactions dropped during block building",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1056",
+    "closed_at": "2026-07-28T17:20:28Z"
+  },
+  {
+    "number": 1053,
+    "title": "tn-reth: seed reth's txpool defaults so an explicit --txpool.max-account-slots 16 is honored",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1053",
+    "closed_at": "2026-07-28T17:20:01Z"
+  },
+  {
+    "number": 1052,
+    "title": "tn-reth: make TNExecution's never-driven validator impls fail loudly (#1048)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1052",
+    "closed_at": "2026-07-28T17:19:08Z"
+  },
+  {
+    "number": 1045,
+    "title": "engine: reject undersized committee before building concludeEpoch calldata",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1045",
+    "closed_at": "2026-07-28T17:18:07Z"
+  },
+  {
+    "number": 1039,
+    "title": "test(metrics): pin the falling-behind alarm trio and certificates_formed_total by  name",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1039",
+    "closed_at": "2026-07-28T17:17:42Z"
+  },
+  {
+    "number": 1035,
+    "title": "feat(worker): surface a stalled batch fetch with a rate-limited warning",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1035",
+    "closed_at": "2026-07-28T17:16:49Z"
+  },
+  {
+    "number": 1033,
+    "title": "docs(engine): explain why reward accounting is advanced before finalization",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1033",
+    "closed_at": "2026-07-28T17:16:30Z"
+  },
+  {
+    "number": 1029,
+    "title": "network-libp2p: cap concurrent established connections per peer (#1010)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1029",
+    "closed_at": "2026-07-28T17:16:15Z"
+  },
+  {
+    "number": 1026,
+    "title": "Drop the debug_assert shadowing the close-time base-fee identity guard",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1026",
+    "closed_at": "2026-07-27T22:29:33Z"
+  },
+  {
+    "number": 1022,
+    "title": "fix(engine): Hard-error on undecodable BLS keys in the pinned committee read",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1022",
+    "closed_at": "2026-07-27T21:52:25Z"
+  },
+  {
+    "number": 1021,
+    "title": "fix(epoch): write and persist the epoch record on all three epoch-close arms",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1021",
+    "closed_at": "2026-07-27T21:36:59Z"
+  },
+  {
+    "number": 949,
+    "title": "Snapshot support",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/949",
+    "closed_at": "2026-07-27T20:54:09Z"
+  },
+  {
+    "number": 769,
+    "title": "Patch p2p bcs decode missing byte",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/769",
+    "closed_at": "2026-07-27T20:53:49Z"
+  },
+  {
+    "number": 767,
+    "title": "patch for epoch pack on startup after v0.11.0-adiri upgrade",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/767",
+    "closed_at": "2026-07-27T20:52:52Z"
+  },
+  {
+    "number": 1046,
+    "title": "tn-reth: saturate reward_beneficiary fee credits to match reimburse_caller",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1046",
+    "closed_at": "2026-07-26T09:12:15Z"
+  },
+  {
+    "number": 988,
+    "title": "exex: preserve FinishedHeight reporting on the replay_and_subscribe path",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/988",
+    "closed_at": "2026-07-25T07:07:12Z"
+  },
+  {
+    "number": 969,
+    "title": "Add reth code to export to or import from new exec state pack.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/969",
+    "closed_at": "2026-07-24T21:48:34Z"
+  },
+  {
+    "number": 967,
+    "title": "Add a pack file to store execution state at a specific block (the state tree).",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/967",
+    "closed_at": "2026-07-24T19:17:58Z"
+  },
+  {
+    "number": 1013,
+    "title": "fix(network-libp2p): saturate KadStore counter decrements (#1005)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1013",
+    "closed_at": "2026-07-24T16:46:00Z"
+  },
+  {
+    "number": 966,
+    "title": "Makefile devnet build",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/966",
+    "closed_at": "2026-07-24T14:19:15Z"
+  },
+  {
+    "number": 972,
+    "title": "feat(worker-gateway): observability and deployment (#712)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/972",
+    "closed_at": "2026-07-23T21:22:26Z"
+  },
+  {
+    "number": 1023,
+    "title": "fix(network-libp2p): bound the temporarily-banned peer cache with a size cap",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1023",
+    "closed_at": "2026-07-23T21:21:18Z"
+  },
+  {
+    "number": 1014,
+    "title": "fix(config): validate ScoreConfig at startup to prevent a late clamp panic",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1014",
+    "closed_at": "2026-07-23T21:17:03Z"
+  },
+  {
+    "number": 1011,
+    "title": "fix(network-libp2p): ban-gate inbound Kademlia AddProvider at PutRecord parity",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1011",
+    "closed_at": "2026-07-23T21:13:25Z"
+  },
+  {
+    "number": 1009,
+    "title": "Collapse the redundant warm-up epoch in the mid-epoch-restart eject test",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1009",
+    "closed_at": "2026-07-23T21:12:02Z"
+  },
+  {
+    "number": 1004,
+    "title": "fix(network-kad): tolerate undecodable kad provider rows instead of panicking (#999)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1004",
+    "closed_at": "2026-07-23T21:10:18Z"
+  },
+  {
+    "number": 1002,
+    "title": "fix(network-libp2p): carry worse reputation across anonymous-inbound merge (#998)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1002",
+    "closed_at": "2026-07-23T21:09:57Z"
+  },
+  {
+    "number": 1000,
+    "title": "consensus/executor: fail-stop the graceful-shutdown drain on a batch-fetch Err",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/1000",
+    "closed_at": "2026-07-23T21:09:28Z"
+  },
+  {
+    "number": 997,
+    "title": "exex: bound ExEx manager stream-merge starvation with a round-robin schedule",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/997",
+    "closed_at": "2026-07-23T21:08:53Z"
+  },
+  {
+    "number": 995,
+    "title": "fix(engine): roll back the in-memory canonical advance when a consensus output fails mid-batch",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/995",
+    "closed_at": "2026-07-23T21:08:26Z"
+  },
+  {
+    "number": 994,
+    "title": "fix(config): reject consensus params below their operational floors (#954)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/994",
+    "closed_at": "2026-07-23T21:01:31Z"
+  },
+  {
+    "number": 990,
+    "title": "test(e2e): speed up the three heaviest ignored tests (#978)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/990",
+    "closed_at": "2026-07-23T20:05:57Z"
+  },
+  {
+    "number": 996,
+    "title": "Guard ExEx manager against empty canonical chains (#991)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/996",
+    "closed_at": "2026-07-23T20:03:47Z"
+  },
+  {
+    "number": 977,
+    "title": "refactor(storage): converge persist and persist_durable into one durable barrier (#962)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/977",
+    "closed_at": "2026-07-23T19:55:14Z"
+  },
+  {
+    "number": 970,
+    "title": "feat(network): delete frozen legacy request-response variants, bump req-res to /0.0.2 (739)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/970",
+    "closed_at": "2026-07-23T19:51:58Z"
+  },
+  {
+    "number": 987,
+    "title": "fix(execution): commit the finalized/safe markers atomically",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/987",
+    "closed_at": "2026-07-23T19:35:47Z"
+  },
+  {
+    "number": 980,
+    "title": "test: build the e2e node binary under an opt-level-2 profile",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/980",
+    "closed_at": "2026-07-23T18:07:10Z"
+  },
+  {
+    "number": 974,
+    "title": "network-libp2p: box the oversized NetworkEvent::Gossip payload (#881)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/974",
+    "closed_at": "2026-07-23T13:29:39Z"
+  },
+  {
+    "number": 971,
+    "title": "Fast-fail unsatisfiable certificate fetch (#866)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/971",
+    "closed_at": "2026-07-23T13:29:03Z"
+  },
+  {
+    "number": 952,
+    "title": "Pin epoch-entry reads to the previous epoch's closing block",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/952",
+    "closed_at": "2026-07-22T17:08:56Z"
+  },
+  {
+    "number": 964,
+    "title": "fix(consensus): close the two anti-equivocation guards #940 left non-durable (#963)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/964",
+    "closed_at": "2026-07-22T16:44:57Z"
+  },
+  {
+    "number": 965,
+    "title": "test(storage): open the epoch data file, not the directory, in test_consensus_pack",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/965",
+    "closed_at": "2026-07-22T02:58:43Z"
+  },
+  {
+    "number": 946,
+    "title": "test: lower e2e round cadence and expose max_batch_delay genesis flag",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/946",
+    "closed_at": "2026-07-20T20:55:29Z"
+  },
+  {
+    "number": 939,
+    "title": "feat(network): freeze and delete the legacy /tn-stream bulk path (739, step 9c)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/939",
+    "closed_at": "2026-07-20T20:54:21Z"
+  },
+  {
+    "number": 937,
+    "title": "fix(epoch): anchor recovered epoch records to the locally-trusted committee",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/937",
+    "closed_at": "2026-07-20T20:53:36Z"
+  },
+  {
+    "number": 936,
+    "title": "test(e2e): floor the epoch-boundary cert deadline above the new-validator quorum window",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/936",
+    "closed_at": "2026-07-20T20:52:21Z"
+  },
+  {
+    "number": 927,
+    "title": "fix: restrict consensus-output and epoch-vote gossip to committee publishers (#912)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/927",
+    "closed_at": "2026-07-20T20:51:54Z"
+  },
+  {
+    "number": 951,
+    "title": "Finish the wait_until migration for eject/epoch e2e helpers",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/951",
+    "closed_at": "2026-07-20T20:46:54Z"
+  },
+  {
+    "number": 953,
+    "title": "fix: floor the parent-round GC key in insert_pending to avoid a round-0 underflow",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/953",
+    "closed_at": "2026-07-20T09:00:23Z"
+  },
+  {
+    "number": 947,
+    "title": "test(node): heal the finalized marker before mid-run accumulator catchup",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/947",
+    "closed_at": "2026-07-20T08:58:12Z"
+  },
+  {
+    "number": 940,
+    "title": "fix(consensus): make anti-equivocation records durable before externalizing",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/940",
+    "closed_at": "2026-07-19T18:49:19Z"
+  },
+  {
+    "number": 944,
+    "title": "fix(worker): back off batch fetch retries with no connected worker peers (#865)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/944",
+    "closed_at": "2026-07-19T14:58:58Z"
+  },
+  {
+    "number": 945,
+    "title": "fix(node): keep the healthcheck accept loop alive across transient accept errors",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/945",
+    "closed_at": "2026-07-19T13:29:23Z"
+  },
+  {
+    "number": 938,
+    "title": "fix(worker): validate gossip-prefetched batches before caching (#933)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/938",
+    "closed_at": "2026-07-19T13:27:13Z"
+  },
+  {
+    "number": 948,
+    "title": "build(deps): gate rocksdb out of the default build (closes #941)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/948",
+    "closed_at": "2026-07-19T08:31:37Z"
+  },
+  {
+    "number": 932,
+    "title": "Use new pack format to avoid issues with a malicious peer.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/932",
+    "closed_at": "2026-07-17T23:07:49Z"
+  },
+  {
+    "number": 882,
+    "title": "fix(state-sync): request missing range from peers on observer catch-up stall",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/882",
+    "closed_at": "2026-07-17T17:58:29Z"
+  },
+  {
+    "number": 929,
+    "title": "fix(consensus/network): gate gossip cheap-first and set explicit per-topic publisher policy (#898)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/929",
+    "closed_at": "2026-07-17T17:58:06Z"
+  },
+  {
+    "number": 908,
+    "title": "feat(worker-gateway): edge protections — rate limits, size limit, tx screening (#712)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/908",
+    "closed_at": "2026-07-17T17:56:40Z"
+  },
+  {
+    "number": 902,
+    "title": "fix(consensus): make the consensus-output batch-count bound symmetric across writer and reader",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/902",
+    "closed_at": "2026-07-17T17:16:05Z"
+  },
+  {
+    "number": 925,
+    "title": "backpressure when engine channel full instead of dropping output",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/925",
+    "closed_at": "2026-07-17T14:57:00Z"
+  },
+  {
+    "number": 922,
+    "title": "Tolerate mid-epoch validator ejection in epoch records",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/922",
+    "closed_at": "2026-07-17T14:56:37Z"
+  },
+  {
+    "number": 817,
+    "title": "Add the pack bytes number to gossiped consensus results.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/817",
+    "closed_at": "2026-07-16T17:56:16Z"
+  },
+  {
+    "number": 906,
+    "title": "Harden known peers restore",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/906",
+    "closed_at": "2026-07-16T15:28:52Z"
+  },
+  {
+    "number": 913,
+    "title": "build/dev profile compile speedups",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/913",
+    "closed_at": "2026-07-16T04:36:36Z"
+  },
+  {
+    "number": 920,
+    "title": "test(e2e): cut base-fee e2e runtime via a decoupled epoch-duration cut (#907)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/920",
+    "closed_at": "2026-07-15T22:46:07Z"
+  },
+  {
+    "number": 893,
+    "title": "Save consensus in pack files with the header then the batches instead of batches then the header.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/893",
+    "closed_at": "2026-07-15T21:48:45Z"
+  },
+  {
+    "number": 904,
+    "title": "Use validator RPC from the current committee",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/904",
+    "closed_at": "2026-07-15T21:25:03Z"
+  },
+  {
+    "number": 876,
+    "title": "patch: storage memory management",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/876",
+    "closed_at": "2026-07-15T19:05:51Z"
+  },
+  {
+    "number": 923,
+    "title": "test: replace fixed real-time sleeps with condition polling (shared wait_until)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/923",
+    "closed_at": "2026-07-15T17:54:30Z"
+  },
+  {
+    "number": 928,
+    "title": "test: reuse the prebuilt e2e node binary on every path, not only make (#926)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/928",
+    "closed_at": "2026-07-15T16:17:09Z"
+  },
+  {
+    "number": 820,
+    "title": "refactor: push non-validator txns to committee via RPC instead of gossip",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/820",
+    "closed_at": "2026-07-15T00:30:09Z"
+  },
+  {
+    "number": 895,
+    "title": "cut the primary consensus-output path fully over to the typed sync protocol (739)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/895",
+    "closed_at": "2026-07-14T15:44:30Z"
+  },
+  {
+    "number": 889,
+    "title": "fix: charge signed gossip content faults to the author, not the relayer",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/889",
+    "closed_at": "2026-07-14T13:50:38Z"
+  },
+  {
+    "number": 886,
+    "title": "perf(primary): resolve remaining #822 review findings (missing-certs sync)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/886",
+    "closed_at": "2026-07-14T13:50:00Z"
+  },
+  {
+    "number": 899,
+    "title": "test: cut targeted suite runtime by memoizing fixtures and sharing crypto contexts",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/899",
+    "closed_at": "2026-07-14T01:39:43Z"
+  },
+  {
+    "number": 892,
+    "title": "fix: enforce the gossip size bound as a protocol constant on both paths (#872)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/892",
+    "closed_at": "2026-07-13T21:05:08Z"
+  },
+  {
+    "number": 885,
+    "title": "test: fix faucet e2e ABI + precompile drift via generated bindings (#863)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/885",
+    "closed_at": "2026-07-13T20:57:45Z"
+  },
+  {
+    "number": 911,
+    "title": "Limit reth MDBX sizes for temp-chain tests",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/911",
+    "closed_at": "2026-07-13T20:53:38Z"
+  },
+  {
+    "number": 868,
+    "title": "Fork consensus registry bls precompile",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/868",
+    "closed_at": "2026-07-13T17:09:33Z"
+  },
+  {
+    "number": 837,
+    "title": "(feat) CLI keytool set rpc",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/837",
+    "closed_at": "2026-07-13T16:00:08Z"
+  },
+  {
+    "number": 900,
+    "title": "test(e2e): cut runtime of the four ignored e2e tests (#897)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/900",
+    "closed_at": "2026-07-11T22:30:49Z"
+  },
+  {
+    "number": 888,
+    "title": "fix: reject round-0 headers on the vote path (header.round() - 1 underflow)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/888",
+    "closed_at": "2026-07-11T22:23:41Z"
+  },
+  {
+    "number": 884,
+    "title": "feat(network): cut the primary partial epoch-pack path over to the typed sync protocol with legacy fallback (739)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/884",
+    "closed_at": "2026-07-11T22:01:06Z"
+  },
+  {
+    "number": 870,
+    "title": "Fix/memory leak remediation",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/870",
+    "closed_at": "2026-07-11T17:37:33Z"
+  },
+  {
+    "number": 891,
+    "title": "patch: catchup finalized watermark inconsistency on restart",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/891",
+    "closed_at": "2026-07-10T22:41:48Z"
+  },
+  {
+    "number": 856,
+    "title": "fix(network-libp2p): bound `published_to_peers` with an LRU (closes #828)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/856",
+    "closed_at": "2026-07-10T22:31:34Z"
+  },
+  {
+    "number": 880,
+    "title": "fix(engine): bound the consensus-output execution backlog",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/880",
+    "closed_at": "2026-07-10T20:47:53Z"
+  },
+  {
+    "number": 878,
+    "title": "fix(primary): cap sync_output and ExEx broadcast channels",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/878",
+    "closed_at": "2026-07-10T20:17:14Z"
+  },
+  {
+    "number": 860,
+    "title": "fix(network-libp2p): prune zero-count `banned_peers_by_ip` keys (#829)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/860",
+    "closed_at": "2026-07-10T12:12:27Z"
+  },
+  {
+    "number": 857,
+    "title": "fix(network-libp2p): bound known_peers against unbounded peer injection (#827)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/857",
+    "closed_at": "2026-07-10T10:21:05Z"
+  },
+  {
+    "number": 852,
+    "title": "Feat/basefee 08 e2e",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/852",
+    "closed_at": "2026-07-09T18:14:52Z"
+  },
+  {
+    "number": 850,
+    "title": "feat(tn-reth): expand RethEnv read API for ExEx consumers",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/850",
+    "closed_at": "2026-07-09T14:28:31Z"
+  },
+  {
+    "number": 848,
+    "title": "refactor(cli): extract BLS passphrase handling into telcoin-network-cli",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/848",
+    "closed_at": "2026-07-08T16:03:06Z"
+  },
+  {
+    "number": 861,
+    "title": "test: reserve test ports from per-nextest-slot windows (#830)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/861",
+    "closed_at": "2026-07-08T14:43:09Z"
+  },
+  {
+    "number": 864,
+    "title": "test: remove wall-clock timing assumptions from test_fetch_cancellation_on_success",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/864",
+    "closed_at": "2026-07-08T03:01:41Z"
+  },
+  {
+    "number": 862,
+    "title": "test: use an injectable clock for BannedPeerCache expiry tests",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/862",
+    "closed_at": "2026-07-08T03:00:18Z"
+  },
+  {
+    "number": 859,
+    "title": "test(network-libp2p): replace fixed real-time sleeps in network_tests  with condition polling",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/859",
+    "closed_at": "2026-07-08T02:59:29Z"
+  },
+  {
+    "number": 858,
+    "title": "build: forward `adiri` feature to `tn-types/adiri` in storage, engine, executor",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/858",
+    "closed_at": "2026-07-08T02:57:59Z"
+  },
+  {
+    "number": 855,
+    "title": "test: drive test_all_possible_error_outcomes off the rebuild ordering instead of sleep(1s)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/855",
+    "closed_at": "2026-07-08T02:57:25Z"
+  },
+  {
+    "number": 854,
+    "title": "test: add persistence barrier before iterating in db_simp_bench (#831)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/854",
+    "closed_at": "2026-07-08T02:56:52Z"
+  },
+  {
+    "number": 825,
+    "title": "feat(network): move the goodbye exchange to a dedicated peer-exchange protocol with embedded fallback (739, step 8)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/825",
+    "closed_at": "2026-07-08T01:46:02Z"
+  },
+  {
+    "number": 846,
+    "title": "feat(node): sync GasAccumulator worker count from on-chain `WorkerConfigs`",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/846",
+    "closed_at": "2026-07-07T20:38:48Z"
+  },
+  {
+    "number": 824,
+    "title": "fix(network): attribute gossip faults to the accountable peer across the reject, worker, and primary paths (#819)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/824",
+    "closed_at": "2026-07-07T14:26:17Z"
+  },
+  {
+    "number": 823,
+    "title": "# feat(worker-gateway): stateless reverse proxy crate skeleton + proxy core (#712)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/823",
+    "closed_at": "2026-07-06T20:45:20Z"
+  },
+  {
+    "number": 844,
+    "title": "feat(node): activate per-worker base fees from WorkerConfigs",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/844",
+    "closed_at": "2026-07-06T18:47:42Z"
+  },
+  {
+    "number": 842,
+    "title": "feat(node): restore base fee per worker on catchup",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/842",
+    "closed_at": "2026-07-06T18:29:17Z"
+  },
+  {
+    "number": 840,
+    "title": "feat(node):  seed base fee from chain on sync/restart instead of recomputing",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/840",
+    "closed_at": "2026-07-06T16:18:22Z"
+  },
+  {
+    "number": 826,
+    "title": "fix(primary): out-of-bounds peer index when logging invalid fetched certs (#822)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/826",
+    "closed_at": "2026-07-06T12:11:26Z"
+  },
+  {
+    "number": 796,
+    "title": "feat(node): wire the EIP-1559 base-fee compute seam (inert by default)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/796",
+    "closed_at": "2026-07-04T21:06:10Z"
+  },
+  {
+    "number": 794,
+    "title": "feat(batch-validator): take a u64 base-fee snapshot",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/794",
+    "closed_at": "2026-07-04T16:07:29Z"
+  },
+  {
+    "number": 620,
+    "title": "network-libp2p security review ",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/620",
+    "closed_at": "2026-07-03T13:28:47Z"
+  },
+  {
+    "number": 818,
+    "title": "fix: stop remove_validator_ip from over-decrementing banned total (#809)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/818",
+    "closed_at": "2026-07-02T22:22:13Z"
+  },
+  {
+    "number": 815,
+    "title": "fix: return error instead of panicking on non-validator vote path",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/815",
+    "closed_at": "2026-07-02T02:02:41Z"
+  },
+  {
+    "number": 808,
+    "title": "refactor: replace hand-rolled Future impls with async fns",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/808",
+    "closed_at": "2026-07-02T02:01:12Z"
+  },
+  {
+    "number": 813,
+    "title": "Use the pack consensus output bytes for sync.",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/813",
+    "closed_at": "2026-07-01T22:09:43Z"
+  },
+  {
+    "number": 814,
+    "title": "fix(primary): report peer penalties for failed vote requests (#802)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/pull/814",
+    "closed_at": "2026-07-01T21:31:16Z"
+  }
+]

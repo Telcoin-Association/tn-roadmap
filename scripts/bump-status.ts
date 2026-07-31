@@ -1,13 +1,11 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { statusSchema, type Phase, type Status } from '../src/data/statusSchema';
+import { statusSchema, type Phase } from '../src/data/statusSchema';
 
 type PhaseUpdate = {
   key: Phase['key'];
   status: Phase['status'];
 };
-
-type FindingsKey = keyof Status['security']['publicFindings'];
 
 type SetOperation = {
   path: string;
@@ -16,7 +14,6 @@ type SetOperation = {
 
 function parseArgs(argv: string[]) {
   const phaseUpdates: PhaseUpdate[] = [];
-  const findingsUpdates: Partial<Record<FindingsKey, number>> = {};
   const setOperations: SetOperation[] = [];
   let overall: number | undefined;
 
@@ -48,20 +45,6 @@ function parseArgs(argv: string[]) {
       continue;
     }
 
-    if (arg.startsWith('--findings.')) {
-      const payload = argv[++index];
-      if (!payload) {
-        throw new Error(`Missing value for ${arg}.`);
-      }
-      const key = arg.replace('--findings.', '') as FindingsKey;
-      const value = Number.parseInt(payload, 10);
-      if (Number.isNaN(value)) {
-        throw new Error(`Invalid findings value for ${key}: ${payload}`);
-      }
-      findingsUpdates[key] = value;
-      continue;
-    }
-
     if (arg === '--set') {
       const payload = argv[++index];
       if (!payload) {
@@ -78,7 +61,7 @@ function parseArgs(argv: string[]) {
     throw new Error(`Unknown argument: ${arg}`);
   }
 
-  return { phaseUpdates, findingsUpdates, setOperations, overall };
+  return { phaseUpdates, setOperations, overall };
 }
 
 function setByPath(object: Record<string, unknown>, path: string, value: unknown) {
@@ -115,10 +98,6 @@ async function main() {
       throw new Error(`Phase not found: ${update.key}`);
     }
     targetPhase.status = update.status;
-  }
-
-  for (const [key, value] of Object.entries(args.findingsUpdates)) {
-    parsed.security.publicFindings[key as FindingsKey] = value as number;
   }
 
   for (const operation of args.setOperations) {

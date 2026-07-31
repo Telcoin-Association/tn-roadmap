@@ -86,6 +86,13 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
         description:
           'Enable dApps to build directly on observer nodes via the ExEx feature, improving development flexibility and reducing integration friction.',
       },
+      {
+        text: 'Snapshot Support for Instant Node Syncing',
+        slug: 'snapshot-support-instant-syncing',
+        inProgress: true,
+        description:
+          'Snapshot syncing allows new nodes to join the network immediately without reprocessing all historical data from genesis. Snapshots are written every epoch.',
+      },
     ],
   },
   {
@@ -123,21 +130,21 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
       {
         text: 'Production Harden Fallback Dial Attempts Between Validators',
         slug: 'production-harden-fallback-dial-attempts',
-        inProgress: true,
+        done: true,
         description:
           'Production hardening fallback dial attempts between validators to ensure robust connectivity for committee-voting validators.',
       },
       {
         text: 'Enhance BLS Key to Peer ID Mapping',
         slug: 'enhance-bls-key-to-peer-id-mapping',
-        inProgress: true,
+        done: true,
         description:
           'Enhancing mapping between validator BLS keys used by the application and peer IDs used by the networking layer to trigger discovery attempts when information is missing.',
       },
       {
         text: 'Eliminate False Positives for Validator Gossip at Epoch Boundaries',
         slug: 'eliminate-validator-gossip-false-positives',
-        inProgress: true,
+        done: true,
         description:
           'Eliminating false positives for validator gossip arriving late around epoch boundaries.',
       },
@@ -199,21 +206,43 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
       {
         text: 'Consensus Registry Security Assessment',
         slug: 'consensus-registry-security-assessment',
-        inProgress: true,
+        done: true,
         description:
           'Scheduling and completing the consensus registry security assessment with external security partners.',
       },
       {
         text: 'Security Hardening of Epoch Record Validation',
         slug: 'security-harden-epoch-record-validation',
+        done: true,
         description:
           'Security hardening of epoch record validation for syncing nodes.',
       },
       {
         text: 'Execution Engine Security Assessment',
         slug: 'execution-engine-security-assessment',
+        inProgress: true,
         description:
           'Scheduling and completing the execution engine security assessment.',
+      },
+      {
+        text: 'Node Metrics',
+        slug: 'node-metrics',
+        done: true,
+        description:
+          'Enhanced metrics visibility including round progressions, certificate formations, and syncing distances for real-time network state monitoring.',
+      },
+      {
+        text: 'Fork Adiri Testnet to Include Final Audited Consensus Registry Bytecode',
+        slug: 'fork-adiri-testnet-audited-consensus-registry',
+        inProgress: true,
+        description:
+          'Forking Adiri testnet to deploy the final audited Consensus Registry smart contract bytecode ahead of mainnet.',
+      },
+      {
+        text: 'Improve Deterministic Source of Entropy for Random Validator Selection in Future Committees',
+        slug: 'deterministic-entropy-validator-selection',
+        description:
+          'Improve the deterministic entropy source used for random validator committee selection to strengthen fairness and security guarantees.',
       },
       {
         text: 'Finalize Native Token Strategy Pending TEL3 TELIP Outcome',

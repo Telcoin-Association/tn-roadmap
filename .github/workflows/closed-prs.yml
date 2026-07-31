@@ -1,0 +1,56 @@
+name: Build closed-prs.json (via PR)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *" # once every 24 hours at midnight UTC
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch closed pull requests from the last 30 days (REST API)
+        run: |
+          set -e
+          mkdir -p public
+          CUTOFF=$(date -u -d '30 days ago' +%Y-%m-%dT%H:%M:%SZ)
+          echo "[]" > /tmp/closed-prs-raw.json
+
+          for page in 1 2 3; do
+            curl -s \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/Telcoin-Association/telcoin-network/pulls?state=closed&sort=updated&direction=desc&per_page=100&page=${page}" \
+              -o "/tmp/closed-prs-page-${page}.json"
+            jq -s '.[0] + .[1]' /tmp/closed-prs-raw.json "/tmp/closed-prs-page-${page}.json" > /tmp/closed-prs-merged.json
+            mv /tmp/closed-prs-merged.json /tmp/closed-prs-raw.json
+          done
+
+          jq --arg cutoff "$CUTOFF" \
+            '[ .[] | select(.closed_at != null and .closed_at > $cutoff) | {number, title, url: .html_url, closed_at} ] | unique_by(.number) | sort_by(.closed_at) | reverse' \
+            /tmp/closed-prs-raw.json > public/closed-prs.json
+
+          echo "Preview:"
+          head -n 20 public/closed-prs.json || true
+          test -s public/closed-prs.json
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: update closed-prs.json"
+          title: "chore: update closed-prs.json"
+          body: "Automated update to closed-prs.json from closed GitHub Pull Requests (last 30 days)."
+          branch: automation/closed-prs-json
+          base: main
+          add-paths: |
+            public/closed-prs.json
+          labels: |
+            automation
