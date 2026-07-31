@@ -1,65 +1,132 @@
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState } from 'react';
 
 import { buildDeveloperNoteSections } from '../data/developerNotes';
 import type { Status } from '../data/statusSchema';
 
-type SecurityAuditsProps = Pick<Status['security'], 'notes' | 'publicFindings' | 'afterPriorityFixes'>;
+type SecurityAuditsProps = Pick<Status['security'], 'notes'>;
 
-  type SeverityMetrics = Status['security']['publicFindings'];
-
-const STAT_LABELS: Record<string, string> = {
-  critical: 'Critical',
-  high: 'High',
-  medium: 'Medium',
-  low: 'Low',
-  info: 'Info'
+type ClosedPullRequest = {
+  number: number;
+  title: string;
+  url: string;
+  closed_at: string;
 };
 
-function StatCard({
-  title,
-  description,
-  metrics,
-  icon
-}: {
-  title: string;
-  description?: string;
-  metrics: SeverityMetrics;
-  icon: ReactNode;
-}) {
-  const { critical, ...remainingMetrics } = metrics;
-  const entries = Object.entries(remainingMetrics);
-  const severityEntries =
-    typeof critical === 'number'
-      ? ([['critical', critical], ...entries] as Array<[string, number]>)
-      : entries;
+const CLOSED_PRS_PAGE_SIZE = 5;
+
+function ClosedPullRequestsFeed() {
+  const [prs, setPrs] = useState<ClosedPullRequest[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [page, setPage] = useState(0);
+
+  useEffect(() => {
+    let cancelled = false;
+    const url = new URL('closed-prs.json', window.location.href);
+    url.searchParams.set('t', Date.now().toString());
+
+    fetch(url.toString(), { cache: 'no-store' })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data: ClosedPullRequest[]) => {
+        if (!cancelled) {
+          setPrs(data);
+        }
+      })
+      .catch((err) => {
+        if (!cancelled) {
+          setError(err instanceof Error ? err.message : String(err));
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const totalPages = prs ? Math.max(1, Math.ceil(prs.length / CLOSED_PRS_PAGE_SIZE)) : 1;
+  const pagePrs = prs ? prs.slice(page * CLOSED_PRS_PAGE_SIZE, page * CLOSED_PRS_PAGE_SIZE + CLOSED_PRS_PAGE_SIZE) : [];
+
   return (
     <article className="flex flex-1 flex-col gap-4 rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-5 shadow-soft backdrop-blur transition-all duration-300 hover:border-primary/40 hover:shadow-glow">
       <header className="flex items-start gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20 text-primary">
-          {icon}
+          <img
+            src="/IMG/Audit.svg"
+            alt=""
+            aria-hidden="true"
+            className="h-6 w-6 shrink-0"
+            loading="eager"
+          />
         </div>
         <div className="space-y-1">
-          <h3 className="text-lg font-semibold text-fg">{title}</h3>
-          {description ? (
-            <p className="text-xs text-fg-muted">{description}</p>
-          ) : null}
+          <h3 className="text-lg font-semibold text-fg">Recently Closed Pull Requests</h3>
+          <p className="text-xs text-fg-muted">
+            Closed in the telcoin-network repository over the last 30 days.
+          </p>
         </div>
       </header>
-      <dl className="grid grid-cols-2 gap-4 text-sm">
-        {severityEntries.map(([key, value]) => (
-          <div key={key} className="flex flex-col rounded-xl border border-white/10 bg-white/5 p-3 text-fg backdrop-blur">
-            <dt className="text-xs uppercase tracking-wide text-fg-muted">
-              {STAT_LABELS[key] ?? key}
-            </dt>
-            <dd className="text-xl font-semibold text-fg">{value}</dd>
-          </div>
-        ))}
-      </dl>
+
+      {error ? (
+        <p className="text-sm text-red-400">Failed to load closed pull requests.</p>
+      ) : prs === null ? (
+        <p className="text-sm text-fg-muted">Loading…</p>
+      ) : prs.length === 0 ? (
+        <p className="text-sm text-fg-muted">No pull requests closed in the last 30 days.</p>
+      ) : (
+        <>
+          <ul className="space-y-2">
+            {pagePrs.map((pr) => (
+              <li key={pr.number}>
+                <a
+                  href={pr.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-xl border border-white/10 bg-white/5 p-3 text-fg backdrop-blur transition hover:border-primary/40"
+                >
+                  <span className="text-sm font-medium">{pr.title}</span>
+                  <span className="mt-1 block text-xs text-fg-muted">
+                    #{pr.number} • closed {new Date(pr.closed_at).toLocaleDateString()}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          {totalPages > 1 && (
+            <div className="mt-auto flex items-center justify-between gap-3 pt-2 text-xs text-fg-muted">
+              <span>
+                Page {page + 1} of {totalPages}
+              </span>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setPage((p) => Math.max(p - 1, 0))}
+                  disabled={page === 0}
+                  className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-fg transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  Previous
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setPage((p) => Math.min(p + 1, totalPages - 1))}
+                  disabled={page === totalPages - 1}
+                  className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-fg transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          )}
+        </>
+      )}
     </article>
   );
 }
 
-export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: SecurityAuditsProps) {
+export function SecurityAudits({ notes }: SecurityAuditsProps) {
   const developerNoteSections = buildDeveloperNoteSections(notes);
   const [currentPage, setCurrentPage] = useState(0);
   const totalPages = developerNoteSections.length;
@@ -128,32 +195,7 @@ export function SecurityAudits({ notes, publicFindings, afterPriorityFixes }: Se
           </div>
         </article>
         <div className="flex flex-col gap-4">
-          <StatCard
-            title="Priority Security Patches"
-            description="Security issues reachable through public APIs, apps, or network endpoints."
-            metrics={publicFindings}
-            icon={
-              <img
-                src="/IMG/Audit.svg"
-                alt="Public-facing vulnerabilities"
-                className="h-6 w-6 md:h-7 md:w-7 shrink-0"
-                loading="eager"
-              />
-            }
-          />
-          <StatCard
-            title="Remaining Security Patches"
-            description="Issues relevant to validator peers and internal infrastructure, prioritized after public-facing fixes."
-            metrics={afterPriorityFixes}
-            icon={
-              <img
-                src="/IMG/Audit.svg"
-                alt="Internal security findings"
-                className="h-6 w-6 md:h-7 md:w-7 shrink-0"
-                loading="eager"
-              />
-            }
-          />
+          <ClosedPullRequestsFeed />
         </div>
       </div>
     </section>

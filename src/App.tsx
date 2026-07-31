@@ -201,11 +201,7 @@ export default function App() {
 
             <section id="security-section">
               <div className="rounded-2xl border border-white/[0.06] bg-white/[0.04] p-6 backdrop-blur-sm md:p-8">
-                <SecurityAudits
-                  notes={status.security.notes}
-                  publicFindings={status.security.publicFindings}
-                  afterPriorityFixes={status.security.afterPriorityFixes}
-                />
+                <SecurityAudits notes={status.security.notes} />
               </div>
             </section>
 
