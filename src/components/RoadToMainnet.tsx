@@ -345,7 +345,13 @@ export default function RoadToMainnet() {
                   <div className="mb-3 text-base font-bold text-white/95">{group.text}</div>
                   <ul className="ml-4 space-y-3">
                     {[...group.items].sort((a, b) => {
-                      const order = (i: typeof a) => i.done ? 0 : (i.inProgress || ACTIVE_PHASE_3_SLUGS.has(i.slug)) ? 1 : 2;
+                      // Complete first, queued next, in-progress last.
+                      const order = (i: typeof a) =>
+                        i.done
+                          ? 0
+                          : i.inProgress || ACTIVE_PHASE_3_SLUGS.has(i.slug)
+                            ? 2
+                            : 1;
                       return order(a) - order(b);
                     }).map((item) => {
                       const isDone = Boolean(item.done);

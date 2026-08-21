@@ -85,8 +85,8 @@ const MAINNET_PHASE_ITEMS = [
 
 const STATUS_SORT_ORDER: Record<MilestoneItemStatus, number> = {
   completed: 0,
-  in_progress: 1,
-  queued: 2,
+  queued: 1,
+  in_progress: 2,
 };
 
 const ADIRI_MILESTONE_STATUS = new Map(
