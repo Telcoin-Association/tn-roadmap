@@ -77,6 +77,8 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
       {
         text: 'Onboard and Integrate DVNs for TN Mainnet Bridge',
         slug: 'onboard-dvns-for-mainnet-bridge',
+        inProgress: true,
+        updatedInVersion: '2026-08-20',
         description:
           'Onboarding and integrating with DVNs for TN mainnet bridge.',
       },
@@ -90,7 +92,8 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
       {
         text: 'Snapshot Support for Instant Node Syncing',
         slug: 'snapshot-support-instant-syncing',
-        inProgress: true,
+        done: true,
+        updatedInVersion: '2026-08-20',
         description:
           'Snapshot syncing allows new nodes to join the network immediately without reprocessing all historical data from genesis. Snapshots are written every epoch.',
       },
@@ -243,13 +246,16 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
       {
         text: 'Improve Deterministic Source of Entropy for Random Validator Selection in Future Committees',
         slug: 'deterministic-entropy-validator-selection',
+        inProgress: true,
+        updatedInVersion: '2026-08-20',
         description:
           'Improve the deterministic entropy source used for random validator committee selection to strengthen fairness and security guarantees.',
       },
       {
         text: 'Finalize Native Token Strategy Pending TEL3 TELIP Outcome',
         slug: 'finalize-native-token-strategy-tel3-telip',
-        inProgress: true,
+        done: true,
+        updatedInVersion: '2026-08-20',
         description:
           'Finalizing the native token strategy for Telcoin Network mainnet, contingent on the outcome of the TEL3 TELIP governance process.',
       },
@@ -264,9 +270,39 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
   },
 ];
 
-export const getNewInUpdateItems = (currentVersion: string) =>
+const MS_PER_DAY = 24 * 60 * 60 * 1000;
+
+const parseUpdateTimestamp = (value: string): number | null => {
+  const trimmed = value.trim();
+  if (!trimmed) {
+    return null;
+  }
+
+  // Date-only tags are treated as start-of-day UTC.
+  const normalized = /^\d{4}-\d{2}-\d{2}$/.test(trimmed)
+    ? `${trimmed}T00:00:00Z`
+    : trimmed;
+  const timestamp = Date.parse(normalized);
+  return Number.isNaN(timestamp) ? null : timestamp;
+};
+
+export const isUpdatedWithinLast24Hours = (tag: string, asOf: string): boolean => {
+  const tagTime = parseUpdateTimestamp(tag);
+  const asOfTime = parseUpdateTimestamp(asOf);
+  if (tagTime === null || asOfTime === null) {
+    return false;
+  }
+  const delta = asOfTime - tagTime;
+  return delta >= 0 && delta <= MS_PER_DAY;
+};
+
+export const getNewInUpdateItems = (asOf: string) =>
   ADIRI_PHASE_3_GROUPS.flatMap((group) =>
-    group.items.filter((item) => item.updatedInVersion === currentVersion)
+    group.items.filter(
+      (item) =>
+        Boolean(item.updatedInVersion) &&
+        isUpdatedWithinLast24Hours(item.updatedInVersion as string, asOf),
+    ),
   );
 
 export const MILESTONES: Record<PhaseKey, Milestone[]> = {
