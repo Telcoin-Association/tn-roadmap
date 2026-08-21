@@ -12,7 +12,7 @@ type ClosedPullRequest = {
   closed_at: string;
 };
 
-const CLOSED_PRS_PAGE_SIZE = 5;
+const CLOSED_PRS_PAGE_SIZE = 10;
 
 function ClosedPullRequestsFeed() {
   const [prs, setPrs] = useState<ClosedPullRequest[] | null>(null);
