@@ -59,7 +59,7 @@ const MAINNET_LAUNCH_SECTION: LearnMoreSection = {
     'Telcoin is building financial infrastructure for the long term and that means prioritizing security over speed. Many of the industry’s largest exploits occurred because projects rushed to launch. We won’t make that mistake.',
     'Our roadmap has evolved from fixed dates to a milestone based approach, with all progress openly available on GitHub.',
     'We are in the final stages of Adiri testnet with final audits and validator testing and onboarding being completed. Mainnet launch is next.',
-    ‘Final security audits are underway, with final mainnet deployment dependent on audit outcomes. Our guiding principle remains clear: we will launch mainnet when it\’s secure for our partners and users.’,
+    "Final security audits are underway, with final mainnet deployment dependent on audit outcomes. Our guiding principle remains clear: we will launch mainnet when it's secure for our partners and users.",
     'Based on current progress, mainnet launch is expected no earlier than Q1 2026.',
   ],
 };
