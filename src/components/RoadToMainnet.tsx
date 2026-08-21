@@ -516,7 +516,7 @@ export default function RoadToMainnet() {
             Completed
           </span>
           <span className="flex items-center gap-1.5">
-            <img src="/IMG/activity.svg" alt="" className="h-3.5 w-3.5" />
+            <img src={ActivityIconUrl} alt="" className="h-3.5 w-3.5" />
             In progress
           </span>
           <span className="flex items-center gap-1.5">
