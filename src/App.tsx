@@ -9,6 +9,7 @@ import { loadStatus, type Status } from './data/loadStatus';
 import { TelcoinAnimatedLogo } from './components/TelcoinAnimatedLogo';
 import LastUpdated from '@/components/LastUpdated';
 import { getLatestDeveloperNotesDate } from '@/data/developerNotes';
+import { getNewInUpdateItems } from '@/data/milestones';
 import AdiriLogoUrl from '@/assets/adiri.svg?url';
 
 const sectionVariants = {
@@ -137,12 +138,53 @@ export default function App() {
                       value={status.meta.overallTrajectoryPct}
                       label="Road to Mainnet"
                     />
-                    <div className="mt-4 flex w-full justify-center">
-                      <LastUpdated lastUpdated={getLatestDeveloperNotesDate()} />
-                    </div>
                   </div>
                 </div>
               </div>
+              {(() => {
+                const latestDate = getLatestDeveloperNotesDate().slice(0, 10);
+                const newItems = getNewInUpdateItems(latestDate);
+                if (newItems.length === 0) return null;
+                return (
+                  <div className="rounded-2xl border border-primary/20 bg-primary/5 px-6 py-5 backdrop-blur">
+                    <div className="mb-3 flex items-center justify-between gap-4">
+                      <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">
+                        What's New
+                      </h2>
+                      <LastUpdated lastUpdated={getLatestDeveloperNotesDate()} />
+                    </div>
+                    <ul className="space-y-2">
+                      {newItems.map((item) => (
+                        <li key={item.slug}>
+                          <a
+                            href={`#road-to-mainnet-adiri-phase-3-${item.slug}`}
+                            className="flex items-center gap-3 rounded-lg px-2 py-1.5 text-sm text-fg-muted transition hover:bg-white/5 hover:text-fg"
+                          >
+                            <span
+                              className={`shrink-0 rounded-full border px-2 py-0.5 text-xs font-semibold ${
+                                item.done
+                                  ? 'border-success/40 bg-success/15 text-success'
+                                  : item.inProgress
+                                  ? 'border-primary/50 bg-primary/20 text-primary'
+                                  : 'border-border/70 bg-white/10 text-fg-muted'
+                              }`}
+                            >
+                              {item.done ? 'Complete' : item.inProgress ? 'In Progress' : 'Queued'}
+                            </span>
+                            <span className="leading-snug">{item.text}</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href="#road-to-mainnet-history"
+                      className="mt-3 inline-block px-2 text-xs font-medium text-primary hover:underline"
+                    >
+                      See full developer notes ↓
+                    </a>
+                  </div>
+                );
+              })()}
             </motion.div>
           )}
         </div>

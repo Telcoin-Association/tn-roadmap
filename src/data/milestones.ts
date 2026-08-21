@@ -18,6 +18,7 @@ export type CustomRoadToMainnetItem = {
   description?: string;
   inProgress?: boolean;
   done?: boolean;
+  updatedInVersion?: string;
 };
 
 export type Phase3Group = {
@@ -234,7 +235,8 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
       {
         text: 'Fork Adiri Testnet to Include Final Audited Consensus Registry Bytecode',
         slug: 'fork-adiri-testnet-audited-consensus-registry',
-        inProgress: true,
+        done: true,
+        updatedInVersion: '2026-08-20',
         description:
           'Forking Adiri testnet to deploy the final audited Consensus Registry smart contract bytecode ahead of mainnet.',
       },
@@ -261,6 +263,11 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
     ],
   },
 ];
+
+export const getNewInUpdateItems = (currentVersion: string) =>
+  ADIRI_PHASE_3_GROUPS.flatMap((group) =>
+    group.items.filter((item) => item.updatedInVersion === currentVersion)
+  );
 
 export const MILESTONES: Record<PhaseKey, Milestone[]> = {
   horizon: [

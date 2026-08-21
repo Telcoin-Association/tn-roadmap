@@ -4,6 +4,19 @@ export type DeveloperNoteSection = {
   items: string[];
 };
 
+const AUGUST_20_DEVELOPER_NOTES = [
+  'The past two weeks have been almost entirely focused on security and correctness for the protocol — 65 pull requests merged across the Rust protocol codebase, with eight engineers aligned on a single goal: delivering a mainnet that is ready, secure, and scalable.',
+  'Telcoin Network is now one week into its latest independent security assessment with the Cantina team. Researchers were handpicked by the protocol team with security guidance from Uku. Every finding is being fixed privately first and then published in full — nothing is being buried quietly.',
+  'The 65 merged pull requests break down into approximately 50 security hardening changes and 15 correctness fixes, improving node operator feedback, metrics, and protocol reliability. The network has never been more reliable.',
+  'Snapshot support has shipped, allowing nodes to sync from any point in history and recover quickly without reprocessing data from genesis.',
+  'Significant work went into bolstering the foundation for RPC infrastructure scaling — important given the unique nature of the EVM chain and private mempool architecture.',
+  'On the contract side, final changes were submitted for the audit closing report. Two additional coverage gaps were found and closed during a final internal review — before the feature has ever been switched on. Full sweeps across all contracts using automated tools and internal manual review are returning zero critical issues.',
+  'The smart contract codebase is frozen and ready for mainnet. This frees the protocol team to focus exclusively on the Rust node software and the larger protocol that validators will run.',
+  'A second Adiri testnet fork was executed this morning, deploying the final audited consensus registry bytecode. Managing these forks on testnet is invaluable practice before ever forking mainnet — a commitment to keeping Adiri stable and long-lived for dApp developers.',
+  'The node now has approximately 1,500 automated tests, and across the contracts there is more than two lines of test code for every line of production code. Test coverage includes node operation simulations, malicious attack scenarios, and stress testing — enforced in code, not process.',
+  'Application development on Telcoin Network is actively underway with dApps being built on observer nodes using the ExEx feature. The remaining work is not about building new things or fixing bugs — it is about closing security gaps and production verification.',
+];
+
 const JULY_31_DEVELOPER_NOTES = [
   "The past two weeks represent the most productive engineering window in the project's history: 85 pull requests and 79 issues closed across the protocol and smart contract codebases.",
   'First independent security audit results are in from Cantina. The review covered the staking and consensus registry contracts and found no critical findings and no high severity findings. In total there were 15 findings — three mediums, 11 lows, and one informational — all of which are now closed. Twelve were resolved with patched code; three were reviewed, accepted, and will be documented with reasoning in the published report.',
@@ -160,6 +173,7 @@ const FEBRUARY_19_DEVELOPER_NOTES = [
 ];
 
 const developerNoteDates = [
+  '2026-08-20T00:00:00Z',
   '2026-07-31T00:00:00Z',
   '2026-07-03T00:00:00Z',
   '2026-06-24T00:00:00Z',
@@ -178,12 +192,19 @@ const developerNoteDates = [
   '2025-11-13T00:00:00Z',
 ];
 
+export const getLatestDeveloperNotes = (): string[] => AUGUST_20_DEVELOPER_NOTES;
+
 export const getLatestDeveloperNotesDate = () =>
   developerNoteDates.reduce((latest, current) =>
     new Date(current).valueOf() > new Date(latest).valueOf() ? current : latest
   );
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
+  {
+    title: 'Developer Notes - Updated 20 August 2026',
+    date: '2026-08-20',
+    items: AUGUST_20_DEVELOPER_NOTES,
+  },
   {
     title: 'Developer Notes - Updated 31 July 2026',
     date: '2026-07-31',
