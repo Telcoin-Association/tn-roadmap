@@ -55,8 +55,84 @@ const isTabKey = (value: string): value is TabKey => TABS.some((tab) => tab.key 
 
 const isPhaseKey = (value: TabKey): value is 'horizon' | 'adiri' => value === 'horizon' || value === 'adiri';
 
+const isPhase3ItemActive = (item: CustomItem) =>
+  Boolean(item.inProgress || ACTIVE_PHASE_3_SLUGS.has(item.slug)) && !item.done;
+
+const sortOpenPhase3Items = (a: CustomItem, b: CustomItem) => {
+  const order = (item: CustomItem) => (isPhase3ItemActive(item) ? 1 : 0);
+  return order(a) - order(b);
+};
+
+const phase3ItemId = (slug: string) => `road-to-mainnet-adiri-phase-3-${slug}`;
+
+const getHashTargetSlug = (): string | null => {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+  const hash = window.location.hash.replace(/^#/, '');
+  const prefix = 'road-to-mainnet-adiri-phase-3-';
+  if (!hash.startsWith(prefix) || hash === `${prefix}tab`) {
+    return null;
+  }
+  return hash.slice(prefix.length) || null;
+};
+
+function Phase3ItemRow({
+  item,
+  reduceMotion,
+}: {
+  item: CustomItem;
+  reduceMotion: boolean | null;
+}) {
+  const isDone = Boolean(item.done);
+  const isActive = isPhase3ItemActive(item);
+  const shouldAnimate = isActive && !reduceMotion;
+  const iconSrc = isDone
+    ? '/IMG/Checkmark.svg'
+    : isActive
+      ? ActivityIconUrl
+      : '/IMG/Loading.svg';
+
+  return (
+    <li
+      id={phase3ItemId(item.slug)}
+      className="scroll-mt-24 flex items-start gap-3"
+    >
+      {shouldAnimate ? (
+        <motion.img
+          src={iconSrc}
+          alt=""
+          aria-hidden="true"
+          className="mt-0.5 h-5 w-5 shrink-0"
+          animate={{ opacity: [1, 0.4, 1] }}
+          transition={{
+            duration: 1.2,
+            repeat: Infinity,
+            repeatType: 'reverse',
+            ease: 'easeInOut',
+          }}
+        />
+      ) : (
+        <img
+          src={iconSrc}
+          alt=""
+          aria-hidden="true"
+          className={`mt-0.5 h-5 w-5 shrink-0${
+            isDone || isActive ? '' : ' motion-safe:animate-spin-slow'
+          }`}
+        />
+      )}
+      <div className="space-y-1 text-sm text-white/90">
+        <div className="font-semibold">{item.text}</div>
+        {item.description && <p className="text-white/75">{item.description}</p>}
+      </div>
+    </li>
+  );
+}
+
 export default function RoadToMainnet() {
   const [tab, setTab] = useState<TabKey>('horizon');
+  const [hashTargetSlug, setHashTargetSlug] = useState<string | null>(null);
   const reduceMotion = useReducedMotion();
 
   // On hash change or first load, infer tab from '#road-to-mainnet-{phase}-...'
@@ -67,6 +143,7 @@ export default function RoadToMainnet() {
 
     const applyFromHash = () => {
       const hash = window.location.hash.replace(/^#/, '');
+      setHashTargetSlug(getHashTargetSlug());
       // Check adiri-phase-3 first (more specific than adiri)
       const newTab = hash.startsWith('road-to-mainnet-adiri-phase-3')
         ? 'adiri-phase-3'
@@ -87,14 +164,29 @@ export default function RoadToMainnet() {
     }
 
     const hash = window.location.hash.replace(/^#/, '');
+    if (!hash) {
+      return;
+    }
+
+    const targetsPhase3 = hash.startsWith('road-to-mainnet-adiri-phase-3');
     const part = hash.split('-')[3];
-    if (part && part === tab) {
+    const shouldScroll =
+      (targetsPhase3 && tab === 'adiri-phase-3') || (Boolean(part) && part === tab);
+
+    if (!shouldScroll) {
+      return;
+    }
+
+    // Allow completed <details> to open before scrolling.
+    const timeout = window.setTimeout(() => {
       const el = document.getElementById(hash);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    }
-  }, [tab]);
+    }, 0);
+
+    return () => window.clearTimeout(timeout);
+  }, [tab, hashTargetSlug]);
 
   useEffect(() => {
     if (tab !== 'issues' || typeof window === 'undefined') {
@@ -340,67 +432,69 @@ export default function RoadToMainnet() {
             <div key="issues" id="issues-feed" style={{ display: 'grid', gap: '12px' }} />
           ) : tab === 'adiri-phase-3' ? (
             <ul key="adiri-phase-3" className="space-y-6">
-              {ADIRI_PHASE_3_GROUPS.map((group) => (
-                <li key={group.slug}>
-                  <div className="mb-3 text-base font-bold text-white/95">{group.text}</div>
-                  <ul className="ml-4 space-y-3">
-                    {[...group.items].sort((a, b) => {
-                      // Complete first, queued next, in-progress last.
-                      const order = (i: typeof a) =>
-                        i.done
-                          ? 0
-                          : i.inProgress || ACTIVE_PHASE_3_SLUGS.has(i.slug)
-                            ? 2
-                            : 1;
-                      return order(a) - order(b);
-                    }).map((item) => {
-                      const isDone = Boolean(item.done);
-                      const isActive = ACTIVE_PHASE_3_SLUGS.has(item.slug) && !isDone;
-                      const shouldAnimate = isActive && !reduceMotion;
-                      const iconSrc = isDone
-                        ? '/IMG/Checkmark.svg'
-                        : isActive
-                        ? ActivityIconUrl
-                        : '/IMG/Loading.svg';
+              {ADIRI_PHASE_3_GROUPS.map((group) => {
+                const completedItems = group.items.filter((item) => item.done);
+                const openItems = group.items
+                  .filter((item) => !item.done)
+                  .sort(sortOpenPhase3Items);
+                const hashOpensCompleted = Boolean(
+                  hashTargetSlug &&
+                    completedItems.some((item) => item.slug === hashTargetSlug),
+                );
 
-                      return (
-                        <li key={item.slug} id={`road-to-mainnet-adiri-phase-3-${item.slug}`} className="scroll-mt-24 flex items-start gap-3">
-                          {shouldAnimate ? (
-                            <motion.img
-                              src={iconSrc}
-                              alt=""
-                              aria-hidden="true"
-                              className="mt-0.5 h-5 w-5 shrink-0"
-                              animate={{ opacity: [1, 0.4, 1] }}
-                              transition={{
-                                duration: 1.2,
-                                repeat: Infinity,
-                                repeatType: 'reverse',
-                                ease: 'easeInOut',
-                              }}
-                            />
-                          ) : (
+                return (
+                  <li key={group.slug}>
+                    <div className="mb-3 text-base font-bold text-white/95">{group.text}</div>
+                    <ul className="ml-4 space-y-3">
+                      {openItems.map((item) => (
+                        <Phase3ItemRow
+                          key={item.slug}
+                          item={item}
+                          reduceMotion={reduceMotion}
+                        />
+                      ))}
+                    </ul>
+                    {completedItems.length > 0 && (
+                      <details
+                        key={
+                          hashOpensCompleted
+                            ? `open-${group.slug}-${hashTargetSlug}`
+                            : `closed-${group.slug}`
+                        }
+                        className="group/completed ml-4 mt-3 rounded-lg border border-white/10 bg-white/[0.03]"
+                        {...(hashOpensCompleted ? { open: true } : {})}
+                      >
+                        <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-3 py-2 marker:content-['']">
+                          <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/70">
                             <img
-                              src={iconSrc}
+                              src="/IMG/Checkmark.svg"
                               alt=""
                               aria-hidden="true"
-                              className={`mt-0.5 h-5 w-5 shrink-0${
-                                isDone || isActive ? '' : ' motion-safe:animate-spin-slow'
-                              }`}
+                              className="h-3.5 w-3.5"
                             />
-                          )}
-                          <div className="space-y-1 text-sm text-white/90">
-                            <div className="font-semibold">{item.text}</div>
-                            {item.description && (
-                              <p className="text-white/75">{item.description}</p>
-                            )}
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </li>
-              ))}
+                            Completed ({completedItems.length})
+                          </span>
+                          <span
+                            aria-hidden="true"
+                            className="text-sm text-white/60 transition-transform group-open/completed:rotate-180"
+                          >
+                            ▾
+                          </span>
+                        </summary>
+                        <ul className="space-y-3 px-3 pb-3">
+                          {completedItems.map((item) => (
+                            <Phase3ItemRow
+                              key={item.slug}
+                              item={item}
+                              reduceMotion={reduceMotion}
+                            />
+                          ))}
+                        </ul>
+                      </details>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           ) : tab === 'mainnet' ? (
             <ul key="mainnet" className="space-y-4">

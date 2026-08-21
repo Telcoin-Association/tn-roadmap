@@ -162,44 +162,99 @@ export default function MilestoneBlock({ phase }: Props) {
                 <div className="px-3 pb-3">
                   {group.title === 'Phase 3' ? (
                     <div className="mt-2 space-y-4">
-                      {ADIRI_PHASE_3_GROUPS.map((subgroup) => (
-                        <div key={subgroup.slug}>
-                          <div className="mb-1.5 text-xs font-bold uppercase tracking-[0.15em] text-white/60">
-                            {subgroup.text}
-                          </div>
-                          <ul className="ml-2 space-y-2">
-                            {subgroup.items.map((item) => {
-                              const itemStatus = getAdiriItemStatus(group, item);
-                              const isInProgress = itemStatus === 'in_progress';
-                              const shouldAnimate = isInProgress && !reduceMotion;
-                              return (
-                                <li key={item.slug} className="flex items-start gap-3">
-                                  {itemStatus === 'completed' ? (
-                                    <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />
-                                  ) : isInProgress ? (
-                                    <motion.img
-                                      src={ActivityIconUrl}
+                      {ADIRI_PHASE_3_GROUPS.map((subgroup) => {
+                        const completedItems = subgroup.items.filter((item) => item.done);
+                        const openItems = [...subgroup.items]
+                          .filter((item) => !item.done)
+                          .sort((a, b) => {
+                            const aOrder = STATUS_SORT_ORDER[getAdiriItemStatus(group, a)];
+                            const bOrder = STATUS_SORT_ORDER[getAdiriItemStatus(group, b)];
+                            return aOrder - bOrder;
+                          });
+
+                        const renderPhase3Item = (
+                          item: (typeof subgroup.items)[number],
+                        ) => {
+                          const itemStatus = getAdiriItemStatus(group, item);
+                          const isInProgress = itemStatus === 'in_progress';
+                          const shouldAnimate = isInProgress && !reduceMotion;
+                          return (
+                            <li key={item.slug} className="flex items-start gap-3">
+                              {itemStatus === 'completed' ? (
+                                <img src={CheckIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0" />
+                              ) : isInProgress ? (
+                                <motion.img
+                                  src={ActivityIconUrl}
+                                  alt=""
+                                  className="mt-0.5 h-4 w-4 shrink-0"
+                                  animate={shouldAnimate ? { opacity: [1, 0.5, 1] } : undefined}
+                                  transition={
+                                    shouldAnimate
+                                      ? {
+                                          duration: 1.2,
+                                          repeat: Infinity,
+                                          repeatType: 'reverse',
+                                          ease: 'easeInOut',
+                                        }
+                                      : undefined
+                                  }
+                                />
+                              ) : (
+                                <img
+                                  src={LoadingIconUrl}
+                                  alt=""
+                                  className="mt-0.5 h-4 w-4 shrink-0 motion-safe:animate-spin-slow"
+                                />
+                              )}
+                              <a
+                                href={`#road-to-mainnet-adiri-phase-3-${item.slug}`}
+                                className={`group/link inline-flex items-baseline gap-1 text-sm leading-6 hover:underline${
+                                  isInProgress ? ' font-semibold text-white' : ' text-white/90'
+                                }`}
+                              >
+                                {item.text}
+                                <span className="text-[10px] text-white/30 transition group-hover/link:text-white/60">
+                                  ↵
+                                </span>
+                              </a>
+                            </li>
+                          );
+                        };
+
+                        return (
+                          <div key={subgroup.slug}>
+                            <div className="mb-1.5 text-xs font-bold uppercase tracking-[0.15em] text-white/60">
+                              {subgroup.text}
+                            </div>
+                            <ul className="ml-2 space-y-2">
+                              {openItems.map((item) => renderPhase3Item(item))}
+                            </ul>
+                            {completedItems.length > 0 && (
+                              <details className="group/completed ml-2 mt-2 rounded-md border border-white/10 bg-white/[0.03]">
+                                <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-2 py-1.5 marker:content-['']">
+                                  <span className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/60">
+                                    <img
+                                      src={CheckIconUrl}
                                       alt=""
-                                      className="mt-0.5 h-4 w-4 shrink-0"
-                                      animate={shouldAnimate ? { opacity: [1, 0.5, 1] } : undefined}
-                                      transition={shouldAnimate ? { duration: 1.2, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' } : undefined}
+                                      className="h-3 w-3"
                                     />
-                                  ) : (
-                                    <img src={LoadingIconUrl} alt="" className="mt-0.5 h-4 w-4 shrink-0 motion-safe:animate-spin-slow" />
-                                  )}
-                                  <a
-                                    href={`#road-to-mainnet-adiri-phase-3-${item.slug}`}
-                                    className={`group/link inline-flex items-baseline gap-1 text-sm leading-6 hover:underline${isInProgress ? ' font-semibold text-white' : ' text-white/90'}`}
+                                    Completed ({completedItems.length})
+                                  </span>
+                                  <span
+                                    aria-hidden="true"
+                                    className="text-xs text-white/50 transition-transform group-open/completed:rotate-180"
                                   >
-                                    {item.text}
-                                    <span className="text-[10px] text-white/30 transition group-hover/link:text-white/60">↵</span>
-                                  </a>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </div>
-                      ))}
+                                    ▾
+                                  </span>
+                                </summary>
+                                <ul className="space-y-2 px-2 pb-2">
+                                  {completedItems.map((item) => renderPhase3Item(item))}
+                                </ul>
+                              </details>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
                   ) : (
                   <ul className="mt-2 space-y-2">
