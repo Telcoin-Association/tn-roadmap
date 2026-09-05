@@ -1,9 +1,129 @@
 [
   {
+    "number": 1329,
+    "title": "worker: one signed transaction submitted to K validators fills K certified batches and pays once (cross-validator duplicate amplification)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1329",
+    "updated_at": "2026-09-04T14:47:57Z"
+  },
+  {
+    "number": 1327,
+    "title": "Region-aware shuffle (#1294): a misreported region buys a guaranteed committee seat, and no attestation, monitoring, or slash path exists",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1327",
+    "updated_at": "2026-09-03T08:00:55Z"
+  },
+  {
+    "number": 1323,
+    "title": "Snapshot-restored nodes attest zero-hash dummy headers as canonical execution blocks, letting a Byzantine proposer certify a poison latest_execution_block that halts full-history validators at commit time",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1323",
+    "updated_at": "2026-08-31T20:56:21Z"
+  },
+  {
+    "number": 1321,
+    "title": "After a snapshot restore, the RecentBlocks backward scan can walk the dummy-header region to genesis, delaying startup by O(chain-height) database reads",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1321",
+    "updated_at": "2026-08-31T15:47:41Z"
+  },
+  {
+    "number": 1314,
+    "title": "worker: extract shed_sync_stream generic over the stream so the shed path is unit-testable (follow-up to #1265)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1314",
+    "updated_at": "2026-08-29T07:58:18Z"
+  },
+  {
+    "number": 1313,
+    "title": "eth_fillTransaction still prices from the gas price oracle removed from eth_gasPrice",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1313",
+    "updated_at": "2026-08-29T03:38:15Z"
+  },
+  {
+    "number": 1310,
+    "title": "PREVRANDAO seed fork is missing the rollout scaffolding its sibling forks carry",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1310",
+    "updated_at": "2026-08-29T02:25:09Z"
+  },
+  {
+    "number": 1308,
+    "title": "Primary spawns a task per denied inbound sync stream",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1308",
+    "updated_at": "2026-08-28T23:15:21Z"
+  },
+  {
+    "number": 1307,
+    "title": "metric: Inbound sync stream shedding",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1307",
+    "updated_at": "2026-08-28T23:14:39Z"
+  },
+  {
+    "number": 1305,
+    "title": "`eth_gasPrice` quotes 500 gwei on a chain that charges 7 wei",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1305",
+    "updated_at": "2026-08-28T18:02:28Z"
+  },
+  {
+    "number": 1304,
+    "title": "pool resync: residual dirty senders drain only at notification rate after a lag event",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1304",
+    "updated_at": "2026-08-28T16:41:12Z"
+  },
+  {
+    "number": 1303,
+    "title": "optimization: batch-builder mdbx lookups",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1303",
+    "updated_at": "2026-08-28T12:48:15Z"
+  },
+  {
+    "number": 1302,
+    "title": "Update grafana json",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1302",
+    "updated_at": "2026-08-28T12:40:56Z"
+  },
+  {
+    "number": 1301,
+    "title": "optimization: Residual `O(N^2 * M)` ancestor-delta merge remains on EVM block build hot path",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1301",
+    "updated_at": "2026-08-27T22:36:54Z"
+  },
+  {
+    "number": 1290,
+    "title": "Bound the per-source kad rate-limit maps against the disconnect back-pressure leak",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1290",
+    "updated_at": "2026-08-27T13:16:18Z"
+  },
+  {
+    "number": 1289,
+    "title": "Harden kad PutRecord rate limiter: split shed threshold from penalty threshold, correct rationale, add a metric",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1289",
+    "updated_at": "2026-08-27T08:20:06Z"
+  },
+  {
+    "number": 1287,
+    "title": "multi-worker: per-worker RPC/IPC endpoints are never derived; start_rpc reuses one NodeConfig.rpc, so N workers collide (IPC silently, http/ws fatally); #558 premise is wrong",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1287",
+    "updated_at": "2026-08-27T05:42:33Z"
+  },
+  {
+    "number": 1286,
+    "title": "bls precompile: no payability guard, so value attached to `blsVerify` is stranded at 0xb151 with no outflow path",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1286",
+    "updated_at": "2026-08-27T03:13:25Z"
+  },
+  {
+    "number": 1281,
+    "title": "RPC infrastructure hardening: fleet-coherent gateway limits, method-aware routing, and consensus/discovery DoS bounds (plan, extends #712)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1281",
+    "updated_at": "2026-08-30T15:23:10Z"
+  },
+  {
+    "number": 1259,
+    "title": "batch gossip exposes transactions to priority-fee poaching by re-packing",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1259",
+    "updated_at": "2026-08-25T08:24:43Z"
+  },
+  {
     "number": 1229,
     "title": "mainnet genesis",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1229",
-    "updated_at": "2026-08-20T22:06:43Z"
+    "updated_at": "2026-09-02T23:11:55Z"
   },
   {
     "number": 1227,
@@ -12,22 +132,10 @@
     "updated_at": "2026-08-20T21:19:00Z"
   },
   {
-    "number": 1225,
-    "title": "open_append appends a second EpochMeta when the first pack record is unreadable",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1225",
-    "updated_at": "2026-08-20T21:10:24Z"
-  },
-  {
-    "number": 1222,
-    "title": "Batch beneficiary is the header author, not the batch producer: a byzantine validator can steal another validator's priority fees",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1222",
-    "updated_at": "2026-08-20T10:39:50Z"
-  },
-  {
     "number": 1218,
     "title": "tn-reth: epoch-boundary system calls discard ConsensusRegistry logs (NewEpoch, ValidatorActivated/Exited/Slashed never reach receipts)",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1218",
-    "updated_at": "2026-08-19T09:54:56Z"
+    "updated_at": "2026-08-28T16:16:00Z"
   },
   {
     "number": 1213,
@@ -42,76 +150,16 @@
     "updated_at": "2026-08-18T18:37:23Z"
   },
   {
-    "number": 1211,
-    "title": "tn-reth: blsVerify precompile ABI-decodes calldata before any gas gate",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1211",
-    "updated_at": "2026-08-18T15:52:08Z"
-  },
-  {
-    "number": 1210,
-    "title": "tel precompile: dispatcher accepts DELEGATECALL/CALLCODE frames, so input.caller is spoofable to governance; harden by requiring a direct call to 0x7e1",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1210",
-    "updated_at": "2026-08-18T15:38:12Z"
-  },
-  {
-    "number": 1205,
-    "title": "tn-reth: evm_env derives blob_gasprice from the header (= 1) while block execution pins it to u128::MAX, so BLOBBASEFEE disagrees between RPC simulation and execution",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1205",
-    "updated_at": "2026-08-17T16:59:32Z"
-  },
-  {
-    "number": 1199,
-    "title": "Deflake e2e test_validator_ejected_from_future_committee_only: boundary-straddle retries burn the 5-attempt seating budget without sampling",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1199",
-    "updated_at": "2026-08-16T23:49:11Z"
-  },
-  {
-    "number": 1195,
-    "title": "network-libp2p: kad add_provider rejects refresh/self-provide once max_provided_keys is reached",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1195",
-    "updated_at": "2026-08-14T15:47:50Z"
-  },
-  {
     "number": 1191,
     "title": "Same-second ConsensusOutputs overwrite each other's ConsensusHeader digest in the repurposed EIP-4788 beacon-roots ring buffer",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1191",
     "updated_at": "2026-08-14T13:19:29Z"
   },
   {
-    "number": 1190,
-    "title": "tel precompile: dispatcher enforces staticness but not payability, so value attached to any selector is stranded at 0x7e1",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1190",
-    "updated_at": "2026-08-14T13:19:13Z"
-  },
-  {
     "number": 1187,
     "title": "Epoch-open deadlock when the seed-signature fork is active: the certified-anchor wait blocks before the epoch-vote consumer spawns (adiri halt at epoch 383)",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1187",
     "updated_at": "2026-08-13T23:20:02Z"
-  },
-  {
-    "number": 1185,
-    "title": "network-libp2p: kad add_provider does not cap a provider record's address list",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1185",
-    "updated_at": "2026-08-13T16:55:22Z"
-  },
-  {
-    "number": 1174,
-    "title": "snapshot restore: import_chain_scaffold accepts a header window shorter than the 256-block BLOCKHASH lookback and zero-fills the gap",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1174",
-    "updated_at": "2026-08-13T04:30:25Z"
-  },
-  {
-    "number": 1167,
-    "title": "Observer forwarding: a single byzantine validator can silently censor an account's transactions",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1167",
-    "updated_at": "2026-08-13T00:04:28Z"
-  },
-  {
-    "number": 1160,
-    "title": "The --rpc.txfeecap flag is parsed and documented as a spend guard but never reaches any enforcement point",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1160",
-    "updated_at": "2026-08-12T18:58:20Z"
   },
   {
     "number": 1139,
@@ -294,22 +342,10 @@
     "updated_at": "2026-02-14T01:22:50Z"
   },
   {
-    "number": 556,
-    "title": "feat: Multi-Worker Support — PR 3: Per-Worker `LocalNetwork`",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/556",
-    "updated_at": "2026-08-18T21:50:58Z"
-  },
-  {
     "number": 555,
     "title": "feat: Multi-Worker Support — PR 2: Per-Worker Network Swarms",
     "url": "https://github.com/Telcoin-Association/telcoin-network/issues/555",
     "updated_at": "2026-02-14T01:20:17Z"
-  },
-  {
-    "number": 554,
-    "title": "feat: Multi-Worker Support — PR 1: Configuration",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/554",
-    "updated_at": "2026-08-11T14:18:35Z"
   },
   {
     "number": 552,
