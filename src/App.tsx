@@ -87,11 +87,19 @@ export default function App() {
                     <div className="mb-3 grid grid-cols-[1fr_auto_1fr] items-center">
                       <div />
                       <div className="flex items-center gap-3">
-                        <span className="relative inline-flex items-center rounded-full border border-success/40 bg-success/15 px-3 py-1 text-xs font-semibold text-success">
-                          <span className="absolute inset-0 animate-ping rounded-full border border-success/30 bg-success/10" />
+                        <motion.span
+                          className="relative inline-flex items-center rounded-full border border-success/40 bg-success/15 px-3 py-1 text-sm font-semibold text-success"
+                          animate={{ scale: [1, 1.07, 1] }}
+                          transition={{ repeat: Infinity, duration: 2.8, ease: 'easeInOut' }}
+                        >
+                          <motion.span
+                            className="absolute inset-0 rounded-full border border-success/30 bg-success/10"
+                            animate={{ scale: [1, 1.35], opacity: [0.7, 0] }}
+                            transition={{ repeat: Infinity, duration: 2.8, ease: 'easeOut' }}
+                          />
                           Live
-                        </span>
-                        <span className="font-semibold text-fg">Adiri Testnet Final Phase</span>
+                        </motion.span>
+                        <span className="text-xl font-semibold text-fg">Adiri Testnet Final Phase</span>
                       </div>
                       <div className="flex justify-end">
                         <LastUpdated lastUpdated={status.meta.lastUpdated} />
