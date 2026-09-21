@@ -76,8 +76,10 @@ export default function App() {
                       value={status.meta.overallTrajectoryPct}
                       label="Road to Mainnet"
                     />
+                    <div className="mt-3 border-t border-white/[0.06] pt-3">
+                      <LastUpdated lastUpdated={status.meta.lastUpdated} />
+                    </div>
                   </div>
-                  <LastUpdated lastUpdated={status.meta.lastUpdated} />
                 </div>
               </div>
               {(() => {
