@@ -4,10 +4,11 @@ import { SiteFooter } from './components/layout/SiteFooter';
 import { motion } from 'framer-motion';
 import { PhaseOverview } from './components/PhaseOverview';
 import { ProgressBar } from './components/ProgressBar';
-import { SecurityAudits } from './components/SecurityAudits';
 import { TabbedPanel } from './components/TabbedPanel';
+import { LatestUpdates } from './components/LatestUpdates';
 import { loadStatus, type Status } from './data/loadStatus';
 import { TelcoinAnimatedLogo } from './components/TelcoinAnimatedLogo';
+import { getWhatsNew } from '@/data/whatsNew';
 import AdiriLogoUrl from '@/assets/adiri.svg?url';
 
 const sectionVariants = {
@@ -77,6 +78,18 @@ export default function App() {
                   </div>
                 </div>
               </div>
+              {(() => {
+                const { milestones: newItems } = getWhatsNew();
+                if (newItems.length === 0) return null;
+                return (
+                  <div className="rounded-2xl border border-primary/20 bg-primary/5 px-6 py-5 backdrop-blur">
+                    <h2 className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
+                      What's New
+                    </h2>
+                    <LatestUpdates />
+                  </div>
+                );
+              })()}
             </motion.div>
         </div>
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
@@ -118,13 +131,7 @@ export default function App() {
             </section>
 
             <section id="security-section">
-              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.04] p-6 backdrop-blur-sm md:p-8">
-                <SecurityAudits notes={status.security.notes} />
-              </div>
-            </section>
-
-            <section>
-              <TabbedPanel phases={status.phases} links={status.links} />
+              <TabbedPanel phases={status.phases} links={status.links} notes={status.security.notes} />
             </section>
           </>
       </main>

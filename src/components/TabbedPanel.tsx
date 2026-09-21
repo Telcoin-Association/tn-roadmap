@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import RoadToMainnet from './RoadToMainnet';
 import { LatestUpdates } from './LatestUpdates';
+import { SecurityAudits } from './SecurityAudits';
 import { LearnMore } from './LearnMore';
 import type { Phase, Status } from '../data/statusSchema';
 
@@ -15,9 +16,10 @@ const TABS: { id: Tab; label: string }[] = [
 interface TabbedPanelProps {
   phases: Phase[];
   links: Status['links'];
+  notes: Status['security']['notes'];
 }
 
-export function TabbedPanel({ phases, links }: TabbedPanelProps) {
+export function TabbedPanel({ phases, links, notes }: TabbedPanelProps) {
   const [active, setActive] = useState<Tab>('roadmap');
 
   return (
@@ -40,7 +42,12 @@ export function TabbedPanel({ phases, links }: TabbedPanelProps) {
       </div>
       <div className="p-6 md:p-8">
         {active === 'roadmap' && <RoadToMainnet />}
-        {active === 'updates' && <LatestUpdates />}
+        {active === 'updates' && (
+          <div className="space-y-10">
+            <LatestUpdates />
+            <SecurityAudits notes={notes} />
+          </div>
+        )}
         {active === 'learn' && <LearnMore phases={phases} links={links} />}
       </div>
     </div>
