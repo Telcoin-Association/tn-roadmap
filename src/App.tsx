@@ -76,9 +76,6 @@ export default function App() {
                       value={status.meta.overallTrajectoryPct}
                       label="Road to Mainnet"
                     />
-                    <div className="mt-3 border-t border-white/[0.06] pt-3">
-                      <LastUpdated lastUpdated={status.meta.lastUpdated} />
-                    </div>
                   </div>
                 </div>
               </div>
@@ -87,11 +84,14 @@ export default function App() {
                 if (newItems.length === 0) return null;
                 return (
                   <div className="rounded-2xl border border-primary/20 bg-primary/5 px-6 py-5 backdrop-blur">
-                    <div className="mb-3 flex items-center gap-3">
-                      <span className="inline-flex items-center rounded-full border border-success/40 bg-success/15 px-3 py-1 text-xs font-semibold text-success">
-                        Live
-                      </span>
-                      <span className="font-semibold text-fg">Adiri Testnet Final Phase</span>
+                    <div className="mb-3 flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <span className="inline-flex items-center rounded-full border border-success/40 bg-success/15 px-3 py-1 text-xs font-semibold text-success">
+                          Live
+                        </span>
+                        <span className="font-semibold text-fg">Adiri Testnet Final Phase</span>
+                      </div>
+                      <LastUpdated lastUpdated={status.meta.lastUpdated} />
                     </div>
                     <h2 className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
                       What's New
