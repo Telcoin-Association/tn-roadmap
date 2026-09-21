@@ -88,18 +88,10 @@ export default function App() {
                       <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">What's New</h2>
                       <div className="flex items-center gap-3">
                         <span className="relative flex items-center justify-center">
-                          <motion.span
-                            className="absolute inset-0 rounded-full border border-success/40"
-                            animate={{ scale: [1, 1.5], opacity: [0.5, 0] }}
-                            transition={{ repeat: Infinity, duration: 2.8, ease: 'easeOut', repeatDelay: 0.4 }}
-                          />
-                          <motion.span
-                            className="relative inline-flex items-center rounded-full border border-success/40 bg-success/15 px-3 py-1 text-sm font-semibold text-success"
-                            animate={{ scale: [1, 1.07, 1] }}
-                            transition={{ repeat: Infinity, duration: 2.8, ease: 'easeInOut' }}
-                          >
+                          <span className="absolute inset-0 rounded-full border border-success/40 motion-safe:animate-badge-ping" />
+                          <span className="relative inline-flex items-center rounded-full border border-success/40 bg-success/15 px-3 py-1 text-sm font-semibold text-success motion-safe:animate-badge-breathe">
                             Live
-                          </motion.span>
+                          </span>
                         </span>
                         <span className="text-xl font-semibold text-fg">Adiri Testnet Final Phase</span>
                       </div>

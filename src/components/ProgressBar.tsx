@@ -1,5 +1,5 @@
 import { useMemo, type CSSProperties } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 type ProgressBarProps = {
   value: number;
@@ -12,7 +12,6 @@ export function ProgressBar({ value, label }: ProgressBarProps) {
     const boundedValue = Math.min(100, Math.max(0, normalizedValue));
     return Number.parseFloat(boundedValue.toFixed(2));
   }, [value]);
-  const reduceMotion = useReducedMotion();
   const style = useMemo(
     () => ({
       width: `${clampedValue}%`,
@@ -37,22 +36,11 @@ export function ProgressBar({ value, label }: ProgressBarProps) {
         aria-valuemax={100}
       >
         <motion.div
-          className="relative h-full overflow-hidden rounded-full bg-gradient-to-r from-primary via-accent to-primary-600 shadow-[0_6px_18px_rgba(59,130,246,0.25)] after:absolute after:inset-0 after:animate-shimmer after:bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0)_25%,rgba(255,255,255,0.3)_50%,rgba(255,255,255,0)_75%,transparent_100%)] motion-reduce:after:hidden"
+          className="relative h-full overflow-hidden rounded-full bg-gradient-to-r from-primary via-accent to-primary-600 shadow-[0_6px_18px_rgba(59,130,246,0.25)] after:absolute after:inset-0 after:animate-shimmer after:bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0)_25%,rgba(255,255,255,0.3)_50%,rgba(255,255,255,0)_75%,transparent_100%)] motion-reduce:after:hidden motion-safe:animate-progress-breathe"
           style={style}
-          initial={{ width: 0, opacity: 1 }}
-          animate={
-            reduceMotion
-              ? { width: `${clampedValue}%`, opacity: 1 }
-              : { width: `${clampedValue}%`, opacity: [1, 0.65, 1] }
-          }
-          transition={
-            reduceMotion
-              ? { duration: 0 }
-              : {
-                  width: { duration: 1.1, ease: 'easeOut' },
-                  opacity: { duration: 1.5, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }
-                }
-          }
+          initial={{ width: 0 }}
+          animate={{ width: `${clampedValue}%` }}
+          transition={{ duration: 1.1, ease: 'easeOut' }}
         />
       </div>
     </div>

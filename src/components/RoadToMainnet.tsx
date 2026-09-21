@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import type { PhaseKey } from '@/data/milestones';
 import { ADIRI_PHASE_3_GROUPS, MILESTONES } from '@/data/milestones';
@@ -77,16 +76,9 @@ const getHashTargetSlug = (): string | null => {
   return hash.slice(prefix.length) || null;
 };
 
-function Phase3ItemRow({
-  item,
-  reduceMotion,
-}: {
-  item: CustomItem;
-  reduceMotion: boolean | null;
-}) {
+function Phase3ItemRow({ item }: { item: CustomItem }) {
   const isDone = Boolean(item.done);
   const isActive = isPhase3ItemActive(item);
-  const shouldAnimate = isActive && !reduceMotion;
   const iconSrc = isDone
     ? '/IMG/Checkmark.svg'
     : isActive
@@ -98,30 +90,15 @@ function Phase3ItemRow({
       id={phase3ItemId(item.slug)}
       className="scroll-mt-24 flex items-start gap-3"
     >
-      {shouldAnimate ? (
-        <motion.img
-          src={iconSrc}
-          alt=""
-          aria-hidden="true"
-          className="mt-0.5 h-5 w-5 shrink-0"
-          animate={{ opacity: [1, 0.4, 1] }}
-          transition={{
-            duration: 1.2,
-            repeat: Infinity,
-            repeatType: 'reverse',
-            ease: 'easeInOut',
-          }}
-        />
-      ) : (
-        <img
-          src={iconSrc}
-          alt=""
-          aria-hidden="true"
-          className={`mt-0.5 h-5 w-5 shrink-0${
-            isDone || isActive ? '' : ' motion-safe:animate-spin-slow'
-          }`}
-        />
-      )}
+      <img
+        src={iconSrc}
+        alt=""
+        aria-hidden="true"
+        className={`mt-0.5 h-5 w-5 shrink-0${
+          isActive ? ' motion-safe:animate-pulse-dim motion-reduce:animate-none' :
+          isDone ? '' : ' motion-safe:animate-spin-slow'
+        }`}
+      />
       <div className="space-y-1 text-sm text-white/90">
         <div className="font-semibold">{item.text}</div>
         {item.description && <p className="text-white/75">{item.description}</p>}
@@ -133,7 +110,6 @@ function Phase3ItemRow({
 export default function RoadToMainnet() {
   const [tab, setTab] = useState<TabKey>('horizon');
   const [hashTargetSlug, setHashTargetSlug] = useState<string | null>(null);
-  const reduceMotion = useReducedMotion();
 
   // On hash change or first load, infer tab from '#road-to-mainnet-{phase}-...'
   useEffect(() => {
@@ -450,7 +426,6 @@ export default function RoadToMainnet() {
                         <Phase3ItemRow
                           key={item.slug}
                           item={item}
-                          reduceMotion={reduceMotion}
                         />
                       ))}
                     </ul>
@@ -486,7 +461,6 @@ export default function RoadToMainnet() {
                             <Phase3ItemRow
                               key={item.slug}
                               item={item}
-                              reduceMotion={reduceMotion}
                             />
                           ))}
                         </ul>
@@ -543,7 +517,6 @@ export default function RoadToMainnet() {
                 const isDone = Boolean(m.done) || tab === 'horizon';
                 const isActivePhase2Milestone =
                   tab === 'adiri' && ACTIVE_PHASE_2_SLUGS.has(m.slug) && !isDone;
-                const shouldAnimateIcon = isActivePhase2Milestone && !reduceMotion;
                 const shouldSpin = tab === 'adiri' && !isActivePhase2Milestone && !isDone;
 
                 return (
@@ -563,30 +536,15 @@ export default function RoadToMainnet() {
 
                           return (
                             <li key={index} className="flex items-start gap-3">
-                              {shouldAnimateIcon ? (
-                                <motion.img
-                                  src={iconSrc}
-                                  alt=""
-                                  aria-hidden="true"
-                                  className="mt-0.5 h-5 w-5 shrink-0"
-                                  animate={{ opacity: [1, 0.4, 1] }}
-                                  transition={{
-                                    duration: 1.2,
-                                    repeat: Infinity,
-                                    repeatType: 'reverse',
-                                    ease: 'easeInOut',
-                                  }}
-                                />
-                              ) : (
-                                <img
-                                  src={iconSrc}
-                                  alt=""
-                                  aria-hidden="true"
-                                  className={`mt-0.5 h-5 w-5 shrink-0${
-                                    shouldSpin ? ' motion-safe:animate-spin-slow' : ''
-                                  }`}
-                                />
-                              )}
+                              <img
+                                src={iconSrc}
+                                alt=""
+                                aria-hidden="true"
+                                className={`mt-0.5 h-5 w-5 shrink-0${
+                                  isActivePhase2Milestone ? ' motion-safe:animate-pulse-dim motion-reduce:animate-none' :
+                                  shouldSpin ? ' motion-safe:animate-spin-slow' : ''
+                                }`}
+                              />
                               <span
                                 className={`text-sm leading-6${
                                   isActivePhase2Milestone

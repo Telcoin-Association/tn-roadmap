@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
 
 import MilestoneBlock from '@/components/MilestoneBlock';
 import type { PhaseKey } from '@/data/milestones';
@@ -70,7 +69,6 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
   const phaseTitles = visiblePhases.map((phase) => phase.title);
   const readablePhaseList = formatList(phaseTitles);
   const phaseListText = readablePhaseList || 'each network phase';
-  const reduceMotion = useReducedMotion();
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEqualizeMinHeight(gridRef, '[data-phase-above]');
@@ -141,19 +139,13 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
                       </p>
                     </div>
                   </div>
-                  <motion.span
+                  <span
                     aria-label={badge.ariaLabel}
-                    className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${badge.className}`}
+                    className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${badge.className}${badge.shouldPulse ? ' motion-safe:animate-pulse-dim' : ''}`}
                     role="status"
-                    animate={!reduceMotion && badge.shouldPulse ? { opacity: [1, 0.5, 1] } : undefined}
-                    transition={
-                      !reduceMotion && badge.shouldPulse
-                        ? { duration: 1.2, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }
-                        : undefined
-                    }
                   >
                     {badge.text}
-                  </motion.span>
+                  </span>
                 </header>
                 {phase.summary && (
                   <p className="text-sm leading-relaxed text-fg-muted transition group-hover:text-fg">
