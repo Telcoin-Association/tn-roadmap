@@ -84,9 +84,12 @@ export default function App() {
                 if (newItems.length === 0) return null;
                 return (
                   <div className="rounded-2xl border border-primary/20 bg-primary/5 px-6 py-5 backdrop-blur">
-                    <div className="mb-3 grid grid-cols-[1fr_auto_1fr] items-center">
-                      <div />
-                      <div className="flex items-center gap-3">
+                    <div className="mb-4 flex items-center justify-between">
+                      <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">What's New</h2>
+                      <LastUpdated lastUpdated={status.meta.lastUpdated} />
+                    </div>
+                    <div className="mb-4 rounded-3xl border border-[#19C8FF]/40 bg-card py-4 shadow-[0_0_30px_rgba(25,200,255,0.2)] backdrop-blur">
+                      <div className="flex items-center justify-center gap-3">
                         <span className="relative flex items-center justify-center">
                           <motion.span
                             className="absolute inset-0 rounded-full border border-success/40"
@@ -102,11 +105,6 @@ export default function App() {
                           </motion.span>
                         </span>
                         <span className="text-xl font-semibold text-fg">Adiri Testnet Final Phase</span>
-                        <span className="text-white/20">·</span>
-                        <span className="text-sm font-semibold uppercase tracking-widest text-primary">What's New</span>
-                      </div>
-                      <div className="flex justify-end">
-                        <LastUpdated lastUpdated={status.meta.lastUpdated} />
                       </div>
                     </div>
                     <LatestUpdates />
