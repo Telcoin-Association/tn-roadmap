@@ -8,7 +8,7 @@ type Tab = 'roadmap' | 'updates' | 'learn';
 
 const TABS: { id: Tab; label: string }[] = [
   { id: 'roadmap', label: 'Road to Mainnet' },
-  { id: 'updates', label: 'Latest Updates' },
+  { id: 'updates', label: 'Developer Notes' },
   { id: 'learn', label: 'Learn More' },
 ];
 
