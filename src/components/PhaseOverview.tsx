@@ -188,7 +188,7 @@ export function PhaseOverview({ phases }: PhaseOverviewProps) {
               <article
                 data-phase-card=""
                 data-phase={dataPhase}
-                className="group flex h-full flex-col overflow-hidden rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft transition-colors duration-300 hover:border-primary/40 hover:shadow-glow"
+                className="group flex h-full flex-col overflow-hidden rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur transition-colors duration-300 hover:border-primary/40 hover:shadow-glow"
               >
                 {cardInner}
               </article>

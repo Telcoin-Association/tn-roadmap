@@ -5,7 +5,7 @@ import { MobileNavDrawer } from './MobileNavDrawer';
 export function SiteHeader() {
   return (
     <nav
-      className="fixed inset-x-0 top-0 z-50 w-full bg-card/95"
+      className="fixed inset-x-0 top-0 z-50 w-full bg-card/95 backdrop-blur"
       aria-label="Main navigation"
     >
       <div className="mx-auto flex h-16 max-w-[80rem] items-center justify-between px-4">

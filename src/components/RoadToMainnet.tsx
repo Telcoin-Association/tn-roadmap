@@ -407,7 +407,7 @@ export default function RoadToMainnet() {
 
       <div
         id={`road-to-mainnet-${tab}-tab`}
-        className="rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft"
+        className="rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] p-6 shadow-soft backdrop-blur"
       >
         {/* Tabs */}
         <div className="mx-auto mb-5 flex flex-wrap justify-center gap-2 rounded-xl bg-white/5 p-1 sm:gap-1">

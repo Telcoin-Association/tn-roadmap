@@ -22,7 +22,7 @@ export function TabbedPanel({ phases, links, notes }: TabbedPanelProps) {
   const [active, setActive] = useState<Tab>('roadmap');
 
   return (
-    <div className="rounded-2xl border border-white/[0.06] bg-white/[0.04]">
+    <div className="rounded-2xl border border-white/[0.06] bg-white/[0.04] backdrop-blur-sm">
       <div className="flex border-b border-white/[0.06]">
         {TABS.map((tab) => (
           <button
