@@ -245,7 +245,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
                       ? 'what-is-mainnet'
                       : `learn-more-${section.id}`
               }
-              className="overflow-hidden rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] shadow-soft backdrop-blur transition-all duration-300 hover:border-primary/40 hover:shadow-glow"
+              className="overflow-hidden rounded-[16px] border-[0.4px] border-[#C9CFED99] bg-[#172552] shadow-soft transition-colors duration-300 hover:border-primary/40 hover:shadow-glow"
             >
               <motion.button
                 type="button"
@@ -297,7 +297,7 @@ export function LearnMore({ phases, links }: LearnMoreProps) {
         {linkButtons.map((link) => (
           <motion.a
             key={link.label}
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-fg shadow-soft backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:text-primary hover:shadow-[0_4px_20px_rgba(25,200,255,0.15)]"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-fg shadow-soft transition-colors duration-300 hover:-translate-y-0.5 hover:text-primary hover:shadow-[0_4px_20px_rgba(25,200,255,0.15)]"
             href={link.href}
             target="_blank"
             rel="noreferrer noopener"

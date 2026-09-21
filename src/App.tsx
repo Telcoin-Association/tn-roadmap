@@ -34,7 +34,7 @@ export default function App() {
     <div className="relative min-h-screen bg-bg bg-hero-ambient text-fg">
       <SiteHeader />
       <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.025]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")', backgroundRepeat: 'repeat' }} />
-      <header className="relative bg-card pt-16 backdrop-blur">
+      <header className="relative bg-card pt-16">
         <div className="container-fluid py-16">
             <motion.div
               initial="hidden"
@@ -71,7 +71,7 @@ export default function App() {
                   </div>
                 </div>
                 <div className="flex w-full flex-col items-start gap-4 md:w-[420px] md:shrink-0 md:items-end">
-                  <div className="w-full rounded-3xl border border-[#19C8FF]/40 bg-card p-6 shadow-[0_0_30px_rgba(25,200,255,0.2)] backdrop-blur">
+                  <div className="w-full rounded-3xl border border-[#19C8FF]/40 bg-card p-6 shadow-[0_0_30px_rgba(25,200,255,0.2)]">
                     <ProgressBar
                       value={status.meta.overallTrajectoryPct}
                       label="Road to Mainnet"
@@ -83,7 +83,7 @@ export default function App() {
                 const { milestones: newItems } = getWhatsNew();
                 if (newItems.length === 0) return null;
                 return (
-                  <div className="rounded-2xl border border-primary/20 bg-primary/5 px-6 py-5 backdrop-blur">
+                  <div className="rounded-2xl border border-primary/20 bg-primary/5 px-6 py-5">
                     <div className="mb-4 grid grid-cols-[1fr_auto_1fr] items-center">
                       <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">What's New</h2>
                       <div className="flex items-center gap-3">
@@ -118,7 +118,7 @@ export default function App() {
       <main className="container-fluid space-y-16 py-16">
           <>
             <section>
-              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.04] p-6 backdrop-blur-sm md:p-8">
+              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.04] p-6 md:p-8">
                 <PhaseOverview phases={status.phases} />
               </div>
             </section>
