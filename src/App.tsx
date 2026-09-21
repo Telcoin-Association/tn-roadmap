@@ -1,4 +1,6 @@
-import { useEffect, useState, type MouseEvent } from 'react';
+import { useState, type MouseEvent } from 'react';
+import { SiteHeader } from './components/layout/SiteHeader';
+import { SiteFooter } from './components/layout/SiteFooter';
 import { motion } from 'framer-motion';
 import { LearnMore } from './components/LearnMore';
 import { PhaseOverview } from './components/PhaseOverview';
@@ -16,43 +18,9 @@ const sectionVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-function SkeletonSection({ className }: { className?: string }) {
-  return (
-    <div
-      className={`animate-pulse rounded-2xl border-2 border-border/60 bg-card p-6 shadow-glow backdrop-blur ${className ?? ''}`}
-    >
-      <div className="h-4 w-32 rounded-full bg-white/10" />
-      <div className="mt-4 space-y-3">
-        <div className="h-3 w-full rounded-full bg-white/20" />
-        <div className="h-3 w-5/6 rounded-full bg-white/10" />
-        <div className="h-3 w-2/3 rounded-full bg-white/5" />
-      </div>
-    </div>
-  );
-}
-
-function HeaderSkeleton() {
-  return (
-    <div className="animate-pulse space-y-4 rounded-3xl border-2 border-border/60 bg-card p-10 text-center shadow-glow backdrop-blur">
-      <div className="mx-auto h-7 w-56 rounded-full bg-white/15" />
-      <div className="mx-auto h-4 w-64 rounded-full bg-white/10" />
-      <div className="mx-auto h-3 w-48 rounded-full bg-white/5" />
-    </div>
-  );
-}
 
 export default function App() {
-  const [status, setStatus] = useState<Status | null>(null);
-  useEffect(() => {
-    const data = loadStatus();
-    const timeout = window.setTimeout(() => {
-      setStatus(data);
-    }, 120);
-
-    return () => window.clearTimeout(timeout);
-  }, []);
-
-  const showSkeleton = status === null;
+  const [status] = useState<Status>(() => loadStatus());
   const headerDescription =
     'Visibility into Telcoin Network development and what remains before launching mainnet.';
 
@@ -65,12 +33,10 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-bg bg-hero-ambient text-fg">
+      <SiteHeader />
       <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.025]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")', backgroundRepeat: 'repeat' }} />
-      <header className="relative bg-card backdrop-blur">
-        <div className="mx-auto max-w-5xl px-6 py-16 md:px-8">
-          {showSkeleton ? (
-            <HeaderSkeleton />
-          ) : (
+      <header className="relative bg-card pt-16 backdrop-blur">
+        <div className="container-fluid py-16">
             <motion.div
               initial="hidden"
               animate="visible"
@@ -211,26 +177,10 @@ export default function App() {
                 );
               })()}
             </motion.div>
-          )}
         </div>
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       </header>
-      <main
-        className="mx-auto max-w-5xl space-y-16 px-6 py-16 md:px-8"
-        aria-busy={showSkeleton}
-        aria-live="polite"
-      >
-        {showSkeleton || !status ? (
-          <>
-            <div className="grid gap-6 md:grid-cols-3">
-              {Array.from({ length: 3 }).map((_, index) => (
-                <SkeletonSection key={index} />
-              ))}
-            </div>
-            <SkeletonSection className="h-64" />
-            <SkeletonSection className="h-72" />
-          </>
-        ) : (
+      <main className="container-fluid space-y-16 py-16">
           <>
             <section className="px-6 md:px-8">
               <motion.div
@@ -284,15 +234,8 @@ export default function App() {
               </div>
             </section>
           </>
-        )}
       </main>
-      <footer className="relative bg-card py-8 text-center text-sm text-fg-muted backdrop-blur">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        © 2025{' '}
-        <a href="https://www.telcoin.network/" className="text-primary hover:underline">
-          Telcoin Network
-        </a>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

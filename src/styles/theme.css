@@ -1,4 +1,5 @@
 :root {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color-scheme: dark;
   --bg: hsl(233 73% 11%);
   --bg-elev: hsl(232 66% 15%);
@@ -54,4 +55,11 @@
   :root {
     --shadow: 0 18px 36px hsl(225 80% 16% / 0.32);
   }
+}
+
+.container-fluid {
+  width: 100%;
+  max-width: 80rem; /* max-w-7xl = 1280px, matches tel3 */
+  margin-inline: auto;
+  padding-inline: 1rem; /* px-4 = 16px, matches tel3 */
 }
