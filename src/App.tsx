@@ -88,8 +88,8 @@ export default function App() {
                       <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">What's New</h2>
                       <LastUpdated lastUpdated={status.meta.lastUpdated} />
                     </div>
-                    <div className="mb-4 rounded-3xl border border-[#19C8FF]/40 bg-card py-4 shadow-[0_0_30px_rgba(25,200,255,0.2)] backdrop-blur">
-                      <div className="flex items-center justify-center gap-3">
+                    <div className="mb-4 flex justify-center">
+                      <div className="inline-flex items-center gap-3 rounded-3xl border border-[#19C8FF]/40 bg-card px-6 py-4 shadow-[0_0_30px_rgba(25,200,255,0.2)] backdrop-blur">
                         <span className="relative flex items-center justify-center">
                           <motion.span
                             className="absolute inset-0 rounded-full border border-success/40"
