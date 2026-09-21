@@ -102,14 +102,13 @@ export default function App() {
                           </motion.span>
                         </span>
                         <span className="text-xl font-semibold text-fg">Adiri Testnet Final Phase</span>
+                        <span className="text-white/20">·</span>
+                        <span className="text-sm font-semibold uppercase tracking-widest text-primary">What's New</span>
                       </div>
                       <div className="flex justify-end">
                         <LastUpdated lastUpdated={status.meta.lastUpdated} />
                       </div>
                     </div>
-                    <h2 className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
-                      What's New
-                    </h2>
                     <LatestUpdates />
                   </div>
                 );
