@@ -87,11 +87,8 @@ export default function App() {
                     <div className="mb-4 grid grid-cols-[1fr_auto_1fr] items-center">
                       <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">What's New</h2>
                       <div className="flex items-center gap-3">
-                        <span className="relative flex items-center justify-center">
-                          <span className="absolute inset-0 rounded-full border border-success/40 motion-safe:animate-badge-ping" />
-                          <span className="relative inline-flex items-center rounded-full border border-success/40 bg-success/15 px-3 py-1 text-sm font-semibold text-success motion-safe:animate-badge-breathe">
-                            Live
-                          </span>
+                        <span className="inline-flex items-center rounded-full border border-success/40 bg-success/15 px-3 py-1 text-sm font-semibold text-success">
+                          Live
                         </span>
                         <span className="text-xl font-semibold text-fg">Adiri Testnet Final Phase</span>
                       </div>

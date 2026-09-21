@@ -51,10 +51,7 @@ export function TabbedPanel({ phases, links, notes }: TabbedPanelProps) {
           <div className="space-y-4">
             <div className="flex items-start gap-3">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary/20 text-primary">
-                <span className="relative flex items-center justify-center">
-                  <span className="absolute inset-0 rounded-full border border-success/40 motion-safe:animate-badge-ping" />
-                  <span className="relative inline-flex items-center rounded-full border border-success/40 bg-success/15 px-2 py-0.5 text-xs font-semibold text-success motion-safe:animate-badge-breathe">Live</span>
-                </span>
+                <span className="inline-flex items-center rounded-full border border-success/40 bg-success/15 px-2 py-0.5 text-xs font-semibold text-success">Live</span>
               </div>
               <div className="space-y-1">
                 <h2 className="text-xl font-bold text-fg">What's New</h2>
