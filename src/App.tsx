@@ -134,9 +134,6 @@ export default function App() {
                                   href={`#road-to-mainnet-adiri-phase-3-${item.slug}`}
                                   className="flex items-center gap-3 rounded-lg border border-primary/20 bg-primary/10 px-2 py-1.5 text-sm text-fg transition hover:bg-primary/15"
                                 >
-                                  <span className="shrink-0 rounded-full border border-primary/50 bg-primary/20 px-2 py-0.5 text-xs font-semibold text-primary">
-                                    In Progress
-                                  </span>
                                   <span className="leading-snug">{item.text}</span>
                                 </a>
                               </li>
@@ -156,9 +153,6 @@ export default function App() {
                                   href={`#road-to-mainnet-adiri-phase-3-${item.slug}`}
                                   className="flex items-center gap-3 rounded-lg border border-success/20 bg-success/10 px-2 py-1.5 text-sm text-fg transition hover:bg-success/15"
                                 >
-                                  <span className="shrink-0 rounded-full border border-success/40 bg-success/15 px-2 py-0.5 text-xs font-semibold text-success">
-                                    Complete
-                                  </span>
                                   <span className="leading-snug">{item.text}</span>
                                 </a>
                               </li>
