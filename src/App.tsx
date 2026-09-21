@@ -2,15 +2,12 @@ import { useState, type MouseEvent } from 'react';
 import { SiteHeader } from './components/layout/SiteHeader';
 import { SiteFooter } from './components/layout/SiteFooter';
 import { motion } from 'framer-motion';
-import { LearnMore } from './components/LearnMore';
 import { PhaseOverview } from './components/PhaseOverview';
 import { ProgressBar } from './components/ProgressBar';
-import RoadToMainnet from './components/RoadToMainnet';
 import { SecurityAudits } from './components/SecurityAudits';
+import { TabbedPanel } from './components/TabbedPanel';
 import { loadStatus, type Status } from './data/loadStatus';
 import { TelcoinAnimatedLogo } from './components/TelcoinAnimatedLogo';
-import LastUpdated from '@/components/LastUpdated';
-import { getWhatsNew } from '@/data/whatsNew';
 import AdiriLogoUrl from '@/assets/adiri.svg?url';
 
 const sectionVariants = {
@@ -80,70 +77,6 @@ export default function App() {
                   </div>
                 </div>
               </div>
-              {(() => {
-                const { date, milestones: newItems } = getWhatsNew();
-                if (newItems.length === 0) return null;
-                const inProgressItems = newItems.filter(
-                  (item) => item.inProgress && !item.done,
-                );
-                const completeItems = newItems.filter((item) => item.done);
-                return (
-                  <div className="rounded-2xl border border-primary/20 bg-primary/5 px-6 py-5 backdrop-blur">
-                    <div className="mb-3 flex items-center justify-between gap-4">
-                      <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">
-                        What's New
-                      </h2>
-                      <LastUpdated lastUpdated={date} />
-                    </div>
-                    <div className="space-y-4">
-                      {inProgressItems.length > 0 && (
-                        <div>
-                          <h3 className="mb-2 px-2 text-xs font-semibold uppercase tracking-wider text-primary">
-                            In Progress
-                          </h3>
-                          <ul className="space-y-2">
-                            {inProgressItems.map((item) => (
-                              <li key={item.slug}>
-                                <a
-                                  href={`#road-to-mainnet-adiri-phase-3-${item.slug}`}
-                                  className="flex items-center gap-3 rounded-lg border border-primary/20 bg-primary/10 px-2 py-1.5 text-sm text-fg transition hover:bg-primary/15"
-                                >
-                                  <span className="leading-snug">{item.text}</span>
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                      {completeItems.length > 0 && (
-                        <div>
-                          <h3 className="mb-2 px-2 text-xs font-semibold uppercase tracking-wider text-success">
-                            Complete
-                          </h3>
-                          <ul className="space-y-2">
-                            {completeItems.map((item) => (
-                              <li key={item.slug}>
-                                <a
-                                  href={`#road-to-mainnet-adiri-phase-3-${item.slug}`}
-                                  className="flex items-center gap-3 rounded-lg border border-success/20 bg-success/10 px-2 py-1.5 text-sm text-fg transition hover:bg-success/15"
-                                >
-                                  <span className="leading-snug">{item.text}</span>
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
-                    <a
-                      href="#security-section"
-                      className="mt-4 inline-block px-2 text-xs font-medium text-primary hover:underline"
-                    >
-                      Developer Notes ↓
-                    </a>
-                  </div>
-                );
-              })()}
             </motion.div>
         </div>
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
@@ -191,15 +124,7 @@ export default function App() {
             </section>
 
             <section>
-              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.04] p-6 backdrop-blur-sm md:p-8">
-                <RoadToMainnet />
-              </div>
-            </section>
-
-            <section>
-              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.04] p-6 backdrop-blur-sm md:p-8">
-                <LearnMore phases={status.phases} links={status.links} />
-              </div>
+              <TabbedPanel phases={status.phases} links={status.links} />
             </section>
           </>
       </main>
