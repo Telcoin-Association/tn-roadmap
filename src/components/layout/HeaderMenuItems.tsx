@@ -1,7 +1,7 @@
 export const menuItems = [
   { name: 'Faucet', href: 'https://faucet.telcoin.network' },
   { name: 'Documentation', href: 'https://docs.telcoin.network' },
-  { name: 'TNIPs', href: 'https://tnips.telcoin.network' },
+  { name: 'Explorer', href: 'https://telscan.io/' },
   { name: 'Telcoin Association', href: 'https://telcoin.org/?ref=telcoin.network' },
 ];
 

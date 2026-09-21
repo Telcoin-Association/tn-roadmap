@@ -68,32 +68,6 @@ export default function App() {
                           {headerDescription}
                         </p>
                       </a>
-                      <div className="mt-4 flex flex-wrap justify-center gap-3 sm:justify-start">
-                        <a
-                          href="https://github.com/telcoin-association/telcoin-network"
-                          className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          GitHub
-                        </a>
-                        <a
-                          href="https://telscan.io/"
-                          className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Explorer
-                        </a>
-                        <a
-                          href="https://www.telcoin.network/faucet"
-                          className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Faucet
-                        </a>
-                      </div>
                     </div>
                   </div>
                 </div>
