@@ -86,7 +86,7 @@ export default function App() {
                   <div className="rounded-2xl border border-primary/20 bg-primary/5 px-6 py-5 backdrop-blur">
                     <div className="mb-4 grid grid-cols-[1fr_auto_1fr] items-center">
                       <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">What's New</h2>
-                      <div className="inline-flex items-center gap-3 rounded-3xl border border-[#19C8FF]/40 bg-card px-6 py-4 shadow-[0_0_30px_rgba(25,200,255,0.2)] backdrop-blur">
+                      <div className="flex items-center gap-3">
                         <span className="relative flex items-center justify-center">
                           <motion.span
                             className="absolute inset-0 rounded-full border border-success/40"
