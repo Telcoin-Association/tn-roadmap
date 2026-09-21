@@ -9,6 +9,7 @@ import { LatestUpdates } from './components/LatestUpdates';
 import { loadStatus, type Status } from './data/loadStatus';
 import { TelcoinAnimatedLogo } from './components/TelcoinAnimatedLogo';
 import { getWhatsNew } from '@/data/whatsNew';
+import LastUpdated from '@/components/LastUpdated';
 import AdiriLogoUrl from '@/assets/adiri.svg?url';
 
 const sectionVariants = {
@@ -76,6 +77,7 @@ export default function App() {
                       label="Road to Mainnet"
                     />
                   </div>
+                  <LastUpdated lastUpdated={status.meta.lastUpdated} />
                 </div>
               </div>
               {(() => {
@@ -83,6 +85,12 @@ export default function App() {
                 if (newItems.length === 0) return null;
                 return (
                   <div className="rounded-2xl border border-primary/20 bg-primary/5 px-6 py-5 backdrop-blur">
+                    <div className="mb-3 flex items-center gap-3">
+                      <span className="inline-flex items-center rounded-full border border-success/40 bg-success/15 px-3 py-1 text-xs font-semibold text-success">
+                        Live
+                      </span>
+                      <span className="font-semibold text-fg">Adiri Testnet Final Phase</span>
+                    </div>
                     <h2 className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
                       What's New
                     </h2>
@@ -96,34 +104,6 @@ export default function App() {
       </header>
       <main className="container-fluid space-y-16 py-16">
           <>
-            <section className="px-6 md:px-8">
-              <motion.div
-                className="relative flex flex-col items-center gap-4 overflow-hidden rounded-[16px] border border-primary/40 bg-[#172552] px-6 py-6 shadow-[0_0_30px_rgba(25,200,255,0.12)] backdrop-blur md:px-10 md:py-8"
-                animate={{ boxShadow: ['0 0 30px rgba(25,200,255,0.12)', '0 0 40px rgba(25,200,255,0.22)', '0 0 30px rgba(25,200,255,0.12)'] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5" />
-                <div className="relative flex items-center justify-center gap-4">
-                  <span className="inline-flex items-center rounded-full border border-success/40 bg-success/15 px-3 py-1 text-sm font-semibold text-success">
-                    Live
-                  </span>
-                  <p className="text-2xl font-bold text-fg md:text-3xl">
-                    Adiri Testnet Final Phase
-                  </p>
-                </div>
-                <p className="relative max-w-2xl text-center text-sm leading-relaxed text-fg-muted">
-                  Telcoin Network's Adiri testnet has launched as a stable network.
-                  This build – the final phase before mainnet – is ready for MNOs to onboard as validators and developers to build dApps.
-                </p>
-                <p className="relative text-center text-sm text-fg-muted">
-                  For developer access and support, contact{' '}
-                  <a href="mailto:devs@telcoin.org" className="text-primary hover:underline">
-                    devs@telcoin.org
-                  </a>
-                </p>
-              </motion.div>
-            </section>
-
             <section>
               <div className="rounded-2xl border border-white/[0.06] bg-white/[0.04] p-6 backdrop-blur-sm md:p-8">
                 <PhaseOverview phases={status.phases} />

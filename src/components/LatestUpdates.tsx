@@ -1,8 +1,7 @@
 import { getWhatsNew } from '@/data/whatsNew';
-import LastUpdated from '@/components/LastUpdated';
 
 export function LatestUpdates() {
-  const { date, milestones: newItems } = getWhatsNew();
+  const { milestones: newItems } = getWhatsNew();
   const inProgressItems = newItems.filter((item) => item.inProgress && !item.done);
   const completeItems = newItems.filter((item) => item.done);
 
@@ -16,9 +15,6 @@ export function LatestUpdates() {
 
   return (
     <div>
-      <div className="mb-4 flex items-center justify-between gap-4">
-        <LastUpdated lastUpdated={date} />
-      </div>
       <div className="space-y-4">
         {inProgressItems.length > 0 && (
           <div>
