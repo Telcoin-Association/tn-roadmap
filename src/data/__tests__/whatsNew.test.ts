@@ -26,14 +26,22 @@ describe('isUpdatedWithinLast24Hours', () => {
 });
 
 describe('getNewInUpdateItems', () => {
-  it('returns milestones tagged within 24 hours of the latest notes timestamp', () => {
+  it('returns milestones tagged within 24 hours of the August 20 notes timestamp', () => {
     const items = getNewInUpdateItems('2026-08-20T00:00:00Z');
     const slugs = items.map((item) => item.slug);
     expect(slugs).toContain('fork-adiri-testnet-audited-consensus-registry');
-    expect(slugs).toContain('deterministic-entropy-validator-selection');
     expect(slugs).toContain('onboard-dvns-for-mainnet-bridge');
     expect(slugs).toContain('snapshot-support-instant-syncing');
     expect(slugs).toContain('finalize-native-token-strategy-tel3-telip');
+  });
+
+  it('returns milestones tagged within 24 hours of the September 24 notes timestamp', () => {
+    const items = getNewInUpdateItems('2026-09-24T00:00:00Z');
+    const slugs = items.map((item) => item.slug);
+    expect(slugs).toContain('integrate-adiri-testnet-with-bridge-solution');
+    expect(slugs).toContain('bidirectional-streaming-canonical-tip');
+    expect(slugs).toContain('deterministic-entropy-validator-selection');
+    expect(slugs).toContain('dynamic-basefee-epoch-boundaries');
   });
 
   it('does not return tags from a prior update more than 24 hours ago', () => {
@@ -49,10 +57,9 @@ describe('getWhatsNew', () => {
 
     expect(whatsNew.date).toBe(getLatestDeveloperNotesDate());
     expect(whatsNew).not.toHaveProperty('notes');
-    expect(slugs).toContain('fork-adiri-testnet-audited-consensus-registry');
+    expect(slugs).toContain('integrate-adiri-testnet-with-bridge-solution');
+    expect(slugs).toContain('bidirectional-streaming-canonical-tip');
     expect(slugs).toContain('deterministic-entropy-validator-selection');
-    expect(slugs).toContain('onboard-dvns-for-mainnet-bridge');
-    expect(slugs).toContain('snapshot-support-instant-syncing');
-    expect(slugs).toContain('finalize-native-token-strategy-tel3-telip');
+    expect(slugs).toContain('dynamic-basefee-epoch-boundaries');
   });
 });
