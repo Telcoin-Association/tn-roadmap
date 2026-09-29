@@ -45,7 +45,7 @@ export default function App() {
             >
               <div className="flex flex-wrap items-start gap-6 md:flex-nowrap md:justify-between">
                 <div className="flex min-w-0 flex-1 flex-col gap-4">
-                  <div className="flex min-w-0 flex-col items-center gap-4 sm:flex-row sm:items-start">
+                  <div className="flex min-w-0 flex-col items-center gap-4 sm:flex-row sm:items-center">
                     <a
                       href="/"
                       onClick={onHome}
