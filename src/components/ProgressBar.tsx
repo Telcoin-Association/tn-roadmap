@@ -23,9 +23,8 @@ export function ProgressBar({ value, label }: ProgressBarProps) {
   return (
     <div className="space-y-2">
       {label ? (
-        <div className="flex items-center justify-between text-sm font-medium text-fg-muted">
+        <div className="text-sm font-medium text-fg-muted">
           <span>{label}</span>
-          <span className="tabular-nums text-fg">{clampedValue}%</span>
         </div>
       ) : null}
       <div
