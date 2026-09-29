@@ -4,6 +4,18 @@ export type DeveloperNoteSection = {
   items: string[];
 };
 
+const SEPTEMBER_24_DEVELOPER_NOTES = [
+  'The past four weeks mark a significant milestone — four major engineering workstreams have been completed, moving the Road to Mainnet checklist closer to final readiness.',
+  'Bridge integration with Adiri testnet is complete. TEL and stablecoins can now be moved between Telcoin Network and external chains, validating end-to-end cross-chain interoperability ahead of mainnet.',
+  'Bidirectional streaming for canonical tip sync is complete. Nodes can now stay continuously synced without relying on polling, reducing latency and improving real-time network responsiveness.',
+  'The deterministic source of entropy for random validator committee selection has been improved and locked in. The updated approach strengthens fairness and security guarantees across epoch boundaries.',
+  'Dynamic basefee adjustments at epoch boundaries are complete. The fee market now responds to changing network load conditions more responsively, improving transaction cost predictability for users and dApp developers.',
+  'DVN onboarding and integration for the TN mainnet bridge remains in active progress with coordinated partner engagement.',
+  'The execution engine security assessment continues with external security partners, advancing a critical security gate ahead of mainnet.',
+  'Worker Gateway work to reduce the DoS attack surface for the execution layer is progressing alongside the ongoing security assessment workstream.',
+  'AI-assisted security scans continue on schedule, covering isolated crates ahead of final third-party human security assessments.',
+];
+
 const AUGUST_20_DEVELOPER_NOTES = [
   'The past two weeks have been almost entirely focused on security and correctness for the protocol — 65 pull requests merged across the Rust protocol codebase, with eight engineers aligned on a single goal: delivering a mainnet that is ready, secure, and scalable.',
   'Telcoin Network is now one week into its latest independent security assessment with the Cantina team. Researchers were handpicked by the protocol team with security guidance from Uku. Every finding is being fixed privately first and then published in full — nothing is being buried quietly.',
@@ -173,6 +185,7 @@ const FEBRUARY_19_DEVELOPER_NOTES = [
 ];
 
 const developerNoteDates = [
+  '2026-09-24T00:00:00Z',
   '2026-08-20T00:00:00Z',
   '2026-07-31T00:00:00Z',
   '2026-07-03T00:00:00Z',
@@ -192,7 +205,7 @@ const developerNoteDates = [
   '2025-11-13T00:00:00Z',
 ];
 
-export const getLatestDeveloperNotes = (): string[] => AUGUST_20_DEVELOPER_NOTES;
+export const getLatestDeveloperNotes = (): string[] => SEPTEMBER_24_DEVELOPER_NOTES;
 
 export const getLatestDeveloperNotesDate = () =>
   developerNoteDates.reduce((latest, current) =>
@@ -200,6 +213,11 @@ export const getLatestDeveloperNotesDate = () =>
   );
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
+  {
+    title: 'Developer Notes - Updated 24 September 2026',
+    date: '2026-09-24',
+    items: SEPTEMBER_24_DEVELOPER_NOTES,
+  },
   {
     title: 'Developer Notes - Updated 20 August 2026',
     date: '2026-08-20',
