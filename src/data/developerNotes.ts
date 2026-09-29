@@ -5,15 +5,17 @@ export type DeveloperNoteSection = {
 };
 
 const SEPTEMBER_24_DEVELOPER_NOTES = [
-  'The past four weeks mark a significant milestone — four major engineering workstreams have been completed, moving the Road to Mainnet checklist closer to final readiness.',
-  'Bridge integration with Adiri testnet is complete. TEL and stablecoins can now be moved between Telcoin Network and external chains, validating end-to-end cross-chain interoperability ahead of mainnet.',
-  'Bidirectional streaming for canonical tip sync is complete. Nodes can now stay continuously synced without relying on polling, reducing latency and improving real-time network responsiveness.',
-  'The deterministic source of entropy for random validator committee selection has been improved and locked in. The updated approach strengthens fairness and security guarantees across epoch boundaries.',
-  'Dynamic basefee adjustments at epoch boundaries are complete. The fee market now responds to changing network load conditions more responsively, improving transaction cost predictability for users and dApp developers.',
-  'DVN onboarding and integration for the TN mainnet bridge remains in active progress with coordinated partner engagement.',
-  'The execution engine security assessment continues with external security partners, advancing a critical security gate ahead of mainnet.',
-  'Worker Gateway work to reduce the DoS attack surface for the execution layer is progressing alongside the ongoing security assessment workstream.',
-  'AI-assisted security scans continue on schedule, covering isolated crates ahead of final third-party human security assessments.',
+  'The independent security audit is in its final stages — remediation work is essentially complete and under researcher review, with only the consolidated final report now outstanding. The same researchers who found the issues are reviewing fixes directly on GitHub pull requests.',
+  'One of the flagged high-severity findings — around historical snapshot restoration — has already been patched; snapshot restoration doesn\'t apply at this stage since all mainnet validators must sync full history.',
+  'Researchers gave unprompted positive feedback on the codebase\'s clarity and quality throughout the review.',
+  'Networking and per-worker infrastructure hardening has been a major, active workstream through late September — including per-worker RPC/IPC endpoint handling, network key validation, committee worker startup, and expanded multi-worker test coverage — as the team prepares the network to run reliably at scale.',
+  'A full 10-validator saturation benchmark ran across five global regions (two nodes per zone, all 13 transaction types, chaos-testing validator kill/restart) to pressure-test the network under sustained load ahead of mainnet.',
+  'That benchmark reshaped the validator hardware requirements: minimum spec is now 4 physical cores and 16GB RAM (32GB recommended) — down sharply from earlier placeholder estimates — with disk I/O identified as the tightest resource. Storage requirements were also revised down to 2TB at the current throughput ceiling.',
+  'The benchmark surfaced two real robustness findings ahead of production: a slow validator falling behind under load stopped producing batches cleanly, and a hard-killed validator took 35 minutes to resume execution after restart — exactly the kind of edge case the team wants to catch now rather than on mainnet.',
+  'The TEL upgrade is officially live: TEL has moved from a 2-decimal to an 18-decimal token, matching the ERC-20 standard for a native gas token. The one-way, one-for-one upgrade is available at tel3.telcoin.network, with a 24-month total upgrade window (12 months at par). Billions of TEL migrated within the first day.',
+  'TEL is now a true multi-chain asset using the same contract address on every network, with an active bridge (5 DVNs) live across Ethereum, BNB Chain, and Polygon. Telcoin Network will be added to the bridge once mainnet launches, using a native token adapter with a lock-and-release model to safely unlock the Genesis supply as it moves onto the new chain.',
+  'docs.telcoin.network is now live, and the web unification project is entering its final development sprint, with the new roadmap page, ecosystem pages, and universal site search nearing completion.',
+  'Looking beyond launch, the team plans to stand up a bug bounty program to keep external security researchers engaged with the network in production.',
 ];
 
 const AUGUST_20_DEVELOPER_NOTES = [
