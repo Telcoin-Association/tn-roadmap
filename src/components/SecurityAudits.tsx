@@ -13,6 +13,9 @@ type ClosedPullRequest = {
 };
 
 const CLOSED_PRS_PAGE_SIZE = 10;
+const GITHUB_API = 'https://api.github.com/repos/Telcoin-Association/telcoin-network/pulls';
+const CACHE_KEY = 'closed-prs-cache';
+const CACHE_TTL_MS = 5 * 60 * 1000;
 
 function ClosedPullRequestsFeed() {
   const [prs, setPrs] = useState<ClosedPullRequest[] | null>(null);
@@ -21,26 +24,54 @@ function ClosedPullRequestsFeed() {
 
   useEffect(() => {
     let cancelled = false;
-    const url = new URL('closed-prs.json', window.location.href);
-    url.searchParams.set('t', Date.now().toString());
 
-    fetch(url.toString(), { cache: 'no-store' })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
+    async function load() {
+      try {
+        const cached = sessionStorage.getItem(CACHE_KEY);
+        if (cached) {
+          const { data, ts } = JSON.parse(cached) as { data: ClosedPullRequest[]; ts: number };
+          if (Date.now() - ts < CACHE_TTL_MS) {
+            if (!cancelled) setPrs(data);
+            return;
+          }
         }
-        return response.json();
-      })
-      .then((data: ClosedPullRequest[]) => {
-        if (!cancelled) {
-          setPrs(data);
+      } catch {
+        // ignore corrupt cache
+      }
+
+      try {
+        const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000;
+        const pages = await Promise.all(
+          [1, 2, 3].map((p) =>
+            fetch(`${GITHUB_API}?state=closed&sort=updated&direction=desc&per_page=100&page=${p}`, {
+              headers: { Accept: 'application/vnd.github+json' },
+            }).then((r) => {
+              if (!r.ok) throw new Error(`HTTP ${r.status}`);
+              return r.json() as Promise<{ number: number; title: string; html_url: string; closed_at: string }[]>;
+            })
+          )
+        );
+
+        const data: ClosedPullRequest[] = pages
+          .flat()
+          .filter((pr) => pr.closed_at != null && new Date(pr.closed_at).getTime() > cutoff)
+          .map(({ number, title, html_url, closed_at }) => ({ number, title, url: html_url, closed_at }))
+          .filter((pr, i, arr) => arr.findIndex((x) => x.number === pr.number) === i)
+          .sort((a, b) => new Date(b.closed_at).getTime() - new Date(a.closed_at).getTime());
+
+        try {
+          sessionStorage.setItem(CACHE_KEY, JSON.stringify({ data, ts: Date.now() }));
+        } catch {
+          // ignore quota errors
         }
-      })
-      .catch((err) => {
-        if (!cancelled) {
-          setError(err instanceof Error ? err.message : String(err));
-        }
-      });
+
+        if (!cancelled) setPrs(data);
+      } catch (err) {
+        if (!cancelled) setError(err instanceof Error ? err.message : String(err));
+      }
+    }
+
+    void load();
 
     return () => {
       cancelled = true;
