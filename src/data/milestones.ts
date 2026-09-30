@@ -98,6 +98,12 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
         description:
           'Snapshot syncing allows new nodes to join the network immediately without reprocessing all historical data from genesis. Snapshots are written every epoch.',
       },
+      {
+        text: 'Coordinate Mainnet Release with Launch Partners',
+        slug: 'coordinate-mainnet-release-with-launch-partners',
+        inProgress: true,
+        updatedInVersion: '2026-09-30',
+      },
     ],
   },
   {
@@ -156,7 +162,8 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
       {
         text: 'Refactor Startup to Dial Bootstrap Nodes',
         slug: 'refactor-startup-dial-bootstrap-nodes',
-        inProgress: true,
+        done: true,
+        updatedInVersion: '2026-09-30',
         description:
           'Refactoring startup to dial bootstrap nodes instead of genesis committee to reduce network burden for existing validators and offload to TA-managed observer nodes to further decentralize the network.',
       },
@@ -174,6 +181,12 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
         updatedInVersion: '2026-09-24',
         description:
           'Implementing bidirectional streaming so nodes can continuously stay synced at the canonical tip without relying on polling or one-way pushes.',
+      },
+      {
+        text: 'WAN Isolation Framework',
+        slug: 'wan-isolation-framework',
+        inProgress: true,
+        updatedInVersion: '2026-09-30',
       },
     ],
   },
@@ -203,11 +216,36 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
           'Ensuring all validator staking actions consistently use compressed BLS public keys, reducing ambiguity and hardening the staking contract interface.',
       },
       {
-        text: 'Worker Gateway to Reduce DoS Attack Surface',
+        text: 'Worker Gateway for Public Transactions',
         slug: 'worker-gateway-dos-reduction',
         inProgress: true,
+        updatedInVersion: '2026-09-30',
         description:
           'Worker gateway to reduce DoS attack surface.',
+      },
+      {
+        text: 'Benchmarking',
+        slug: 'benchmarking',
+        inProgress: true,
+        updatedInVersion: '2026-09-30',
+      },
+      {
+        text: 'Automated Stress Tests',
+        slug: 'automated-stress-tests',
+        inProgress: true,
+        updatedInVersion: '2026-09-30',
+      },
+      {
+        text: 'Advanced Perimeter Hardening',
+        slug: 'advanced-perimeter-hardening',
+        inProgress: true,
+        updatedInVersion: '2026-09-30',
+      },
+      {
+        text: 'Validator Network Topology',
+        slug: 'validator-network-topology',
+        inProgress: true,
+        updatedInVersion: '2026-09-30',
       },
       {
         text: 'Consensus Registry Security Assessment',

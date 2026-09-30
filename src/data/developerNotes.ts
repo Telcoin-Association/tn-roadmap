@@ -18,6 +18,13 @@ const SEPTEMBER_24_DEVELOPER_NOTES = [
   'Looking beyond launch, the team plans to stand up a bug bounty program to keep external security researchers engaged with the network in production.',
 ];
 
+const SEPTEMBER_29_DEVELOPER_NOTES = [
+  'Worker Gateway for Public Transactions is in progress.',
+  'Coordinating the mainnet release with launch partners is in progress.',
+  'WAN Isolation Framework is in progress, and Refactor Startup to Dial Bootstrap Nodes is complete.',
+  'Benchmarking, Automated Stress Tests, Advanced Perimeter Hardening, and Validator Network Topology are in progress.',
+];
+
 const AUGUST_20_DEVELOPER_NOTES = [
   'The past two weeks have been almost entirely focused on security and correctness for the protocol — 65 pull requests merged across the Rust protocol codebase, with eight engineers aligned on a single goal: delivering a mainnet that is ready, secure, and scalable.',
   'Telcoin Network is now one week into its latest independent security assessment with the Cantina team. Researchers were handpicked by the protocol team with security guidance from Uku. Every finding is being fixed privately first and then published in full — nothing is being buried quietly.',
@@ -187,6 +194,7 @@ const FEBRUARY_19_DEVELOPER_NOTES = [
 ];
 
 const developerNoteDates = [
+  '2026-09-30T00:00:00Z',
   '2026-09-24T00:00:00Z',
   '2026-08-20T00:00:00Z',
   '2026-07-31T00:00:00Z',
@@ -207,7 +215,7 @@ const developerNoteDates = [
   '2025-11-13T00:00:00Z',
 ];
 
-export const getLatestDeveloperNotes = (): string[] => SEPTEMBER_24_DEVELOPER_NOTES;
+export const getLatestDeveloperNotes = (): string[] => SEPTEMBER_29_DEVELOPER_NOTES;
 
 export const getLatestDeveloperNotesDate = () =>
   developerNoteDates.reduce((latest, current) =>
@@ -215,6 +223,11 @@ export const getLatestDeveloperNotesDate = () =>
   );
 
 export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNoteSection[] => [
+  {
+    title: 'Developer Notes - Updated 30 September 2026',
+    date: '2026-09-30',
+    items: SEPTEMBER_29_DEVELOPER_NOTES,
+  },
   {
     title: 'Developer Notes - Updated 24 September 2026',
     date: '2026-09-24',
