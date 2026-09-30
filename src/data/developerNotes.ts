@@ -18,12 +18,7 @@ const SEPTEMBER_24_DEVELOPER_NOTES = [
   'Looking beyond launch, the team plans to stand up a bug bounty program to keep external security researchers engaged with the network in production.',
 ];
 
-const SEPTEMBER_29_DEVELOPER_NOTES = [
-  'Worker Gateway for Public Transactions is in progress.',
-  'Coordinating the mainnet release with launch partners is in progress.',
-  'WAN Isolation Framework is in progress, and Refactor Startup to Dial Bootstrap Nodes is complete.',
-  'Benchmarking, Automated Stress Tests, Advanced Perimeter Hardening, and Validator Network Topology are in progress.',
-];
+const SEPTEMBER_30_DEVELOPER_NOTES = SEPTEMBER_24_DEVELOPER_NOTES;
 
 const AUGUST_20_DEVELOPER_NOTES = [
   'The past two weeks have been almost entirely focused on security and correctness for the protocol — 65 pull requests merged across the Rust protocol codebase, with eight engineers aligned on a single goal: delivering a mainnet that is ready, secure, and scalable.',
@@ -215,7 +210,7 @@ const developerNoteDates = [
   '2025-11-13T00:00:00Z',
 ];
 
-export const getLatestDeveloperNotes = (): string[] => SEPTEMBER_29_DEVELOPER_NOTES;
+export const getLatestDeveloperNotes = (): string[] => SEPTEMBER_30_DEVELOPER_NOTES;
 
 export const getLatestDeveloperNotesDate = () =>
   developerNoteDates.reduce((latest, current) =>
@@ -226,7 +221,7 @@ export const buildDeveloperNoteSections = (recentNotes: string[]): DeveloperNote
   {
     title: 'Developer Notes - Updated 30 September 2026',
     date: '2026-09-30',
-    items: SEPTEMBER_29_DEVELOPER_NOTES,
+    items: SEPTEMBER_30_DEVELOPER_NOTES,
   },
   {
     title: 'Developer Notes - Updated 24 September 2026',
