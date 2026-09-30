@@ -71,7 +71,7 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
         text: 'Integrate Adiri Testnet with Bridge Solution',
         slug: 'integrate-adiri-testnet-with-bridge-solution',
         done: true,
-        updatedInVersion: '2026-09-24',
+        updatedInVersion: '2026-09-30',
         description:
           'Connect the Adiri testnet to a cross-chain bridge, enabling the movement of assets like TEL and stablecoins between the Telcoin Network and external chains for testing interoperability.',
       },
@@ -178,7 +178,7 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
         text: 'Bidirectional Streaming for Staying Synced at Canonical Tip',
         slug: 'bidirectional-streaming-canonical-tip',
         done: true,
-        updatedInVersion: '2026-09-24',
+        updatedInVersion: '2026-09-30',
         description:
           'Implementing bidirectional streaming so nodes can continuously stay synced at the canonical tip without relying on polling or one-way pushes.',
       },
@@ -287,7 +287,7 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
         text: 'Improve Deterministic Source of Entropy for Random Validator Selection in Future Committees',
         slug: 'deterministic-entropy-validator-selection',
         done: true,
-        updatedInVersion: '2026-09-24',
+        updatedInVersion: '2026-09-30',
         description:
           'Improve the deterministic entropy source used for random validator committee selection to strengthen fairness and security guarantees.',
       },
@@ -303,7 +303,7 @@ export const ADIRI_PHASE_3_GROUPS: Phase3Group[] = [
         text: 'Dynamic Basefee Adjustments at Epoch Boundaries',
         slug: 'dynamic-basefee-epoch-boundaries',
         done: true,
-        updatedInVersion: '2026-09-24',
+        updatedInVersion: '2026-09-30',
         description:
           'Implementing dynamic basefee adjustments that occur at epoch boundaries, enabling more responsive fee market behaviour as network load changes.',
       },
