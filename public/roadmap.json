@@ -1,368 +1,350 @@
 [
   {
-    "number": 1229,
-    "title": "mainnet genesis",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1229",
-    "updated_at": "2026-08-20T22:06:43Z"
+    "number": 1620,
+    "title": "Serial dialing shares one 10 s transport timeout across all advertised addresses of a peer, so a dead first address blocks fallback",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1620",
+    "updated_at": "2026-10-07T18:59:48Z"
   },
   {
-    "number": 1227,
-    "title": "PackIter and AsyncPackIter skip the pack header version check",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1227",
-    "updated_at": "2026-08-20T21:19:00Z"
+    "number": 1618,
+    "title": "Subscriber drops unsaved outputs at teardown when the consensus_output queue is full",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1618",
+    "updated_at": "2026-10-07T15:17:36Z"
   },
   {
-    "number": 1225,
-    "title": "open_append appends a second EpochMeta when the first pack record is unreadable",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1225",
-    "updated_at": "2026-08-20T21:10:24Z"
+    "number": 1616,
+    "title": "Public RPC observers: optional pool mirror for forwarded transactions (--forward-txs-mirror)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1616",
+    "updated_at": "2026-10-07T07:06:14Z"
   },
   {
-    "number": 1222,
-    "title": "Batch beneficiary is the header author, not the batch producer: a byzantine validator can steal another validator's priority fees",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1222",
-    "updated_at": "2026-08-20T10:39:50Z"
+    "number": 1614,
+    "title": "worker-gateway: bound and cache DNS lookups for upstream hosts",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1614",
+    "updated_at": "2026-10-07T06:16:29Z"
   },
   {
-    "number": 1218,
-    "title": "tn-reth: epoch-boundary system calls discard ConsensusRegistry logs (NewEpoch, ValidatorActivated/Exited/Slashed never reach receipts)",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1218",
-    "updated_at": "2026-08-19T09:54:56Z"
+    "number": 1613,
+    "title": "worker-gateway: probe that keeps redirecting gateways in rotation while the worker is down",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1613",
+    "updated_at": "2026-10-07T06:16:27Z"
   },
   {
-    "number": 1213,
-    "title": "harden: Epoch votes are scoped to epoch lifetime",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1213",
-    "updated_at": "2026-08-18T18:52:15Z"
+    "number": 1612,
+    "title": "worker-gateway: low-severity hardening",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1612",
+    "updated_at": "2026-10-07T06:16:25Z"
   },
   {
-    "number": 1212,
-    "title": "harden: The epoch-vote round is a one-shot with a short fuse",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1212",
-    "updated_at": "2026-08-18T18:37:23Z"
+    "number": 1611,
+    "title": "worker-gateway: split-and-merge mixed batches",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1611",
+    "updated_at": "2026-10-09T22:31:47Z"
   },
   {
-    "number": 1211,
-    "title": "tn-reth: blsVerify precompile ABI-decodes calldata before any gas gate",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1211",
-    "updated_at": "2026-08-18T15:52:08Z"
+    "number": 1610,
+    "title": "worker-gateway: sampled access log",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1610",
+    "updated_at": "2026-10-07T06:16:20Z"
   },
   {
-    "number": 1210,
-    "title": "tel precompile: dispatcher accepts DELEGATECALL/CALLCODE frames, so input.caller is spoofable to governance; harden by requiring a direct call to 0x7e1",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1210",
-    "updated_at": "2026-08-18T15:38:12Z"
+    "number": 1609,
+    "title": "worker-gateway: public RPC auth header + chain-id consistency warning",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1609",
+    "updated_at": "2026-10-07T06:16:19Z"
   },
   {
-    "number": 1205,
-    "title": "tn-reth: evm_env derives blob_gasprice from the header (= 1) while block execution pins it to u128::MAX, so BLOBBASEFEE disagrees between RPC simulation and execution",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1205",
-    "updated_at": "2026-08-17T16:59:32Z"
+    "number": 1608,
+    "title": "worker-gateway: pending-state reads under redirect",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1608",
+    "updated_at": "2026-10-07T06:16:17Z"
   },
   {
-    "number": 1199,
-    "title": "Deflake e2e test_validator_ejected_from_future_committee_only: boundary-straddle retries burn the 5-attempt seating budget without sampling",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1199",
-    "updated_at": "2026-08-16T23:49:11Z"
+    "number": 1607,
+    "title": "worker-gateway: trusted proxy / PROXY protocol for client identity",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1607",
+    "updated_at": "2026-10-07T06:16:15Z"
   },
   {
-    "number": 1195,
-    "title": "network-libp2p: kad add_provider rejects refresh/self-provide once max_provided_keys is reached",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1195",
-    "updated_at": "2026-08-14T15:47:50Z"
+    "number": 1606,
+    "title": "worker-gateway: drain-aware shutdown",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1606",
+    "updated_at": "2026-10-07T06:16:13Z"
   },
   {
-    "number": 1191,
-    "title": "Same-second ConsensusOutputs overwrite each other's ConsensusHeader digest in the repurposed EIP-4788 beacon-roots ring buffer",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1191",
-    "updated_at": "2026-08-14T13:19:29Z"
+    "number": 1605,
+    "title": "worker-gateway: readiness hysteresis and passive upstream health",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1605",
+    "updated_at": "2026-10-07T06:16:10Z"
   },
   {
-    "number": 1190,
-    "title": "tel precompile: dispatcher enforces staticness but not payability, so value attached to any selector is stranded at 0x7e1",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1190",
-    "updated_at": "2026-08-14T13:19:13Z"
+    "number": 1604,
+    "title": "worker-gateway: optional CORS",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1604",
+    "updated_at": "2026-10-07T06:16:08Z"
   },
   {
-    "number": 1187,
-    "title": "Epoch-open deadlock when the seed-signature fork is active: the certified-anchor wait blocks before the epoch-vote consumer spawns (adiri halt at epoch 383)",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1187",
-    "updated_at": "2026-08-13T23:20:02Z"
+    "number": 1603,
+    "title": "worker-gateway: wrap non-JSON upstream errors and count them",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1603",
+    "updated_at": "2026-10-07T06:16:06Z"
   },
   {
-    "number": 1185,
-    "title": "network-libp2p: kad add_provider does not cap a provider record's address list",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1185",
-    "updated_at": "2026-08-13T16:55:22Z"
+    "number": 1602,
+    "title": "worker-gateway: method allowlist when no redirect is configured",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1602",
+    "updated_at": "2026-10-07T06:16:03Z"
   },
   {
-    "number": 1174,
-    "title": "snapshot restore: import_chain_scaffold accepts a header window shorter than the 256-block BLOCKHASH lookback and zero-fills the gap",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1174",
-    "updated_at": "2026-08-13T04:30:25Z"
+    "number": 1601,
+    "title": "worker-gateway: TLS/mTLS or tunnel for worker upstreams",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1601",
+    "updated_at": "2026-10-07T06:16:01Z"
   },
   {
-    "number": 1167,
-    "title": "Observer forwarding: a single byzantine validator can silently censor an account's transactions",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1167",
-    "updated_at": "2026-08-13T00:04:28Z"
+    "number": 1600,
+    "title": "worker-gateway: per-element batch charging, max batch length, per-element submission screening",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1600",
+    "updated_at": "2026-10-07T06:15:57Z"
   },
   {
-    "number": 1160,
-    "title": "The --rpc.txfeecap flag is parsed and documented as a spend guard but never reaches any enforcement point",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1160",
-    "updated_at": "2026-08-12T18:58:20Z"
+    "number": 1599,
+    "title": "worker-gateway: per-IP concurrent connection cap",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1599",
+    "updated_at": "2026-10-07T06:15:55Z"
   },
   {
-    "number": 1139,
-    "title": "EIP-7702 authorization padding bypasses the gas over-reservation penalty",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1139",
-    "updated_at": "2026-08-11T18:09:19Z"
+    "number": 1598,
+    "title": "worker-gateway: serve health probes outside the client connection cap",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1598",
+    "updated_at": "2026-10-07T06:15:54Z"
   },
   {
-    "number": 1086,
-    "title": "Rollout plan: versioned header + #1062 seed signature on adiri",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1086",
-    "updated_at": "2026-08-08T12:42:04Z"
+    "number": 1597,
+    "title": "worker-gateway: global in-flight request-byte budget",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1597",
+    "updated_at": "2026-10-07T06:15:52Z"
   },
   {
-    "number": 1020,
-    "title": "Engine's `validators_for_epoch_at_block` returns BLS keys and collides with a reth method of the same name",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1020",
-    "updated_at": "2026-07-23T19:44:03Z"
+    "number": 1596,
+    "title": "worker-gateway: charge the global rate budget only after the per-IP check",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1596",
+    "updated_at": "2026-10-07T06:15:49Z"
   },
   {
-    "number": 954,
-    "title": "Consensus params `gc_depth` / `max_header_num_of_batches` are node-local with only an upper-ceiling check: add lower/cross-field bounds and promote the operative values to protocol constants (follow-up to #902)",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/954",
-    "updated_at": "2026-07-23T20:48:45Z"
+    "number": 1595,
+    "title": "worker-gateway: bound the recovered request id on reject paths",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1595",
+    "updated_at": "2026-10-07T06:15:46Z"
   },
   {
-    "number": 942,
-    "title": "Reputation Schedule - Evaluate periodic reset",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/942",
-    "updated_at": "2026-07-16T15:33:02Z"
+    "number": 1594,
+    "title": "worker-gateway: isolate submission capacity from query traffic",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1594",
+    "updated_at": "2026-10-07T06:15:44Z"
   },
   {
-    "number": 930,
-    "title": "Update metrics dashboard",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/930",
-    "updated_at": "2026-07-15T15:47:18Z"
+    "number": 1591,
+    "title": "rpc: return method-not-found for the debug_* no-op stubs",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1591",
+    "updated_at": "2026-10-07T05:06:32Z"
   },
   {
-    "number": 915,
-    "title": "Speed up the Docker release build by linking with mold",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/915",
-    "updated_at": "2026-07-14T12:50:30Z"
+    "number": 1590,
+    "title": "rpc: debug_getBadBlocks is always empty",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1590",
+    "updated_at": "2026-10-07T05:06:30Z"
   },
   {
-    "number": 873,
-    "title": "Update penalty.md Fatal-site catalog: add the FatalAuthor ban row and fix drifted line numbers",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/873",
-    "updated_at": "2026-07-07T17:13:06Z"
+    "number": 1589,
+    "title": "rpc: debug_executionWitness on epoch-closing blocks does not rebuild the rewards counter",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1589",
+    "updated_at": "2026-10-07T05:06:28Z"
   },
   {
-    "number": 851,
-    "title": "refactor: Extract `RethEnv` public read API methods into a dedicated `api.rs` module",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/851",
-    "updated_at": "2026-07-04T19:08:37Z"
+    "number": 1588,
+    "title": "rpc: rpc_modules reports the first transport's selection for every transport",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1588",
+    "updated_at": "2026-10-07T05:06:25Z"
   },
   {
-    "number": 838,
-    "title": "Batch Builder Test-Utils",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/838",
-    "updated_at": "2026-07-03T13:39:44Z"
+    "number": 1587,
+    "title": "rpc: price debug_traceCall/trace_call against the epoch base fee",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1587",
+    "updated_at": "2026-10-07T05:06:23Z"
   },
   {
-    "number": 821,
-    "title": "main does not compile - stale .is_some() on an unwrapped u64 in request_epoch_pack_inner (regression from #810)",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/821",
-    "updated_at": "2026-07-01T15:46:35Z"
+    "number": 1586,
+    "title": "Public RPC observers: forward transaction submissions to a dedicated validator (--forward-txs, --sanitize-txs)",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1586",
+    "updated_at": "2026-10-07T04:25:01Z"
   },
   {
-    "number": 739,
-    "title": "refactor(network): consolidate the bulk request-response paths onto hardened bidirectional streams, keep single-shot RPCs on request-response",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/739",
-    "updated_at": "2026-06-11T14:45:17Z"
+    "number": 1584,
+    "title": "worker-gateway: production-readiness evaluation and --redirect-queries",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1584",
+    "updated_at": "2026-10-07T04:24:47Z"
   },
   {
-    "number": 719,
-    "title": "Native (blst) BLS signature-verification precompile for on-chain consensus verification",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/719",
-    "updated_at": "2026-06-05T14:31:48Z"
+    "number": 1583,
+    "title": "Regenerate the QUIC handshake profile evidence on the re-pinned TLS crates",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1583",
+    "updated_at": "2026-10-07T03:16:04Z"
   },
   {
-    "number": 717,
-    "title": "Dial Unkown BLS Keys - Validator Fallback",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/717",
-    "updated_at": "2026-06-10T16:00:11Z"
+    "number": 1580,
+    "title": "LayeredDatabase exports write failures but not writer-thread backlog or commit latency",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1580",
+    "updated_at": "2026-10-06T22:44:48Z"
   },
   {
-    "number": 714,
-    "title": "refactor(network): make AllPeers the single source of truth for peer information",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/714",
-    "updated_at": "2026-06-03T23:09:23Z"
+    "number": 1571,
+    "title": "Whole-cohort restart inside the epoch-boundary window halts the network for good",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1571",
+    "updated_at": "2026-10-05T18:15:23Z"
   },
   {
-    "number": 712,
-    "title": "Worker Gateway: stateless public-facing RPC proxy for worker endpoints",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/712",
-    "updated_at": "2026-06-09T03:10:46Z"
+    "number": 1570,
+    "title": "A validator upgraded after the sub-second fork epoch crash-loops at startup on its own legacy-layout proposal",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1570",
+    "updated_at": "2026-10-05T18:15:21Z"
   },
   {
-    "number": 710,
-    "title": "Validate and map PeerIds from kademlia records",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/710",
-    "updated_at": "2026-06-03T20:30:01Z"
+    "number": 1567,
+    "title": "test(e2e): cut about 60 s from the ignored e2e suite with test-only changes",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1567",
+    "updated_at": "2026-10-04T23:03:56Z"
   },
   {
-    "number": 709,
-    "title": "Accept late gossip from the previous committee within a configurable grace window",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/709",
-    "updated_at": "2026-06-03T18:16:30Z"
+    "number": 1566,
+    "title": "`get_static` evicts a cached pack before confirming the epoch exists; `contains_decode_epoch` checks static before staging",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1566",
+    "updated_at": "2026-10-04T19:34:30Z"
   },
   {
-    "number": 693,
-    "title": "Public release pipeline with verifiable provenance",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/693",
-    "updated_at": "2026-05-20T14:47:49Z"
+    "number": 1554,
+    "title": "tn-reth: align remaining simulation and tracing RPCs with the worker epoch fee",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1554",
+    "updated_at": "2026-10-02T22:07:03Z"
   },
   {
-    "number": 689,
-    "title": "Peer penalty system bans honest peers during observer joins on WAN",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/689",
-    "updated_at": "2026-05-18T19:05:57Z"
+    "number": 1530,
+    "title": "Certifier: the already-certified republish skips the durable barrier, and a refused barrier does not fail-stop",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1530",
+    "updated_at": "2026-10-01T20:10:30Z"
   },
   {
-    "number": 657,
-    "title": "Wire `WorkerConfigs` into epoch-boundary base fee adjustment (worker 0 only)",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/657",
-    "updated_at": "2026-05-05T22:52:44Z"
+    "number": 1519,
+    "title": "storage: latest-consensus marker can run ahead of the healed pack, and a stale import sentinel survives restart",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1519",
+    "updated_at": "2026-10-01T17:20:56Z"
   },
   {
-    "number": 646,
-    "title": "Update `f+1` threshold",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/646",
-    "updated_at": "2026-05-02T21:31:01Z"
+    "number": 1518,
+    "title": "DAG rebuild after a long commit stall can miss rounds the store already deleted",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1518",
+    "updated_at": "2026-10-01T17:18:04Z"
   },
   {
-    "number": 622,
-    "title": "Refactor general consensus side storage.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/622",
-    "updated_at": "2026-05-21T18:24:34Z"
+    "number": 1517,
+    "title": "Inactive validator can still sign round-1 votes",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1517",
+    "updated_at": "2026-10-01T17:18:02Z"
   },
   {
-    "number": 614,
-    "title": "Implement per-epoch base fee adjustment via WorkerConfigs contract",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/614",
-    "updated_at": "2026-04-05T14:35:51Z"
+    "number": 1516,
+    "title": "Certificate cache write for inactive validators never runs and must not be revived",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1516",
+    "updated_at": "2026-10-01T17:18:01Z"
   },
   {
-    "number": 610,
-    "title": "Dynamic base fee adjustment via EpochGasTarget contract",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/610",
-    "updated_at": "2026-03-30T19:28:15Z"
+    "number": 1515,
+    "title": "Peers re-validate and re-store every repeat of the same reported batch",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1515",
+    "updated_at": "2026-10-01T17:17:59Z"
   },
   {
-    "number": 584,
-    "title": "test: Assert LZ Adapter in Genesis",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/584",
-    "updated_at": "2026-03-20T22:26:47Z"
+    "number": 1514,
+    "title": "Transaction forwarding still targets inactive validators",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1514",
+    "updated_at": "2026-10-01T17:17:58Z"
   },
   {
-    "number": 576,
-    "title": "Use this error for non-eyre errors.",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/576",
-    "updated_at": "2026-03-13T15:44:23Z"
+    "number": 1513,
+    "title": "Inactive validator cannot rejoin consensus while the chain is under load",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1513",
+    "updated_at": "2026-10-01T17:17:56Z"
   },
   {
-    "number": 559,
-    "title": "tests: Multi-Worker Support — PR 6: Tests",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/559",
-    "updated_at": "2026-02-14T01:25:34Z"
+    "number": 1512,
+    "title": "Mainnet genesis encodes 24-hour epochs instead of the 6-hour target",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1512",
+    "updated_at": "2026-10-01T17:17:54Z"
   },
   {
-    "number": 558,
-    "title": "feat: Multi-Worker Support — PR 5: Execution Engine Initialization",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/558",
-    "updated_at": "2026-08-19T17:56:50Z"
+    "number": 1511,
+    "title": "tn-metrics: transaction-count histograms top out at 1,000, below a full batch",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1511",
+    "updated_at": "2026-10-01T17:17:52Z"
   },
   {
-    "number": 557,
-    "title": "feat: Multi-Worker Support — PR 4: `EpochManager` Multi-Worker Loop",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/557",
-    "updated_at": "2026-02-14T01:22:50Z"
+    "number": 1510,
+    "title": "Validator stays frozen in a finished epoch after SIGKILL and restart across an epoch boundary",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1510",
+    "updated_at": "2026-10-01T17:17:35Z"
   },
   {
-    "number": 556,
-    "title": "feat: Multi-Worker Support — PR 3: Per-Worker `LocalNetwork`",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/556",
-    "updated_at": "2026-08-18T21:50:58Z"
+    "number": 1508,
+    "title": "node: `is_worker_initialized` now means \"RPC running\", so a stale `!is_worker_initialized` init gate re-initializes a stopped worker and panics",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1508",
+    "updated_at": "2026-10-01T14:44:45Z"
   },
   {
-    "number": 555,
-    "title": "feat: Multi-Worker Support — PR 2: Per-Worker Network Swarms",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/555",
-    "updated_at": "2026-02-14T01:20:17Z"
+    "number": 1507,
+    "title": "node: a deactivated worker's retained pool strands admitted transactions with no drain, migration, or expiry",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1507",
+    "updated_at": "2026-10-01T14:44:43Z"
   },
   {
-    "number": 554,
-    "title": "feat: Multi-Worker Support — PR 1: Configuration",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/554",
-    "updated_at": "2026-08-11T14:18:35Z"
+    "number": 1506,
+    "title": "node: a removed worker keeps admitting transactions from the epoch boundary until deactivation runs at the end of the next epoch entry",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1506",
+    "updated_at": "2026-10-01T14:44:41Z"
   },
   {
-    "number": 552,
-    "title": "feat:  Implement Multi-Anchor Consensus (Shoal++ Section 5.2)",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/552",
-    "updated_at": "2026-02-14T00:24:47Z"
+    "number": 1505,
+    "title": "node: reactivating a removed worker re-binds its fixed derived RPC port, and one draining HTTP/1 connection turns the re-bind into a node halt",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1505",
+    "updated_at": "2026-10-01T14:44:40Z"
   },
   {
-    "number": 532,
-    "title": "feat: Fast Direct Commit Rule",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/532",
-    "updated_at": "2026-05-21T08:34:39Z"
+    "number": 1489,
+    "title": "Validator network hardening: admission and peer lifecycle tracking",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1489",
+    "updated_at": "2026-10-01T02:03:36Z"
   },
   {
-    "number": 500,
-    "title": "Epoch Record: Validator Ejection",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/500",
-    "updated_at": "2026-02-04T20:58:07Z"
+    "number": 1488,
+    "title": "network-libp2p: qualify validator joins through open hubs end to end",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1488",
+    "updated_at": "2026-10-01T02:03:34Z"
   },
   {
-    "number": 472,
-    "title": "bug: LeaderSchedule based on Certificate `nonce` instead of subdag index",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/472",
-    "updated_at": "2025-10-20T17:37:25Z"
+    "number": 1487,
+    "title": "network-libp2p: reconcile live connections when admission membership changes",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1487",
+    "updated_at": "2026-10-01T02:03:32Z"
   },
   {
-    "number": 468,
-    "title": "Syncing: ERA support within Reth",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/468",
-    "updated_at": "2025-10-17T16:40:39Z"
+    "number": 1486,
+    "title": "network-libp2p: reconcile gossipsub explicit peers across committee and trust updates",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1486",
+    "updated_at": "2026-10-01T02:03:30Z"
   },
   {
-    "number": 417,
-    "title": "Precision Loss in Incentive Calculation Enables Silent Protocol Fund Lockup and Undermines Fair Reward Allocation",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/417",
-    "updated_at": "2025-09-29T21:56:52Z"
-  },
-  {
-    "number": 415,
-    "title": "Non-persistent transaction pool implementation leads to transaction loss during node restarts",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/415",
-    "updated_at": "2025-09-29T21:49:54Z"
-  },
-  {
-    "number": 376,
-    "title": "Optimization: Parallelize Transaction Recovery during Batch Execution",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/376",
-    "updated_at": "2026-02-04T02:48:10Z"
-  },
-  {
-    "number": 250,
-    "title": "Inbound Failures: Report Penalty from Codec",
-    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/250",
-    "updated_at": "2025-04-12T17:32:25Z"
+    "number": 1485,
+    "title": "node: reload trusted and bootstrap peer policy without restarting",
+    "url": "https://github.com/Telcoin-Association/telcoin-network/issues/1485",
+    "updated_at": "2026-10-01T02:03:28Z"
   }
 ]
